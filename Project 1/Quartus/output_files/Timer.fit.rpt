@@ -1,5 +1,5 @@
 Fitter report for Timer
-Tue Sep 23 18:40:52 2014
+Tue Sep 23 19:05:47 2014
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -64,17 +64,17 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Fitter Status                      ; Successful - Tue Sep 23 18:40:52 2014           ;
+; Fitter Status                      ; Successful - Tue Sep 23 19:05:47 2014           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Timer                                           ;
 ; Top-level Entity Name              ; Timer                                           ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C20F484C7                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 57 / 18,752 ( < 1 % )                           ;
-;     Total combinational functions  ; 51 / 18,752 ( < 1 % )                           ;
-;     Dedicated logic registers      ; 22 / 18,752 ( < 1 % )                           ;
-; Total registers                    ; 32                                              ;
+; Total logic elements               ; 72 / 18,752 ( < 1 % )                           ;
+;     Total combinational functions  ; 67 / 18,752 ( < 1 % )                           ;
+;     Dedicated logic registers      ; 38 / 18,752 ( < 1 % )                           ;
+; Total registers                    ; 48                                              ;
 ; Total pins                         ; 53 / 315 ( 17 % )                               ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 239,616 ( 0 % )                             ;
@@ -522,8 +522,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Type                ; Value                  ;
 +---------------------+------------------------+
 ; Placement (by node) ;                        ;
-;     -- Requested    ; 0 / 131 ( 0.00 % )     ;
-;     -- Achieved     ; 0 / 131 ( 0.00 % )     ;
+;     -- Requested    ; 0 / 163 ( 0.00 % )     ;
+;     -- Achieved     ; 0 / 163 ( 0.00 % )     ;
 ;                     ;                        ;
 ; Routing (by net)    ;                        ;
 ;     -- Requested    ; 0 / 0 ( 0.00 % )       ;
@@ -546,7 +546,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 ; Partition Name                 ; # Nodes ; # Preserved Nodes ; Preservation Level Used ; Netlist Type Used ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
-; Top                            ; 128     ; 0                 ; N/A                     ; Source File       ;
+; Top                            ; 160     ; 0                 ; N/A                     ; Source File       ;
 ; hard_block:auto_generated_inst ; 3       ; 0                 ; N/A                     ; Source File       ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 
@@ -562,26 +562,26 @@ The pin-out file can be found in C:/Users/j3gb3rt/Documents/CS2200/Project 1/Qua
 +---------------------------------------------+-----------------------+
 ; Resource                                    ; Usage                 ;
 +---------------------------------------------+-----------------------+
-; Total logic elements                        ; 57 / 18,752 ( < 1 % ) ;
-;     -- Combinational with no register       ; 35                    ;
-;     -- Register only                        ; 6                     ;
-;     -- Combinational with a register        ; 16                    ;
+; Total logic elements                        ; 72 / 18,752 ( < 1 % ) ;
+;     -- Combinational with no register       ; 34                    ;
+;     -- Register only                        ; 5                     ;
+;     -- Combinational with a register        ; 33                    ;
 ;                                             ;                       ;
 ; Logic element usage by number of LUT inputs ;                       ;
-;     -- 4 input functions                    ; 30                    ;
-;     -- 3 input functions                    ; 12                    ;
-;     -- <=2 input functions                  ; 9                     ;
-;     -- Register only                        ; 6                     ;
+;     -- 4 input functions                    ; 37                    ;
+;     -- 3 input functions                    ; 5                     ;
+;     -- <=2 input functions                  ; 25                    ;
+;     -- Register only                        ; 5                     ;
 ;                                             ;                       ;
 ; Logic elements by mode                      ;                       ;
-;     -- normal mode                          ; 51                    ;
+;     -- normal mode                          ; 67                    ;
 ;     -- arithmetic mode                      ; 0                     ;
 ;                                             ;                       ;
-; Total registers*                            ; 32 / 19,649 ( < 1 % ) ;
-;     -- Dedicated logic registers            ; 22 / 18,752 ( < 1 % ) ;
+; Total registers*                            ; 48 / 19,649 ( < 1 % ) ;
+;     -- Dedicated logic registers            ; 38 / 18,752 ( < 1 % ) ;
 ;     -- I/O registers                        ; 10 / 897 ( 1 % )      ;
 ;                                             ;                       ;
-; Total LABs:  partially or completely used   ; 6 / 1,172 ( < 1 % )   ;
+; Total LABs:  partially or completely used   ; 8 / 1,172 ( < 1 % )   ;
 ; Virtual pins                                ; 0                     ;
 ; I/O pins                                    ; 53 / 315 ( 17 % )     ;
 ;     -- Clock pins                           ; 6 / 8 ( 75 % )        ;
@@ -598,10 +598,10 @@ The pin-out file can be found in C:/Users/j3gb3rt/Documents/CS2200/Project 1/Qua
 ; CRC blocks                                  ; 0 / 1 ( 0 % )         ;
 ; Average interconnect usage (total/H/V)      ; 0% / 0% / 0%          ;
 ; Peak interconnect usage (total/H/V)         ; 0% / 0% / 1%          ;
-; Maximum fan-out                             ; 30                    ;
-; Highest non-global fan-out                  ; 11                    ;
-; Total fan-out                               ; 296                   ;
-; Average fan-out                             ; 2.21                  ;
+; Maximum fan-out                             ; 46                    ;
+; Highest non-global fan-out                  ; 26                    ;
+; Total fan-out                               ; 381                   ;
+; Average fan-out                             ; 2.31                  ;
 +---------------------------------------------+-----------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -614,26 +614,26 @@ The pin-out file can be found in C:/Users/j3gb3rt/Documents/CS2200/Project 1/Qua
 +---------------------------------------------+----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                  ; Low                            ;
 ;                                             ;                      ;                                ;
-; Total logic elements                        ; 57 / 18752 ( < 1 % ) ; 0 / 18752 ( 0 % )              ;
-;     -- Combinational with no register       ; 35                   ; 0                              ;
-;     -- Register only                        ; 6                    ; 0                              ;
-;     -- Combinational with a register        ; 16                   ; 0                              ;
+; Total logic elements                        ; 72 / 18752 ( < 1 % ) ; 0 / 18752 ( 0 % )              ;
+;     -- Combinational with no register       ; 34                   ; 0                              ;
+;     -- Register only                        ; 5                    ; 0                              ;
+;     -- Combinational with a register        ; 33                   ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic element usage by number of LUT inputs ;                      ;                                ;
-;     -- 4 input functions                    ; 30                   ; 0                              ;
-;     -- 3 input functions                    ; 12                   ; 0                              ;
-;     -- <=2 input functions                  ; 9                    ; 0                              ;
-;     -- Register only                        ; 6                    ; 0                              ;
+;     -- 4 input functions                    ; 37                   ; 0                              ;
+;     -- 3 input functions                    ; 5                    ; 0                              ;
+;     -- <=2 input functions                  ; 25                   ; 0                              ;
+;     -- Register only                        ; 5                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic elements by mode                      ;                      ;                                ;
-;     -- normal mode                          ; 51                   ; 0                              ;
+;     -- normal mode                          ; 67                   ; 0                              ;
 ;     -- arithmetic mode                      ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
-; Total registers                             ; 32                   ; 0                              ;
-;     -- Dedicated logic registers            ; 22 / 18752 ( < 1 % ) ; 0 / 18752 ( 0 % )              ;
+; Total registers                             ; 48                   ; 0                              ;
+;     -- Dedicated logic registers            ; 38 / 18752 ( < 1 % ) ; 0 / 18752 ( 0 % )              ;
 ;     -- I/O registers                        ; 10                   ; 0                              ;
 ;                                             ;                      ;                                ;
-; Total LABs:  partially or completely used   ; 6 / 1172 ( < 1 % )   ; 0 / 1172 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 8 / 1172 ( < 1 % )   ; 0 / 1172 ( 0 % )               ;
 ;                                             ;                      ;                                ;
 ; Virtual pins                                ; 0                    ; 0                              ;
 ; I/O pins                                    ; 53                   ; 0                              ;
@@ -649,8 +649,8 @@ The pin-out file can be found in C:/Users/j3gb3rt/Documents/CS2200/Project 1/Qua
 ;     -- Registered Output Connections        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Internal Connections                        ;                      ;                                ;
-;     -- Total Connections                    ; 296                  ; 0                              ;
-;     -- Registered Connections               ; 144                  ; 0                              ;
+;     -- Total Connections                    ; 381                  ; 0                              ;
+;     -- Registered Connections               ; 166                  ; 0                              ;
 ;                                             ;                      ;                                ;
 ; External Connections                        ;                      ;                                ;
 ;     -- Top                                  ; 0                    ; 0                              ;
@@ -695,7 +695,7 @@ The pin-out file can be found in C:/Users/j3gb3rt/Documents/CS2200/Project 1/Qua
 ; SW[5]    ; U12   ; 8        ; 26           ; 0            ; 2           ; 4                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; SW[6]    ; U11   ; 8        ; 26           ; 0            ; 3           ; 5                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; SW[7]    ; M2    ; 1        ; 0            ; 13           ; 3           ; 7                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
-; SW[8]    ; M1    ; 1        ; 0            ; 13           ; 2           ; 10                    ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; SW[8]    ; M1    ; 1        ; 0            ; 13           ; 2           ; 26                    ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; SW[9]    ; L2    ; 2        ; 0            ; 13           ; 1           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 +----------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 
@@ -1297,7 +1297,7 @@ Note: User assignments will override these defaults. The user specified values a
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------+--------------+
 ; Compilation Hierarchy Node ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M4Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name     ; Library Name ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------+--------------+
-; |Timer                     ; 57 (27)     ; 22 (20)                   ; 10 (10)       ; 0           ; 0    ; 0            ; 0       ; 0         ; 53   ; 0            ; 35 (7)       ; 6 (6)             ; 16 (14)          ; |Timer                  ; work         ;
+; |Timer                     ; 72 (42)     ; 38 (36)                   ; 10 (10)       ; 0           ; 0    ; 0            ; 0       ; 0         ; 53   ; 0            ; 34 (6)       ; 5 (5)             ; 33 (31)          ; |Timer                  ; work         ;
 ;    |TFlipFlop:comb_3|      ; 1 (1)       ; 1 (1)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; |Timer|TFlipFlop:comb_3 ; work         ;
 ;    |TFlipFlop:comb_4|      ; 1 (1)       ; 1 (1)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; |Timer|TFlipFlop:comb_4 ; work         ;
 ;    |dec2_7seg:comb_5|      ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; |Timer|dec2_7seg:comb_5 ; work         ;
@@ -1352,20 +1352,20 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LEDR[7]  ; Output   ; --            ; --            ; --                    ; (0) 38 ps ;
 ; LEDR[8]  ; Output   ; --            ; --            ; --                    ; (0) 38 ps ;
 ; LEDR[9]  ; Output   ; --            ; --            ; --                    ; (0) 38 ps ;
-; SW[0]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
-; SW[3]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --        ;
-; SW[1]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
-; SW[2]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
-; CLOCK_50 ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
-; SW[7]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
-; SW[4]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --        ;
-; SW[5]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --        ;
-; SW[6]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --        ;
 ; SW[8]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
+; CLOCK_50 ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
+; SW[3]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --        ;
 ; SW[9]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
 ; KEY[1]   ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
 ; KEY[0]   ; Input    ; (6) 2523 ps   ; (6) 2523 ps   ; --                    ; --        ;
 ; KEY[2]   ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
+; SW[2]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
+; SW[1]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
+; SW[0]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
+; SW[7]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
+; SW[6]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --        ;
+; SW[5]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --        ;
+; SW[4]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --        ;
 +----------+----------+---------------+---------------+-----------------------+-----------+
 
 
@@ -1375,40 +1375,40 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Source Pin / Fanout          ; Pad To Core Index ; Setting ;
 +------------------------------+-------------------+---------+
 ; KEY[3]                       ;                   ;         ;
-; SW[0]                        ;                   ;         ;
-; SW[3]                        ;                   ;         ;
-; SW[1]                        ;                   ;         ;
-; SW[2]                        ;                   ;         ;
-; CLOCK_50                     ;                   ;         ;
-; SW[7]                        ;                   ;         ;
-; SW[4]                        ;                   ;         ;
-; SW[5]                        ;                   ;         ;
-; SW[6]                        ;                   ;         ;
 ; SW[8]                        ;                   ;         ;
+; CLOCK_50                     ;                   ;         ;
+; SW[3]                        ;                   ;         ;
 ; SW[9]                        ;                   ;         ;
 ; KEY[1]                       ;                   ;         ;
-;      - TFlipFlop:comb_3|tOut ; 0                 ; 0       ;
+;      - TFlipFlop:comb_3|tOut ; 1                 ; 0       ;
 ; KEY[0]                       ;                   ;         ;
 ;      - TFlipFlop:comb_3|tOut ; 1                 ; 6       ;
 ;      - TFlipFlop:comb_4|tOut ; 1                 ; 6       ;
 ; KEY[2]                       ;                   ;         ;
 ;      - TFlipFlop:comb_4|tOut ; 0                 ; 0       ;
+; SW[2]                        ;                   ;         ;
+; SW[1]                        ;                   ;         ;
+; SW[0]                        ;                   ;         ;
+; SW[7]                        ;                   ;         ;
+; SW[6]                        ;                   ;         ;
+; SW[5]                        ;                   ;         ;
+; SW[4]                        ;                   ;         ;
 +------------------------------+-------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                             ;
-+-----------------+-------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Name            ; Location          ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+-----------------+-------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; CLOCK_50        ; PIN_L1            ; 30      ; Clock        ; yes    ; Global Clock         ; GCLK2            ; --                        ;
-; KEY[0]          ; PIN_R22           ; 2       ; Async. clear ; no     ; --                   ; --               ; --                        ;
-; KEY[1]          ; PIN_R21           ; 1       ; Clock        ; no     ; --                   ; --               ; --                        ;
-; KEY[2]          ; PIN_T22           ; 1       ; Clock        ; no     ; --                   ; --               ; --                        ;
-; oneminutes[0]~3 ; LCCOMB_X29_Y7_N26 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; oneseconds[0]~0 ; LCCOMB_X30_Y7_N4  ; 7       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; state.FLASH     ; LCFF_X30_Y7_N17   ; 11      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-+-----------------+-------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                   ;
++------------------------+------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; Name                   ; Location         ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++------------------------+------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; CLOCK_50               ; PIN_L1           ; 46      ; Clock        ; yes    ; Global Clock         ; GCLK2            ; --                        ;
+; KEY[0]                 ; PIN_R22          ; 2       ; Async. clear ; no     ; --                   ; --               ; --                        ;
+; KEY[1]                 ; PIN_R21          ; 1       ; Clock        ; no     ; --                   ; --               ; --                        ;
+; KEY[2]                 ; PIN_T22          ; 1       ; Clock        ; no     ; --                   ; --               ; --                        ;
+; oneminutesdisplay[1]~1 ; LCCOMB_X4_Y8_N20 ; 16      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; onesecondsdisplay[0]~1 ; LCCOMB_X2_Y8_N0  ; 15      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; state.FLASH            ; LCFF_X2_Y8_N21   ; 11      ; Clock enable ; no     ; --                   ; --               ; --                        ;
++------------------------+------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------+
@@ -1416,7 +1416,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------+----------+---------+----------------------+------------------+---------------------------+
 ; Name     ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +----------+----------+---------+----------------------+------------------+---------------------------+
-; CLOCK_50 ; PIN_L1   ; 30      ; Global Clock         ; GCLK2            ; --                        ;
+; CLOCK_50 ; PIN_L1   ; 46      ; Global Clock         ; GCLK2            ; --                        ;
 +----------+----------+---------+----------------------+------------------+---------------------------+
 
 
@@ -1425,64 +1425,96 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------+---------+
 ; Name                          ; Fan-Out ;
 +-------------------------------+---------+
+; SW[8]                         ; 26      ;
+; oneminutesdisplay[1]~1        ; 16      ;
+; onesecondsdisplay[0]~1        ; 15      ;
 ; state.FLASH                   ; 11      ;
-; SW[8]                         ; 10      ;
 ; TFlipFlop:comb_4|tOut         ; 9       ;
-; oneminutes[0]~3               ; 8       ;
 ; SW[7]                         ; 7       ;
-; oneseconds[0]~0               ; 7       ;
-; tenminutes[1]                 ; 7       ;
-; tenminutes[3]                 ; 7       ;
-; tenminutes[2]                 ; 7       ;
-; tenminutes[0]                 ; 7       ;
-; oneminutes[1]                 ; 7       ;
-; oneminutes[3]                 ; 7       ;
-; oneminutes[2]                 ; 7       ;
-; oneminutes[0]                 ; 7       ;
-; tenseconds[1]                 ; 7       ;
-; tenseconds[2]                 ; 7       ;
-; tenseconds[0]                 ; 7       ;
-; oneseconds[3]                 ; 7       ;
-; oneseconds[1]                 ; 7       ;
-; oneseconds[2]                 ; 7       ;
-; oneseconds[0]                 ; 7       ;
+; tenminutesdisplay[0]          ; 7       ;
+; tenminutesdisplay[1]          ; 7       ;
+; tenminutesdisplay[2]          ; 7       ;
+; tenminutesdisplay[3]          ; 7       ;
+; oneminutesdisplay[0]          ; 7       ;
+; oneminutesdisplay[1]          ; 7       ;
+; oneminutesdisplay[2]          ; 7       ;
+; oneminutesdisplay[3]          ; 7       ;
+; tensecondsdisplay[0]          ; 7       ;
+; tensecondsdisplay[1]          ; 7       ;
+; tensecondsdisplay[2]          ; 7       ;
+; tensecondsdisplay[3]          ; 7       ;
+; onesecondsdisplay[0]          ; 7       ;
+; onesecondsdisplay[1]          ; 7       ;
+; onesecondsdisplay[2]          ; 7       ;
+; onesecondsdisplay[3]          ; 7       ;
 ; SW[6]                         ; 5       ;
 ; SW[3]                         ; 5       ;
 ; state.START                   ; 5       ;
 ; TFlipFlop:comb_3|tOut         ; 5       ;
 ; SW[5]                         ; 4       ;
-; Selector1~0                   ; 4       ;
+; Selector4~0                   ; 4       ;
 ; state.000                     ; 4       ;
-; Selector1~3                   ; 3       ;
+; Selector4~2                   ; 3       ;
 ; state.SET_MIN                 ; 3       ;
-; KEY[0]                        ; 2       ;
 ; SW[4]                         ; 2       ;
-; SW[2]                         ; 2       ;
 ; SW[1]                         ; 2       ;
-; Selector1~2                   ; 2       ;
-; state.STOP                    ; 2       ;
-; Selector1~1                   ; 2       ;
+; SW[2]                         ; 2       ;
+; KEY[0]                        ; 2       ;
+; Selector1~0                   ; 2       ;
 ; oneminutes~2                  ; 2       ;
 ; oneminutes~1                  ; 2       ;
 ; oneminutes~0                  ; 2       ;
+; state.STOP                    ; 2       ;
+; Selector4~1                   ; 2       ;
+; SW[0]                         ; 1       ;
 ; KEY[2]                        ; 1       ;
 ; KEY[1]                        ; 1       ;
 ; SW[9]                         ; 1       ;
-; SW[0]                         ; 1       ;
 ; TFlipFlop:comb_4|tOut~0       ; 1       ;
 ; TFlipFlop:comb_3|tOut~0       ; 1       ;
+; tensecondsdisplay[3]~3        ; 1       ;
 ; state.000~8                   ; 1       ;
 ; Selector3~1                   ; 1       ;
 ; Selector3~0                   ; 1       ;
 ; Selector2~0                   ; 1       ;
-; Selector4~0                   ; 1       ;
-; Selector1~4                   ; 1       ;
+; Selector4~3                   ; 1       ;
 ; tenminutes~2                  ; 1       ;
 ; tenminutes~1                  ; 1       ;
 ; tenminutes~0                  ; 1       ;
+; Selector1~1                   ; 1       ;
 ; tenseconds~2                  ; 1       ;
 ; tenseconds~1                  ; 1       ;
 ; tenseconds~0                  ; 1       ;
+; tenminutesdisplay~3           ; 1       ;
+; tenminutes[0]                 ; 1       ;
+; tenminutesdisplay~2           ; 1       ;
+; tenminutes[1]                 ; 1       ;
+; tenminutesdisplay~1           ; 1       ;
+; tenminutes[2]                 ; 1       ;
+; tenminutesdisplay~0           ; 1       ;
+; tenminutes[3]                 ; 1       ;
+; oneminutesdisplay~4           ; 1       ;
+; oneminutes[0]                 ; 1       ;
+; oneminutesdisplay~3           ; 1       ;
+; oneminutes[1]                 ; 1       ;
+; oneminutesdisplay~2           ; 1       ;
+; oneminutes[2]                 ; 1       ;
+; oneminutesdisplay~0           ; 1       ;
+; oneminutes[3]                 ; 1       ;
+; tensecondsdisplay~2           ; 1       ;
+; tenseconds[0]                 ; 1       ;
+; tensecondsdisplay~1           ; 1       ;
+; tenseconds[1]                 ; 1       ;
+; tensecondsdisplay~0           ; 1       ;
+; tenseconds[2]                 ; 1       ;
+; onesecondsdisplay~4           ; 1       ;
+; oneseconds[0]                 ; 1       ;
+; onesecondsdisplay~3           ; 1       ;
+; oneseconds[1]                 ; 1       ;
+; onesecondsdisplay~2           ; 1       ;
+; oneseconds[2]                 ; 1       ;
+; onesecondsdisplay~0           ; 1       ;
+; oneseconds[3]                 ; 1       ;
 ; dec2_7seg:comb_8|display[6]~6 ; 1       ;
 ; dec2_7seg:comb_8|display[5]~5 ; 1       ;
 ; dec2_7seg:comb_8|display[4]~4 ; 1       ;
@@ -1519,36 +1551,36 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------+-----------------------+
 ; Other Routing Resource Type ; Usage                 ;
 +-----------------------------+-----------------------+
-; Block interconnects         ; 83 / 54,004 ( < 1 % ) ;
-; C16 interconnects           ; 14 / 2,100 ( < 1 % )  ;
-; C4 interconnects            ; 99 / 36,000 ( < 1 % ) ;
-; Direct links                ; 15 / 54,004 ( < 1 % ) ;
+; Block interconnects         ; 92 / 54,004 ( < 1 % ) ;
+; C16 interconnects           ; 13 / 2,100 ( < 1 % )  ;
+; C4 interconnects            ; 79 / 36,000 ( < 1 % ) ;
+; Direct links                ; 19 / 54,004 ( < 1 % ) ;
 ; Global clocks               ; 1 / 16 ( 6 % )        ;
-; Local interconnects         ; 11 / 18,752 ( < 1 % ) ;
-; R24 interconnects           ; 28 / 1,900 ( 1 % )    ;
-; R4 interconnects            ; 65 / 46,920 ( < 1 % ) ;
+; Local interconnects         ; 22 / 18,752 ( < 1 % ) ;
+; R24 interconnects           ; 22 / 1,900 ( 1 % )    ;
+; R4 interconnects            ; 42 / 46,920 ( < 1 % ) ;
 +-----------------------------+-----------------------+
 
 
 +--------------------------------------------------------------------------+
 ; LAB Logic Elements                                                       ;
 +--------------------------------------------+-----------------------------+
-; Number of Logic Elements  (Average = 9.50) ; Number of LABs  (Total = 6) ;
+; Number of Logic Elements  (Average = 9.00) ; Number of LABs  (Total = 8) ;
 +--------------------------------------------+-----------------------------+
-; 1                                          ; 1                           ;
+; 1                                          ; 0                           ;
 ; 2                                          ; 0                           ;
 ; 3                                          ; 0                           ;
 ; 4                                          ; 0                           ;
-; 5                                          ; 1                           ;
+; 5                                          ; 0                           ;
 ; 6                                          ; 0                           ;
-; 7                                          ; 0                           ;
+; 7                                          ; 5                           ;
 ; 8                                          ; 0                           ;
 ; 9                                          ; 1                           ;
 ; 10                                         ; 0                           ;
 ; 11                                         ; 0                           ;
 ; 12                                         ; 1                           ;
 ; 13                                         ; 0                           ;
-; 14                                         ; 1                           ;
+; 14                                         ; 0                           ;
 ; 15                                         ; 0                           ;
 ; 16                                         ; 1                           ;
 +--------------------------------------------+-----------------------------+
@@ -1557,39 +1589,39 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------------------+
 ; LAB-wide Signals                                                 ;
 +------------------------------------+-----------------------------+
-; LAB-wide Signals  (Average = 1.00) ; Number of LABs  (Total = 6) ;
+; LAB-wide Signals  (Average = 1.00) ; Number of LABs  (Total = 8) ;
 +------------------------------------+-----------------------------+
 ; 1 Async. clear                     ; 2                           ;
 ; 1 Clock                            ; 2                           ;
-; 1 Clock enable                     ; 1                           ;
-; 2 Clocks                           ; 1                           ;
+; 1 Clock enable                     ; 2                           ;
+; 2 Clocks                           ; 2                           ;
 +------------------------------------+-----------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                        ;
 +----------------------------------------------+-----------------------------+
-; Number of Signals Sourced  (Average = 12.83) ; Number of LABs  (Total = 6) ;
+; Number of Signals Sourced  (Average = 13.50) ; Number of LABs  (Total = 8) ;
 +----------------------------------------------+-----------------------------+
 ; 0                                            ; 0                           ;
 ; 1                                            ; 0                           ;
-; 2                                            ; 1                           ;
+; 2                                            ; 0                           ;
 ; 3                                            ; 0                           ;
 ; 4                                            ; 0                           ;
-; 5                                            ; 1                           ;
+; 5                                            ; 0                           ;
 ; 6                                            ; 0                           ;
-; 7                                            ; 0                           ;
+; 7                                            ; 4                           ;
 ; 8                                            ; 0                           ;
-; 9                                            ; 1                           ;
+; 9                                            ; 0                           ;
 ; 10                                           ; 0                           ;
 ; 11                                           ; 0                           ;
 ; 12                                           ; 0                           ;
-; 13                                           ; 0                           ;
-; 14                                           ; 1                           ;
+; 13                                           ; 1                           ;
+; 14                                           ; 0                           ;
 ; 15                                           ; 0                           ;
 ; 16                                           ; 0                           ;
 ; 17                                           ; 0                           ;
-; 18                                           ; 1                           ;
+; 18                                           ; 2                           ;
 ; 19                                           ; 0                           ;
 ; 20                                           ; 0                           ;
 ; 21                                           ; 0                           ;
@@ -1600,48 +1632,46 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 26                                           ; 0                           ;
 ; 27                                           ; 0                           ;
 ; 28                                           ; 0                           ;
-; 29                                           ; 1                           ;
+; 29                                           ; 0                           ;
+; 30                                           ; 0                           ;
+; 31                                           ; 1                           ;
 +----------------------------------------------+-----------------------------+
 
 
 +-------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                       ;
 +-------------------------------------------------+-----------------------------+
-; Number of Signals Sourced Out  (Average = 8.00) ; Number of LABs  (Total = 6) ;
+; Number of Signals Sourced Out  (Average = 6.38) ; Number of LABs  (Total = 8) ;
 +-------------------------------------------------+-----------------------------+
 ; 0                                               ; 0                           ;
-; 1                                               ; 1                           ;
+; 1                                               ; 0                           ;
 ; 2                                               ; 0                           ;
-; 3                                               ; 0                           ;
+; 3                                               ; 1                           ;
 ; 4                                               ; 1                           ;
 ; 5                                               ; 1                           ;
 ; 6                                               ; 0                           ;
-; 7                                               ; 0                           ;
+; 7                                               ; 4                           ;
 ; 8                                               ; 0                           ;
-; 9                                               ; 1                           ;
+; 9                                               ; 0                           ;
 ; 10                                              ; 0                           ;
-; 11                                              ; 0                           ;
-; 12                                              ; 0                           ;
-; 13                                              ; 0                           ;
-; 14                                              ; 1                           ;
-; 15                                              ; 1                           ;
+; 11                                              ; 1                           ;
 +-------------------------------------------------+-----------------------------+
 
 
 +---------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                       ;
 +---------------------------------------------+-----------------------------+
-; Number of Distinct Inputs  (Average = 6.17) ; Number of LABs  (Total = 6) ;
+; Number of Distinct Inputs  (Average = 6.13) ; Number of LABs  (Total = 8) ;
 +---------------------------------------------+-----------------------------+
 ; 0                                           ; 0                           ;
 ; 1                                           ; 0                           ;
-; 2                                           ; 1                           ;
-; 3                                           ; 1                           ;
-; 4                                           ; 0                           ;
+; 2                                           ; 0                           ;
+; 3                                           ; 0                           ;
+; 4                                           ; 4                           ;
 ; 5                                           ; 1                           ;
 ; 6                                           ; 0                           ;
-; 7                                           ; 1                           ;
-; 8                                           ; 1                           ;
+; 7                                           ; 0                           ;
+; 8                                           ; 2                           ;
 ; 9                                           ; 0                           ;
 ; 10                                          ; 0                           ;
 ; 11                                          ; 0                           ;
@@ -1701,12 +1731,8 @@ Info (332130): Timing requirements not specified -- quality metrics such as perf
 Info (176353): Automatically promoted node CLOCK_50 (placed in PIN L1 (CLK0, LVDSCLK0p, Input))
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G2
 Info (176233): Starting register packing
-Warning (176225): Can't pack node oneseconds[3] to I/O pin
-    Warning (176228): Can't pack node oneseconds[3] and I/O node SW[3] -- I/O node is a dedicated I/O pin
-Warning (176225): Can't pack node oneminutes[3] to I/O pin
-    Warning (176228): Can't pack node oneminutes[3] and I/O node SW[3] -- I/O node is a dedicated I/O pin
-Warning (176225): Can't pack node tenminutes[3] to I/O pin
-    Warning (176228): Can't pack node tenminutes[3] and I/O node SW[7] -- I/O node is a dedicated I/O pin
+Warning (176225): Can't pack node tensecondsdisplay[3] to I/O pin
+    Warning (176228): Can't pack node tensecondsdisplay[3] and I/O node SW[8] -- I/O node is a dedicated I/O pin
 Warning (176225): Can't pack node LEDR[0]~reg0 to I/O pin
     Warning (176228): Can't pack node LEDR[0]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
 Warning (176225): Can't pack node LEDR[1]~reg0 to I/O pin
@@ -1727,12 +1753,15 @@ Warning (176225): Can't pack node LEDR[8]~reg0 to I/O pin
     Warning (176228): Can't pack node LEDR[8]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
 Warning (176225): Can't pack node LEDR[9]~reg0 to I/O pin
     Warning (176228): Can't pack node LEDR[9]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
-Warning (176225): Can't pack node oneminutes[3] to I/O pin
+Warning (176225): Can't pack node oneseconds[3] to I/O pin
     Warning (176228): Can't pack node oneseconds[3] and I/O node SW[3] -- I/O node is a dedicated I/O pin
+Warning (176225): Can't pack node oneminutes[3] to I/O pin
     Warning (176228): Can't pack node oneminutes[3] and I/O node SW[3] -- I/O node is a dedicated I/O pin
 Warning (176225): Can't pack node tenminutes[3] to I/O pin
     Warning (176228): Can't pack node tenminutes[3] and I/O node SW[7] -- I/O node is a dedicated I/O pin
-Warning (176225): Can't pack node LEDR[9]~reg0 to I/O pin
+Warning (176225): Can't pack node tensecondsdisplay[3] to I/O pin
+    Warning (176228): Can't pack node LEDR[9]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+    Warning (176228): Can't pack node LEDR[8]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
     Warning (176228): Can't pack node LEDR[7]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
     Warning (176228): Can't pack node LEDR[6]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
     Warning (176228): Can't pack node LEDR[5]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
@@ -1741,8 +1770,12 @@ Warning (176225): Can't pack node LEDR[9]~reg0 to I/O pin
     Warning (176228): Can't pack node LEDR[2]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
     Warning (176228): Can't pack node LEDR[1]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
     Warning (176228): Can't pack node LEDR[0]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
-    Warning (176228): Can't pack node LEDR[8]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
-    Warning (176228): Can't pack node LEDR[9]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+    Warning (176228): Can't pack node tensecondsdisplay[3] and I/O node SW[8] -- I/O node is a dedicated I/O pin
+Warning (176225): Can't pack node oneminutes[3] to I/O pin
+    Warning (176228): Can't pack node oneseconds[3] and I/O node SW[3] -- I/O node is a dedicated I/O pin
+    Warning (176228): Can't pack node oneminutes[3] and I/O node SW[3] -- I/O node is a dedicated I/O pin
+Warning (176225): Can't pack node tenminutes[3] to I/O pin
+    Warning (176228): Can't pack node tenminutes[3] and I/O node SW[7] -- I/O node is a dedicated I/O pin
 Warning (176251): Ignoring some wildcard destinations of fast I/O register assignments
     Info (176252): Wildcard assignment "Fast Output Register=ON" to "*" matches multiple destination nodes -- some destinations are not valid targets for this assignment
     Info (176252): Wildcard assignment "Fast Input Register=ON" to "*" matches multiple destination nodes -- some destinations are not valid targets for this assignment
@@ -2101,11 +2134,11 @@ Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:01
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X0_Y14 to location X11_Y27
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:02
+    Info (170196): Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X0_Y0 to location X11_Y13
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 0.58 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.45 seconds.
 Info (306004): Started post-fitting delay annotation
 Warning (306006): Found 38 output pins without output pin load capacitance assignment
     Info (306007): Pin "HEX0[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
@@ -2149,14 +2182,14 @@ Warning (306006): Found 38 output pins without output pin load capacitance assig
 Info (306005): Delay annotation completed successfully
 Info (306004): Started post-fitting delay annotation
 Info (306005): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:02
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file C:/Users/j3gb3rt/Documents/CS2200/Project 1/Quartus/output_files/Timer.fit.smsg
-Info: Quartus II 64-Bit Fitter was successful. 0 errors, 393 warnings
-    Info: Peak virtual memory: 622 megabytes
-    Info: Processing ended: Tue Sep 23 18:40:53 2014
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:13
+Info: Quartus II 64-Bit Fitter was successful. 0 errors, 396 warnings
+    Info: Peak virtual memory: 624 megabytes
+    Info: Processing ended: Tue Sep 23 19:05:48 2014
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:12
 
 
 +----------------------------+
