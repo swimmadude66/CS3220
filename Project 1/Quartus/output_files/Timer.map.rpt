@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Timer
-Tue Sep 23 17:49:50 2014
+Tue Sep 23 18:09:46 2014
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -15,8 +15,8 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   7. Analysis & Synthesis Resource Utilization by Entity
   8. User-Specified and Inferred Latches
   9. General Register Statistics
- 10. Parameter Settings for User Entity Instance: Top-level Entity: |Timer
- 11. Port Connectivity Checks: "dec2_7seg:comb_5"
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: Top-level Entity: |Timer
  12. Elapsed Time Per Partition
  13. Analysis & Synthesis Messages
  14. Analysis & Synthesis Suppressed Messages
@@ -45,13 +45,13 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Sep 23 17:49:50 2014           ;
+; Analysis & Synthesis Status        ; Successful - Tue Sep 23 18:09:46 2014           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Timer                                           ;
 ; Top-level Entity Name              ; Timer                                           ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 21                                              ;
-;     Total combinational functions  ; 21                                              ;
+; Total logic elements               ; 74                                              ;
+;     Total combinational functions  ; 74                                              ;
 ;     Dedicated logic registers      ; 2                                               ;
 ; Total registers                    ; 2                                               ;
 ; Total pins                         ; 56                                              ;
@@ -158,43 +158,43 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                   ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                     ; Library ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------------------------+---------+
-; Timer.v                          ; yes             ; User Verilog HDL File  ; X:/Users/Adam/Dropbox/Homework/CS 3220/Project 1/Quartus/Timer.v ;         ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                            ;
++----------------------------------+-----------------+------------------------+-------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path              ; Library ;
++----------------------------------+-----------------+------------------------+-------------------------------------------+---------+
+; Timer.v                          ; yes             ; User Verilog HDL File  ; X:/Repos/CS2200/Project 1/Quartus/Timer.v ;         ;
++----------------------------------+-----------------+------------------------+-------------------------------------------+---------+
 
 
-+--------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary            ;
-+---------------------------------------------+----------+
-; Resource                                    ; Usage    ;
-+---------------------------------------------+----------+
-; Estimated Total logic elements              ; 21       ;
-;                                             ;          ;
-; Total combinational functions               ; 21       ;
-; Logic element usage by number of LUT inputs ;          ;
-;     -- 4 input functions                    ; 4        ;
-;     -- 3 input functions                    ; 14       ;
-;     -- <=2 input functions                  ; 3        ;
-;                                             ;          ;
-; Logic elements by mode                      ;          ;
-;     -- normal mode                          ; 21       ;
-;     -- arithmetic mode                      ; 0        ;
-;                                             ;          ;
-; Total registers                             ; 2        ;
-;     -- Dedicated logic registers            ; 2        ;
-;     -- I/O registers                        ; 0        ;
-;                                             ;          ;
-; I/O pins                                    ; 56       ;
-; Embedded Multiplier 9-bit elements          ; 0        ;
-; Maximum fan-out node                        ; state[0] ;
-; Maximum fan-out                             ; 12       ;
-; Total fan-out                               ; 75       ;
-; Average fan-out                             ; 0.95     ;
-+---------------------------------------------+----------+
++-------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                 ;
++---------------------------------------------+---------------+
+; Resource                                    ; Usage         ;
++---------------------------------------------+---------------+
+; Estimated Total logic elements              ; 74            ;
+;                                             ;               ;
+; Total combinational functions               ; 74            ;
+; Logic element usage by number of LUT inputs ;               ;
+;     -- 4 input functions                    ; 30            ;
+;     -- 3 input functions                    ; 33            ;
+;     -- <=2 input functions                  ; 11            ;
+;                                             ;               ;
+; Logic elements by mode                      ;               ;
+;     -- normal mode                          ; 74            ;
+;     -- arithmetic mode                      ; 0             ;
+;                                             ;               ;
+; Total registers                             ; 2             ;
+;     -- Dedicated logic registers            ; 2             ;
+;     -- I/O registers                        ; 0             ;
+;                                             ;               ;
+; I/O pins                                    ; 56            ;
+; Embedded Multiplier 9-bit elements          ; 0             ;
+; Maximum fan-out node                        ; LEDR[0]$latch ;
+; Maximum fan-out                             ; 11            ;
+; Total fan-out                               ; 283           ;
+; Average fan-out                             ; 2.14          ;
++---------------------------------------------+---------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -202,24 +202,54 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name     ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------+--------------+
-; |Timer                     ; 21 (12)           ; 2 (0)        ; 0           ; 0            ; 0       ; 0         ; 56   ; 0            ; |Timer                  ; work         ;
+; |Timer                     ; 74 (44)           ; 2 (0)        ; 0           ; 0            ; 0       ; 0         ; 56   ; 0            ; |Timer                  ; work         ;
 ;    |TFlipFlop:comb_3|      ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Timer|TFlipFlop:comb_3 ; work         ;
 ;    |TFlipFlop:comb_4|      ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Timer|TFlipFlop:comb_4 ; work         ;
 ;    |dec2_7seg:comb_5|      ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Timer|dec2_7seg:comb_5 ; work         ;
+;    |dec2_7seg:comb_6|      ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Timer|dec2_7seg:comb_6 ; work         ;
+;    |dec2_7seg:comb_7|      ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Timer|dec2_7seg:comb_7 ; work         ;
+;    |dec2_7seg:comb_8|      ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Timer|dec2_7seg:comb_8 ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                               ;
-+----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
-+----------------------------------------------------+---------------------+------------------------+
-; state[1]                                           ; Mux2                ; yes                    ;
-; state[0]                                           ; Mux2                ; yes                    ;
-; state[2]                                           ; Mux2                ; yes                    ;
-; Number of user-specified and inferred latches = 3  ;                     ;                        ;
-+----------------------------------------------------+---------------------+------------------------+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; oneseconds[0]                                       ; oneseconds[0]       ; yes                    ;
+; oneseconds[1]                                       ; oneseconds[0]       ; yes                    ;
+; oneseconds[2]                                       ; oneseconds[0]       ; yes                    ;
+; oneseconds[3]                                       ; oneseconds[0]       ; yes                    ;
+; tenseconds[0]                                       ; oneseconds[0]       ; yes                    ;
+; tenseconds[1]                                       ; oneseconds[0]       ; yes                    ;
+; tenseconds[2]                                       ; oneseconds[0]       ; yes                    ;
+; oneminutes[0]                                       ; oneminutes[0]       ; yes                    ;
+; oneminutes[1]                                       ; oneminutes[0]       ; yes                    ;
+; oneminutes[2]                                       ; oneminutes[0]       ; yes                    ;
+; oneminutes[3]                                       ; oneminutes[0]       ; yes                    ;
+; tenminutes[0]                                       ; oneminutes[0]       ; yes                    ;
+; tenminutes[1]                                       ; oneminutes[0]       ; yes                    ;
+; tenminutes[2]                                       ; oneminutes[0]       ; yes                    ;
+; tenminutes[3]                                       ; oneminutes[0]       ; yes                    ;
+; LEDR[0]$latch                                       ; state.FLASH_424     ; yes                    ;
+; LEDR[1]$latch                                       ; state.FLASH_424     ; yes                    ;
+; LEDR[2]$latch                                       ; state.FLASH_424     ; yes                    ;
+; LEDR[3]$latch                                       ; state.FLASH_424     ; yes                    ;
+; LEDR[4]$latch                                       ; state.FLASH_424     ; yes                    ;
+; LEDR[5]$latch                                       ; state.FLASH_424     ; yes                    ;
+; LEDR[6]$latch                                       ; state.FLASH_424     ; yes                    ;
+; LEDR[7]$latch                                       ; state.FLASH_424     ; yes                    ;
+; LEDR[8]$latch                                       ; state.FLASH_424     ; yes                    ;
+; LEDR[9]$latch                                       ; state.FLASH_424     ; yes                    ;
+; state.000_508                                       ; Selector1           ; yes                    ;
+; state.SET_MIN_487                                   ; Selector1           ; yes                    ;
+; state.FLASH_424                                     ; Selector1           ; yes                    ;
+; state.STOP_445                                      ; Selector1           ; yes                    ;
+; state.START_466                                     ; Selector1           ; yes                    ;
+; Number of user-specified and inferred latches = 30  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
@@ -238,27 +268,30 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 
 
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; No         ; |Timer|dec2_7seg:comb_5|display[0] ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; No         ; |Timer|dec2_7seg:comb_6|display[5] ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; No         ; |Timer|dec2_7seg:comb_7|display[6] ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; No         ; |Timer|dec2_7seg:comb_8|display[6] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+
+
 +-----------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: Top-level Entity: |Timer ;
 +----------------+-------+----------------------------------------------+
 ; Parameter Name ; Value ; Type                                         ;
 +----------------+-------+----------------------------------------------+
-; SET_SEC        ; 000   ; Unsigned Binary                              ;
-; SET_MIN        ; 001   ; Unsigned Binary                              ;
-; START          ; 010   ; Unsigned Binary                              ;
-; STOP           ; 011   ; Unsigned Binary                              ;
-; FLASH          ; 100   ; Unsigned Binary                              ;
+; SET_SEC        ; 0     ; Signed Integer                               ;
+; SET_MIN        ; 1     ; Signed Integer                               ;
+; START          ; 2     ; Signed Integer                               ;
+; STOP           ; 3     ; Signed Integer                               ;
+; FLASH          ; 4     ; Signed Integer                               ;
 +----------------+-------+----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "dec2_7seg:comb_5"                                                                                                                          ;
-+------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                     ;
-+------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
-; num  ; Input ; Warning  ; Input port expression (3 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "num[3..3]" will be connected to GND. ;
-+------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -276,7 +309,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Tue Sep 23 17:49:48 2014
+    Info: Processing started: Tue Sep 23 18:09:44 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Timer -c Timer
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 5 design units, including 5 entities, in source file timer.v
@@ -285,103 +318,92 @@ Info (12021): Found 5 design units, including 5 entities, in source file timer.v
     Info (12023): Found entity 3: dec2_7seg
     Info (12023): Found entity 4: countSecond
     Info (12023): Found entity 5: countDown
-Critical Warning (10846): Verilog HDL Instantiation warning at Timer.v(19): instance has no name
-Critical Warning (10846): Verilog HDL Instantiation warning at Timer.v(20): instance has no name
+Warning (10236): Verilog HDL Implicit Net warning at Timer.v(21): created implicit net for "set"
+Warning (10236): Verilog HDL Implicit Net warning at Timer.v(22): created implicit net for "start"
 Critical Warning (10846): Verilog HDL Instantiation warning at Timer.v(21): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at Timer.v(22): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at Timer.v(23): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at Timer.v(24): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at Timer.v(25): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at Timer.v(26): instance has no name
 Info (12127): Elaborating entity "Timer" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at Timer.v(40): truncated value with size 32 to match size of target (6)
-Warning (10230): Verilog HDL assignment warning at Timer.v(43): truncated value with size 32 to match size of target (6)
-Warning (10230): Verilog HDL assignment warning at Timer.v(57): truncated value with size 32 to match size of target (7)
-Warning (10230): Verilog HDL assignment warning at Timer.v(60): truncated value with size 32 to match size of target (7)
-Warning (10270): Verilog HDL Case Statement warning at Timer.v(29): incomplete case statement has no default case item
-Warning (10240): Verilog HDL Always Construct warning at Timer.v(25): inferring latch(es) for variable "state", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Timer.v(25): inferring latch(es) for variable "LEDR", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Timer.v(25): inferring latch(es) for variable "minutes", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Timer.v(25): inferring latch(es) for variable "seconds", which holds its previous value in one or more paths through the always construct
-Warning (10030): Net "X[2]" at Timer.v(15) has no driver or initial value, using a default initial value '0'
-Warning (10034): Output port "HEX1" at Timer.v(6) has no driver
-Warning (10034): Output port "HEX2" at Timer.v(7) has no driver
-Warning (10034): Output port "HEX3" at Timer.v(8) has no driver
+Warning (10240): Verilog HDL Always Construct warning at Timer.v(30): inferring latch(es) for variable "state", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at Timer.v(30): inferring latch(es) for variable "tenseconds", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at Timer.v(30): inferring latch(es) for variable "oneseconds", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at Timer.v(30): inferring latch(es) for variable "tenminutes", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at Timer.v(30): inferring latch(es) for variable "oneminutes", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at Timer.v(30): inferring latch(es) for variable "LEDR", which holds its previous value in one or more paths through the always construct
 Warning (10034): Output port "LEDG" at Timer.v(11) has no driver
-Info (10041): Inferred latch for "LEDR[0]" at Timer.v(25)
-Info (10041): Inferred latch for "LEDR[1]" at Timer.v(25)
-Info (10041): Inferred latch for "LEDR[2]" at Timer.v(25)
-Info (10041): Inferred latch for "LEDR[3]" at Timer.v(25)
-Info (10041): Inferred latch for "LEDR[4]" at Timer.v(25)
-Info (10041): Inferred latch for "LEDR[5]" at Timer.v(25)
-Info (10041): Inferred latch for "LEDR[6]" at Timer.v(25)
-Info (10041): Inferred latch for "LEDR[7]" at Timer.v(25)
-Info (10041): Inferred latch for "LEDR[8]" at Timer.v(25)
-Info (10041): Inferred latch for "LEDR[9]" at Timer.v(25)
-Info (10041): Inferred latch for "state[0]" at Timer.v(25)
-Info (10041): Inferred latch for "state[1]" at Timer.v(25)
-Info (10041): Inferred latch for "state[2]" at Timer.v(25)
+Info (10041): Inferred latch for "LEDR[0]" at Timer.v(30)
+Info (10041): Inferred latch for "LEDR[1]" at Timer.v(30)
+Info (10041): Inferred latch for "LEDR[2]" at Timer.v(30)
+Info (10041): Inferred latch for "LEDR[3]" at Timer.v(30)
+Info (10041): Inferred latch for "LEDR[4]" at Timer.v(30)
+Info (10041): Inferred latch for "LEDR[5]" at Timer.v(30)
+Info (10041): Inferred latch for "LEDR[6]" at Timer.v(30)
+Info (10041): Inferred latch for "LEDR[7]" at Timer.v(30)
+Info (10041): Inferred latch for "LEDR[8]" at Timer.v(30)
+Info (10041): Inferred latch for "LEDR[9]" at Timer.v(30)
+Info (10041): Inferred latch for "oneminutes[0]" at Timer.v(30)
+Info (10041): Inferred latch for "oneminutes[1]" at Timer.v(30)
+Info (10041): Inferred latch for "oneminutes[2]" at Timer.v(30)
+Info (10041): Inferred latch for "oneminutes[3]" at Timer.v(30)
+Info (10041): Inferred latch for "tenminutes[0]" at Timer.v(30)
+Info (10041): Inferred latch for "tenminutes[1]" at Timer.v(30)
+Info (10041): Inferred latch for "tenminutes[2]" at Timer.v(30)
+Info (10041): Inferred latch for "tenminutes[3]" at Timer.v(30)
+Info (10041): Inferred latch for "oneseconds[0]" at Timer.v(30)
+Info (10041): Inferred latch for "oneseconds[1]" at Timer.v(30)
+Info (10041): Inferred latch for "oneseconds[2]" at Timer.v(30)
+Info (10041): Inferred latch for "oneseconds[3]" at Timer.v(30)
+Info (10041): Inferred latch for "tenseconds[0]" at Timer.v(30)
+Info (10041): Inferred latch for "tenseconds[1]" at Timer.v(30)
+Info (10041): Inferred latch for "tenseconds[2]" at Timer.v(30)
+Info (10041): Inferred latch for "tenseconds[3]" at Timer.v(30)
+Info (10041): Inferred latch for "state.FLASH" at Timer.v(30)
+Info (10041): Inferred latch for "state.STOP" at Timer.v(30)
+Info (10041): Inferred latch for "state.START" at Timer.v(30)
+Info (10041): Inferred latch for "state.SET_MIN" at Timer.v(30)
+Info (10041): Inferred latch for "state.000" at Timer.v(30)
 Info (12128): Elaborating entity "TFlipFlop" for hierarchy "TFlipFlop:comb_3"
 Info (12128): Elaborating entity "dec2_7seg" for hierarchy "dec2_7seg:comb_5"
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13012): Latch state[1] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal state[2]
-Warning (13012): Latch state[0] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal state[0]
-Warning (13012): Latch state[2] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal SW[9]
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "LEDR[9]$latch" merged with LATCH primitive "LEDR[0]$latch"
+    Info (13026): Duplicate LATCH primitive "LEDR[8]$latch" merged with LATCH primitive "LEDR[0]$latch"
+    Info (13026): Duplicate LATCH primitive "LEDR[7]$latch" merged with LATCH primitive "LEDR[0]$latch"
+    Info (13026): Duplicate LATCH primitive "LEDR[6]$latch" merged with LATCH primitive "LEDR[0]$latch"
+    Info (13026): Duplicate LATCH primitive "LEDR[5]$latch" merged with LATCH primitive "LEDR[0]$latch"
+    Info (13026): Duplicate LATCH primitive "LEDR[4]$latch" merged with LATCH primitive "LEDR[0]$latch"
+    Info (13026): Duplicate LATCH primitive "LEDR[3]$latch" merged with LATCH primitive "LEDR[0]$latch"
+    Info (13026): Duplicate LATCH primitive "LEDR[2]$latch" merged with LATCH primitive "LEDR[0]$latch"
+    Info (13026): Duplicate LATCH primitive "LEDR[1]$latch" merged with LATCH primitive "LEDR[0]$latch"
+Warning (13012): Latch state.000_508 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal state.STOP_445
+Warning (13012): Latch state.SET_MIN_487 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal state.000_508
+Warning (13012): Latch state.FLASH_424 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal state.START_466
+Warning (13012): Latch state.STOP_445 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal state.START_466
+Warning (13012): Latch state.START_466 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal state.STOP_445
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX1[0]" is stuck at GND
-    Warning (13410): Pin "HEX1[1]" is stuck at GND
-    Warning (13410): Pin "HEX1[2]" is stuck at GND
-    Warning (13410): Pin "HEX1[3]" is stuck at GND
-    Warning (13410): Pin "HEX1[4]" is stuck at GND
-    Warning (13410): Pin "HEX1[5]" is stuck at GND
-    Warning (13410): Pin "HEX1[6]" is stuck at GND
-    Warning (13410): Pin "HEX2[0]" is stuck at GND
-    Warning (13410): Pin "HEX2[1]" is stuck at GND
-    Warning (13410): Pin "HEX2[2]" is stuck at GND
-    Warning (13410): Pin "HEX2[3]" is stuck at GND
-    Warning (13410): Pin "HEX2[4]" is stuck at GND
-    Warning (13410): Pin "HEX2[5]" is stuck at GND
-    Warning (13410): Pin "HEX2[6]" is stuck at GND
-    Warning (13410): Pin "HEX3[0]" is stuck at GND
-    Warning (13410): Pin "HEX3[1]" is stuck at GND
-    Warning (13410): Pin "HEX3[2]" is stuck at GND
-    Warning (13410): Pin "HEX3[3]" is stuck at GND
-    Warning (13410): Pin "HEX3[4]" is stuck at GND
-    Warning (13410): Pin "HEX3[5]" is stuck at GND
-    Warning (13410): Pin "HEX3[6]" is stuck at GND
-    Warning (13410): Pin "LEDR[0]" is stuck at GND
-    Warning (13410): Pin "LEDR[1]" is stuck at GND
-    Warning (13410): Pin "LEDR[2]" is stuck at GND
-    Warning (13410): Pin "LEDR[3]" is stuck at GND
-    Warning (13410): Pin "LEDR[4]" is stuck at GND
-    Warning (13410): Pin "LEDR[5]" is stuck at GND
-    Warning (13410): Pin "LEDR[6]" is stuck at GND
-    Warning (13410): Pin "LEDR[7]" is stuck at GND
-    Warning (13410): Pin "LEDR[8]" is stuck at GND
-    Warning (13410): Pin "LEDR[9]" is stuck at GND
     Warning (13410): Pin "LEDG[0]" is stuck at GND
     Warning (13410): Pin "LEDG[1]" is stuck at GND
     Warning (13410): Pin "LEDG[2]" is stuck at GND
-Info (144001): Generated suppressed messages file X:/Users/Adam/Dropbox/Homework/CS 3220/Project 1/Quartus/output_files/Timer.map.smsg
+Info (144001): Generated suppressed messages file X:/Repos/CS2200/Project 1/Quartus/output_files/Timer.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 11 input pin(s) that do not drive logic
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "CLOCK_50"
-    Warning (15610): No output dependent on input pin "SW[0]"
-    Warning (15610): No output dependent on input pin "SW[1]"
-    Warning (15610): No output dependent on input pin "SW[2]"
-    Warning (15610): No output dependent on input pin "SW[3]"
-    Warning (15610): No output dependent on input pin "SW[4]"
-    Warning (15610): No output dependent on input pin "SW[5]"
-    Warning (15610): No output dependent on input pin "SW[6]"
-    Warning (15610): No output dependent on input pin "SW[7]"
-    Warning (15610): No output dependent on input pin "SW[8]"
     Warning (15610): No output dependent on input pin "KEY[3]"
-Info (21057): Implemented 77 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 130 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 41 output pins
-    Info (21061): Implemented 21 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 72 warnings
-    Info: Peak virtual memory: 452 megabytes
-    Info: Processing ended: Tue Sep 23 17:49:50 2014
+    Info (21061): Implemented 74 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 33 warnings
+    Info: Peak virtual memory: 453 megabytes
+    Info: Processing ended: Tue Sep 23 18:09:46 2014
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
@@ -389,6 +411,6 @@ Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 72 warnin
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in X:/Users/Adam/Dropbox/Homework/CS 3220/Project 1/Quartus/output_files/Timer.map.smsg.
+The suppressed messages can be found in X:/Repos/CS2200/Project 1/Quartus/output_files/Timer.map.smsg.
 
 

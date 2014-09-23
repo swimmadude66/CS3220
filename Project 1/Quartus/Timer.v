@@ -10,69 +10,74 @@ module Timer(
 	output reg [2:0] LEDG
    );
 	
-	reg[6:0] minutes = 0;
-	reg[5:0] seconds = 0;
-	wire[2:0] X;
-	reg[2:0] state = 3'b000;
+	reg[3:0] tenminutes = 0;
+	reg[3:0] tenseconds = 0;
+	reg[3:0] oneminutes = 0;
+	reg[3:0] oneseconds = 0;
+	
+	reg[2:0] state = 0;
 	
 	//countSecond(CLOCK_50, CLOCK);
-	TFlipFlop(KEY[1], KEY[0], X[0]);
-	TFlipFlop(KEY[2], KEY[0], X[1]);
-	dec2_7seg(state, HEX0);
+	TFlipFlop(KEY[1], KEY[0], set);
+	TFlipFlop(KEY[2], KEY[0], start);
+	dec2_7seg(oneseconds, HEX0);
+	dec2_7seg(tenseconds, HEX1);
+	dec2_7seg(oneminutes, HEX2);
+	dec2_7seg(tenminutes, HEX3);
 	
-	parameter SET_SEC = 3'b000, SET_MIN = 3'b001, START = 3'b010, STOP = 3'b011, FLASH = 3'b100;
+	parameter SET_SEC = 0, SET_MIN = 1, START = 2, STOP = 3, FLASH = 4;
 	
 	always @(negedge KEY[0] or negedge CLOCK_50) begin
 		if (KEY[0] == 1'b0) begin
-			state <= 3'b000;
+			state <= SET_SEC;
 		end
 		case(state)
-			SET_SEC:	if (X[0] == 1'b1) begin
+			SET_SEC:	if (set == 1'b1) begin
 							state <= SET_MIN;
 						end
-						else if (X[1]  == 1'b1) begin
+						else if (start  == 1'b1) begin
 							state <= START;
 						end
 						else begin
 							if (SW[7:4] >= 5)
-								seconds <= 50;
+								tenseconds <= 5;
 							else begin
-								seconds <= SW[7:4]*10;
+								tenseconds <= SW[7:4];
 							end
 							if (SW[3:0] >= 9) begin
-								seconds <= seconds+9;
+								oneseconds <= 9;
 							end
 							else begin
-								seconds <= seconds + SW[3:0];
+								oneseconds <= SW[3:0];
 							end
 						end	
-			SET_MIN: if (X[1] == 1'b1) begin
+			SET_MIN: if (start == 1'b1) begin
 							state <= START;
 						end
 						else begin
 							if (SW[7:4] >= 9) begin
-								minutes <= 90;
+								tenminutes <= 9;
 							end
 							else begin
-								minutes <= (SW[7:4])*10;
+								tenminutes <= SW[7:4];
 							end
 							if (SW[3:0] >= 9) begin
-								minutes <= minutes+9;
+								oneminutes <= 9;
 							end
 							else begin
-								minutes <= minutes + SW[3:0];	
+								oneminutes <= SW[3:0];	
 							end
 						end
-			START: 	if (X[1] == 1'b0) begin
+			START: 	if (start == 1'b0) begin
 							state <= STOP;
 						end
 						else if (SW[9] ==  1'b1) begin
 							state <= FLASH;
 						end
-			STOP: 	if (X[1] == 1'b1) begin
+			STOP: 	if (start == 1'b1) begin
 							state <= START;
 						end
-			FLASH: 	if (X[2] == 1'b1) begin
+			FLASH: 	if (SW[8] == 1'b1) begin
 							LEDR = 10'b1111111111;
 						end
 						else begin

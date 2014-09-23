@@ -1,12 +1,12 @@
-Fitter Status : Successful - Tue Sep 23 17:49:55 2014
+Fitter Status : Successful - Tue Sep 23 18:09:51 2014
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : Timer
 Top-level Entity Name : Timer
 Family : Cyclone II
 Device : EP2C20F484C7
 Timing Models : Final
-Total logic elements : 21 / 18,752 ( < 1 % )
-    Total combinational functions : 21 / 18,752 ( < 1 % )
+Total logic elements : 74 / 18,752 ( < 1 % )
+    Total combinational functions : 74 / 18,752 ( < 1 % )
     Dedicated logic registers : 2 / 18,752 ( < 1 % )
 Total registers : 2
 Total pins : 56 / 315 ( 18 % )
