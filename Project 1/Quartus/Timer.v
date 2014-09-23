@@ -30,76 +30,90 @@ module Timer(
 	
 	parameter SET_SEC = 0, SET_MIN = 1, START = 2, STOP = 3, FLASH = 4;
 	
-	always @(negedge CLOCK_50) begin
-		case(state)
-			SET_SEC:	if (X == 1'b1) begin
-							state <= SET_MIN;
-						end
-						else if (Y  == 1'b1) begin
-							state <= START;
-						end
-						else begin
-							if (SW[7:4] >= 5)
-								tenseconds <= 5;
-							else begin
-								tenseconds <= SW[7:4];
+	always @(negedge CLOCK_50 or negedge KEY[0]) begin
+		if (KEY[0] == 0) begin
+			state <= SET_SEC;
+			tenminutes = 0;
+			oneminutes = 0;
+			tenseconds = 0;
+			oneseconds = 0;
+			tenminutesdisplay = 0;
+			oneminutesdisplay = 0;
+			tensecondsdisplay = 0;
+			onesecondsdisplay = 0;
+			LEDR = 10'b0000000000;
+		end
+		else begin
+			case(state)
+				SET_SEC:	if (X == 1'b1) begin
+								state <= SET_MIN;
 							end
-							if (SW[3:0] >= 9) begin
-								oneseconds <= 9;
-							end
-							else begin
-								oneseconds <= SW[3:0];
-							end
-							if (SW[8] == 1) begin
-								tensecondsdisplay <= tenseconds;
-								onesecondsdisplay <= oneseconds;
+							else if (Y  == 1'b1) begin
+								state <= START;
 							end
 							else begin
-								tensecondsdisplay <= 10;
-								onesecondsdisplay <= 10;
-							end
-						end	
-			SET_MIN: if (Y == 1'b1) begin
-							state <= START;
-						end
-						else begin
-							if (SW[7:4] >= 9) begin
-								tenminutes <= 9;
+								if (SW[7:4] >= 5)
+									tenseconds <= 5;
+								else begin
+									tenseconds <= SW[7:4];
+								end
+								if (SW[3:0] >= 9) begin
+									oneseconds <= 9;
+								end
+								else begin
+									oneseconds <= SW[3:0];
+								end
+								if (SW[8] == 1) begin
+									tensecondsdisplay <= tenseconds;
+									onesecondsdisplay <= oneseconds;
+								end
+								else begin
+									tensecondsdisplay <= 10;
+									onesecondsdisplay <= 10;
+								end
+							end	
+				SET_MIN: if (Y == 1'b1) begin
+								state <= START;
 							end
 							else begin
-								tenminutes <= SW[7:4];
+								if (SW[7:4] >= 9) begin
+									tenminutes <= 9;
+								end
+								else begin
+									tenminutes <= SW[7:4];
+								end
+								if (SW[3:0] >= 9) begin
+									oneminutes <= 9;
+								end
+								else begin
+									oneminutes <= SW[3:0];	
+								end
+								if (SW[8] == 1) begin
+									tenminutesdisplay <= tenminutes;
+									oneminutesdisplay <= oneminutes;
+								end
+								else begin
+									tenminutesdisplay <= 10;
+									oneminutesdisplay <= 10;
+								end
 							end
-							if (SW[3:0] >= 9) begin
-								oneminutes <= 9;
+				START: 	if (Y == 1'b0) begin
+								state <= STOP;
+							end
+							else if (SW[9] ==  1'b1) begin
+								state <= FLASH;
+							end
+				STOP: 	if (Y == 1'b1) begin
+								state <= START;
+							end
+				FLASH: 	if (SW[8] == 1'b1) begin
+								LEDR = 10'b1111111111;
 							end
 							else begin
-								oneminutes <= SW[3:0];	
+								LEDR = 10'b0000000000;
 							end
-							if (SW[8] == 1) begin
-								tenminutesdisplay <= tenminutes;
-								oneminutesdisplay <= oneminutes;
-							end
-							else begin
-								tenminutesdisplay <= 10;
-								oneminutesdisplay <= 10;
-							end
-						end
-			START: 	if (Y == 1'b0) begin
-							state <= STOP;
-						end
-						else if (SW[9] ==  1'b1) begin
-							state <= FLASH;
-						end
-			STOP: 	if (Y == 1'b1) begin
-							state <= START;
-						end
-			FLASH: 	if (SW[8] == 1'b1) begin
-							LEDR = 10'b1111111111;
-						end
-						else begin
-							LEDR = 10'b0000000000;
-						end
-		endcase
+			endcase
+		end
 	end
 endmodule
 

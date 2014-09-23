@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for Timer
-Tue Sep 23 19:06:00 2014
+Tue Sep 23 19:25:09 2014
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -120,7 +120,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +------------+-----------------+------------+---------------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
 +------------+-----------------+------------+---------------------------------------------------------------+
-; 328.41 MHz ; 328.41 MHz      ; CLOCK_50   ;                                                               ;
+; 345.78 MHz ; 345.78 MHz      ; CLOCK_50   ;                                                               ;
 ; 1443.0 MHz ; 405.02 MHz      ; KEY[1]     ; limit due to minimum period restriction (max I/O toggle rate) ;
 ; 1443.0 MHz ; 405.02 MHz      ; KEY[2]     ; limit due to minimum period restriction (max I/O toggle rate) ;
 +------------+-----------------+------------+---------------------------------------------------------------+
@@ -132,7 +132,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +----------+--------+---------------+
 ; Clock    ; Slack  ; End Point TNS ;
 +----------+--------+---------------+
-; CLOCK_50 ; -2.265 ; -97.789       ;
+; CLOCK_50 ; -1.892 ; -75.597       ;
 ; KEY[1]   ; 0.307  ; 0.000         ;
 ; KEY[2]   ; 0.307  ; 0.000         ;
 +----------+--------+---------------+
@@ -177,106 +177,106 @@ No paths to report.
 +--------+-----------------------+----------------------+--------------+-------------+--------------+------------+------------+
 ; Slack  ; From Node             ; To Node              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+-----------------------+----------------------+--------------+-------------+--------------+------------+------------+
-; -2.265 ; TFlipFlop:comb_3|tOut ; oneseconds[0]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -1.056     ; 2.247      ;
-; -2.265 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[0] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -1.056     ; 2.247      ;
-; -2.265 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[3] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -1.056     ; 2.247      ;
-; -2.265 ; TFlipFlop:comb_3|tOut ; tenseconds[2]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -1.056     ; 2.247      ;
-; -2.265 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[2] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -1.056     ; 2.247      ;
-; -2.265 ; TFlipFlop:comb_3|tOut ; tenseconds[1]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -1.056     ; 2.247      ;
-; -2.265 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[1] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -1.056     ; 2.247      ;
-; -2.265 ; TFlipFlop:comb_3|tOut ; tenseconds[0]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -1.056     ; 2.247      ;
-; -2.265 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[0] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -1.056     ; 2.247      ;
-; -2.256 ; TFlipFlop:comb_3|tOut ; oneseconds[3]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -1.054     ; 2.240      ;
-; -2.256 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[3] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -1.054     ; 2.240      ;
-; -2.256 ; TFlipFlop:comb_3|tOut ; oneseconds[2]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -1.054     ; 2.240      ;
-; -2.256 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[2] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -1.054     ; 2.240      ;
-; -2.256 ; TFlipFlop:comb_3|tOut ; oneseconds[1]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -1.054     ; 2.240      ;
-; -2.256 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[1] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -1.054     ; 2.240      ;
-; -2.165 ; TFlipFlop:comb_4|tOut ; oneseconds[0]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.823     ; 2.380      ;
-; -2.165 ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[0] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.823     ; 2.380      ;
-; -2.165 ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[3] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.823     ; 2.380      ;
-; -2.165 ; TFlipFlop:comb_4|tOut ; tenseconds[2]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.823     ; 2.380      ;
-; -2.165 ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[2] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.823     ; 2.380      ;
-; -2.165 ; TFlipFlop:comb_4|tOut ; tenseconds[1]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.823     ; 2.380      ;
-; -2.165 ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[1] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.823     ; 2.380      ;
-; -2.165 ; TFlipFlop:comb_4|tOut ; tenseconds[0]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.823     ; 2.380      ;
-; -2.165 ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[0] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.823     ; 2.380      ;
-; -2.156 ; TFlipFlop:comb_4|tOut ; oneseconds[3]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.821     ; 2.373      ;
-; -2.156 ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[3] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.821     ; 2.373      ;
-; -2.156 ; TFlipFlop:comb_4|tOut ; oneseconds[2]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.821     ; 2.373      ;
-; -2.156 ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[2] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.821     ; 2.373      ;
-; -2.156 ; TFlipFlop:comb_4|tOut ; oneseconds[1]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.821     ; 2.373      ;
-; -2.156 ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[1] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.821     ; 2.373      ;
-; -2.132 ; TFlipFlop:comb_4|tOut ; oneminutes[3]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.820     ; 2.350      ;
-; -2.132 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[3] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.820     ; 2.350      ;
-; -2.132 ; TFlipFlop:comb_4|tOut ; oneminutes[2]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.820     ; 2.350      ;
-; -2.132 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[2] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.820     ; 2.350      ;
-; -2.132 ; TFlipFlop:comb_4|tOut ; oneminutes[1]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.820     ; 2.350      ;
-; -2.132 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[1] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.820     ; 2.350      ;
-; -2.132 ; TFlipFlop:comb_4|tOut ; oneminutes[0]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.820     ; 2.350      ;
-; -2.132 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[0] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.820     ; 2.350      ;
-; -2.132 ; TFlipFlop:comb_4|tOut ; tenminutes[3]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.820     ; 2.350      ;
-; -2.132 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[3] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.820     ; 2.350      ;
-; -2.132 ; TFlipFlop:comb_4|tOut ; tenminutes[2]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.820     ; 2.350      ;
-; -2.132 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[2] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.820     ; 2.350      ;
-; -2.132 ; TFlipFlop:comb_4|tOut ; tenminutes[1]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.820     ; 2.350      ;
-; -2.132 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[1] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.820     ; 2.350      ;
-; -2.132 ; TFlipFlop:comb_4|tOut ; tenminutes[0]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.820     ; 2.350      ;
-; -2.132 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[0] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.820     ; 2.350      ;
-; -2.115 ; TFlipFlop:comb_3|tOut ; state.SET_MIN        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -1.055     ; 2.098      ;
-; -2.114 ; TFlipFlop:comb_3|tOut ; state.START          ; KEY[1]       ; CLOCK_50    ; 1.000        ; -1.055     ; 2.097      ;
-; -2.050 ; TFlipFlop:comb_3|tOut ; state.FLASH          ; KEY[1]       ; CLOCK_50    ; 1.000        ; -1.055     ; 2.033      ;
-; -2.045 ; state.FLASH           ; LEDR[1]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.171     ; 2.785      ;
-; -2.045 ; state.FLASH           ; LEDR[8]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.171     ; 2.785      ;
-; -2.043 ; state.FLASH           ; LEDR[3]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.155     ; 2.799      ;
-; -2.043 ; state.FLASH           ; LEDR[5]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.155     ; 2.799      ;
-; -2.043 ; state.FLASH           ; LEDR[6]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.155     ; 2.799      ;
-; -2.032 ; state.FLASH           ; LEDR[4]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.157     ; 2.786      ;
-; -2.032 ; state.FLASH           ; LEDR[7]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.157     ; 2.786      ;
-; -2.001 ; state.FLASH           ; LEDR[9]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.165     ; 2.747      ;
-; -1.945 ; TFlipFlop:comb_4|tOut ; state.SET_MIN        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.822     ; 2.161      ;
-; -1.945 ; TFlipFlop:comb_4|tOut ; state.FLASH          ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.822     ; 2.161      ;
-; -1.943 ; TFlipFlop:comb_4|tOut ; state.START          ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.822     ; 2.159      ;
-; -1.921 ; state.FLASH           ; LEDR[2]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.161     ; 2.671      ;
-; -1.903 ; state.FLASH           ; LEDR[0]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.162     ; 2.652      ;
-; -1.879 ; TFlipFlop:comb_3|tOut ; state.STOP           ; KEY[1]       ; CLOCK_50    ; 1.000        ; -1.055     ; 1.862      ;
-; -1.853 ; TFlipFlop:comb_4|tOut ; state.STOP           ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.822     ; 2.069      ;
-; -1.633 ; state.SET_MIN         ; oneminutes[3]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.673      ;
-; -1.633 ; state.SET_MIN         ; oneminutesdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.673      ;
-; -1.633 ; state.SET_MIN         ; oneminutes[2]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.673      ;
-; -1.633 ; state.SET_MIN         ; oneminutesdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.673      ;
-; -1.633 ; state.SET_MIN         ; oneminutes[1]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.673      ;
-; -1.633 ; state.SET_MIN         ; oneminutesdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.673      ;
-; -1.633 ; state.SET_MIN         ; oneminutes[0]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.673      ;
-; -1.633 ; state.SET_MIN         ; oneminutesdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.673      ;
-; -1.633 ; state.SET_MIN         ; tenminutes[3]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.673      ;
-; -1.633 ; state.SET_MIN         ; tenminutesdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.673      ;
-; -1.633 ; state.SET_MIN         ; tenminutes[2]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.673      ;
-; -1.633 ; state.SET_MIN         ; tenminutesdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.673      ;
-; -1.633 ; state.SET_MIN         ; tenminutes[1]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.673      ;
-; -1.633 ; state.SET_MIN         ; tenminutesdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.673      ;
-; -1.633 ; state.SET_MIN         ; tenminutes[0]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.673      ;
-; -1.633 ; state.SET_MIN         ; tenminutesdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.673      ;
-; -1.490 ; TFlipFlop:comb_3|tOut ; state.000            ; KEY[1]       ; CLOCK_50    ; 1.000        ; -1.055     ; 1.473      ;
-; -1.346 ; state.000             ; oneseconds[0]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.383      ;
-; -1.346 ; state.000             ; onesecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.383      ;
-; -1.346 ; state.000             ; tensecondsdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.383      ;
-; -1.346 ; state.000             ; tenseconds[2]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.383      ;
-; -1.346 ; state.000             ; tensecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.383      ;
-; -1.346 ; state.000             ; tenseconds[1]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.383      ;
-; -1.346 ; state.000             ; tensecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.383      ;
-; -1.346 ; state.000             ; tenseconds[0]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.383      ;
-; -1.346 ; state.000             ; tensecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.383      ;
-; -1.337 ; state.000             ; oneseconds[3]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.376      ;
-; -1.337 ; state.000             ; onesecondsdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.376      ;
-; -1.337 ; state.000             ; oneseconds[2]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.376      ;
-; -1.337 ; state.000             ; onesecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.376      ;
-; -1.337 ; state.000             ; oneseconds[1]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.376      ;
-; -1.337 ; state.000             ; onesecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.376      ;
-; -1.142 ; state.STOP            ; state.STOP           ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.180      ;
-; -1.142 ; state.START           ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.180      ;
-; -1.130 ; state.000             ; state.SET_MIN        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.168      ;
-; -1.130 ; state.000             ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.168      ;
+; -1.892 ; state.SET_MIN         ; tenminutes[2]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.935      ;
+; -1.753 ; TFlipFlop:comb_4|tOut ; oneseconds[3]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.255     ; 2.536      ;
+; -1.753 ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[3] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.255     ; 2.536      ;
+; -1.753 ; TFlipFlop:comb_4|tOut ; oneseconds[2]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.255     ; 2.536      ;
+; -1.753 ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[2] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.255     ; 2.536      ;
+; -1.753 ; TFlipFlop:comb_4|tOut ; oneseconds[1]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.255     ; 2.536      ;
+; -1.753 ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[1] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.255     ; 2.536      ;
+; -1.753 ; TFlipFlop:comb_4|tOut ; oneseconds[0]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.255     ; 2.536      ;
+; -1.753 ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[0] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.255     ; 2.536      ;
+; -1.753 ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[3] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.255     ; 2.536      ;
+; -1.753 ; TFlipFlop:comb_4|tOut ; tenseconds[2]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.255     ; 2.536      ;
+; -1.753 ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[2] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.255     ; 2.536      ;
+; -1.753 ; TFlipFlop:comb_4|tOut ; tenseconds[1]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.255     ; 2.536      ;
+; -1.753 ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[1] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.255     ; 2.536      ;
+; -1.753 ; TFlipFlop:comb_4|tOut ; tenseconds[0]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.255     ; 2.536      ;
+; -1.753 ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[0] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.255     ; 2.536      ;
+; -1.665 ; state.FLASH           ; LEDR[1]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.166     ; 2.410      ;
+; -1.665 ; state.FLASH           ; LEDR[8]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.166     ; 2.410      ;
+; -1.663 ; state.FLASH           ; LEDR[3]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.150     ; 2.424      ;
+; -1.663 ; state.FLASH           ; LEDR[5]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.150     ; 2.424      ;
+; -1.663 ; state.FLASH           ; LEDR[6]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.150     ; 2.424      ;
+; -1.652 ; state.FLASH           ; LEDR[4]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.152     ; 2.411      ;
+; -1.652 ; state.FLASH           ; LEDR[7]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.152     ; 2.411      ;
+; -1.621 ; state.FLASH           ; LEDR[9]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.160     ; 2.372      ;
+; -1.613 ; state.SET_MIN         ; oneminutes[3]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.651      ;
+; -1.613 ; state.SET_MIN         ; oneminutesdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.651      ;
+; -1.613 ; state.SET_MIN         ; oneminutes[2]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.651      ;
+; -1.613 ; state.SET_MIN         ; oneminutesdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.651      ;
+; -1.613 ; state.SET_MIN         ; oneminutes[1]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.651      ;
+; -1.613 ; state.SET_MIN         ; oneminutesdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.651      ;
+; -1.613 ; state.SET_MIN         ; oneminutes[0]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.651      ;
+; -1.613 ; state.SET_MIN         ; oneminutesdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.651      ;
+; -1.613 ; state.SET_MIN         ; tenminutes[3]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.651      ;
+; -1.613 ; state.SET_MIN         ; tenminutesdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.651      ;
+; -1.613 ; state.SET_MIN         ; tenminutesdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.651      ;
+; -1.613 ; state.SET_MIN         ; tenminutes[1]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.651      ;
+; -1.613 ; state.SET_MIN         ; tenminutesdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.651      ;
+; -1.613 ; state.SET_MIN         ; tenminutes[0]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.651      ;
+; -1.613 ; state.SET_MIN         ; tenminutesdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.651      ;
+; -1.593 ; TFlipFlop:comb_3|tOut ; oneseconds[3]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.495     ; 2.136      ;
+; -1.593 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[3] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.495     ; 2.136      ;
+; -1.593 ; TFlipFlop:comb_3|tOut ; oneseconds[2]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.495     ; 2.136      ;
+; -1.593 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[2] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.495     ; 2.136      ;
+; -1.593 ; TFlipFlop:comb_3|tOut ; oneseconds[1]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.495     ; 2.136      ;
+; -1.593 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[1] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.495     ; 2.136      ;
+; -1.593 ; TFlipFlop:comb_3|tOut ; oneseconds[0]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.495     ; 2.136      ;
+; -1.593 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[0] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.495     ; 2.136      ;
+; -1.593 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[3] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.495     ; 2.136      ;
+; -1.593 ; TFlipFlop:comb_3|tOut ; tenseconds[2]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.495     ; 2.136      ;
+; -1.593 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[2] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.495     ; 2.136      ;
+; -1.593 ; TFlipFlop:comb_3|tOut ; tenseconds[1]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.495     ; 2.136      ;
+; -1.593 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[1] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.495     ; 2.136      ;
+; -1.593 ; TFlipFlop:comb_3|tOut ; tenseconds[0]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.495     ; 2.136      ;
+; -1.593 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[0] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.495     ; 2.136      ;
+; -1.577 ; TFlipFlop:comb_4|tOut ; tenminutes[2]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.255     ; 2.360      ;
+; -1.541 ; state.FLASH           ; LEDR[2]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.156     ; 2.296      ;
+; -1.533 ; TFlipFlop:comb_4|tOut ; state.SET_MIN        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.260     ; 2.311      ;
+; -1.533 ; TFlipFlop:comb_4|tOut ; state.START          ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.260     ; 2.311      ;
+; -1.533 ; TFlipFlop:comb_4|tOut ; state.FLASH          ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.260     ; 2.311      ;
+; -1.418 ; TFlipFlop:comb_4|tOut ; state.STOP           ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.260     ; 2.196      ;
+; -1.375 ; state.000             ; oneseconds[3]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.418      ;
+; -1.375 ; state.000             ; onesecondsdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.418      ;
+; -1.375 ; state.000             ; oneseconds[2]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.418      ;
+; -1.375 ; state.000             ; onesecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.418      ;
+; -1.375 ; state.000             ; oneseconds[1]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.418      ;
+; -1.375 ; state.000             ; onesecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.418      ;
+; -1.375 ; state.000             ; oneseconds[0]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.418      ;
+; -1.375 ; state.000             ; onesecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.418      ;
+; -1.375 ; state.000             ; tensecondsdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.418      ;
+; -1.375 ; state.000             ; tenseconds[2]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.418      ;
+; -1.375 ; state.000             ; tensecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.418      ;
+; -1.375 ; state.000             ; tenseconds[1]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.418      ;
+; -1.375 ; state.000             ; tensecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.418      ;
+; -1.375 ; state.000             ; tenseconds[0]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.418      ;
+; -1.375 ; state.000             ; tensecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.418      ;
+; -1.371 ; state.FLASH           ; LEDR[0]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.157     ; 2.125      ;
+; -1.370 ; TFlipFlop:comb_3|tOut ; state.SET_MIN        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.500     ; 1.908      ;
+; -1.370 ; TFlipFlop:comb_3|tOut ; state.START          ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.500     ; 1.908      ;
+; -1.370 ; TFlipFlop:comb_3|tOut ; state.FLASH          ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.500     ; 1.908      ;
+; -1.298 ; TFlipFlop:comb_4|tOut ; oneminutes[3]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.260     ; 2.076      ;
+; -1.298 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[3] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.260     ; 2.076      ;
+; -1.298 ; TFlipFlop:comb_4|tOut ; oneminutes[2]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.260     ; 2.076      ;
+; -1.298 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[2] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.260     ; 2.076      ;
+; -1.298 ; TFlipFlop:comb_4|tOut ; oneminutes[1]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.260     ; 2.076      ;
+; -1.298 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[1] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.260     ; 2.076      ;
+; -1.298 ; TFlipFlop:comb_4|tOut ; oneminutes[0]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.260     ; 2.076      ;
+; -1.298 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[0] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.260     ; 2.076      ;
+; -1.298 ; TFlipFlop:comb_4|tOut ; tenminutes[3]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.260     ; 2.076      ;
+; -1.298 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[3] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.260     ; 2.076      ;
+; -1.298 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[2] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.260     ; 2.076      ;
+; -1.298 ; TFlipFlop:comb_4|tOut ; tenminutes[1]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.260     ; 2.076      ;
+; -1.298 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[1] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.260     ; 2.076      ;
+; -1.298 ; TFlipFlop:comb_4|tOut ; tenminutes[0]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.260     ; 2.076      ;
+; -1.298 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[0] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.260     ; 2.076      ;
+; -1.150 ; state.000             ; state.SET_MIN        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.188      ;
+; -1.150 ; state.000             ; state.START          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.188      ;
+; -1.150 ; state.000             ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.188      ;
+; -1.097 ; state.STOP            ; state.STOP           ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.135      ;
+; -1.042 ; TFlipFlop:comb_4|tOut ; state.000            ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.260     ; 1.820      ;
+; -0.889 ; TFlipFlop:comb_3|tOut ; state.STOP           ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.500     ; 1.427      ;
 +--------+-----------------------+----------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -307,102 +307,102 @@ No paths to report.
 ; 0.445 ; state.START           ; state.START          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
 ; 0.445 ; state.000             ; state.000            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
 ; 0.445 ; state.FLASH           ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
-; 0.613 ; oneseconds[1]         ; onesecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.899      ;
-; 0.614 ; tenseconds[1]         ; tensecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.900      ;
-; 0.614 ; tenminutes[1]         ; tenminutesdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.900      ;
-; 0.614 ; tenminutes[0]         ; tenminutesdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.900      ;
-; 0.615 ; oneseconds[2]         ; onesecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.901      ;
-; 0.617 ; oneminutes[0]         ; oneminutesdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.903      ;
-; 0.619 ; oneseconds[0]         ; onesecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.905      ;
-; 0.619 ; tenseconds[2]         ; tensecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.905      ;
-; 0.619 ; tenminutes[2]         ; tenminutesdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.905      ;
-; 0.766 ; tenseconds[0]         ; tensecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.052      ;
-; 0.865 ; oneminutes[3]         ; oneminutesdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.151      ;
-; 0.897 ; oneseconds[3]         ; onesecondsdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.183      ;
-; 0.966 ; oneminutes[2]         ; oneminutesdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.252      ;
-; 0.966 ; tenminutes[3]         ; tenminutesdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.252      ;
-; 1.010 ; oneminutes[1]         ; oneminutesdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.296      ;
-; 1.128 ; state.START           ; state.STOP           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.414      ;
-; 1.463 ; state.000             ; state.START          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.749      ;
-; 1.464 ; state.000             ; state.SET_MIN        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.750      ;
-; 1.474 ; state.START           ; state.000            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.760      ;
-; 1.481 ; state.SET_MIN         ; state.START          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.767      ;
-; 1.483 ; state.SET_MIN         ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.769      ;
-; 1.512 ; state.STOP            ; state.START          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.798      ;
-; 1.514 ; state.STOP            ; state.SET_MIN        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.800      ;
-; 1.514 ; state.STOP            ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.800      ;
-; 1.711 ; state.000             ; state.STOP           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.997      ;
-; 1.739 ; TFlipFlop:comb_4|tOut ; state.000            ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.822     ; 1.203      ;
-; 1.807 ; state.START           ; state.SET_MIN        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 2.093      ;
-; 1.882 ; state.000             ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 2.168      ;
-; 1.894 ; state.START           ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 2.180      ;
-; 1.894 ; state.STOP            ; state.STOP           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 2.180      ;
-; 2.085 ; TFlipFlop:comb_4|tOut ; state.FLASH          ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.822     ; 1.549      ;
-; 2.089 ; state.000             ; oneseconds[3]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 2.376      ;
-; 2.089 ; state.000             ; onesecondsdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 2.376      ;
-; 2.089 ; state.000             ; oneseconds[2]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 2.376      ;
-; 2.089 ; state.000             ; onesecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 2.376      ;
-; 2.089 ; state.000             ; oneseconds[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 2.376      ;
-; 2.089 ; state.000             ; onesecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 2.376      ;
-; 2.098 ; state.000             ; oneseconds[0]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 2.383      ;
-; 2.098 ; state.000             ; onesecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 2.383      ;
-; 2.098 ; state.000             ; tensecondsdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 2.383      ;
-; 2.098 ; state.000             ; tenseconds[2]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 2.383      ;
-; 2.098 ; state.000             ; tensecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 2.383      ;
-; 2.098 ; state.000             ; tenseconds[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 2.383      ;
-; 2.098 ; state.000             ; tensecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 2.383      ;
-; 2.098 ; state.000             ; tenseconds[0]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 2.383      ;
-; 2.098 ; state.000             ; tensecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 2.383      ;
-; 2.242 ; TFlipFlop:comb_3|tOut ; state.000            ; KEY[1]       ; CLOCK_50    ; 0.000        ; -1.055     ; 1.473      ;
-; 2.383 ; TFlipFlop:comb_4|tOut ; state.STOP           ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.822     ; 1.847      ;
-; 2.385 ; state.SET_MIN         ; oneminutes[3]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 2.673      ;
-; 2.385 ; state.SET_MIN         ; oneminutesdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 2.673      ;
-; 2.385 ; state.SET_MIN         ; oneminutes[2]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 2.673      ;
-; 2.385 ; state.SET_MIN         ; oneminutesdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 2.673      ;
-; 2.385 ; state.SET_MIN         ; oneminutes[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 2.673      ;
-; 2.385 ; state.SET_MIN         ; oneminutesdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 2.673      ;
-; 2.385 ; state.SET_MIN         ; oneminutes[0]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 2.673      ;
-; 2.385 ; state.SET_MIN         ; oneminutesdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 2.673      ;
-; 2.385 ; state.SET_MIN         ; tenminutes[3]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 2.673      ;
-; 2.385 ; state.SET_MIN         ; tenminutesdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 2.673      ;
-; 2.385 ; state.SET_MIN         ; tenminutes[2]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 2.673      ;
-; 2.385 ; state.SET_MIN         ; tenminutesdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 2.673      ;
-; 2.385 ; state.SET_MIN         ; tenminutes[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 2.673      ;
-; 2.385 ; state.SET_MIN         ; tenminutesdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 2.673      ;
-; 2.385 ; state.SET_MIN         ; tenminutes[0]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 2.673      ;
-; 2.385 ; state.SET_MIN         ; tenminutesdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 2.673      ;
-; 2.532 ; TFlipFlop:comb_4|tOut ; state.SET_MIN        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.822     ; 1.996      ;
-; 2.534 ; TFlipFlop:comb_4|tOut ; state.START          ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.822     ; 1.998      ;
-; 2.631 ; TFlipFlop:comb_3|tOut ; state.STOP           ; KEY[1]       ; CLOCK_50    ; 0.000        ; -1.055     ; 1.862      ;
-; 2.717 ; state.FLASH           ; LEDR[0]~reg0         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.162     ; 2.652      ;
-; 2.735 ; state.FLASH           ; LEDR[2]~reg0         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.161     ; 2.671      ;
-; 2.800 ; TFlipFlop:comb_3|tOut ; state.START          ; KEY[1]       ; CLOCK_50    ; 0.000        ; -1.055     ; 2.031      ;
-; 2.802 ; TFlipFlop:comb_3|tOut ; state.SET_MIN        ; KEY[1]       ; CLOCK_50    ; 0.000        ; -1.055     ; 2.033      ;
-; 2.802 ; TFlipFlop:comb_3|tOut ; state.FLASH          ; KEY[1]       ; CLOCK_50    ; 0.000        ; -1.055     ; 2.033      ;
-; 2.815 ; state.FLASH           ; LEDR[9]~reg0         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.165     ; 2.747      ;
-; 2.846 ; state.FLASH           ; LEDR[4]~reg0         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.157     ; 2.786      ;
-; 2.846 ; state.FLASH           ; LEDR[7]~reg0         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.157     ; 2.786      ;
-; 2.857 ; state.FLASH           ; LEDR[3]~reg0         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.155     ; 2.799      ;
-; 2.857 ; state.FLASH           ; LEDR[5]~reg0         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.155     ; 2.799      ;
-; 2.857 ; state.FLASH           ; LEDR[6]~reg0         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.155     ; 2.799      ;
-; 2.859 ; state.FLASH           ; LEDR[1]~reg0         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.171     ; 2.785      ;
-; 2.859 ; state.FLASH           ; LEDR[8]~reg0         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.171     ; 2.785      ;
-; 2.884 ; TFlipFlop:comb_4|tOut ; oneminutes[3]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.820     ; 2.350      ;
-; 2.884 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[3] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.820     ; 2.350      ;
-; 2.884 ; TFlipFlop:comb_4|tOut ; oneminutes[2]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.820     ; 2.350      ;
-; 2.884 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[2] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.820     ; 2.350      ;
-; 2.884 ; TFlipFlop:comb_4|tOut ; oneminutes[1]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.820     ; 2.350      ;
-; 2.884 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[1] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.820     ; 2.350      ;
-; 2.884 ; TFlipFlop:comb_4|tOut ; oneminutes[0]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.820     ; 2.350      ;
-; 2.884 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[0] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.820     ; 2.350      ;
-; 2.884 ; TFlipFlop:comb_4|tOut ; tenminutes[3]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.820     ; 2.350      ;
-; 2.884 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[3] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.820     ; 2.350      ;
-; 2.884 ; TFlipFlop:comb_4|tOut ; tenminutes[2]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.820     ; 2.350      ;
-; 2.884 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[2] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.820     ; 2.350      ;
-; 2.884 ; TFlipFlop:comb_4|tOut ; tenminutes[1]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.820     ; 2.350      ;
-; 2.884 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[1] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.820     ; 2.350      ;
-; 2.884 ; TFlipFlop:comb_4|tOut ; tenminutes[0]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.820     ; 2.350      ;
-; 2.884 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[0] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.820     ; 2.350      ;
+; 0.612 ; oneseconds[1]         ; onesecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.898      ;
+; 0.612 ; tenseconds[1]         ; tensecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.898      ;
+; 0.614 ; oneminutes[3]         ; oneminutesdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.900      ;
+; 0.618 ; tenminutes[0]         ; tenminutesdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.904      ;
+; 0.619 ; tenminutes[1]         ; tenminutesdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.905      ;
+; 0.620 ; oneminutes[1]         ; oneminutesdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.906      ;
+; 0.622 ; oneseconds[3]         ; onesecondsdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.908      ;
+; 0.622 ; oneseconds[2]         ; onesecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.908      ;
+; 0.622 ; oneseconds[0]         ; onesecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.908      ;
+; 0.624 ; tenminutes[3]         ; tenminutesdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.910      ;
+; 0.649 ; state.START           ; state.000            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.935      ;
+; 0.960 ; tenseconds[2]         ; tensecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.246      ;
+; 1.004 ; tenseconds[0]         ; tensecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.290      ;
+; 1.007 ; oneminutes[2]         ; oneminutesdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.293      ;
+; 1.009 ; oneminutes[0]         ; oneminutesdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.295      ;
+; 1.147 ; tenminutes[2]         ; tenminutesdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.005     ; 1.428      ;
+; 1.259 ; state.START           ; state.STOP           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.545      ;
+; 1.421 ; state.000             ; state.STOP           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.707      ;
+; 1.441 ; state.START           ; state.SET_MIN        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.727      ;
+; 1.480 ; state.SET_MIN         ; state.START          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.766      ;
+; 1.480 ; state.SET_MIN         ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.766      ;
+; 1.505 ; state.START           ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.791      ;
+; 1.516 ; state.STOP            ; state.SET_MIN        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.802      ;
+; 1.516 ; state.STOP            ; state.START          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.802      ;
+; 1.516 ; state.STOP            ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.802      ;
+; 1.545 ; TFlipFlop:comb_3|tOut ; state.000            ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.500     ; 1.331      ;
+; 1.641 ; TFlipFlop:comb_3|tOut ; state.STOP           ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.500     ; 1.427      ;
+; 1.686 ; state.000             ; state.SET_MIN        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.972      ;
+; 1.690 ; state.000             ; state.START          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.976      ;
+; 1.794 ; TFlipFlop:comb_4|tOut ; state.000            ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.260     ; 1.820      ;
+; 1.797 ; TFlipFlop:comb_4|tOut ; state.SET_MIN        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.260     ; 1.823      ;
+; 1.797 ; TFlipFlop:comb_4|tOut ; state.START          ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.260     ; 1.823      ;
+; 1.797 ; TFlipFlop:comb_4|tOut ; state.FLASH          ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.260     ; 1.823      ;
+; 1.804 ; TFlipFlop:comb_4|tOut ; state.STOP           ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.260     ; 1.830      ;
+; 1.849 ; state.STOP            ; state.STOP           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 2.135      ;
+; 1.902 ; state.000             ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 2.188      ;
+; 2.041 ; TFlipFlop:comb_3|tOut ; state.SET_MIN        ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.500     ; 1.827      ;
+; 2.045 ; TFlipFlop:comb_3|tOut ; state.START          ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.500     ; 1.831      ;
+; 2.050 ; TFlipFlop:comb_4|tOut ; oneminutes[3]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.260     ; 2.076      ;
+; 2.050 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[3] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.260     ; 2.076      ;
+; 2.050 ; TFlipFlop:comb_4|tOut ; oneminutes[2]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.260     ; 2.076      ;
+; 2.050 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[2] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.260     ; 2.076      ;
+; 2.050 ; TFlipFlop:comb_4|tOut ; oneminutes[1]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.260     ; 2.076      ;
+; 2.050 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[1] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.260     ; 2.076      ;
+; 2.050 ; TFlipFlop:comb_4|tOut ; oneminutes[0]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.260     ; 2.076      ;
+; 2.050 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[0] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.260     ; 2.076      ;
+; 2.050 ; TFlipFlop:comb_4|tOut ; tenminutes[3]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.260     ; 2.076      ;
+; 2.050 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[3] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.260     ; 2.076      ;
+; 2.050 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[2] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.260     ; 2.076      ;
+; 2.050 ; TFlipFlop:comb_4|tOut ; tenminutes[1]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.260     ; 2.076      ;
+; 2.050 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[1] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.260     ; 2.076      ;
+; 2.050 ; TFlipFlop:comb_4|tOut ; tenminutes[0]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.260     ; 2.076      ;
+; 2.050 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[0] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.260     ; 2.076      ;
+; 2.122 ; TFlipFlop:comb_3|tOut ; state.FLASH          ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.500     ; 1.908      ;
+; 2.127 ; state.000             ; oneseconds[3]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.005      ; 2.418      ;
+; 2.127 ; state.000             ; onesecondsdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.005      ; 2.418      ;
+; 2.127 ; state.000             ; oneseconds[2]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.005      ; 2.418      ;
+; 2.127 ; state.000             ; onesecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.005      ; 2.418      ;
+; 2.127 ; state.000             ; oneseconds[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.005      ; 2.418      ;
+; 2.127 ; state.000             ; onesecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.005      ; 2.418      ;
+; 2.127 ; state.000             ; oneseconds[0]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.005      ; 2.418      ;
+; 2.127 ; state.000             ; onesecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.005      ; 2.418      ;
+; 2.127 ; state.000             ; tensecondsdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.005      ; 2.418      ;
+; 2.127 ; state.000             ; tenseconds[2]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.005      ; 2.418      ;
+; 2.127 ; state.000             ; tensecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.005      ; 2.418      ;
+; 2.127 ; state.000             ; tenseconds[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.005      ; 2.418      ;
+; 2.127 ; state.000             ; tensecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.005      ; 2.418      ;
+; 2.127 ; state.000             ; tenseconds[0]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.005      ; 2.418      ;
+; 2.127 ; state.000             ; tensecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.005      ; 2.418      ;
+; 2.185 ; state.FLASH           ; LEDR[0]~reg0         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.157     ; 2.125      ;
+; 2.329 ; TFlipFlop:comb_4|tOut ; tenminutes[2]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.255     ; 2.360      ;
+; 2.345 ; TFlipFlop:comb_3|tOut ; oneseconds[3]        ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.495     ; 2.136      ;
+; 2.345 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[3] ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.495     ; 2.136      ;
+; 2.345 ; TFlipFlop:comb_3|tOut ; oneseconds[2]        ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.495     ; 2.136      ;
+; 2.345 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[2] ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.495     ; 2.136      ;
+; 2.345 ; TFlipFlop:comb_3|tOut ; oneseconds[1]        ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.495     ; 2.136      ;
+; 2.345 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[1] ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.495     ; 2.136      ;
+; 2.345 ; TFlipFlop:comb_3|tOut ; oneseconds[0]        ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.495     ; 2.136      ;
+; 2.345 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[0] ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.495     ; 2.136      ;
+; 2.345 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[3] ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.495     ; 2.136      ;
+; 2.345 ; TFlipFlop:comb_3|tOut ; tenseconds[2]        ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.495     ; 2.136      ;
+; 2.345 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[2] ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.495     ; 2.136      ;
+; 2.345 ; TFlipFlop:comb_3|tOut ; tenseconds[1]        ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.495     ; 2.136      ;
+; 2.345 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[1] ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.495     ; 2.136      ;
+; 2.345 ; TFlipFlop:comb_3|tOut ; tenseconds[0]        ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.495     ; 2.136      ;
+; 2.345 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[0] ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.495     ; 2.136      ;
+; 2.355 ; state.FLASH           ; LEDR[2]~reg0         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.156     ; 2.296      ;
+; 2.365 ; state.SET_MIN         ; oneminutes[3]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 2.651      ;
+; 2.365 ; state.SET_MIN         ; oneminutesdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 2.651      ;
+; 2.365 ; state.SET_MIN         ; oneminutes[2]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 2.651      ;
+; 2.365 ; state.SET_MIN         ; oneminutesdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 2.651      ;
+; 2.365 ; state.SET_MIN         ; oneminutes[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 2.651      ;
+; 2.365 ; state.SET_MIN         ; oneminutesdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 2.651      ;
+; 2.365 ; state.SET_MIN         ; oneminutes[0]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 2.651      ;
+; 2.365 ; state.SET_MIN         ; oneminutesdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 2.651      ;
+; 2.365 ; state.SET_MIN         ; tenminutes[3]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 2.651      ;
 +-------+-----------------------+----------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -567,17 +567,17 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; SW[*]     ; CLOCK_50   ; 2.224 ; 2.224 ; Fall       ; CLOCK_50        ;
-;  SW[0]    ; CLOCK_50   ; 2.058 ; 2.058 ; Fall       ; CLOCK_50        ;
-;  SW[1]    ; CLOCK_50   ; 2.224 ; 2.224 ; Fall       ; CLOCK_50        ;
-;  SW[2]    ; CLOCK_50   ; 1.842 ; 1.842 ; Fall       ; CLOCK_50        ;
-;  SW[3]    ; CLOCK_50   ; 1.232 ; 1.232 ; Fall       ; CLOCK_50        ;
-;  SW[4]    ; CLOCK_50   ; 0.515 ; 0.515 ; Fall       ; CLOCK_50        ;
-;  SW[5]    ; CLOCK_50   ; 0.924 ; 0.924 ; Fall       ; CLOCK_50        ;
-;  SW[6]    ; CLOCK_50   ; 0.410 ; 0.410 ; Fall       ; CLOCK_50        ;
-;  SW[7]    ; CLOCK_50   ; 0.476 ; 0.476 ; Fall       ; CLOCK_50        ;
-;  SW[8]    ; CLOCK_50   ; 1.528 ; 1.528 ; Fall       ; CLOCK_50        ;
-;  SW[9]    ; CLOCK_50   ; 1.080 ; 1.080 ; Fall       ; CLOCK_50        ;
+; SW[*]     ; CLOCK_50   ; 2.362 ; 2.362 ; Fall       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; 1.882 ; 1.882 ; Fall       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; 1.407 ; 1.407 ; Fall       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; 1.341 ; 1.341 ; Fall       ; CLOCK_50        ;
+;  SW[3]    ; CLOCK_50   ; 1.177 ; 1.177 ; Fall       ; CLOCK_50        ;
+;  SW[4]    ; CLOCK_50   ; 1.199 ; 1.199 ; Fall       ; CLOCK_50        ;
+;  SW[5]    ; CLOCK_50   ; 1.043 ; 1.043 ; Fall       ; CLOCK_50        ;
+;  SW[6]    ; CLOCK_50   ; 0.800 ; 0.800 ; Fall       ; CLOCK_50        ;
+;  SW[7]    ; CLOCK_50   ; 2.362 ; 2.362 ; Fall       ; CLOCK_50        ;
+;  SW[8]    ; CLOCK_50   ; 2.018 ; 2.018 ; Fall       ; CLOCK_50        ;
+;  SW[9]    ; CLOCK_50   ; 1.920 ; 1.920 ; Fall       ; CLOCK_50        ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -586,17 +586,17 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; SW[*]     ; CLOCK_50   ; 0.235  ; 0.235  ; Fall       ; CLOCK_50        ;
-;  SW[0]    ; CLOCK_50   ; -0.851 ; -0.851 ; Fall       ; CLOCK_50        ;
-;  SW[1]    ; CLOCK_50   ; -0.674 ; -0.674 ; Fall       ; CLOCK_50        ;
-;  SW[2]    ; CLOCK_50   ; -0.635 ; -0.635 ; Fall       ; CLOCK_50        ;
-;  SW[3]    ; CLOCK_50   ; 0.160  ; 0.160  ; Fall       ; CLOCK_50        ;
-;  SW[4]    ; CLOCK_50   ; -0.258 ; -0.258 ; Fall       ; CLOCK_50        ;
-;  SW[5]    ; CLOCK_50   ; -0.226 ; -0.226 ; Fall       ; CLOCK_50        ;
-;  SW[6]    ; CLOCK_50   ; 0.174  ; 0.174  ; Fall       ; CLOCK_50        ;
-;  SW[7]    ; CLOCK_50   ; 0.235  ; 0.235  ; Fall       ; CLOCK_50        ;
-;  SW[8]    ; CLOCK_50   ; 0.141  ; 0.141  ; Fall       ; CLOCK_50        ;
-;  SW[9]    ; CLOCK_50   ; -0.596 ; -0.596 ; Fall       ; CLOCK_50        ;
+; SW[*]     ; CLOCK_50   ; 0.639  ; 0.639  ; Fall       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; -0.640 ; -0.640 ; Fall       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; 0.177  ; 0.177  ; Fall       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; -0.098 ; -0.098 ; Fall       ; CLOCK_50        ;
+;  SW[3]    ; CLOCK_50   ; 0.552  ; 0.552  ; Fall       ; CLOCK_50        ;
+;  SW[4]    ; CLOCK_50   ; 0.238  ; 0.238  ; Fall       ; CLOCK_50        ;
+;  SW[5]    ; CLOCK_50   ; 0.395  ; 0.395  ; Fall       ; CLOCK_50        ;
+;  SW[6]    ; CLOCK_50   ; 0.639  ; 0.639  ; Fall       ; CLOCK_50        ;
+;  SW[7]    ; CLOCK_50   ; -0.423 ; -0.423 ; Fall       ; CLOCK_50        ;
+;  SW[8]    ; CLOCK_50   ; -0.538 ; -0.538 ; Fall       ; CLOCK_50        ;
+;  SW[9]    ; CLOCK_50   ; -1.608 ; -1.608 ; Fall       ; CLOCK_50        ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -605,38 +605,38 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; HEX0[*]   ; CLOCK_50   ; 9.393  ; 9.393  ; Fall       ; CLOCK_50        ;
-;  HEX0[0]  ; CLOCK_50   ; 9.234  ; 9.234  ; Fall       ; CLOCK_50        ;
-;  HEX0[1]  ; CLOCK_50   ; 9.352  ; 9.352  ; Fall       ; CLOCK_50        ;
-;  HEX0[2]  ; CLOCK_50   ; 9.044  ; 9.044  ; Fall       ; CLOCK_50        ;
-;  HEX0[3]  ; CLOCK_50   ; 9.045  ; 9.045  ; Fall       ; CLOCK_50        ;
-;  HEX0[4]  ; CLOCK_50   ; 9.267  ; 9.267  ; Fall       ; CLOCK_50        ;
-;  HEX0[5]  ; CLOCK_50   ; 9.392  ; 9.392  ; Fall       ; CLOCK_50        ;
-;  HEX0[6]  ; CLOCK_50   ; 9.393  ; 9.393  ; Fall       ; CLOCK_50        ;
-; HEX1[*]   ; CLOCK_50   ; 9.580  ; 9.580  ; Fall       ; CLOCK_50        ;
-;  HEX1[0]  ; CLOCK_50   ; 9.568  ; 9.568  ; Fall       ; CLOCK_50        ;
-;  HEX1[1]  ; CLOCK_50   ; 9.193  ; 9.193  ; Fall       ; CLOCK_50        ;
-;  HEX1[2]  ; CLOCK_50   ; 9.192  ; 9.192  ; Fall       ; CLOCK_50        ;
-;  HEX1[3]  ; CLOCK_50   ; 9.203  ; 9.203  ; Fall       ; CLOCK_50        ;
-;  HEX1[4]  ; CLOCK_50   ; 9.218  ; 9.218  ; Fall       ; CLOCK_50        ;
-;  HEX1[5]  ; CLOCK_50   ; 9.580  ; 9.580  ; Fall       ; CLOCK_50        ;
-;  HEX1[6]  ; CLOCK_50   ; 9.454  ; 9.454  ; Fall       ; CLOCK_50        ;
-; HEX2[*]   ; CLOCK_50   ; 10.082 ; 10.082 ; Fall       ; CLOCK_50        ;
-;  HEX2[0]  ; CLOCK_50   ; 9.908  ; 9.908  ; Fall       ; CLOCK_50        ;
-;  HEX2[1]  ; CLOCK_50   ; 9.710  ; 9.710  ; Fall       ; CLOCK_50        ;
-;  HEX2[2]  ; CLOCK_50   ; 9.756  ; 9.756  ; Fall       ; CLOCK_50        ;
-;  HEX2[3]  ; CLOCK_50   ; 9.755  ; 9.755  ; Fall       ; CLOCK_50        ;
-;  HEX2[4]  ; CLOCK_50   ; 9.956  ; 9.956  ; Fall       ; CLOCK_50        ;
-;  HEX2[5]  ; CLOCK_50   ; 10.062 ; 10.062 ; Fall       ; CLOCK_50        ;
-;  HEX2[6]  ; CLOCK_50   ; 10.082 ; 10.082 ; Fall       ; CLOCK_50        ;
-; HEX3[*]   ; CLOCK_50   ; 10.123 ; 10.123 ; Fall       ; CLOCK_50        ;
-;  HEX3[0]  ; CLOCK_50   ; 9.799  ; 9.799  ; Fall       ; CLOCK_50        ;
-;  HEX3[1]  ; CLOCK_50   ; 9.984  ; 9.984  ; Fall       ; CLOCK_50        ;
-;  HEX3[2]  ; CLOCK_50   ; 9.993  ; 9.993  ; Fall       ; CLOCK_50        ;
-;  HEX3[3]  ; CLOCK_50   ; 9.776  ; 9.776  ; Fall       ; CLOCK_50        ;
-;  HEX3[4]  ; CLOCK_50   ; 9.641  ; 9.641  ; Fall       ; CLOCK_50        ;
-;  HEX3[5]  ; CLOCK_50   ; 9.794  ; 9.794  ; Fall       ; CLOCK_50        ;
-;  HEX3[6]  ; CLOCK_50   ; 10.123 ; 10.123 ; Fall       ; CLOCK_50        ;
+; HEX0[*]   ; CLOCK_50   ; 11.232 ; 11.232 ; Fall       ; CLOCK_50        ;
+;  HEX0[0]  ; CLOCK_50   ; 10.629 ; 10.629 ; Fall       ; CLOCK_50        ;
+;  HEX0[1]  ; CLOCK_50   ; 10.917 ; 10.917 ; Fall       ; CLOCK_50        ;
+;  HEX0[2]  ; CLOCK_50   ; 10.950 ; 10.950 ; Fall       ; CLOCK_50        ;
+;  HEX0[3]  ; CLOCK_50   ; 11.232 ; 11.232 ; Fall       ; CLOCK_50        ;
+;  HEX0[4]  ; CLOCK_50   ; 10.909 ; 10.909 ; Fall       ; CLOCK_50        ;
+;  HEX0[5]  ; CLOCK_50   ; 9.794  ; 9.794  ; Fall       ; CLOCK_50        ;
+;  HEX0[6]  ; CLOCK_50   ; 10.950 ; 10.950 ; Fall       ; CLOCK_50        ;
+; HEX1[*]   ; CLOCK_50   ; 10.976 ; 10.976 ; Fall       ; CLOCK_50        ;
+;  HEX1[0]  ; CLOCK_50   ; 10.972 ; 10.972 ; Fall       ; CLOCK_50        ;
+;  HEX1[1]  ; CLOCK_50   ; 10.593 ; 10.593 ; Fall       ; CLOCK_50        ;
+;  HEX1[2]  ; CLOCK_50   ; 10.583 ; 10.583 ; Fall       ; CLOCK_50        ;
+;  HEX1[3]  ; CLOCK_50   ; 10.602 ; 10.602 ; Fall       ; CLOCK_50        ;
+;  HEX1[4]  ; CLOCK_50   ; 10.611 ; 10.611 ; Fall       ; CLOCK_50        ;
+;  HEX1[5]  ; CLOCK_50   ; 10.976 ; 10.976 ; Fall       ; CLOCK_50        ;
+;  HEX1[6]  ; CLOCK_50   ; 10.846 ; 10.846 ; Fall       ; CLOCK_50        ;
+; HEX2[*]   ; CLOCK_50   ; 11.649 ; 11.649 ; Fall       ; CLOCK_50        ;
+;  HEX2[0]  ; CLOCK_50   ; 11.276 ; 11.276 ; Fall       ; CLOCK_50        ;
+;  HEX2[1]  ; CLOCK_50   ; 9.916  ; 9.916  ; Fall       ; CLOCK_50        ;
+;  HEX2[2]  ; CLOCK_50   ; 10.755 ; 10.755 ; Fall       ; CLOCK_50        ;
+;  HEX2[3]  ; CLOCK_50   ; 11.482 ; 11.482 ; Fall       ; CLOCK_50        ;
+;  HEX2[4]  ; CLOCK_50   ; 11.551 ; 11.551 ; Fall       ; CLOCK_50        ;
+;  HEX2[5]  ; CLOCK_50   ; 10.960 ; 10.960 ; Fall       ; CLOCK_50        ;
+;  HEX2[6]  ; CLOCK_50   ; 11.649 ; 11.649 ; Fall       ; CLOCK_50        ;
+; HEX3[*]   ; CLOCK_50   ; 11.727 ; 11.727 ; Fall       ; CLOCK_50        ;
+;  HEX3[0]  ; CLOCK_50   ; 11.410 ; 11.410 ; Fall       ; CLOCK_50        ;
+;  HEX3[1]  ; CLOCK_50   ; 11.727 ; 11.727 ; Fall       ; CLOCK_50        ;
+;  HEX3[2]  ; CLOCK_50   ; 11.726 ; 11.726 ; Fall       ; CLOCK_50        ;
+;  HEX3[3]  ; CLOCK_50   ; 11.563 ; 11.563 ; Fall       ; CLOCK_50        ;
+;  HEX3[4]  ; CLOCK_50   ; 11.538 ; 11.538 ; Fall       ; CLOCK_50        ;
+;  HEX3[5]  ; CLOCK_50   ; 11.197 ; 11.197 ; Fall       ; CLOCK_50        ;
+;  HEX3[6]  ; CLOCK_50   ; 11.557 ; 11.557 ; Fall       ; CLOCK_50        ;
 ; LEDR[*]   ; CLOCK_50   ; 5.646  ; 5.646  ; Fall       ; CLOCK_50        ;
 ;  LEDR[0]  ; CLOCK_50   ; 5.629  ; 5.629  ; Fall       ; CLOCK_50        ;
 ;  LEDR[1]  ; CLOCK_50   ; 5.610  ; 5.610  ; Fall       ; CLOCK_50        ;
@@ -651,55 +651,55 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 
 
-+-----------------------------------------------------------------------+
-; Minimum Clock to Output Times                                         ;
-+-----------+------------+-------+-------+------------+-----------------+
-; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
-+-----------+------------+-------+-------+------------+-----------------+
-; HEX0[*]   ; CLOCK_50   ; 8.808 ; 8.808 ; Fall       ; CLOCK_50        ;
-;  HEX0[0]  ; CLOCK_50   ; 9.001 ; 9.001 ; Fall       ; CLOCK_50        ;
-;  HEX0[1]  ; CLOCK_50   ; 9.124 ; 9.124 ; Fall       ; CLOCK_50        ;
-;  HEX0[2]  ; CLOCK_50   ; 8.808 ; 8.808 ; Fall       ; CLOCK_50        ;
-;  HEX0[3]  ; CLOCK_50   ; 8.808 ; 8.808 ; Fall       ; CLOCK_50        ;
-;  HEX0[4]  ; CLOCK_50   ; 9.043 ; 9.043 ; Fall       ; CLOCK_50        ;
-;  HEX0[5]  ; CLOCK_50   ; 9.155 ; 9.155 ; Fall       ; CLOCK_50        ;
-;  HEX0[6]  ; CLOCK_50   ; 9.157 ; 9.157 ; Fall       ; CLOCK_50        ;
-; HEX1[*]   ; CLOCK_50   ; 8.846 ; 8.846 ; Fall       ; CLOCK_50        ;
-;  HEX1[0]  ; CLOCK_50   ; 9.221 ; 9.221 ; Fall       ; CLOCK_50        ;
-;  HEX1[1]  ; CLOCK_50   ; 8.849 ; 8.849 ; Fall       ; CLOCK_50        ;
-;  HEX1[2]  ; CLOCK_50   ; 8.846 ; 8.846 ; Fall       ; CLOCK_50        ;
-;  HEX1[3]  ; CLOCK_50   ; 8.856 ; 8.856 ; Fall       ; CLOCK_50        ;
-;  HEX1[4]  ; CLOCK_50   ; 8.871 ; 8.871 ; Fall       ; CLOCK_50        ;
-;  HEX1[5]  ; CLOCK_50   ; 9.234 ; 9.234 ; Fall       ; CLOCK_50        ;
-;  HEX1[6]  ; CLOCK_50   ; 9.103 ; 9.103 ; Fall       ; CLOCK_50        ;
-; HEX2[*]   ; CLOCK_50   ; 9.108 ; 9.108 ; Fall       ; CLOCK_50        ;
-;  HEX2[0]  ; CLOCK_50   ; 9.316 ; 9.316 ; Fall       ; CLOCK_50        ;
-;  HEX2[1]  ; CLOCK_50   ; 9.108 ; 9.108 ; Fall       ; CLOCK_50        ;
-;  HEX2[2]  ; CLOCK_50   ; 9.145 ; 9.145 ; Fall       ; CLOCK_50        ;
-;  HEX2[3]  ; CLOCK_50   ; 9.145 ; 9.145 ; Fall       ; CLOCK_50        ;
-;  HEX2[4]  ; CLOCK_50   ; 9.351 ; 9.351 ; Fall       ; CLOCK_50        ;
-;  HEX2[5]  ; CLOCK_50   ; 9.446 ; 9.446 ; Fall       ; CLOCK_50        ;
-;  HEX2[6]  ; CLOCK_50   ; 9.477 ; 9.477 ; Fall       ; CLOCK_50        ;
-; HEX3[*]   ; CLOCK_50   ; 8.983 ; 8.983 ; Fall       ; CLOCK_50        ;
-;  HEX3[0]  ; CLOCK_50   ; 9.138 ; 9.138 ; Fall       ; CLOCK_50        ;
-;  HEX3[1]  ; CLOCK_50   ; 9.324 ; 9.324 ; Fall       ; CLOCK_50        ;
-;  HEX3[2]  ; CLOCK_50   ; 9.330 ; 9.330 ; Fall       ; CLOCK_50        ;
-;  HEX3[3]  ; CLOCK_50   ; 9.115 ; 9.115 ; Fall       ; CLOCK_50        ;
-;  HEX3[4]  ; CLOCK_50   ; 8.983 ; 8.983 ; Fall       ; CLOCK_50        ;
-;  HEX3[5]  ; CLOCK_50   ; 9.132 ; 9.132 ; Fall       ; CLOCK_50        ;
-;  HEX3[6]  ; CLOCK_50   ; 9.460 ; 9.460 ; Fall       ; CLOCK_50        ;
-; LEDR[*]   ; CLOCK_50   ; 5.596 ; 5.596 ; Fall       ; CLOCK_50        ;
-;  LEDR[0]  ; CLOCK_50   ; 5.629 ; 5.629 ; Fall       ; CLOCK_50        ;
-;  LEDR[1]  ; CLOCK_50   ; 5.610 ; 5.610 ; Fall       ; CLOCK_50        ;
-;  LEDR[2]  ; CLOCK_50   ; 5.630 ; 5.630 ; Fall       ; CLOCK_50        ;
-;  LEDR[3]  ; CLOCK_50   ; 5.646 ; 5.646 ; Fall       ; CLOCK_50        ;
-;  LEDR[4]  ; CLOCK_50   ; 5.624 ; 5.624 ; Fall       ; CLOCK_50        ;
-;  LEDR[5]  ; CLOCK_50   ; 5.636 ; 5.636 ; Fall       ; CLOCK_50        ;
-;  LEDR[6]  ; CLOCK_50   ; 5.636 ; 5.636 ; Fall       ; CLOCK_50        ;
-;  LEDR[7]  ; CLOCK_50   ; 5.624 ; 5.624 ; Fall       ; CLOCK_50        ;
-;  LEDR[8]  ; CLOCK_50   ; 5.600 ; 5.600 ; Fall       ; CLOCK_50        ;
-;  LEDR[9]  ; CLOCK_50   ; 5.596 ; 5.596 ; Fall       ; CLOCK_50        ;
-+-----------+------------+-------+-------+------------+-----------------+
++-------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                           ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; HEX0[*]   ; CLOCK_50   ; 9.321  ; 9.321  ; Fall       ; CLOCK_50        ;
+;  HEX0[0]  ; CLOCK_50   ; 10.142 ; 10.142 ; Fall       ; CLOCK_50        ;
+;  HEX0[1]  ; CLOCK_50   ; 10.427 ; 10.427 ; Fall       ; CLOCK_50        ;
+;  HEX0[2]  ; CLOCK_50   ; 10.464 ; 10.464 ; Fall       ; CLOCK_50        ;
+;  HEX0[3]  ; CLOCK_50   ; 10.743 ; 10.743 ; Fall       ; CLOCK_50        ;
+;  HEX0[4]  ; CLOCK_50   ; 10.418 ; 10.418 ; Fall       ; CLOCK_50        ;
+;  HEX0[5]  ; CLOCK_50   ; 9.321  ; 9.321  ; Fall       ; CLOCK_50        ;
+;  HEX0[6]  ; CLOCK_50   ; 10.462 ; 10.462 ; Fall       ; CLOCK_50        ;
+; HEX1[*]   ; CLOCK_50   ; 9.733  ; 9.733  ; Fall       ; CLOCK_50        ;
+;  HEX1[0]  ; CLOCK_50   ; 10.119 ; 10.119 ; Fall       ; CLOCK_50        ;
+;  HEX1[1]  ; CLOCK_50   ; 9.741  ; 9.741  ; Fall       ; CLOCK_50        ;
+;  HEX1[2]  ; CLOCK_50   ; 9.733  ; 9.733  ; Fall       ; CLOCK_50        ;
+;  HEX1[3]  ; CLOCK_50   ; 9.750  ; 9.750  ; Fall       ; CLOCK_50        ;
+;  HEX1[4]  ; CLOCK_50   ; 9.756  ; 9.756  ; Fall       ; CLOCK_50        ;
+;  HEX1[5]  ; CLOCK_50   ; 10.121 ; 10.121 ; Fall       ; CLOCK_50        ;
+;  HEX1[6]  ; CLOCK_50   ; 9.987  ; 9.987  ; Fall       ; CLOCK_50        ;
+; HEX2[*]   ; CLOCK_50   ; 9.614  ; 9.614  ; Fall       ; CLOCK_50        ;
+;  HEX2[0]  ; CLOCK_50   ; 10.975 ; 10.975 ; Fall       ; CLOCK_50        ;
+;  HEX2[1]  ; CLOCK_50   ; 9.614  ; 9.614  ; Fall       ; CLOCK_50        ;
+;  HEX2[2]  ; CLOCK_50   ; 10.449 ; 10.449 ; Fall       ; CLOCK_50        ;
+;  HEX2[3]  ; CLOCK_50   ; 11.165 ; 11.165 ; Fall       ; CLOCK_50        ;
+;  HEX2[4]  ; CLOCK_50   ; 11.237 ; 11.237 ; Fall       ; CLOCK_50        ;
+;  HEX2[5]  ; CLOCK_50   ; 10.643 ; 10.643 ; Fall       ; CLOCK_50        ;
+;  HEX2[6]  ; CLOCK_50   ; 11.340 ; 11.340 ; Fall       ; CLOCK_50        ;
+; HEX3[*]   ; CLOCK_50   ; 10.513 ; 10.513 ; Fall       ; CLOCK_50        ;
+;  HEX3[0]  ; CLOCK_50   ; 10.726 ; 10.726 ; Fall       ; CLOCK_50        ;
+;  HEX3[1]  ; CLOCK_50   ; 11.040 ; 11.040 ; Fall       ; CLOCK_50        ;
+;  HEX3[2]  ; CLOCK_50   ; 11.042 ; 11.042 ; Fall       ; CLOCK_50        ;
+;  HEX3[3]  ; CLOCK_50   ; 10.877 ; 10.877 ; Fall       ; CLOCK_50        ;
+;  HEX3[4]  ; CLOCK_50   ; 10.809 ; 10.809 ; Fall       ; CLOCK_50        ;
+;  HEX3[5]  ; CLOCK_50   ; 10.513 ; 10.513 ; Fall       ; CLOCK_50        ;
+;  HEX3[6]  ; CLOCK_50   ; 10.871 ; 10.871 ; Fall       ; CLOCK_50        ;
+; LEDR[*]   ; CLOCK_50   ; 5.596  ; 5.596  ; Fall       ; CLOCK_50        ;
+;  LEDR[0]  ; CLOCK_50   ; 5.629  ; 5.629  ; Fall       ; CLOCK_50        ;
+;  LEDR[1]  ; CLOCK_50   ; 5.610  ; 5.610  ; Fall       ; CLOCK_50        ;
+;  LEDR[2]  ; CLOCK_50   ; 5.630  ; 5.630  ; Fall       ; CLOCK_50        ;
+;  LEDR[3]  ; CLOCK_50   ; 5.646  ; 5.646  ; Fall       ; CLOCK_50        ;
+;  LEDR[4]  ; CLOCK_50   ; 5.624  ; 5.624  ; Fall       ; CLOCK_50        ;
+;  LEDR[5]  ; CLOCK_50   ; 5.636  ; 5.636  ; Fall       ; CLOCK_50        ;
+;  LEDR[6]  ; CLOCK_50   ; 5.636  ; 5.636  ; Fall       ; CLOCK_50        ;
+;  LEDR[7]  ; CLOCK_50   ; 5.624  ; 5.624  ; Fall       ; CLOCK_50        ;
+;  LEDR[8]  ; CLOCK_50   ; 5.600  ; 5.600  ; Fall       ; CLOCK_50        ;
+;  LEDR[9]  ; CLOCK_50   ; 5.596  ; 5.596  ; Fall       ; CLOCK_50        ;
++-----------+------------+--------+--------+------------+-----------------+
 
 
 +-----------------------------------+
@@ -707,7 +707,7 @@ No paths to report.
 +----------+--------+---------------+
 ; Clock    ; Slack  ; End Point TNS ;
 +----------+--------+---------------+
-; CLOCK_50 ; -0.475 ; -6.531        ;
+; CLOCK_50 ; -0.326 ; -5.065        ;
 ; KEY[1]   ; 0.665  ; 0.000         ;
 ; KEY[2]   ; 0.665  ; 0.000         ;
 +----------+--------+---------------+
@@ -752,106 +752,106 @@ No paths to report.
 +--------+-----------------------+----------------------+--------------+-------------+--------------+------------+------------+
 ; Slack  ; From Node             ; To Node              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+-----------------------+----------------------+--------------+-------------+--------------+------------+------------+
-; -0.475 ; state.FLASH           ; LEDR[1]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.132     ; 1.308      ;
-; -0.475 ; state.FLASH           ; LEDR[8]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.132     ; 1.308      ;
-; -0.469 ; state.FLASH           ; LEDR[3]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.118     ; 1.316      ;
-; -0.469 ; state.FLASH           ; LEDR[5]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.118     ; 1.316      ;
-; -0.469 ; state.FLASH           ; LEDR[6]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.118     ; 1.316      ;
-; -0.458 ; state.FLASH           ; LEDR[4]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.120     ; 1.303      ;
-; -0.458 ; state.FLASH           ; LEDR[7]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.120     ; 1.303      ;
-; -0.436 ; state.FLASH           ; LEDR[9]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.127     ; 1.274      ;
-; -0.404 ; state.FLASH           ; LEDR[2]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.123     ; 1.246      ;
-; -0.378 ; state.FLASH           ; LEDR[0]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.124     ; 1.219      ;
-; -0.087 ; state.SET_MIN         ; oneminutes[3]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.122      ;
-; -0.087 ; state.SET_MIN         ; oneminutesdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.122      ;
-; -0.087 ; state.SET_MIN         ; oneminutes[2]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.122      ;
-; -0.087 ; state.SET_MIN         ; oneminutesdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.122      ;
-; -0.087 ; state.SET_MIN         ; oneminutes[1]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.122      ;
-; -0.087 ; state.SET_MIN         ; oneminutesdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.122      ;
-; -0.087 ; state.SET_MIN         ; oneminutes[0]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.122      ;
-; -0.087 ; state.SET_MIN         ; oneminutesdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.122      ;
-; -0.087 ; state.SET_MIN         ; tenminutes[3]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.122      ;
-; -0.087 ; state.SET_MIN         ; tenminutesdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.122      ;
-; -0.087 ; state.SET_MIN         ; tenminutes[2]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.122      ;
-; -0.087 ; state.SET_MIN         ; tenminutesdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.122      ;
-; -0.087 ; state.SET_MIN         ; tenminutes[1]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.122      ;
-; -0.087 ; state.SET_MIN         ; tenminutesdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.122      ;
-; -0.087 ; state.SET_MIN         ; tenminutes[0]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.122      ;
-; -0.087 ; state.SET_MIN         ; tenminutesdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.122      ;
-; -0.046 ; TFlipFlop:comb_3|tOut ; oneseconds[0]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.104     ; 0.974      ;
-; -0.046 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[0] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.104     ; 0.974      ;
-; -0.046 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[3] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.104     ; 0.974      ;
-; -0.046 ; TFlipFlop:comb_3|tOut ; tenseconds[2]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.104     ; 0.974      ;
-; -0.046 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[2] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.104     ; 0.974      ;
-; -0.046 ; TFlipFlop:comb_3|tOut ; tenseconds[1]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.104     ; 0.974      ;
-; -0.046 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[1] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.104     ; 0.974      ;
-; -0.046 ; TFlipFlop:comb_3|tOut ; tenseconds[0]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.104     ; 0.974      ;
-; -0.046 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[0] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.104     ; 0.974      ;
-; -0.039 ; TFlipFlop:comb_3|tOut ; oneseconds[3]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.102     ; 0.969      ;
-; -0.039 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[3] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.102     ; 0.969      ;
-; -0.039 ; TFlipFlop:comb_3|tOut ; oneseconds[2]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.102     ; 0.969      ;
-; -0.039 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[2] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.102     ; 0.969      ;
-; -0.039 ; TFlipFlop:comb_3|tOut ; oneseconds[1]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.102     ; 0.969      ;
-; -0.039 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[1] ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.102     ; 0.969      ;
-; -0.017 ; state.000             ; oneseconds[0]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.048      ;
-; -0.017 ; state.000             ; onesecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.048      ;
-; -0.017 ; state.000             ; tensecondsdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.048      ;
-; -0.017 ; state.000             ; tenseconds[2]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.048      ;
-; -0.017 ; state.000             ; tensecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.048      ;
-; -0.017 ; state.000             ; tenseconds[1]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.048      ;
-; -0.017 ; state.000             ; tensecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.048      ;
-; -0.017 ; state.000             ; tenseconds[0]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.048      ;
-; -0.017 ; state.000             ; tensecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.048      ;
-; -0.010 ; state.000             ; oneseconds[3]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.043      ;
-; -0.010 ; state.000             ; onesecondsdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.043      ;
-; -0.010 ; state.000             ; oneseconds[2]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.043      ;
-; -0.010 ; state.000             ; onesecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.043      ;
-; -0.010 ; state.000             ; oneseconds[1]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.043      ;
-; -0.010 ; state.000             ; onesecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.043      ;
-; -0.005 ; TFlipFlop:comb_4|tOut ; oneseconds[0]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.004     ; 1.033      ;
-; -0.005 ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[0] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.004     ; 1.033      ;
-; -0.005 ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[3] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.004     ; 1.033      ;
-; -0.005 ; TFlipFlop:comb_4|tOut ; tenseconds[2]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.004     ; 1.033      ;
-; -0.005 ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[2] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.004     ; 1.033      ;
-; -0.005 ; TFlipFlop:comb_4|tOut ; tenseconds[1]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.004     ; 1.033      ;
-; -0.005 ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[1] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.004     ; 1.033      ;
-; -0.005 ; TFlipFlop:comb_4|tOut ; tenseconds[0]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.004     ; 1.033      ;
-; -0.005 ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[0] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.004     ; 1.033      ;
-; 0.002  ; TFlipFlop:comb_4|tOut ; oneseconds[3]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.002     ; 1.028      ;
-; 0.002  ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[3] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.002     ; 1.028      ;
-; 0.002  ; TFlipFlop:comb_4|tOut ; oneseconds[2]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.002     ; 1.028      ;
-; 0.002  ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[2] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.002     ; 1.028      ;
-; 0.002  ; TFlipFlop:comb_4|tOut ; oneseconds[1]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.002     ; 1.028      ;
-; 0.002  ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[1] ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.002     ; 1.028      ;
-; 0.023  ; TFlipFlop:comb_4|tOut ; oneminutes[3]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.000      ; 1.009      ;
-; 0.023  ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[3] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.000      ; 1.009      ;
-; 0.023  ; TFlipFlop:comb_4|tOut ; oneminutes[2]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.000      ; 1.009      ;
-; 0.023  ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[2] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.000      ; 1.009      ;
-; 0.023  ; TFlipFlop:comb_4|tOut ; oneminutes[1]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.000      ; 1.009      ;
-; 0.023  ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[1] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.000      ; 1.009      ;
-; 0.023  ; TFlipFlop:comb_4|tOut ; oneminutes[0]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.000      ; 1.009      ;
-; 0.023  ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[0] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.000      ; 1.009      ;
-; 0.023  ; TFlipFlop:comb_4|tOut ; tenminutes[3]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.000      ; 1.009      ;
-; 0.023  ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[3] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.000      ; 1.009      ;
-; 0.023  ; TFlipFlop:comb_4|tOut ; tenminutes[2]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.000      ; 1.009      ;
-; 0.023  ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[2] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.000      ; 1.009      ;
-; 0.023  ; TFlipFlop:comb_4|tOut ; tenminutes[1]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.000      ; 1.009      ;
-; 0.023  ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[1] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.000      ; 1.009      ;
-; 0.023  ; TFlipFlop:comb_4|tOut ; tenminutes[0]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.000      ; 1.009      ;
-; 0.023  ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[0] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.000      ; 1.009      ;
-; 0.110  ; TFlipFlop:comb_3|tOut ; state.SET_MIN        ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.103     ; 0.819      ;
-; 0.116  ; TFlipFlop:comb_3|tOut ; state.START          ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.103     ; 0.813      ;
-; 0.138  ; TFlipFlop:comb_3|tOut ; state.FLASH          ; KEY[1]       ; CLOCK_50    ; 1.000        ; -0.103     ; 0.791      ;
-; 0.161  ; state.START           ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.871      ;
-; 0.165  ; state.START           ; state.START          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.867      ;
-; 0.168  ; state.START           ; state.SET_MIN        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.864      ;
-; 0.172  ; state.000             ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.860      ;
-; 0.172  ; state.000             ; state.SET_MIN        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.860      ;
-; 0.173  ; state.000             ; state.START          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.859      ;
-; 0.183  ; TFlipFlop:comb_4|tOut ; state.SET_MIN        ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.003     ; 0.846      ;
-; 0.183  ; TFlipFlop:comb_4|tOut ; state.FLASH          ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.003     ; 0.846      ;
-; 0.184  ; TFlipFlop:comb_4|tOut ; state.START          ; KEY[2]       ; CLOCK_50    ; 1.000        ; -0.003     ; 0.845      ;
-; 0.185  ; state.STOP            ; state.STOP           ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.847      ;
+; -0.326 ; state.FLASH           ; LEDR[1]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.129     ; 1.162      ;
+; -0.326 ; state.FLASH           ; LEDR[8]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.129     ; 1.162      ;
+; -0.320 ; state.FLASH           ; LEDR[3]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.115     ; 1.170      ;
+; -0.320 ; state.FLASH           ; LEDR[5]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.115     ; 1.170      ;
+; -0.320 ; state.FLASH           ; LEDR[6]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.115     ; 1.170      ;
+; -0.309 ; state.FLASH           ; LEDR[4]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.117     ; 1.157      ;
+; -0.309 ; state.FLASH           ; LEDR[7]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.117     ; 1.157      ;
+; -0.287 ; state.FLASH           ; LEDR[9]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.124     ; 1.128      ;
+; -0.255 ; state.FLASH           ; LEDR[2]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.120     ; 1.100      ;
+; -0.199 ; state.SET_MIN         ; tenminutes[2]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 1.238      ;
+; -0.129 ; state.FLASH           ; LEDR[0]~reg0         ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.121     ; 0.973      ;
+; -0.098 ; state.SET_MIN         ; oneminutes[3]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 1.130      ;
+; -0.098 ; state.SET_MIN         ; oneminutesdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 1.130      ;
+; -0.098 ; state.SET_MIN         ; oneminutes[2]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 1.130      ;
+; -0.098 ; state.SET_MIN         ; oneminutesdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 1.130      ;
+; -0.098 ; state.SET_MIN         ; oneminutes[1]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 1.130      ;
+; -0.098 ; state.SET_MIN         ; oneminutesdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 1.130      ;
+; -0.098 ; state.SET_MIN         ; oneminutes[0]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 1.130      ;
+; -0.098 ; state.SET_MIN         ; oneminutesdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 1.130      ;
+; -0.098 ; state.SET_MIN         ; tenminutes[3]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 1.130      ;
+; -0.098 ; state.SET_MIN         ; tenminutesdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 1.130      ;
+; -0.098 ; state.SET_MIN         ; tenminutesdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 1.130      ;
+; -0.098 ; state.SET_MIN         ; tenminutes[1]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 1.130      ;
+; -0.098 ; state.SET_MIN         ; tenminutesdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 1.130      ;
+; -0.098 ; state.SET_MIN         ; tenminutes[0]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 1.130      ;
+; -0.098 ; state.SET_MIN         ; tenminutesdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 1.130      ;
+; -0.033 ; state.000             ; oneseconds[3]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 1.072      ;
+; -0.033 ; state.000             ; onesecondsdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 1.072      ;
+; -0.033 ; state.000             ; oneseconds[2]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 1.072      ;
+; -0.033 ; state.000             ; onesecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 1.072      ;
+; -0.033 ; state.000             ; oneseconds[1]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 1.072      ;
+; -0.033 ; state.000             ; onesecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 1.072      ;
+; -0.033 ; state.000             ; oneseconds[0]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 1.072      ;
+; -0.033 ; state.000             ; onesecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 1.072      ;
+; -0.033 ; state.000             ; tensecondsdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 1.072      ;
+; -0.033 ; state.000             ; tenseconds[2]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 1.072      ;
+; -0.033 ; state.000             ; tensecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 1.072      ;
+; -0.033 ; state.000             ; tenseconds[1]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 1.072      ;
+; -0.033 ; state.000             ; tensecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 1.072      ;
+; -0.033 ; state.000             ; tenseconds[0]        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 1.072      ;
+; -0.033 ; state.000             ; tensecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 1.072      ;
+; 0.162  ; state.000             ; state.SET_MIN        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.870      ;
+; 0.162  ; state.000             ; state.START          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.870      ;
+; 0.162  ; state.000             ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.870      ;
+; 0.171  ; state.STOP            ; state.STOP           ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.861      ;
+; 0.207  ; TFlipFlop:comb_4|tOut ; oneseconds[3]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.271      ; 1.096      ;
+; 0.207  ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[3] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.271      ; 1.096      ;
+; 0.207  ; TFlipFlop:comb_4|tOut ; oneseconds[2]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.271      ; 1.096      ;
+; 0.207  ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[2] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.271      ; 1.096      ;
+; 0.207  ; TFlipFlop:comb_4|tOut ; oneseconds[1]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.271      ; 1.096      ;
+; 0.207  ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[1] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.271      ; 1.096      ;
+; 0.207  ; TFlipFlop:comb_4|tOut ; oneseconds[0]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.271      ; 1.096      ;
+; 0.207  ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[0] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.271      ; 1.096      ;
+; 0.207  ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[3] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.271      ; 1.096      ;
+; 0.207  ; TFlipFlop:comb_4|tOut ; tenseconds[2]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.271      ; 1.096      ;
+; 0.207  ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[2] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.271      ; 1.096      ;
+; 0.207  ; TFlipFlop:comb_4|tOut ; tenseconds[1]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.271      ; 1.096      ;
+; 0.207  ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[1] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.271      ; 1.096      ;
+; 0.207  ; TFlipFlop:comb_4|tOut ; tenseconds[0]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.271      ; 1.096      ;
+; 0.207  ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[0] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.271      ; 1.096      ;
+; 0.256  ; TFlipFlop:comb_3|tOut ; oneseconds[3]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; 0.173      ; 0.949      ;
+; 0.256  ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[3] ; KEY[1]       ; CLOCK_50    ; 1.000        ; 0.173      ; 0.949      ;
+; 0.256  ; TFlipFlop:comb_3|tOut ; oneseconds[2]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; 0.173      ; 0.949      ;
+; 0.256  ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[2] ; KEY[1]       ; CLOCK_50    ; 1.000        ; 0.173      ; 0.949      ;
+; 0.256  ; TFlipFlop:comb_3|tOut ; oneseconds[1]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; 0.173      ; 0.949      ;
+; 0.256  ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[1] ; KEY[1]       ; CLOCK_50    ; 1.000        ; 0.173      ; 0.949      ;
+; 0.256  ; TFlipFlop:comb_3|tOut ; oneseconds[0]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; 0.173      ; 0.949      ;
+; 0.256  ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[0] ; KEY[1]       ; CLOCK_50    ; 1.000        ; 0.173      ; 0.949      ;
+; 0.256  ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[3] ; KEY[1]       ; CLOCK_50    ; 1.000        ; 0.173      ; 0.949      ;
+; 0.256  ; TFlipFlop:comb_3|tOut ; tenseconds[2]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; 0.173      ; 0.949      ;
+; 0.256  ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[2] ; KEY[1]       ; CLOCK_50    ; 1.000        ; 0.173      ; 0.949      ;
+; 0.256  ; TFlipFlop:comb_3|tOut ; tenseconds[1]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; 0.173      ; 0.949      ;
+; 0.256  ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[1] ; KEY[1]       ; CLOCK_50    ; 1.000        ; 0.173      ; 0.949      ;
+; 0.256  ; TFlipFlop:comb_3|tOut ; tenseconds[0]        ; KEY[1]       ; CLOCK_50    ; 1.000        ; 0.173      ; 0.949      ;
+; 0.256  ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[0] ; KEY[1]       ; CLOCK_50    ; 1.000        ; 0.173      ; 0.949      ;
+; 0.280  ; TFlipFlop:comb_4|tOut ; tenminutes[2]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.271      ; 1.023      ;
+; 0.302  ; state.START           ; state.STOP           ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.730      ;
+; 0.314  ; state.START           ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.718      ;
+; 0.319  ; state.START           ; state.START          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.713      ;
+; 0.321  ; state.START           ; state.SET_MIN        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.711      ;
+; 0.325  ; state.STOP            ; state.SET_MIN        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.707      ;
+; 0.325  ; state.STOP            ; state.START          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.707      ;
+; 0.325  ; state.STOP            ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.707      ;
+; 0.333  ; state.000             ; state.STOP           ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.699      ;
+; 0.335  ; state.SET_MIN         ; state.SET_MIN        ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.697      ;
+; 0.335  ; state.SET_MIN         ; state.START          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.697      ;
+; 0.335  ; state.SET_MIN         ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 0.697      ;
+; 0.381  ; TFlipFlop:comb_4|tOut ; oneminutes[3]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.264      ; 0.915      ;
+; 0.381  ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[3] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.264      ; 0.915      ;
+; 0.381  ; TFlipFlop:comb_4|tOut ; oneminutes[2]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.264      ; 0.915      ;
+; 0.381  ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[2] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.264      ; 0.915      ;
+; 0.381  ; TFlipFlop:comb_4|tOut ; oneminutes[1]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.264      ; 0.915      ;
+; 0.381  ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[1] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.264      ; 0.915      ;
+; 0.381  ; TFlipFlop:comb_4|tOut ; oneminutes[0]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.264      ; 0.915      ;
+; 0.381  ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[0] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.264      ; 0.915      ;
+; 0.381  ; TFlipFlop:comb_4|tOut ; tenminutes[3]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.264      ; 0.915      ;
+; 0.381  ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[3] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.264      ; 0.915      ;
+; 0.381  ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[2] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.264      ; 0.915      ;
+; 0.381  ; TFlipFlop:comb_4|tOut ; tenminutes[1]        ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.264      ; 0.915      ;
+; 0.381  ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[1] ; KEY[2]       ; CLOCK_50    ; 1.000        ; 0.264      ; 0.915      ;
 +--------+-----------------------+----------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -882,102 +882,102 @@ No paths to report.
 ; 0.215 ; state.START           ; state.START          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
 ; 0.215 ; state.000             ; state.000            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
 ; 0.215 ; state.FLASH           ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.221 ; TFlipFlop:comb_3|tOut ; state.000            ; KEY[1]       ; CLOCK_50    ; 0.000        ; 0.166      ; 0.539      ;
+; 0.236 ; tenseconds[1]         ; tensecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.388      ;
 ; 0.237 ; oneseconds[1]         ; onesecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.389      ;
-; 0.237 ; tenminutes[1]         ; tenminutesdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.389      ;
-; 0.237 ; tenminutes[0]         ; tenminutesdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.389      ;
-; 0.238 ; oneseconds[2]         ; onesecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.390      ;
-; 0.238 ; tenseconds[1]         ; tensecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.390      ;
-; 0.239 ; oneminutes[0]         ; oneminutesdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.391      ;
-; 0.240 ; oneseconds[0]         ; onesecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.392      ;
-; 0.241 ; tenseconds[2]         ; tensecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.393      ;
-; 0.241 ; tenminutes[2]         ; tenminutesdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.393      ;
-; 0.314 ; tenseconds[0]         ; tensecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.466      ;
-; 0.329 ; oneminutes[3]         ; oneminutesdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.481      ;
-; 0.358 ; tenminutes[3]         ; tenminutesdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.510      ;
-; 0.360 ; oneseconds[3]         ; onesecondsdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.512      ;
-; 0.360 ; TFlipFlop:comb_4|tOut ; state.000            ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.003     ; 0.509      ;
-; 0.363 ; oneminutes[2]         ; oneminutesdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.515      ;
-; 0.370 ; oneminutes[1]         ; oneminutesdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.522      ;
-; 0.422 ; state.START           ; state.STOP           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.574      ;
-; 0.478 ; TFlipFlop:comb_4|tOut ; state.FLASH          ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.003     ; 0.627      ;
-; 0.540 ; state.000             ; state.START          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.692      ;
-; 0.541 ; state.START           ; state.000            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.693      ;
-; 0.544 ; TFlipFlop:comb_3|tOut ; state.000            ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.103     ; 0.593      ;
+; 0.238 ; oneminutes[3]         ; oneminutesdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.390      ;
+; 0.240 ; oneminutes[1]         ; oneminutesdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.392      ;
+; 0.240 ; tenminutes[1]         ; tenminutesdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.392      ;
+; 0.240 ; tenminutes[0]         ; tenminutesdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.392      ;
+; 0.242 ; oneseconds[3]         ; onesecondsdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.394      ;
+; 0.242 ; oneseconds[2]         ; onesecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.394      ;
+; 0.242 ; oneseconds[0]         ; onesecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.394      ;
+; 0.244 ; tenminutes[3]         ; tenminutesdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.396      ;
+; 0.256 ; state.START           ; state.000            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.408      ;
+; 0.267 ; TFlipFlop:comb_3|tOut ; state.STOP           ; KEY[1]       ; CLOCK_50    ; 0.000        ; 0.166      ; 0.585      ;
+; 0.312 ; TFlipFlop:comb_4|tOut ; state.SET_MIN        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.264      ; 0.728      ;
+; 0.312 ; TFlipFlop:comb_4|tOut ; state.START          ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.264      ; 0.728      ;
+; 0.312 ; TFlipFlop:comb_4|tOut ; state.FLASH          ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.264      ; 0.728      ;
+; 0.315 ; TFlipFlop:comb_4|tOut ; state.STOP           ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.264      ; 0.731      ;
+; 0.327 ; TFlipFlop:comb_4|tOut ; state.000            ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.264      ; 0.743      ;
+; 0.359 ; tenseconds[2]         ; tensecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.511      ;
+; 0.373 ; tenseconds[0]         ; tensecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.525      ;
+; 0.375 ; oneminutes[2]         ; oneminutesdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.527      ;
+; 0.376 ; oneminutes[0]         ; oneminutesdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.528      ;
+; 0.404 ; TFlipFlop:comb_3|tOut ; state.START          ; KEY[1]       ; CLOCK_50    ; 0.000        ; 0.166      ; 0.722      ;
+; 0.407 ; TFlipFlop:comb_3|tOut ; state.SET_MIN        ; KEY[1]       ; CLOCK_50    ; 0.000        ; 0.166      ; 0.725      ;
+; 0.438 ; tenminutes[2]         ; tenminutesdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.007     ; 0.583      ;
+; 0.438 ; TFlipFlop:comb_3|tOut ; state.FLASH          ; KEY[1]       ; CLOCK_50    ; 0.000        ; 0.166      ; 0.756      ;
+; 0.470 ; state.START           ; state.STOP           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.622      ;
+; 0.499 ; TFlipFlop:comb_4|tOut ; oneminutes[3]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.264      ; 0.915      ;
+; 0.499 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[3] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.264      ; 0.915      ;
+; 0.499 ; TFlipFlop:comb_4|tOut ; oneminutes[2]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.264      ; 0.915      ;
+; 0.499 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[2] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.264      ; 0.915      ;
+; 0.499 ; TFlipFlop:comb_4|tOut ; oneminutes[1]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.264      ; 0.915      ;
+; 0.499 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[1] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.264      ; 0.915      ;
+; 0.499 ; TFlipFlop:comb_4|tOut ; oneminutes[0]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.264      ; 0.915      ;
+; 0.499 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[0] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.264      ; 0.915      ;
+; 0.499 ; TFlipFlop:comb_4|tOut ; tenminutes[3]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.264      ; 0.915      ;
+; 0.499 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[3] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.264      ; 0.915      ;
+; 0.499 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[2] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.264      ; 0.915      ;
+; 0.499 ; TFlipFlop:comb_4|tOut ; tenminutes[1]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.264      ; 0.915      ;
+; 0.499 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[1] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.264      ; 0.915      ;
+; 0.499 ; TFlipFlop:comb_4|tOut ; tenminutes[0]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.264      ; 0.915      ;
+; 0.499 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[0] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.264      ; 0.915      ;
 ; 0.545 ; state.SET_MIN         ; state.START          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.697      ;
-; 0.546 ; state.000             ; state.SET_MIN        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.698      ;
-; 0.546 ; state.SET_MIN         ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.698      ;
-; 0.554 ; state.STOP            ; state.START          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.706      ;
+; 0.545 ; state.SET_MIN         ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.697      ;
+; 0.547 ; state.000             ; state.STOP           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.699      ;
 ; 0.555 ; state.STOP            ; state.SET_MIN        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.707      ;
+; 0.555 ; state.STOP            ; state.START          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.707      ;
 ; 0.555 ; state.STOP            ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.707      ;
-; 0.584 ; TFlipFlop:comb_4|tOut ; state.STOP           ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.003     ; 0.733      ;
-; 0.652 ; TFlipFlop:comb_4|tOut ; state.START          ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.003     ; 0.801      ;
-; 0.653 ; state.000             ; state.STOP           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.805      ;
-; 0.653 ; TFlipFlop:comb_4|tOut ; state.SET_MIN        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.003     ; 0.802      ;
-; 0.687 ; TFlipFlop:comb_3|tOut ; state.STOP           ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.103     ; 0.736      ;
-; 0.695 ; state.STOP            ; state.STOP           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.847      ;
-; 0.708 ; state.000             ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.860      ;
-; 0.712 ; state.START           ; state.SET_MIN        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.864      ;
-; 0.719 ; state.START           ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.871      ;
-; 0.741 ; TFlipFlop:comb_3|tOut ; state.START          ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.103     ; 0.790      ;
-; 0.742 ; TFlipFlop:comb_3|tOut ; state.SET_MIN        ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.103     ; 0.791      ;
-; 0.742 ; TFlipFlop:comb_3|tOut ; state.FLASH          ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.103     ; 0.791      ;
-; 0.857 ; TFlipFlop:comb_4|tOut ; oneminutes[3]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.000      ; 1.009      ;
-; 0.857 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[3] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.000      ; 1.009      ;
-; 0.857 ; TFlipFlop:comb_4|tOut ; oneminutes[2]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.000      ; 1.009      ;
-; 0.857 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[2] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.000      ; 1.009      ;
-; 0.857 ; TFlipFlop:comb_4|tOut ; oneminutes[1]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.000      ; 1.009      ;
-; 0.857 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[1] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.000      ; 1.009      ;
-; 0.857 ; TFlipFlop:comb_4|tOut ; oneminutes[0]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.000      ; 1.009      ;
-; 0.857 ; TFlipFlop:comb_4|tOut ; oneminutesdisplay[0] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.000      ; 1.009      ;
-; 0.857 ; TFlipFlop:comb_4|tOut ; tenminutes[3]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.000      ; 1.009      ;
-; 0.857 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[3] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.000      ; 1.009      ;
-; 0.857 ; TFlipFlop:comb_4|tOut ; tenminutes[2]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.000      ; 1.009      ;
-; 0.857 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[2] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.000      ; 1.009      ;
-; 0.857 ; TFlipFlop:comb_4|tOut ; tenminutes[1]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.000      ; 1.009      ;
-; 0.857 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[1] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.000      ; 1.009      ;
-; 0.857 ; TFlipFlop:comb_4|tOut ; tenminutes[0]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.000      ; 1.009      ;
-; 0.857 ; TFlipFlop:comb_4|tOut ; tenminutesdisplay[0] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.000      ; 1.009      ;
-; 0.878 ; TFlipFlop:comb_4|tOut ; oneseconds[3]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.002     ; 1.028      ;
-; 0.878 ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[3] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.002     ; 1.028      ;
-; 0.878 ; TFlipFlop:comb_4|tOut ; oneseconds[2]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.002     ; 1.028      ;
-; 0.878 ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[2] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.002     ; 1.028      ;
-; 0.878 ; TFlipFlop:comb_4|tOut ; oneseconds[1]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.002     ; 1.028      ;
-; 0.878 ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[1] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.002     ; 1.028      ;
-; 0.885 ; TFlipFlop:comb_4|tOut ; oneseconds[0]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.004     ; 1.033      ;
-; 0.885 ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[0] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.004     ; 1.033      ;
-; 0.885 ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[3] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.004     ; 1.033      ;
-; 0.885 ; TFlipFlop:comb_4|tOut ; tenseconds[2]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.004     ; 1.033      ;
-; 0.885 ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[2] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.004     ; 1.033      ;
-; 0.885 ; TFlipFlop:comb_4|tOut ; tenseconds[1]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.004     ; 1.033      ;
-; 0.885 ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[1] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.004     ; 1.033      ;
-; 0.885 ; TFlipFlop:comb_4|tOut ; tenseconds[0]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.004     ; 1.033      ;
-; 0.885 ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[0] ; KEY[2]       ; CLOCK_50    ; 0.000        ; -0.004     ; 1.033      ;
-; 0.890 ; state.000             ; oneseconds[3]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 1.043      ;
-; 0.890 ; state.000             ; onesecondsdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 1.043      ;
-; 0.890 ; state.000             ; oneseconds[2]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 1.043      ;
-; 0.890 ; state.000             ; onesecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 1.043      ;
-; 0.890 ; state.000             ; oneseconds[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 1.043      ;
-; 0.890 ; state.000             ; onesecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 1.043      ;
-; 0.897 ; state.000             ; oneseconds[0]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 1.048      ;
-; 0.897 ; state.000             ; onesecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 1.048      ;
-; 0.897 ; state.000             ; tensecondsdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 1.048      ;
-; 0.897 ; state.000             ; tenseconds[2]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 1.048      ;
-; 0.897 ; state.000             ; tensecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 1.048      ;
-; 0.897 ; state.000             ; tenseconds[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 1.048      ;
-; 0.897 ; state.000             ; tensecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 1.048      ;
-; 0.897 ; state.000             ; tenseconds[0]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 1.048      ;
-; 0.897 ; state.000             ; tensecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 1.048      ;
-; 0.919 ; TFlipFlop:comb_3|tOut ; oneseconds[3]        ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.102     ; 0.969      ;
-; 0.919 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[3] ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.102     ; 0.969      ;
-; 0.919 ; TFlipFlop:comb_3|tOut ; oneseconds[2]        ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.102     ; 0.969      ;
-; 0.919 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[2] ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.102     ; 0.969      ;
-; 0.919 ; TFlipFlop:comb_3|tOut ; oneseconds[1]        ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.102     ; 0.969      ;
-; 0.919 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[1] ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.102     ; 0.969      ;
-; 0.926 ; TFlipFlop:comb_3|tOut ; oneseconds[0]        ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.104     ; 0.974      ;
-; 0.926 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[0] ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.104     ; 0.974      ;
-; 0.926 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[3] ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.104     ; 0.974      ;
-; 0.926 ; TFlipFlop:comb_3|tOut ; tenseconds[2]        ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.104     ; 0.974      ;
-; 0.926 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[2] ; KEY[1]       ; CLOCK_50    ; 0.000        ; -0.104     ; 0.974      ;
+; 0.559 ; state.START           ; state.SET_MIN        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.711      ;
+; 0.566 ; state.START           ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.718      ;
+; 0.600 ; TFlipFlop:comb_4|tOut ; tenminutes[2]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.271      ; 1.023      ;
+; 0.616 ; state.000             ; state.START          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.768      ;
+; 0.619 ; state.000             ; state.SET_MIN        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.771      ;
+; 0.624 ; TFlipFlop:comb_3|tOut ; oneseconds[3]        ; KEY[1]       ; CLOCK_50    ; 0.000        ; 0.173      ; 0.949      ;
+; 0.624 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[3] ; KEY[1]       ; CLOCK_50    ; 0.000        ; 0.173      ; 0.949      ;
+; 0.624 ; TFlipFlop:comb_3|tOut ; oneseconds[2]        ; KEY[1]       ; CLOCK_50    ; 0.000        ; 0.173      ; 0.949      ;
+; 0.624 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[2] ; KEY[1]       ; CLOCK_50    ; 0.000        ; 0.173      ; 0.949      ;
+; 0.624 ; TFlipFlop:comb_3|tOut ; oneseconds[1]        ; KEY[1]       ; CLOCK_50    ; 0.000        ; 0.173      ; 0.949      ;
+; 0.624 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[1] ; KEY[1]       ; CLOCK_50    ; 0.000        ; 0.173      ; 0.949      ;
+; 0.624 ; TFlipFlop:comb_3|tOut ; oneseconds[0]        ; KEY[1]       ; CLOCK_50    ; 0.000        ; 0.173      ; 0.949      ;
+; 0.624 ; TFlipFlop:comb_3|tOut ; onesecondsdisplay[0] ; KEY[1]       ; CLOCK_50    ; 0.000        ; 0.173      ; 0.949      ;
+; 0.624 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[3] ; KEY[1]       ; CLOCK_50    ; 0.000        ; 0.173      ; 0.949      ;
+; 0.624 ; TFlipFlop:comb_3|tOut ; tenseconds[2]        ; KEY[1]       ; CLOCK_50    ; 0.000        ; 0.173      ; 0.949      ;
+; 0.624 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[2] ; KEY[1]       ; CLOCK_50    ; 0.000        ; 0.173      ; 0.949      ;
+; 0.624 ; TFlipFlop:comb_3|tOut ; tenseconds[1]        ; KEY[1]       ; CLOCK_50    ; 0.000        ; 0.173      ; 0.949      ;
+; 0.624 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[1] ; KEY[1]       ; CLOCK_50    ; 0.000        ; 0.173      ; 0.949      ;
+; 0.624 ; TFlipFlop:comb_3|tOut ; tenseconds[0]        ; KEY[1]       ; CLOCK_50    ; 0.000        ; 0.173      ; 0.949      ;
+; 0.624 ; TFlipFlop:comb_3|tOut ; tensecondsdisplay[0] ; KEY[1]       ; CLOCK_50    ; 0.000        ; 0.173      ; 0.949      ;
+; 0.673 ; TFlipFlop:comb_4|tOut ; oneseconds[3]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.271      ; 1.096      ;
+; 0.673 ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[3] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.271      ; 1.096      ;
+; 0.673 ; TFlipFlop:comb_4|tOut ; oneseconds[2]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.271      ; 1.096      ;
+; 0.673 ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[2] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.271      ; 1.096      ;
+; 0.673 ; TFlipFlop:comb_4|tOut ; oneseconds[1]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.271      ; 1.096      ;
+; 0.673 ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[1] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.271      ; 1.096      ;
+; 0.673 ; TFlipFlop:comb_4|tOut ; oneseconds[0]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.271      ; 1.096      ;
+; 0.673 ; TFlipFlop:comb_4|tOut ; onesecondsdisplay[0] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.271      ; 1.096      ;
+; 0.673 ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[3] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.271      ; 1.096      ;
+; 0.673 ; TFlipFlop:comb_4|tOut ; tenseconds[2]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.271      ; 1.096      ;
+; 0.673 ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[2] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.271      ; 1.096      ;
+; 0.673 ; TFlipFlop:comb_4|tOut ; tenseconds[1]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.271      ; 1.096      ;
+; 0.673 ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[1] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.271      ; 1.096      ;
+; 0.673 ; TFlipFlop:comb_4|tOut ; tenseconds[0]        ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.271      ; 1.096      ;
+; 0.673 ; TFlipFlop:comb_4|tOut ; tensecondsdisplay[0] ; KEY[2]       ; CLOCK_50    ; 0.000        ; 0.271      ; 1.096      ;
+; 0.709 ; state.STOP            ; state.STOP           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.861      ;
+; 0.718 ; state.000             ; state.FLASH          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.870      ;
+; 0.913 ; state.000             ; oneseconds[3]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.007      ; 1.072      ;
+; 0.913 ; state.000             ; onesecondsdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.007      ; 1.072      ;
+; 0.913 ; state.000             ; oneseconds[2]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.007      ; 1.072      ;
+; 0.913 ; state.000             ; onesecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.007      ; 1.072      ;
+; 0.913 ; state.000             ; oneseconds[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.007      ; 1.072      ;
+; 0.913 ; state.000             ; onesecondsdisplay[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.007      ; 1.072      ;
+; 0.913 ; state.000             ; oneseconds[0]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.007      ; 1.072      ;
+; 0.913 ; state.000             ; onesecondsdisplay[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.007      ; 1.072      ;
+; 0.913 ; state.000             ; tensecondsdisplay[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.007      ; 1.072      ;
+; 0.913 ; state.000             ; tenseconds[2]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.007      ; 1.072      ;
+; 0.913 ; state.000             ; tensecondsdisplay[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.007      ; 1.072      ;
 +-------+-----------------------+----------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -1142,37 +1142,37 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; SW[*]     ; CLOCK_50   ; 0.375  ; 0.375  ; Fall       ; CLOCK_50        ;
-;  SW[0]    ; CLOCK_50   ; 0.338  ; 0.338  ; Fall       ; CLOCK_50        ;
-;  SW[1]    ; CLOCK_50   ; 0.369  ; 0.369  ; Fall       ; CLOCK_50        ;
-;  SW[2]    ; CLOCK_50   ; 0.238  ; 0.238  ; Fall       ; CLOCK_50        ;
-;  SW[3]    ; CLOCK_50   ; -0.046 ; -0.046 ; Fall       ; CLOCK_50        ;
-;  SW[4]    ; CLOCK_50   ; -0.248 ; -0.248 ; Fall       ; CLOCK_50        ;
-;  SW[5]    ; CLOCK_50   ; -0.095 ; -0.095 ; Fall       ; CLOCK_50        ;
-;  SW[6]    ; CLOCK_50   ; -0.350 ; -0.350 ; Fall       ; CLOCK_50        ;
-;  SW[7]    ; CLOCK_50   ; -0.385 ; -0.385 ; Fall       ; CLOCK_50        ;
-;  SW[8]    ; CLOCK_50   ; 0.375  ; 0.375  ; Fall       ; CLOCK_50        ;
-;  SW[9]    ; CLOCK_50   ; -0.170 ; -0.170 ; Fall       ; CLOCK_50        ;
+; SW[*]     ; CLOCK_50   ; 0.526  ; 0.526  ; Fall       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; 0.198  ; 0.198  ; Fall       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; 0.008  ; 0.008  ; Fall       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; -0.005 ; -0.005 ; Fall       ; CLOCK_50        ;
+;  SW[3]    ; CLOCK_50   ; -0.098 ; -0.098 ; Fall       ; CLOCK_50        ;
+;  SW[4]    ; CLOCK_50   ; -0.043 ; -0.043 ; Fall       ; CLOCK_50        ;
+;  SW[5]    ; CLOCK_50   ; -0.075 ; -0.075 ; Fall       ; CLOCK_50        ;
+;  SW[6]    ; CLOCK_50   ; -0.198 ; -0.198 ; Fall       ; CLOCK_50        ;
+;  SW[7]    ; CLOCK_50   ; 0.436  ; 0.436  ; Fall       ; CLOCK_50        ;
+;  SW[8]    ; CLOCK_50   ; 0.526  ; 0.526  ; Fall       ; CLOCK_50        ;
+;  SW[9]    ; CLOCK_50   ; 0.297  ; 0.297  ; Fall       ; CLOCK_50        ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
-+-----------------------------------------------------------------------+
-; Hold Times                                                            ;
-+-----------+------------+-------+-------+------------+-----------------+
-; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
-+-----------+------------+-------+-------+------------+-----------------+
-; SW[*]     ; CLOCK_50   ; 0.660 ; 0.660 ; Fall       ; CLOCK_50        ;
-;  SW[0]    ; CLOCK_50   ; 0.124 ; 0.124 ; Fall       ; CLOCK_50        ;
-;  SW[1]    ; CLOCK_50   ; 0.212 ; 0.212 ; Fall       ; CLOCK_50        ;
-;  SW[2]    ; CLOCK_50   ; 0.225 ; 0.225 ; Fall       ; CLOCK_50        ;
-;  SW[3]    ; CLOCK_50   ; 0.581 ; 0.581 ; Fall       ; CLOCK_50        ;
-;  SW[4]    ; CLOCK_50   ; 0.400 ; 0.400 ; Fall       ; CLOCK_50        ;
-;  SW[5]    ; CLOCK_50   ; 0.377 ; 0.377 ; Fall       ; CLOCK_50        ;
-;  SW[6]    ; CLOCK_50   ; 0.590 ; 0.590 ; Fall       ; CLOCK_50        ;
-;  SW[7]    ; CLOCK_50   ; 0.660 ; 0.660 ; Fall       ; CLOCK_50        ;
-;  SW[8]    ; CLOCK_50   ; 0.600 ; 0.600 ; Fall       ; CLOCK_50        ;
-;  SW[9]    ; CLOCK_50   ; 0.375 ; 0.375 ; Fall       ; CLOCK_50        ;
-+-----------+------------+-------+-------+------------+-----------------+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SW[*]     ; CLOCK_50   ; 0.803  ; 0.803  ; Fall       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; 0.276  ; 0.276  ; Fall       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; 0.580  ; 0.580  ; Fall       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; 0.480  ; 0.480  ; Fall       ; CLOCK_50        ;
+;  SW[3]    ; CLOCK_50   ; 0.752  ; 0.752  ; Fall       ; CLOCK_50        ;
+;  SW[4]    ; CLOCK_50   ; 0.648  ; 0.648  ; Fall       ; CLOCK_50        ;
+;  SW[5]    ; CLOCK_50   ; 0.676  ; 0.676  ; Fall       ; CLOCK_50        ;
+;  SW[6]    ; CLOCK_50   ; 0.803  ; 0.803  ; Fall       ; CLOCK_50        ;
+;  SW[7]    ; CLOCK_50   ; 0.337  ; 0.337  ; Fall       ; CLOCK_50        ;
+;  SW[8]    ; CLOCK_50   ; 0.275  ; 0.275  ; Fall       ; CLOCK_50        ;
+;  SW[9]    ; CLOCK_50   ; -0.170 ; -0.170 ; Fall       ; CLOCK_50        ;
++-----------+------------+--------+--------+------------+-----------------+
 
 
 +-----------------------------------------------------------------------+
@@ -1180,38 +1180,38 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; HEX0[*]   ; CLOCK_50   ; 4.858 ; 4.858 ; Fall       ; CLOCK_50        ;
-;  HEX0[0]  ; CLOCK_50   ; 4.768 ; 4.768 ; Fall       ; CLOCK_50        ;
-;  HEX0[1]  ; CLOCK_50   ; 4.830 ; 4.830 ; Fall       ; CLOCK_50        ;
-;  HEX0[2]  ; CLOCK_50   ; 4.721 ; 4.721 ; Fall       ; CLOCK_50        ;
-;  HEX0[3]  ; CLOCK_50   ; 4.723 ; 4.723 ; Fall       ; CLOCK_50        ;
-;  HEX0[4]  ; CLOCK_50   ; 4.796 ; 4.796 ; Fall       ; CLOCK_50        ;
-;  HEX0[5]  ; CLOCK_50   ; 4.857 ; 4.857 ; Fall       ; CLOCK_50        ;
-;  HEX0[6]  ; CLOCK_50   ; 4.858 ; 4.858 ; Fall       ; CLOCK_50        ;
-; HEX1[*]   ; CLOCK_50   ; 4.961 ; 4.961 ; Fall       ; CLOCK_50        ;
-;  HEX1[0]  ; CLOCK_50   ; 4.960 ; 4.960 ; Fall       ; CLOCK_50        ;
-;  HEX1[1]  ; CLOCK_50   ; 4.790 ; 4.790 ; Fall       ; CLOCK_50        ;
-;  HEX1[2]  ; CLOCK_50   ; 4.788 ; 4.788 ; Fall       ; CLOCK_50        ;
-;  HEX1[3]  ; CLOCK_50   ; 4.799 ; 4.799 ; Fall       ; CLOCK_50        ;
-;  HEX1[4]  ; CLOCK_50   ; 4.812 ; 4.812 ; Fall       ; CLOCK_50        ;
-;  HEX1[5]  ; CLOCK_50   ; 4.961 ; 4.961 ; Fall       ; CLOCK_50        ;
-;  HEX1[6]  ; CLOCK_50   ; 4.904 ; 4.904 ; Fall       ; CLOCK_50        ;
-; HEX2[*]   ; CLOCK_50   ; 5.133 ; 5.133 ; Fall       ; CLOCK_50        ;
-;  HEX2[0]  ; CLOCK_50   ; 5.055 ; 5.055 ; Fall       ; CLOCK_50        ;
-;  HEX2[1]  ; CLOCK_50   ; 4.978 ; 4.978 ; Fall       ; CLOCK_50        ;
-;  HEX2[2]  ; CLOCK_50   ; 5.020 ; 5.020 ; Fall       ; CLOCK_50        ;
-;  HEX2[3]  ; CLOCK_50   ; 5.020 ; 5.020 ; Fall       ; CLOCK_50        ;
-;  HEX2[4]  ; CLOCK_50   ; 5.073 ; 5.073 ; Fall       ; CLOCK_50        ;
-;  HEX2[5]  ; CLOCK_50   ; 5.114 ; 5.114 ; Fall       ; CLOCK_50        ;
-;  HEX2[6]  ; CLOCK_50   ; 5.133 ; 5.133 ; Fall       ; CLOCK_50        ;
-; HEX3[*]   ; CLOCK_50   ; 5.160 ; 5.160 ; Fall       ; CLOCK_50        ;
-;  HEX3[0]  ; CLOCK_50   ; 5.015 ; 5.015 ; Fall       ; CLOCK_50        ;
-;  HEX3[1]  ; CLOCK_50   ; 5.157 ; 5.157 ; Fall       ; CLOCK_50        ;
-;  HEX3[2]  ; CLOCK_50   ; 5.160 ; 5.160 ; Fall       ; CLOCK_50        ;
-;  HEX3[3]  ; CLOCK_50   ; 4.996 ; 4.996 ; Fall       ; CLOCK_50        ;
-;  HEX3[4]  ; CLOCK_50   ; 4.924 ; 4.924 ; Fall       ; CLOCK_50        ;
-;  HEX3[5]  ; CLOCK_50   ; 5.010 ; 5.010 ; Fall       ; CLOCK_50        ;
-;  HEX3[6]  ; CLOCK_50   ; 5.142 ; 5.142 ; Fall       ; CLOCK_50        ;
+; HEX0[*]   ; CLOCK_50   ; 5.663 ; 5.663 ; Fall       ; CLOCK_50        ;
+;  HEX0[0]  ; CLOCK_50   ; 5.299 ; 5.299 ; Fall       ; CLOCK_50        ;
+;  HEX0[1]  ; CLOCK_50   ; 5.469 ; 5.469 ; Fall       ; CLOCK_50        ;
+;  HEX0[2]  ; CLOCK_50   ; 5.456 ; 5.456 ; Fall       ; CLOCK_50        ;
+;  HEX0[3]  ; CLOCK_50   ; 5.663 ; 5.663 ; Fall       ; CLOCK_50        ;
+;  HEX0[4]  ; CLOCK_50   ; 5.468 ; 5.468 ; Fall       ; CLOCK_50        ;
+;  HEX0[5]  ; CLOCK_50   ; 5.074 ; 5.074 ; Fall       ; CLOCK_50        ;
+;  HEX0[6]  ; CLOCK_50   ; 5.576 ; 5.576 ; Fall       ; CLOCK_50        ;
+; HEX1[*]   ; CLOCK_50   ; 5.476 ; 5.476 ; Fall       ; CLOCK_50        ;
+;  HEX1[0]  ; CLOCK_50   ; 5.474 ; 5.474 ; Fall       ; CLOCK_50        ;
+;  HEX1[1]  ; CLOCK_50   ; 5.310 ; 5.310 ; Fall       ; CLOCK_50        ;
+;  HEX1[2]  ; CLOCK_50   ; 5.304 ; 5.304 ; Fall       ; CLOCK_50        ;
+;  HEX1[3]  ; CLOCK_50   ; 5.318 ; 5.318 ; Fall       ; CLOCK_50        ;
+;  HEX1[4]  ; CLOCK_50   ; 5.327 ; 5.327 ; Fall       ; CLOCK_50        ;
+;  HEX1[5]  ; CLOCK_50   ; 5.476 ; 5.476 ; Fall       ; CLOCK_50        ;
+;  HEX1[6]  ; CLOCK_50   ; 5.414 ; 5.414 ; Fall       ; CLOCK_50        ;
+; HEX2[*]   ; CLOCK_50   ; 5.714 ; 5.714 ; Fall       ; CLOCK_50        ;
+;  HEX2[0]  ; CLOCK_50   ; 5.543 ; 5.543 ; Fall       ; CLOCK_50        ;
+;  HEX2[1]  ; CLOCK_50   ; 5.098 ; 5.098 ; Fall       ; CLOCK_50        ;
+;  HEX2[2]  ; CLOCK_50   ; 5.419 ; 5.419 ; Fall       ; CLOCK_50        ;
+;  HEX2[3]  ; CLOCK_50   ; 5.679 ; 5.679 ; Fall       ; CLOCK_50        ;
+;  HEX2[4]  ; CLOCK_50   ; 5.714 ; 5.714 ; Fall       ; CLOCK_50        ;
+;  HEX2[5]  ; CLOCK_50   ; 5.469 ; 5.469 ; Fall       ; CLOCK_50        ;
+;  HEX2[6]  ; CLOCK_50   ; 5.709 ; 5.709 ; Fall       ; CLOCK_50        ;
+; HEX3[*]   ; CLOCK_50   ; 5.819 ; 5.819 ; Fall       ; CLOCK_50        ;
+;  HEX3[0]  ; CLOCK_50   ; 5.616 ; 5.616 ; Fall       ; CLOCK_50        ;
+;  HEX3[1]  ; CLOCK_50   ; 5.819 ; 5.819 ; Fall       ; CLOCK_50        ;
+;  HEX3[2]  ; CLOCK_50   ; 5.819 ; 5.819 ; Fall       ; CLOCK_50        ;
+;  HEX3[3]  ; CLOCK_50   ; 5.698 ; 5.698 ; Fall       ; CLOCK_50        ;
+;  HEX3[4]  ; CLOCK_50   ; 5.676 ; 5.676 ; Fall       ; CLOCK_50        ;
+;  HEX3[5]  ; CLOCK_50   ; 5.550 ; 5.550 ; Fall       ; CLOCK_50        ;
+;  HEX3[6]  ; CLOCK_50   ; 5.696 ; 5.696 ; Fall       ; CLOCK_50        ;
 ; LEDR[*]   ; CLOCK_50   ; 3.259 ; 3.259 ; Fall       ; CLOCK_50        ;
 ;  LEDR[0]  ; CLOCK_50   ; 3.243 ; 3.243 ; Fall       ; CLOCK_50        ;
 ;  LEDR[1]  ; CLOCK_50   ; 3.225 ; 3.225 ; Fall       ; CLOCK_50        ;
@@ -1231,38 +1231,38 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; HEX0[*]   ; CLOCK_50   ; 4.656 ; 4.656 ; Fall       ; CLOCK_50        ;
-;  HEX0[0]  ; CLOCK_50   ; 4.702 ; 4.702 ; Fall       ; CLOCK_50        ;
-;  HEX0[1]  ; CLOCK_50   ; 4.773 ; 4.773 ; Fall       ; CLOCK_50        ;
-;  HEX0[2]  ; CLOCK_50   ; 4.656 ; 4.656 ; Fall       ; CLOCK_50        ;
-;  HEX0[3]  ; CLOCK_50   ; 4.656 ; 4.656 ; Fall       ; CLOCK_50        ;
-;  HEX0[4]  ; CLOCK_50   ; 4.744 ; 4.744 ; Fall       ; CLOCK_50        ;
-;  HEX0[5]  ; CLOCK_50   ; 4.791 ; 4.791 ; Fall       ; CLOCK_50        ;
-;  HEX0[6]  ; CLOCK_50   ; 4.792 ; 4.792 ; Fall       ; CLOCK_50        ;
-; HEX1[*]   ; CLOCK_50   ; 4.663 ; 4.663 ; Fall       ; CLOCK_50        ;
-;  HEX1[0]  ; CLOCK_50   ; 4.825 ; 4.825 ; Fall       ; CLOCK_50        ;
-;  HEX1[1]  ; CLOCK_50   ; 4.665 ; 4.665 ; Fall       ; CLOCK_50        ;
-;  HEX1[2]  ; CLOCK_50   ; 4.663 ; 4.663 ; Fall       ; CLOCK_50        ;
-;  HEX1[3]  ; CLOCK_50   ; 4.672 ; 4.672 ; Fall       ; CLOCK_50        ;
-;  HEX1[4]  ; CLOCK_50   ; 4.687 ; 4.687 ; Fall       ; CLOCK_50        ;
-;  HEX1[5]  ; CLOCK_50   ; 4.836 ; 4.836 ; Fall       ; CLOCK_50        ;
-;  HEX1[6]  ; CLOCK_50   ; 4.772 ; 4.772 ; Fall       ; CLOCK_50        ;
-; HEX2[*]   ; CLOCK_50   ; 4.744 ; 4.744 ; Fall       ; CLOCK_50        ;
-;  HEX2[0]  ; CLOCK_50   ; 4.812 ; 4.812 ; Fall       ; CLOCK_50        ;
-;  HEX2[1]  ; CLOCK_50   ; 4.744 ; 4.744 ; Fall       ; CLOCK_50        ;
-;  HEX2[2]  ; CLOCK_50   ; 4.779 ; 4.779 ; Fall       ; CLOCK_50        ;
-;  HEX2[3]  ; CLOCK_50   ; 4.779 ; 4.779 ; Fall       ; CLOCK_50        ;
-;  HEX2[4]  ; CLOCK_50   ; 4.838 ; 4.838 ; Fall       ; CLOCK_50        ;
-;  HEX2[5]  ; CLOCK_50   ; 4.873 ; 4.873 ; Fall       ; CLOCK_50        ;
-;  HEX2[6]  ; CLOCK_50   ; 4.901 ; 4.901 ; Fall       ; CLOCK_50        ;
-; HEX3[*]   ; CLOCK_50   ; 4.695 ; 4.695 ; Fall       ; CLOCK_50        ;
-;  HEX3[0]  ; CLOCK_50   ; 4.784 ; 4.784 ; Fall       ; CLOCK_50        ;
-;  HEX3[1]  ; CLOCK_50   ; 4.925 ; 4.925 ; Fall       ; CLOCK_50        ;
-;  HEX3[2]  ; CLOCK_50   ; 4.930 ; 4.930 ; Fall       ; CLOCK_50        ;
-;  HEX3[3]  ; CLOCK_50   ; 4.766 ; 4.766 ; Fall       ; CLOCK_50        ;
-;  HEX3[4]  ; CLOCK_50   ; 4.695 ; 4.695 ; Fall       ; CLOCK_50        ;
-;  HEX3[5]  ; CLOCK_50   ; 4.779 ; 4.779 ; Fall       ; CLOCK_50        ;
-;  HEX3[6]  ; CLOCK_50   ; 4.910 ; 4.910 ; Fall       ; CLOCK_50        ;
+; HEX0[*]   ; CLOCK_50   ; 4.920 ; 4.920 ; Fall       ; CLOCK_50        ;
+;  HEX0[0]  ; CLOCK_50   ; 5.135 ; 5.135 ; Fall       ; CLOCK_50        ;
+;  HEX0[1]  ; CLOCK_50   ; 5.304 ; 5.304 ; Fall       ; CLOCK_50        ;
+;  HEX0[2]  ; CLOCK_50   ; 5.295 ; 5.295 ; Fall       ; CLOCK_50        ;
+;  HEX0[3]  ; CLOCK_50   ; 5.498 ; 5.498 ; Fall       ; CLOCK_50        ;
+;  HEX0[4]  ; CLOCK_50   ; 5.304 ; 5.304 ; Fall       ; CLOCK_50        ;
+;  HEX0[5]  ; CLOCK_50   ; 4.920 ; 4.920 ; Fall       ; CLOCK_50        ;
+;  HEX0[6]  ; CLOCK_50   ; 5.411 ; 5.411 ; Fall       ; CLOCK_50        ;
+; HEX1[*]   ; CLOCK_50   ; 5.042 ; 5.042 ; Fall       ; CLOCK_50        ;
+;  HEX1[0]  ; CLOCK_50   ; 5.214 ; 5.214 ; Fall       ; CLOCK_50        ;
+;  HEX1[1]  ; CLOCK_50   ; 5.048 ; 5.048 ; Fall       ; CLOCK_50        ;
+;  HEX1[2]  ; CLOCK_50   ; 5.042 ; 5.042 ; Fall       ; CLOCK_50        ;
+;  HEX1[3]  ; CLOCK_50   ; 5.057 ; 5.057 ; Fall       ; CLOCK_50        ;
+;  HEX1[4]  ; CLOCK_50   ; 5.067 ; 5.067 ; Fall       ; CLOCK_50        ;
+;  HEX1[5]  ; CLOCK_50   ; 5.217 ; 5.217 ; Fall       ; CLOCK_50        ;
+;  HEX1[6]  ; CLOCK_50   ; 5.149 ; 5.149 ; Fall       ; CLOCK_50        ;
+; HEX2[*]   ; CLOCK_50   ; 4.995 ; 4.995 ; Fall       ; CLOCK_50        ;
+;  HEX2[0]  ; CLOCK_50   ; 5.440 ; 5.440 ; Fall       ; CLOCK_50        ;
+;  HEX2[1]  ; CLOCK_50   ; 4.995 ; 4.995 ; Fall       ; CLOCK_50        ;
+;  HEX2[2]  ; CLOCK_50   ; 5.315 ; 5.315 ; Fall       ; CLOCK_50        ;
+;  HEX2[3]  ; CLOCK_50   ; 5.568 ; 5.568 ; Fall       ; CLOCK_50        ;
+;  HEX2[4]  ; CLOCK_50   ; 5.605 ; 5.605 ; Fall       ; CLOCK_50        ;
+;  HEX2[5]  ; CLOCK_50   ; 5.358 ; 5.358 ; Fall       ; CLOCK_50        ;
+;  HEX2[6]  ; CLOCK_50   ; 5.603 ; 5.603 ; Fall       ; CLOCK_50        ;
+; HEX3[*]   ; CLOCK_50   ; 5.314 ; 5.314 ; Fall       ; CLOCK_50        ;
+;  HEX3[0]  ; CLOCK_50   ; 5.381 ; 5.381 ; Fall       ; CLOCK_50        ;
+;  HEX3[1]  ; CLOCK_50   ; 5.584 ; 5.584 ; Fall       ; CLOCK_50        ;
+;  HEX3[2]  ; CLOCK_50   ; 5.587 ; 5.587 ; Fall       ; CLOCK_50        ;
+;  HEX3[3]  ; CLOCK_50   ; 5.466 ; 5.466 ; Fall       ; CLOCK_50        ;
+;  HEX3[4]  ; CLOCK_50   ; 5.443 ; 5.443 ; Fall       ; CLOCK_50        ;
+;  HEX3[5]  ; CLOCK_50   ; 5.314 ; 5.314 ; Fall       ; CLOCK_50        ;
+;  HEX3[6]  ; CLOCK_50   ; 5.461 ; 5.461 ; Fall       ; CLOCK_50        ;
 ; LEDR[*]   ; CLOCK_50   ; 3.210 ; 3.210 ; Fall       ; CLOCK_50        ;
 ;  LEDR[0]  ; CLOCK_50   ; 3.243 ; 3.243 ; Fall       ; CLOCK_50        ;
 ;  LEDR[1]  ; CLOCK_50   ; 3.225 ; 3.225 ; Fall       ; CLOCK_50        ;
@@ -1282,12 +1282,12 @@ No paths to report.
 +------------------+---------+-------+----------+---------+---------------------+
 ; Clock            ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +------------------+---------+-------+----------+---------+---------------------+
-; Worst-case Slack ; -2.265  ; 0.215 ; N/A      ; N/A     ; -1.631              ;
-;  CLOCK_50        ; -2.265  ; 0.215 ; N/A      ; N/A     ; -1.631              ;
+; Worst-case Slack ; -1.892  ; 0.215 ; N/A      ; N/A     ; -1.631              ;
+;  CLOCK_50        ; -1.892  ; 0.215 ; N/A      ; N/A     ; -1.631              ;
 ;  KEY[1]          ; 0.307   ; 0.215 ; N/A      ; N/A     ; -1.469              ;
 ;  KEY[2]          ; 0.307   ; 0.215 ; N/A      ; N/A     ; -1.469              ;
-; Design-wide TNS  ; -97.789 ; 0.0   ; 0.0      ; 0.0     ; -63.225             ;
-;  CLOCK_50        ; -97.789 ; 0.000 ; N/A      ; N/A     ; -57.843             ;
+; Design-wide TNS  ; -75.597 ; 0.0   ; 0.0      ; 0.0     ; -63.225             ;
+;  CLOCK_50        ; -75.597 ; 0.000 ; N/A      ; N/A     ; -57.843             ;
 ;  KEY[1]          ; 0.000   ; 0.000 ; N/A      ; N/A     ; -2.691              ;
 ;  KEY[2]          ; 0.000   ; 0.000 ; N/A      ; N/A     ; -2.691              ;
 +------------------+---------+-------+----------+---------+---------------------+
@@ -1298,37 +1298,37 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; SW[*]     ; CLOCK_50   ; 2.224 ; 2.224 ; Fall       ; CLOCK_50        ;
-;  SW[0]    ; CLOCK_50   ; 2.058 ; 2.058 ; Fall       ; CLOCK_50        ;
-;  SW[1]    ; CLOCK_50   ; 2.224 ; 2.224 ; Fall       ; CLOCK_50        ;
-;  SW[2]    ; CLOCK_50   ; 1.842 ; 1.842 ; Fall       ; CLOCK_50        ;
-;  SW[3]    ; CLOCK_50   ; 1.232 ; 1.232 ; Fall       ; CLOCK_50        ;
-;  SW[4]    ; CLOCK_50   ; 0.515 ; 0.515 ; Fall       ; CLOCK_50        ;
-;  SW[5]    ; CLOCK_50   ; 0.924 ; 0.924 ; Fall       ; CLOCK_50        ;
-;  SW[6]    ; CLOCK_50   ; 0.410 ; 0.410 ; Fall       ; CLOCK_50        ;
-;  SW[7]    ; CLOCK_50   ; 0.476 ; 0.476 ; Fall       ; CLOCK_50        ;
-;  SW[8]    ; CLOCK_50   ; 1.528 ; 1.528 ; Fall       ; CLOCK_50        ;
-;  SW[9]    ; CLOCK_50   ; 1.080 ; 1.080 ; Fall       ; CLOCK_50        ;
+; SW[*]     ; CLOCK_50   ; 2.362 ; 2.362 ; Fall       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; 1.882 ; 1.882 ; Fall       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; 1.407 ; 1.407 ; Fall       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; 1.341 ; 1.341 ; Fall       ; CLOCK_50        ;
+;  SW[3]    ; CLOCK_50   ; 1.177 ; 1.177 ; Fall       ; CLOCK_50        ;
+;  SW[4]    ; CLOCK_50   ; 1.199 ; 1.199 ; Fall       ; CLOCK_50        ;
+;  SW[5]    ; CLOCK_50   ; 1.043 ; 1.043 ; Fall       ; CLOCK_50        ;
+;  SW[6]    ; CLOCK_50   ; 0.800 ; 0.800 ; Fall       ; CLOCK_50        ;
+;  SW[7]    ; CLOCK_50   ; 2.362 ; 2.362 ; Fall       ; CLOCK_50        ;
+;  SW[8]    ; CLOCK_50   ; 2.018 ; 2.018 ; Fall       ; CLOCK_50        ;
+;  SW[9]    ; CLOCK_50   ; 1.920 ; 1.920 ; Fall       ; CLOCK_50        ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
-+-----------------------------------------------------------------------+
-; Hold Times                                                            ;
-+-----------+------------+-------+-------+------------+-----------------+
-; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
-+-----------+------------+-------+-------+------------+-----------------+
-; SW[*]     ; CLOCK_50   ; 0.660 ; 0.660 ; Fall       ; CLOCK_50        ;
-;  SW[0]    ; CLOCK_50   ; 0.124 ; 0.124 ; Fall       ; CLOCK_50        ;
-;  SW[1]    ; CLOCK_50   ; 0.212 ; 0.212 ; Fall       ; CLOCK_50        ;
-;  SW[2]    ; CLOCK_50   ; 0.225 ; 0.225 ; Fall       ; CLOCK_50        ;
-;  SW[3]    ; CLOCK_50   ; 0.581 ; 0.581 ; Fall       ; CLOCK_50        ;
-;  SW[4]    ; CLOCK_50   ; 0.400 ; 0.400 ; Fall       ; CLOCK_50        ;
-;  SW[5]    ; CLOCK_50   ; 0.377 ; 0.377 ; Fall       ; CLOCK_50        ;
-;  SW[6]    ; CLOCK_50   ; 0.590 ; 0.590 ; Fall       ; CLOCK_50        ;
-;  SW[7]    ; CLOCK_50   ; 0.660 ; 0.660 ; Fall       ; CLOCK_50        ;
-;  SW[8]    ; CLOCK_50   ; 0.600 ; 0.600 ; Fall       ; CLOCK_50        ;
-;  SW[9]    ; CLOCK_50   ; 0.375 ; 0.375 ; Fall       ; CLOCK_50        ;
-+-----------+------------+-------+-------+------------+-----------------+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SW[*]     ; CLOCK_50   ; 0.803  ; 0.803  ; Fall       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; 0.276  ; 0.276  ; Fall       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; 0.580  ; 0.580  ; Fall       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; 0.480  ; 0.480  ; Fall       ; CLOCK_50        ;
+;  SW[3]    ; CLOCK_50   ; 0.752  ; 0.752  ; Fall       ; CLOCK_50        ;
+;  SW[4]    ; CLOCK_50   ; 0.648  ; 0.648  ; Fall       ; CLOCK_50        ;
+;  SW[5]    ; CLOCK_50   ; 0.676  ; 0.676  ; Fall       ; CLOCK_50        ;
+;  SW[6]    ; CLOCK_50   ; 0.803  ; 0.803  ; Fall       ; CLOCK_50        ;
+;  SW[7]    ; CLOCK_50   ; 0.337  ; 0.337  ; Fall       ; CLOCK_50        ;
+;  SW[8]    ; CLOCK_50   ; 0.275  ; 0.275  ; Fall       ; CLOCK_50        ;
+;  SW[9]    ; CLOCK_50   ; -0.170 ; -0.170 ; Fall       ; CLOCK_50        ;
++-----------+------------+--------+--------+------------+-----------------+
 
 
 +-------------------------------------------------------------------------+
@@ -1336,38 +1336,38 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; HEX0[*]   ; CLOCK_50   ; 9.393  ; 9.393  ; Fall       ; CLOCK_50        ;
-;  HEX0[0]  ; CLOCK_50   ; 9.234  ; 9.234  ; Fall       ; CLOCK_50        ;
-;  HEX0[1]  ; CLOCK_50   ; 9.352  ; 9.352  ; Fall       ; CLOCK_50        ;
-;  HEX0[2]  ; CLOCK_50   ; 9.044  ; 9.044  ; Fall       ; CLOCK_50        ;
-;  HEX0[3]  ; CLOCK_50   ; 9.045  ; 9.045  ; Fall       ; CLOCK_50        ;
-;  HEX0[4]  ; CLOCK_50   ; 9.267  ; 9.267  ; Fall       ; CLOCK_50        ;
-;  HEX0[5]  ; CLOCK_50   ; 9.392  ; 9.392  ; Fall       ; CLOCK_50        ;
-;  HEX0[6]  ; CLOCK_50   ; 9.393  ; 9.393  ; Fall       ; CLOCK_50        ;
-; HEX1[*]   ; CLOCK_50   ; 9.580  ; 9.580  ; Fall       ; CLOCK_50        ;
-;  HEX1[0]  ; CLOCK_50   ; 9.568  ; 9.568  ; Fall       ; CLOCK_50        ;
-;  HEX1[1]  ; CLOCK_50   ; 9.193  ; 9.193  ; Fall       ; CLOCK_50        ;
-;  HEX1[2]  ; CLOCK_50   ; 9.192  ; 9.192  ; Fall       ; CLOCK_50        ;
-;  HEX1[3]  ; CLOCK_50   ; 9.203  ; 9.203  ; Fall       ; CLOCK_50        ;
-;  HEX1[4]  ; CLOCK_50   ; 9.218  ; 9.218  ; Fall       ; CLOCK_50        ;
-;  HEX1[5]  ; CLOCK_50   ; 9.580  ; 9.580  ; Fall       ; CLOCK_50        ;
-;  HEX1[6]  ; CLOCK_50   ; 9.454  ; 9.454  ; Fall       ; CLOCK_50        ;
-; HEX2[*]   ; CLOCK_50   ; 10.082 ; 10.082 ; Fall       ; CLOCK_50        ;
-;  HEX2[0]  ; CLOCK_50   ; 9.908  ; 9.908  ; Fall       ; CLOCK_50        ;
-;  HEX2[1]  ; CLOCK_50   ; 9.710  ; 9.710  ; Fall       ; CLOCK_50        ;
-;  HEX2[2]  ; CLOCK_50   ; 9.756  ; 9.756  ; Fall       ; CLOCK_50        ;
-;  HEX2[3]  ; CLOCK_50   ; 9.755  ; 9.755  ; Fall       ; CLOCK_50        ;
-;  HEX2[4]  ; CLOCK_50   ; 9.956  ; 9.956  ; Fall       ; CLOCK_50        ;
-;  HEX2[5]  ; CLOCK_50   ; 10.062 ; 10.062 ; Fall       ; CLOCK_50        ;
-;  HEX2[6]  ; CLOCK_50   ; 10.082 ; 10.082 ; Fall       ; CLOCK_50        ;
-; HEX3[*]   ; CLOCK_50   ; 10.123 ; 10.123 ; Fall       ; CLOCK_50        ;
-;  HEX3[0]  ; CLOCK_50   ; 9.799  ; 9.799  ; Fall       ; CLOCK_50        ;
-;  HEX3[1]  ; CLOCK_50   ; 9.984  ; 9.984  ; Fall       ; CLOCK_50        ;
-;  HEX3[2]  ; CLOCK_50   ; 9.993  ; 9.993  ; Fall       ; CLOCK_50        ;
-;  HEX3[3]  ; CLOCK_50   ; 9.776  ; 9.776  ; Fall       ; CLOCK_50        ;
-;  HEX3[4]  ; CLOCK_50   ; 9.641  ; 9.641  ; Fall       ; CLOCK_50        ;
-;  HEX3[5]  ; CLOCK_50   ; 9.794  ; 9.794  ; Fall       ; CLOCK_50        ;
-;  HEX3[6]  ; CLOCK_50   ; 10.123 ; 10.123 ; Fall       ; CLOCK_50        ;
+; HEX0[*]   ; CLOCK_50   ; 11.232 ; 11.232 ; Fall       ; CLOCK_50        ;
+;  HEX0[0]  ; CLOCK_50   ; 10.629 ; 10.629 ; Fall       ; CLOCK_50        ;
+;  HEX0[1]  ; CLOCK_50   ; 10.917 ; 10.917 ; Fall       ; CLOCK_50        ;
+;  HEX0[2]  ; CLOCK_50   ; 10.950 ; 10.950 ; Fall       ; CLOCK_50        ;
+;  HEX0[3]  ; CLOCK_50   ; 11.232 ; 11.232 ; Fall       ; CLOCK_50        ;
+;  HEX0[4]  ; CLOCK_50   ; 10.909 ; 10.909 ; Fall       ; CLOCK_50        ;
+;  HEX0[5]  ; CLOCK_50   ; 9.794  ; 9.794  ; Fall       ; CLOCK_50        ;
+;  HEX0[6]  ; CLOCK_50   ; 10.950 ; 10.950 ; Fall       ; CLOCK_50        ;
+; HEX1[*]   ; CLOCK_50   ; 10.976 ; 10.976 ; Fall       ; CLOCK_50        ;
+;  HEX1[0]  ; CLOCK_50   ; 10.972 ; 10.972 ; Fall       ; CLOCK_50        ;
+;  HEX1[1]  ; CLOCK_50   ; 10.593 ; 10.593 ; Fall       ; CLOCK_50        ;
+;  HEX1[2]  ; CLOCK_50   ; 10.583 ; 10.583 ; Fall       ; CLOCK_50        ;
+;  HEX1[3]  ; CLOCK_50   ; 10.602 ; 10.602 ; Fall       ; CLOCK_50        ;
+;  HEX1[4]  ; CLOCK_50   ; 10.611 ; 10.611 ; Fall       ; CLOCK_50        ;
+;  HEX1[5]  ; CLOCK_50   ; 10.976 ; 10.976 ; Fall       ; CLOCK_50        ;
+;  HEX1[6]  ; CLOCK_50   ; 10.846 ; 10.846 ; Fall       ; CLOCK_50        ;
+; HEX2[*]   ; CLOCK_50   ; 11.649 ; 11.649 ; Fall       ; CLOCK_50        ;
+;  HEX2[0]  ; CLOCK_50   ; 11.276 ; 11.276 ; Fall       ; CLOCK_50        ;
+;  HEX2[1]  ; CLOCK_50   ; 9.916  ; 9.916  ; Fall       ; CLOCK_50        ;
+;  HEX2[2]  ; CLOCK_50   ; 10.755 ; 10.755 ; Fall       ; CLOCK_50        ;
+;  HEX2[3]  ; CLOCK_50   ; 11.482 ; 11.482 ; Fall       ; CLOCK_50        ;
+;  HEX2[4]  ; CLOCK_50   ; 11.551 ; 11.551 ; Fall       ; CLOCK_50        ;
+;  HEX2[5]  ; CLOCK_50   ; 10.960 ; 10.960 ; Fall       ; CLOCK_50        ;
+;  HEX2[6]  ; CLOCK_50   ; 11.649 ; 11.649 ; Fall       ; CLOCK_50        ;
+; HEX3[*]   ; CLOCK_50   ; 11.727 ; 11.727 ; Fall       ; CLOCK_50        ;
+;  HEX3[0]  ; CLOCK_50   ; 11.410 ; 11.410 ; Fall       ; CLOCK_50        ;
+;  HEX3[1]  ; CLOCK_50   ; 11.727 ; 11.727 ; Fall       ; CLOCK_50        ;
+;  HEX3[2]  ; CLOCK_50   ; 11.726 ; 11.726 ; Fall       ; CLOCK_50        ;
+;  HEX3[3]  ; CLOCK_50   ; 11.563 ; 11.563 ; Fall       ; CLOCK_50        ;
+;  HEX3[4]  ; CLOCK_50   ; 11.538 ; 11.538 ; Fall       ; CLOCK_50        ;
+;  HEX3[5]  ; CLOCK_50   ; 11.197 ; 11.197 ; Fall       ; CLOCK_50        ;
+;  HEX3[6]  ; CLOCK_50   ; 11.557 ; 11.557 ; Fall       ; CLOCK_50        ;
 ; LEDR[*]   ; CLOCK_50   ; 5.646  ; 5.646  ; Fall       ; CLOCK_50        ;
 ;  LEDR[0]  ; CLOCK_50   ; 5.629  ; 5.629  ; Fall       ; CLOCK_50        ;
 ;  LEDR[1]  ; CLOCK_50   ; 5.610  ; 5.610  ; Fall       ; CLOCK_50        ;
@@ -1387,38 +1387,38 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; HEX0[*]   ; CLOCK_50   ; 4.656 ; 4.656 ; Fall       ; CLOCK_50        ;
-;  HEX0[0]  ; CLOCK_50   ; 4.702 ; 4.702 ; Fall       ; CLOCK_50        ;
-;  HEX0[1]  ; CLOCK_50   ; 4.773 ; 4.773 ; Fall       ; CLOCK_50        ;
-;  HEX0[2]  ; CLOCK_50   ; 4.656 ; 4.656 ; Fall       ; CLOCK_50        ;
-;  HEX0[3]  ; CLOCK_50   ; 4.656 ; 4.656 ; Fall       ; CLOCK_50        ;
-;  HEX0[4]  ; CLOCK_50   ; 4.744 ; 4.744 ; Fall       ; CLOCK_50        ;
-;  HEX0[5]  ; CLOCK_50   ; 4.791 ; 4.791 ; Fall       ; CLOCK_50        ;
-;  HEX0[6]  ; CLOCK_50   ; 4.792 ; 4.792 ; Fall       ; CLOCK_50        ;
-; HEX1[*]   ; CLOCK_50   ; 4.663 ; 4.663 ; Fall       ; CLOCK_50        ;
-;  HEX1[0]  ; CLOCK_50   ; 4.825 ; 4.825 ; Fall       ; CLOCK_50        ;
-;  HEX1[1]  ; CLOCK_50   ; 4.665 ; 4.665 ; Fall       ; CLOCK_50        ;
-;  HEX1[2]  ; CLOCK_50   ; 4.663 ; 4.663 ; Fall       ; CLOCK_50        ;
-;  HEX1[3]  ; CLOCK_50   ; 4.672 ; 4.672 ; Fall       ; CLOCK_50        ;
-;  HEX1[4]  ; CLOCK_50   ; 4.687 ; 4.687 ; Fall       ; CLOCK_50        ;
-;  HEX1[5]  ; CLOCK_50   ; 4.836 ; 4.836 ; Fall       ; CLOCK_50        ;
-;  HEX1[6]  ; CLOCK_50   ; 4.772 ; 4.772 ; Fall       ; CLOCK_50        ;
-; HEX2[*]   ; CLOCK_50   ; 4.744 ; 4.744 ; Fall       ; CLOCK_50        ;
-;  HEX2[0]  ; CLOCK_50   ; 4.812 ; 4.812 ; Fall       ; CLOCK_50        ;
-;  HEX2[1]  ; CLOCK_50   ; 4.744 ; 4.744 ; Fall       ; CLOCK_50        ;
-;  HEX2[2]  ; CLOCK_50   ; 4.779 ; 4.779 ; Fall       ; CLOCK_50        ;
-;  HEX2[3]  ; CLOCK_50   ; 4.779 ; 4.779 ; Fall       ; CLOCK_50        ;
-;  HEX2[4]  ; CLOCK_50   ; 4.838 ; 4.838 ; Fall       ; CLOCK_50        ;
-;  HEX2[5]  ; CLOCK_50   ; 4.873 ; 4.873 ; Fall       ; CLOCK_50        ;
-;  HEX2[6]  ; CLOCK_50   ; 4.901 ; 4.901 ; Fall       ; CLOCK_50        ;
-; HEX3[*]   ; CLOCK_50   ; 4.695 ; 4.695 ; Fall       ; CLOCK_50        ;
-;  HEX3[0]  ; CLOCK_50   ; 4.784 ; 4.784 ; Fall       ; CLOCK_50        ;
-;  HEX3[1]  ; CLOCK_50   ; 4.925 ; 4.925 ; Fall       ; CLOCK_50        ;
-;  HEX3[2]  ; CLOCK_50   ; 4.930 ; 4.930 ; Fall       ; CLOCK_50        ;
-;  HEX3[3]  ; CLOCK_50   ; 4.766 ; 4.766 ; Fall       ; CLOCK_50        ;
-;  HEX3[4]  ; CLOCK_50   ; 4.695 ; 4.695 ; Fall       ; CLOCK_50        ;
-;  HEX3[5]  ; CLOCK_50   ; 4.779 ; 4.779 ; Fall       ; CLOCK_50        ;
-;  HEX3[6]  ; CLOCK_50   ; 4.910 ; 4.910 ; Fall       ; CLOCK_50        ;
+; HEX0[*]   ; CLOCK_50   ; 4.920 ; 4.920 ; Fall       ; CLOCK_50        ;
+;  HEX0[0]  ; CLOCK_50   ; 5.135 ; 5.135 ; Fall       ; CLOCK_50        ;
+;  HEX0[1]  ; CLOCK_50   ; 5.304 ; 5.304 ; Fall       ; CLOCK_50        ;
+;  HEX0[2]  ; CLOCK_50   ; 5.295 ; 5.295 ; Fall       ; CLOCK_50        ;
+;  HEX0[3]  ; CLOCK_50   ; 5.498 ; 5.498 ; Fall       ; CLOCK_50        ;
+;  HEX0[4]  ; CLOCK_50   ; 5.304 ; 5.304 ; Fall       ; CLOCK_50        ;
+;  HEX0[5]  ; CLOCK_50   ; 4.920 ; 4.920 ; Fall       ; CLOCK_50        ;
+;  HEX0[6]  ; CLOCK_50   ; 5.411 ; 5.411 ; Fall       ; CLOCK_50        ;
+; HEX1[*]   ; CLOCK_50   ; 5.042 ; 5.042 ; Fall       ; CLOCK_50        ;
+;  HEX1[0]  ; CLOCK_50   ; 5.214 ; 5.214 ; Fall       ; CLOCK_50        ;
+;  HEX1[1]  ; CLOCK_50   ; 5.048 ; 5.048 ; Fall       ; CLOCK_50        ;
+;  HEX1[2]  ; CLOCK_50   ; 5.042 ; 5.042 ; Fall       ; CLOCK_50        ;
+;  HEX1[3]  ; CLOCK_50   ; 5.057 ; 5.057 ; Fall       ; CLOCK_50        ;
+;  HEX1[4]  ; CLOCK_50   ; 5.067 ; 5.067 ; Fall       ; CLOCK_50        ;
+;  HEX1[5]  ; CLOCK_50   ; 5.217 ; 5.217 ; Fall       ; CLOCK_50        ;
+;  HEX1[6]  ; CLOCK_50   ; 5.149 ; 5.149 ; Fall       ; CLOCK_50        ;
+; HEX2[*]   ; CLOCK_50   ; 4.995 ; 4.995 ; Fall       ; CLOCK_50        ;
+;  HEX2[0]  ; CLOCK_50   ; 5.440 ; 5.440 ; Fall       ; CLOCK_50        ;
+;  HEX2[1]  ; CLOCK_50   ; 4.995 ; 4.995 ; Fall       ; CLOCK_50        ;
+;  HEX2[2]  ; CLOCK_50   ; 5.315 ; 5.315 ; Fall       ; CLOCK_50        ;
+;  HEX2[3]  ; CLOCK_50   ; 5.568 ; 5.568 ; Fall       ; CLOCK_50        ;
+;  HEX2[4]  ; CLOCK_50   ; 5.605 ; 5.605 ; Fall       ; CLOCK_50        ;
+;  HEX2[5]  ; CLOCK_50   ; 5.358 ; 5.358 ; Fall       ; CLOCK_50        ;
+;  HEX2[6]  ; CLOCK_50   ; 5.603 ; 5.603 ; Fall       ; CLOCK_50        ;
+; HEX3[*]   ; CLOCK_50   ; 5.314 ; 5.314 ; Fall       ; CLOCK_50        ;
+;  HEX3[0]  ; CLOCK_50   ; 5.381 ; 5.381 ; Fall       ; CLOCK_50        ;
+;  HEX3[1]  ; CLOCK_50   ; 5.584 ; 5.584 ; Fall       ; CLOCK_50        ;
+;  HEX3[2]  ; CLOCK_50   ; 5.587 ; 5.587 ; Fall       ; CLOCK_50        ;
+;  HEX3[3]  ; CLOCK_50   ; 5.466 ; 5.466 ; Fall       ; CLOCK_50        ;
+;  HEX3[4]  ; CLOCK_50   ; 5.443 ; 5.443 ; Fall       ; CLOCK_50        ;
+;  HEX3[5]  ; CLOCK_50   ; 5.314 ; 5.314 ; Fall       ; CLOCK_50        ;
+;  HEX3[6]  ; CLOCK_50   ; 5.461 ; 5.461 ; Fall       ; CLOCK_50        ;
 ; LEDR[*]   ; CLOCK_50   ; 3.210 ; 3.210 ; Fall       ; CLOCK_50        ;
 ;  LEDR[0]  ; CLOCK_50   ; 3.243 ; 3.243 ; Fall       ; CLOCK_50        ;
 ;  LEDR[1]  ; CLOCK_50   ; 3.225 ; 3.225 ; Fall       ; CLOCK_50        ;
@@ -1481,7 +1481,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 11    ; 11   ;
-; Unconstrained Input Port Paths  ; 68    ; 68   ;
+; Unconstrained Input Port Paths  ; 114   ; 114  ;
 ; Unconstrained Output Ports      ; 38    ; 38   ;
 ; Unconstrained Output Port Paths ; 122   ; 122  ;
 +---------------------------------+-------+------+
@@ -1493,7 +1493,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Tue Sep 23 19:05:55 2014
+    Info: Processing started: Tue Sep 23 19:25:04 2014
 Info: Command: quartus_sta Timer -c Timer
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -1503,15 +1503,15 @@ Critical Warning (332012): Synopsys Design Constraints File file not found: 'Tim
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332105): Deriving Clocks
     Info (332105): create_clock -period 1.000 -name CLOCK_50 CLOCK_50
-    Info (332105): create_clock -period 1.000 -name KEY[2] KEY[2]
     Info (332105): create_clock -period 1.000 -name KEY[1] KEY[1]
+    Info (332105): create_clock -period 1.000 -name KEY[2] KEY[2]
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow Model
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -2.265
+Info (332146): Worst-case setup slack is -1.892
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):    -2.265       -97.789 CLOCK_50 
+    Info (332119):    -1.892       -75.597 CLOCK_50 
     Info (332119):     0.307         0.000 KEY[1] 
     Info (332119):     0.307         0.000 KEY[2] 
 Info (332146): Worst-case hold slack is 0.445
@@ -1531,10 +1531,10 @@ Info (332146): Worst-case minimum pulse width slack is -1.631
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info: Analyzing Fast Model
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -0.475
+Info (332146): Worst-case setup slack is -0.326
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):    -0.475        -6.531 CLOCK_50 
+    Info (332119):    -0.326        -5.065 CLOCK_50 
     Info (332119):     0.665         0.000 KEY[1] 
     Info (332119):     0.665         0.000 KEY[2] 
 Info (332146): Worst-case hold slack is 0.215
@@ -1556,7 +1556,7 @@ Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
     Info: Peak virtual memory: 390 megabytes
-    Info: Processing ended: Tue Sep 23 19:06:00 2014
+    Info: Processing ended: Tue Sep 23 19:25:09 2014
     Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:04
 
