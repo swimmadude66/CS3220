@@ -20,9 +20,12 @@ module Timer(
 	reg[3:0] onesecondsdisplay = 0;
 	reg[2:0] state = 0;
 	
-	//countSecond(CLOCK_50, CLOCK);
+	countSecond(CLOCK_50, CLOCK_5);
+	countSecond(CLOCK_24, CLOCK_10);
 	TFlipFlop(KEY[1], KEY[0], X);
 	TFlipFlop(KEY[2], KEY[0], Y);
+	TFlipFlop(CLOCK_5, KEY[0], Z);
+	
 	dec2_7seg(onesecondsdisplay, HEX0);
 	dec2_7seg(tensecondsdisplay, HEX1);
 	dec2_7seg(oneminutesdisplay, HEX2);
@@ -50,7 +53,7 @@ module Timer(
 							else begin
 								oneseconds <= SW[3:0];
 							end
-							if (SW[8] == 1) begin
+							if (Z == 1) begin
 								tensecondsdisplay <= tenseconds;
 								onesecondsdisplay <= oneseconds;
 							end
@@ -75,7 +78,7 @@ module Timer(
 							else begin
 								oneminutes <= SW[3:0];	
 							end
-							if (SW[8] == 1) begin
+							if (Z == 1) begin
 								tenminutesdisplay <= tenminutes;
 								oneminutesdisplay <= oneminutes;
 							end
@@ -93,7 +96,7 @@ module Timer(
 			STOP: 	if (Y == 1'b1) begin
 							state <= START;
 						end
-			FLASH: 	if (SW[8] == 1'b1) begin
+			FLASH: 	if (Z == 1'b1) begin
 							LEDR = 10'b1111111111;
 						end
 						else begin
@@ -135,27 +138,20 @@ module dec2_7seg(
 	7'bxxxxxxx;   // Output is a don't care if illegal input
 endmodule // dec2_7seg
 
-module countSecond(
-	input clkin, 
-	input reset,
-	input running,
-	output reg second
-	);
+module countSecond( clkin,second);
+	input clkin; 
+	output second;
+	reg second = 0;
 	
 	reg[25:0] counter = 0;
-	always @(negedge reset or negedge clkin) begin
-		if (reset == 1'b0) begin
+	always @(negedge clkin) begin
+		if (counter >= 24000000) begin
+			second = 1;
 			counter <= 0;
 		end
-		if (running == 1'b1) begin
-			if (counter >= 50000000) begin
-				second = 1'b1;
-				counter <= 0;
-			end
-			else begin
-				second = 1'b0;
-				counter <= counter + 1;
-			end
+		else begin
+			second = 0;
+			counter <= counter + 1;
 		end
 	end
 endmodule
