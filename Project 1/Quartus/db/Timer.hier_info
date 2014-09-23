@@ -1,0 +1,118 @@
+|Timer
+CLOCK_50 => ~NO_FANOUT~
+SW[0] => ~NO_FANOUT~
+SW[1] => ~NO_FANOUT~
+SW[2] => ~NO_FANOUT~
+SW[3] => ~NO_FANOUT~
+SW[4] => ~NO_FANOUT~
+SW[5] => ~NO_FANOUT~
+SW[6] => ~NO_FANOUT~
+SW[7] => ~NO_FANOUT~
+SW[8] => ~NO_FANOUT~
+SW[9] => state[1].IN0
+SW[9] => state[2].DATAA
+KEY[0] => KEY[0].IN2
+KEY[1] => KEY[1].IN1
+KEY[2] => KEY[2].IN1
+KEY[3] => ~NO_FANOUT~
+HEX0[0] <= dec2_7seg:comb_5.port1
+HEX0[1] <= dec2_7seg:comb_5.port1
+HEX0[2] <= dec2_7seg:comb_5.port1
+HEX0[3] <= dec2_7seg:comb_5.port1
+HEX0[4] <= dec2_7seg:comb_5.port1
+HEX0[5] <= dec2_7seg:comb_5.port1
+HEX0[6] <= dec2_7seg:comb_5.port1
+HEX1[0] <= <GND>
+HEX1[1] <= <GND>
+HEX1[2] <= <GND>
+HEX1[3] <= <GND>
+HEX1[4] <= <GND>
+HEX1[5] <= <GND>
+HEX1[6] <= <GND>
+HEX2[0] <= <GND>
+HEX2[1] <= <GND>
+HEX2[2] <= <GND>
+HEX2[3] <= <GND>
+HEX2[4] <= <GND>
+HEX2[5] <= <GND>
+HEX2[6] <= <GND>
+HEX3[0] <= <GND>
+HEX3[1] <= <GND>
+HEX3[2] <= <GND>
+HEX3[3] <= <GND>
+HEX3[4] <= <GND>
+HEX3[5] <= <GND>
+HEX3[6] <= <GND>
+LEDR[0] <= <GND>
+LEDR[1] <= <GND>
+LEDR[2] <= <GND>
+LEDR[3] <= <GND>
+LEDR[4] <= <GND>
+LEDR[5] <= <GND>
+LEDR[6] <= <GND>
+LEDR[7] <= <GND>
+LEDR[8] <= <GND>
+LEDR[9] <= <GND>
+LEDG[0] <= <GND>
+LEDG[1] <= <GND>
+LEDG[2] <= <GND>
+
+
+|Timer|TFlipFlop:comb_3
+reset => tOut~reg0.ACLR
+clk => tOut~reg0.CLK
+tOut <= tOut~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Timer|TFlipFlop:comb_4
+reset => tOut~reg0.ACLR
+clk => tOut~reg0.CLK
+tOut <= tOut~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Timer|dec2_7seg:comb_5
+num[0] => Equal0.IN31
+num[0] => Equal1.IN0
+num[0] => Equal2.IN31
+num[0] => Equal3.IN1
+num[0] => Equal4.IN31
+num[0] => Equal5.IN1
+num[0] => Equal6.IN31
+num[0] => Equal7.IN2
+num[0] => Equal8.IN31
+num[1] => Equal0.IN30
+num[1] => Equal1.IN31
+num[1] => Equal2.IN0
+num[1] => Equal3.IN0
+num[1] => Equal4.IN30
+num[1] => Equal5.IN31
+num[1] => Equal6.IN1
+num[1] => Equal7.IN1
+num[1] => Equal8.IN30
+num[2] => Equal0.IN29
+num[2] => Equal1.IN30
+num[2] => Equal2.IN30
+num[2] => Equal3.IN31
+num[2] => Equal4.IN0
+num[2] => Equal5.IN0
+num[2] => Equal6.IN0
+num[2] => Equal7.IN0
+num[2] => Equal8.IN29
+num[3] => Equal0.IN28
+num[3] => Equal1.IN29
+num[3] => Equal2.IN29
+num[3] => Equal3.IN30
+num[3] => Equal4.IN29
+num[3] => Equal5.IN30
+num[3] => Equal6.IN30
+num[3] => Equal7.IN31
+num[3] => Equal8.IN0
+display[0] <= display.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= display.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= display.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= display.DB_MAX_OUTPUT_PORT_TYPE
+display[4] <= display.DB_MAX_OUTPUT_PORT_TYPE
+display[5] <= display.DB_MAX_OUTPUT_PORT_TYPE
+display[6] <= display.DB_MAX_OUTPUT_PORT_TYPE
+
+
