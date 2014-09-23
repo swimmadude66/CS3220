@@ -484,8 +484,8 @@ VCCD_PLL4                    : U17       : power  :                   : 1.2V    
 LEDR[7]                      : U18       : output : 3.3-V LVTTL       :         : 6         : Y              
 LEDR[2]                      : U19       : output : 3.3-V LVTTL       :         : 6         : Y              
 RESERVED_INPUT               : U20       :        :                   :         : 6         :                
-LEDG[1]                      : U21       : output : 3.3-V LVTTL       :         : 6         : Y              
-LEDG[0]                      : U22       : output : 3.3-V LVTTL       :         : 6         : Y              
+RESERVED_INPUT               : U21       :        :                   :         : 6         :                
+RESERVED_INPUT               : U22       :        :                   :         : 6         :                
 RESERVED_INPUT               : V1        :        :                   :         : 1         :                
 RESERVED_INPUT               : V2        :        :                   :         : 1         :                
 GND                          : V3        : gnd    :                   :         :           :                
@@ -507,7 +507,7 @@ GND_PLL4                     : V18       : gnd    :                   :         
 LEDR[5]                      : V19       : output : 3.3-V LVTTL       :         : 6         : Y              
 RESERVED_INPUT               : V20       :        :                   :         : 6         :                
 RESERVED_INPUT               : V21       :        :                   :         : 6         :                
-LEDG[2]                      : V22       : output : 3.3-V LVTTL       :         : 6         : Y              
+RESERVED_INPUT               : V22       :        :                   :         : 6         :                
 RESERVED_INPUT               : W1        :        :                   :         : 1         :                
 RESERVED_INPUT               : W2        :        :                   :         : 1         :                
 RESERVED_INPUT               : W3        :        :                   :         : 1         :                

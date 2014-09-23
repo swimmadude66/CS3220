@@ -1,5 +1,5 @@
 Fitter report for Timer
-Tue Sep 23 18:09:51 2014
+Tue Sep 23 18:36:33 2014
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -10,34 +10,35 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   2. Fitter Summary
   3. Fitter Settings
   4. Parallel Compilation
-  5. Ignored Assignments
-  6. Incremental Compilation Preservation Summary
-  7. Incremental Compilation Partition Settings
-  8. Incremental Compilation Placement Preservation
-  9. Pin-Out File
- 10. Fitter Resource Usage Summary
- 11. Fitter Partition Statistics
- 12. Input Pins
- 13. Output Pins
- 14. I/O Bank Usage
- 15. All Package Pins
- 16. Output Pin Default Load For Reported TCO
- 17. Fitter Resource Utilization by Entity
- 18. Delay Chain Summary
- 19. Pad To Core Delay Chain Fanout
- 20. Control Signals
- 21. Global & Other Fast Signals
- 22. Non-Global High Fan-Out Signals
- 23. Other Routing Usage Summary
- 24. LAB Logic Elements
- 25. LAB-wide Signals
- 26. LAB Signals Sourced
- 27. LAB Signals Sourced Out
- 28. LAB Distinct Inputs
- 29. Fitter Device Options
- 30. Operating Settings and Conditions
- 31. Fitter Messages
- 32. Fitter Suppressed Messages
+  5. Fitter Netlist Optimizations
+  6. Ignored Assignments
+  7. Incremental Compilation Preservation Summary
+  8. Incremental Compilation Partition Settings
+  9. Incremental Compilation Placement Preservation
+ 10. Pin-Out File
+ 11. Fitter Resource Usage Summary
+ 12. Fitter Partition Statistics
+ 13. Input Pins
+ 14. Output Pins
+ 15. I/O Bank Usage
+ 16. All Package Pins
+ 17. Output Pin Default Load For Reported TCO
+ 18. Fitter Resource Utilization by Entity
+ 19. Delay Chain Summary
+ 20. Pad To Core Delay Chain Fanout
+ 21. Control Signals
+ 22. Global & Other Fast Signals
+ 23. Non-Global High Fan-Out Signals
+ 24. Other Routing Usage Summary
+ 25. LAB Logic Elements
+ 26. LAB-wide Signals
+ 27. LAB Signals Sourced
+ 28. LAB Signals Sourced Out
+ 29. LAB Distinct Inputs
+ 30. Fitter Device Options
+ 31. Operating Settings and Conditions
+ 32. Fitter Messages
+ 33. Fitter Suppressed Messages
 
 
 
@@ -63,18 +64,18 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Fitter Status                      ; Successful - Tue Sep 23 18:09:51 2014           ;
+; Fitter Status                      ; Successful - Tue Sep 23 18:36:33 2014           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Timer                                           ;
 ; Top-level Entity Name              ; Timer                                           ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C20F484C7                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 74 / 18,752 ( < 1 % )                           ;
-;     Total combinational functions  ; 74 / 18,752 ( < 1 % )                           ;
-;     Dedicated logic registers      ; 2 / 18,752 ( < 1 % )                            ;
-; Total registers                    ; 2                                               ;
-; Total pins                         ; 56 / 315 ( 18 % )                               ;
+; Total logic elements               ; 57 / 18,752 ( < 1 % )                           ;
+;     Total combinational functions  ; 51 / 18,752 ( < 1 % )                           ;
+;     Dedicated logic registers      ; 22 / 18,752 ( < 1 % )                           ;
+; Total registers                    ; 32                                              ;
+; Total pins                         ; 53 / 315 ( 17 % )                               ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 239,616 ( 0 % )                             ;
 ; Embedded Multiplier 9-bit elements ; 0 / 52 ( 0 % )                                  ;
@@ -144,353 +145,375 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+---------------------------------------------------------------------------------------------------------+
-; Ignored Assignments                                                                                     ;
-+----------------------+----------------+--------------+---------------+-----------------+----------------+
-; Name                 ; Ignored Entity ; Ignored From ; Ignored To    ; Ignored Value   ; Ignored Source ;
-+----------------------+----------------+--------------+---------------+-----------------+----------------+
-; Location             ;                ;              ; AUD_ADCDAT    ; PIN_B6          ; QSF Assignment ;
-; Location             ;                ;              ; AUD_ADCLRCK   ; PIN_A6          ; QSF Assignment ;
-; Location             ;                ;              ; AUD_BCLK      ; PIN_A4          ; QSF Assignment ;
-; Location             ;                ;              ; AUD_DACDAT    ; PIN_B5          ; QSF Assignment ;
-; Location             ;                ;              ; AUD_DACLRCK   ; PIN_A5          ; QSF Assignment ;
-; Location             ;                ;              ; AUD_XCK       ; PIN_B4          ; QSF Assignment ;
-; Location             ;                ;              ; CLOCK_24[0]   ; PIN_B12         ; QSF Assignment ;
-; Location             ;                ;              ; CLOCK_24[1]   ; PIN_A12         ; QSF Assignment ;
-; Location             ;                ;              ; CLOCK_27[0]   ; PIN_D12         ; QSF Assignment ;
-; Location             ;                ;              ; CLOCK_27[1]   ; PIN_E12         ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_ADDR[0]  ; PIN_W4          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_ADDR[10] ; PIN_W3          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_ADDR[11] ; PIN_N6          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_ADDR[1]  ; PIN_W5          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_ADDR[2]  ; PIN_Y3          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_ADDR[3]  ; PIN_Y4          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_ADDR[4]  ; PIN_R6          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_ADDR[5]  ; PIN_R5          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_ADDR[6]  ; PIN_P6          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_ADDR[7]  ; PIN_P5          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_ADDR[8]  ; PIN_P3          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_ADDR[9]  ; PIN_N4          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_BA_0     ; PIN_U3          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_BA_1     ; PIN_V4          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_CAS_N    ; PIN_T3          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_CKE      ; PIN_N3          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_CLK      ; PIN_U4          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_CS_N     ; PIN_T6          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_DQ[0]    ; PIN_U1          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_DQ[10]   ; PIN_P1          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_DQ[11]   ; PIN_P2          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_DQ[12]   ; PIN_R1          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_DQ[13]   ; PIN_R2          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_DQ[14]   ; PIN_T1          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_DQ[15]   ; PIN_T2          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_DQ[1]    ; PIN_U2          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_DQ[2]    ; PIN_V1          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_DQ[3]    ; PIN_V2          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_DQ[4]    ; PIN_W1          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_DQ[5]    ; PIN_W2          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_DQ[6]    ; PIN_Y1          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_DQ[7]    ; PIN_Y2          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_DQ[8]    ; PIN_N1          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_DQ[9]    ; PIN_N2          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_LDQM     ; PIN_R7          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_RAS_N    ; PIN_T5          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_UDQM     ; PIN_M5          ; QSF Assignment ;
-; Location             ;                ;              ; DRAM_WE_N     ; PIN_R8          ; QSF Assignment ;
-; Location             ;                ;              ; EXT_CLOCK     ; PIN_M21         ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[0]    ; PIN_AB20        ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[10]   ; PIN_R12         ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[11]   ; PIN_T12         ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[12]   ; PIN_AB14        ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[13]   ; PIN_AA13        ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[14]   ; PIN_AB13        ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[15]   ; PIN_AA12        ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[16]   ; PIN_AB12        ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[17]   ; PIN_AA20        ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[18]   ; PIN_U14         ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[19]   ; PIN_V14         ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[1]    ; PIN_AA14        ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[20]   ; PIN_U13         ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[21]   ; PIN_R13         ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[2]    ; PIN_Y16         ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[3]    ; PIN_R15         ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[4]    ; PIN_T15         ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[5]    ; PIN_U15         ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[6]    ; PIN_V15         ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[7]    ; PIN_W15         ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[8]    ; PIN_R14         ; QSF Assignment ;
-; Location             ;                ;              ; FL_ADDR[9]    ; PIN_Y13         ; QSF Assignment ;
-; Location             ;                ;              ; FL_DQ[0]      ; PIN_AB16        ; QSF Assignment ;
-; Location             ;                ;              ; FL_DQ[1]      ; PIN_AA16        ; QSF Assignment ;
-; Location             ;                ;              ; FL_DQ[2]      ; PIN_AB17        ; QSF Assignment ;
-; Location             ;                ;              ; FL_DQ[3]      ; PIN_AA17        ; QSF Assignment ;
-; Location             ;                ;              ; FL_DQ[4]      ; PIN_AB18        ; QSF Assignment ;
-; Location             ;                ;              ; FL_DQ[5]      ; PIN_AA18        ; QSF Assignment ;
-; Location             ;                ;              ; FL_DQ[6]      ; PIN_AB19        ; QSF Assignment ;
-; Location             ;                ;              ; FL_DQ[7]      ; PIN_AA19        ; QSF Assignment ;
-; Location             ;                ;              ; FL_OE_N       ; PIN_AA15        ; QSF Assignment ;
-; Location             ;                ;              ; FL_RST_N      ; PIN_W14         ; QSF Assignment ;
-; Location             ;                ;              ; FL_WE_N       ; PIN_Y14         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[0]     ; PIN_A13         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[10]    ; PIN_A18         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[11]    ; PIN_B18         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[12]    ; PIN_A19         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[13]    ; PIN_B19         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[14]    ; PIN_A20         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[15]    ; PIN_B20         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[16]    ; PIN_C21         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[17]    ; PIN_C22         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[18]    ; PIN_D21         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[19]    ; PIN_D22         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[1]     ; PIN_B13         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[20]    ; PIN_E21         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[21]    ; PIN_E22         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[22]    ; PIN_F21         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[23]    ; PIN_F22         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[24]    ; PIN_G21         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[25]    ; PIN_G22         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[26]    ; PIN_J21         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[27]    ; PIN_J22         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[28]    ; PIN_K21         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[29]    ; PIN_K22         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[2]     ; PIN_A14         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[30]    ; PIN_J19         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[31]    ; PIN_J20         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[32]    ; PIN_J18         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[33]    ; PIN_K20         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[34]    ; PIN_L19         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[35]    ; PIN_L18         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[3]     ; PIN_B14         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[4]     ; PIN_A15         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[5]     ; PIN_B15         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[6]     ; PIN_A16         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[7]     ; PIN_B16         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[8]     ; PIN_A17         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_0[9]     ; PIN_B17         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[0]     ; PIN_H12         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[10]    ; PIN_C14         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[11]    ; PIN_D14         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[12]    ; PIN_D15         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[13]    ; PIN_D16         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[14]    ; PIN_C17         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[15]    ; PIN_C18         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[16]    ; PIN_C19         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[17]    ; PIN_C20         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[18]    ; PIN_D19         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[19]    ; PIN_D20         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[1]     ; PIN_H13         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[20]    ; PIN_E20         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[21]    ; PIN_F20         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[22]    ; PIN_E19         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[23]    ; PIN_E18         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[24]    ; PIN_G20         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[25]    ; PIN_G18         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[26]    ; PIN_G17         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[27]    ; PIN_H17         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[28]    ; PIN_J15         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[29]    ; PIN_H18         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[2]     ; PIN_H14         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[30]    ; PIN_N22         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[31]    ; PIN_N21         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[32]    ; PIN_P15         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[33]    ; PIN_N15         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[34]    ; PIN_P17         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[35]    ; PIN_P18         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[3]     ; PIN_G15         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[4]     ; PIN_E14         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[5]     ; PIN_E15         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[6]     ; PIN_F15         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[7]     ; PIN_G16         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[8]     ; PIN_F12         ; QSF Assignment ;
-; Location             ;                ;              ; GPIO_1[9]     ; PIN_F13         ; QSF Assignment ;
-; Location             ;                ;              ; I2C_SCLK      ; PIN_A3          ; QSF Assignment ;
-; Location             ;                ;              ; I2C_SDAT      ; PIN_B3          ; QSF Assignment ;
-; Location             ;                ;              ; LEDG[3]       ; PIN_V21         ; QSF Assignment ;
-; Location             ;                ;              ; LEDG[4]       ; PIN_W22         ; QSF Assignment ;
-; Location             ;                ;              ; LEDG[5]       ; PIN_W21         ; QSF Assignment ;
-; Location             ;                ;              ; LEDG[6]       ; PIN_Y22         ; QSF Assignment ;
-; Location             ;                ;              ; LEDG[7]       ; PIN_Y21         ; QSF Assignment ;
-; Location             ;                ;              ; PS2_CLK       ; PIN_H15         ; QSF Assignment ;
-; Location             ;                ;              ; PS2_DAT       ; PIN_J14         ; QSF Assignment ;
-; Location             ;                ;              ; SD_CLK        ; PIN_V20         ; QSF Assignment ;
-; Location             ;                ;              ; SD_CMD        ; PIN_Y20         ; QSF Assignment ;
-; Location             ;                ;              ; SD_DAT        ; PIN_W20         ; QSF Assignment ;
-; Location             ;                ;              ; SD_DAT3       ; PIN_U20         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_ADDR[0]  ; PIN_AA3         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_ADDR[10] ; PIN_R11         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_ADDR[11] ; PIN_T11         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_ADDR[12] ; PIN_Y10         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_ADDR[13] ; PIN_U10         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_ADDR[14] ; PIN_R10         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_ADDR[15] ; PIN_T7          ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_ADDR[16] ; PIN_Y6          ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_ADDR[17] ; PIN_Y5          ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_ADDR[1]  ; PIN_AB3         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_ADDR[2]  ; PIN_AA4         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_ADDR[3]  ; PIN_AB4         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_ADDR[4]  ; PIN_AA5         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_ADDR[5]  ; PIN_AB10        ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_ADDR[6]  ; PIN_AA11        ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_ADDR[7]  ; PIN_AB11        ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_ADDR[8]  ; PIN_V11         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_ADDR[9]  ; PIN_W11         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_CE_N     ; PIN_AB5         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_DQ[0]    ; PIN_AA6         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_DQ[10]   ; PIN_V9          ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_DQ[11]   ; PIN_U9          ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_DQ[12]   ; PIN_R9          ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_DQ[13]   ; PIN_W8          ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_DQ[14]   ; PIN_V8          ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_DQ[15]   ; PIN_U8          ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_DQ[1]    ; PIN_AB6         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_DQ[2]    ; PIN_AA7         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_DQ[3]    ; PIN_AB7         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_DQ[4]    ; PIN_AA8         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_DQ[5]    ; PIN_AB8         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_DQ[6]    ; PIN_AA9         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_DQ[7]    ; PIN_AB9         ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_DQ[8]    ; PIN_Y9          ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_DQ[9]    ; PIN_W9          ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_LB_N     ; PIN_Y7          ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_OE_N     ; PIN_T8          ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_UB_N     ; PIN_W7          ; QSF Assignment ;
-; Location             ;                ;              ; SRAM_WE_N     ; PIN_AA10        ; QSF Assignment ;
-; Location             ;                ;              ; TCK           ; PIN_C7          ; QSF Assignment ;
-; Location             ;                ;              ; TCS           ; PIN_D8          ; QSF Assignment ;
-; Location             ;                ;              ; TDI           ; PIN_E8          ; QSF Assignment ;
-; Location             ;                ;              ; TDO           ; PIN_D7          ; QSF Assignment ;
-; Location             ;                ;              ; UART_RXD      ; PIN_F14         ; QSF Assignment ;
-; Location             ;                ;              ; UART_TXD      ; PIN_G12         ; QSF Assignment ;
-; Location             ;                ;              ; VGA_B[0]      ; PIN_A9          ; QSF Assignment ;
-; Location             ;                ;              ; VGA_B[1]      ; PIN_D11         ; QSF Assignment ;
-; Location             ;                ;              ; VGA_B[2]      ; PIN_A10         ; QSF Assignment ;
-; Location             ;                ;              ; VGA_B[3]      ; PIN_B10         ; QSF Assignment ;
-; Location             ;                ;              ; VGA_G[0]      ; PIN_B8          ; QSF Assignment ;
-; Location             ;                ;              ; VGA_G[1]      ; PIN_C10         ; QSF Assignment ;
-; Location             ;                ;              ; VGA_G[2]      ; PIN_B9          ; QSF Assignment ;
-; Location             ;                ;              ; VGA_G[3]      ; PIN_A8          ; QSF Assignment ;
-; Location             ;                ;              ; VGA_HS        ; PIN_A11         ; QSF Assignment ;
-; Location             ;                ;              ; VGA_R[0]      ; PIN_D9          ; QSF Assignment ;
-; Location             ;                ;              ; VGA_R[1]      ; PIN_C9          ; QSF Assignment ;
-; Location             ;                ;              ; VGA_R[2]      ; PIN_A7          ; QSF Assignment ;
-; Location             ;                ;              ; VGA_R[3]      ; PIN_B7          ; QSF Assignment ;
-; Location             ;                ;              ; VGA_VS        ; PIN_B11         ; QSF Assignment ;
-; I/O Standard         ;                ;              ; AUD_ADCDAT    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; AUD_ADCLRCK   ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; AUD_BCLK      ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; AUD_DACDAT    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; AUD_DACLRCK   ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; AUD_XCK       ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; CLOCK_24[0]   ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; CLOCK_24[1]   ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; CLOCK_27[1]   ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; EXT_CLOCK     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[0]     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[10]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[11]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[12]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[13]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[14]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[15]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[16]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[17]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[18]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[19]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[1]     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[20]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[21]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[22]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[23]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[24]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[25]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[26]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[27]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[28]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[29]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[2]     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[30]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[31]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[32]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[33]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[34]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[35]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[3]     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[4]     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[5]     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[6]     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[7]     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[8]     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_0[9]     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[0]     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[10]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[11]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[12]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[13]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[14]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[15]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[16]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[17]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[18]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[19]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[1]     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[20]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[21]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[22]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[23]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[24]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[25]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[26]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[27]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[28]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[29]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[2]     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[30]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[31]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[32]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[33]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[34]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[35]    ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[3]     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[4]     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[5]     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[6]     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[7]     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[8]     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; GPIO_1[9]     ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; I2C_SCLK      ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; I2C_SDAT      ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; LEDG[3]       ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; LEDG[4]       ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; LEDG[5]       ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; LEDG[6]       ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; LEDG[7]       ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; PS2_CLK       ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; PS2_DAT       ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; TCK           ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; TCS           ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; TDI           ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; TDO           ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; UART_RXD      ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; UART_TXD      ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; VGA_B[0]      ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; VGA_B[1]      ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; VGA_B[2]      ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; VGA_B[3]      ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; VGA_G[0]      ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; VGA_G[1]      ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; VGA_G[2]      ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; VGA_G[3]      ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; VGA_HS        ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; VGA_R[0]      ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; VGA_R[1]      ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; VGA_R[2]      ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; VGA_R[3]      ; LVTTL           ; QSF Assignment ;
-; I/O Standard         ;                ;              ; VGA_VS        ; LVTTL           ; QSF Assignment ;
-; Fast Input Register  ; Timer          ;              ; *             ; ON              ; QSF Assignment ;
-; Fast Output Register ; Timer          ;              ; *             ; ON              ; QSF Assignment ;
-; Current Strength     ; Timer          ;              ; I2C_SCLK      ; MAXIMUM CURRENT ; QSF Assignment ;
-; Current Strength     ; Timer          ;              ; I2C_SDAT      ; MAXIMUM CURRENT ; QSF Assignment ;
-+----------------------+----------------+--------------+---------------+-----------------+----------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Netlist Optimizations                                                                                                                                                   ;
++--------------+-----------------+------------------+---------------------------------+-----------+----------------+------------------+------------------+-----------------------+
+; Node         ; Action          ; Operation        ; Reason                          ; Node Port ; Node Port Name ; Destination Node ; Destination Port ; Destination Port Name ;
++--------------+-----------------+------------------+---------------------------------+-----------+----------------+------------------+------------------+-----------------------+
+; LEDR[0]~reg0 ; Packed Register ; Register Packing ; Fast Output Register assignment ; REGOUT    ;                ; LEDR[0]          ; DATAIN           ;                       ;
+; LEDR[1]~reg0 ; Packed Register ; Register Packing ; Fast Output Register assignment ; REGOUT    ;                ; LEDR[1]          ; DATAIN           ;                       ;
+; LEDR[2]~reg0 ; Packed Register ; Register Packing ; Fast Output Register assignment ; REGOUT    ;                ; LEDR[2]          ; DATAIN           ;                       ;
+; LEDR[3]~reg0 ; Packed Register ; Register Packing ; Fast Output Register assignment ; REGOUT    ;                ; LEDR[3]          ; DATAIN           ;                       ;
+; LEDR[4]~reg0 ; Packed Register ; Register Packing ; Fast Output Register assignment ; REGOUT    ;                ; LEDR[4]          ; DATAIN           ;                       ;
+; LEDR[5]~reg0 ; Packed Register ; Register Packing ; Fast Output Register assignment ; REGOUT    ;                ; LEDR[5]          ; DATAIN           ;                       ;
+; LEDR[6]~reg0 ; Packed Register ; Register Packing ; Fast Output Register assignment ; REGOUT    ;                ; LEDR[6]          ; DATAIN           ;                       ;
+; LEDR[7]~reg0 ; Packed Register ; Register Packing ; Fast Output Register assignment ; REGOUT    ;                ; LEDR[7]          ; DATAIN           ;                       ;
+; LEDR[8]~reg0 ; Packed Register ; Register Packing ; Fast Output Register assignment ; REGOUT    ;                ; LEDR[8]          ; DATAIN           ;                       ;
+; LEDR[9]~reg0 ; Packed Register ; Register Packing ; Fast Output Register assignment ; REGOUT    ;                ; LEDR[9]          ; DATAIN           ;                       ;
++--------------+-----------------+------------------+---------------------------------+-----------+----------------+------------------+------------------+-----------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Ignored Assignments                                                                                 ;
++------------------+----------------+--------------+---------------+-----------------+----------------+
+; Name             ; Ignored Entity ; Ignored From ; Ignored To    ; Ignored Value   ; Ignored Source ;
++------------------+----------------+--------------+---------------+-----------------+----------------+
+; Location         ;                ;              ; AUD_ADCDAT    ; PIN_B6          ; QSF Assignment ;
+; Location         ;                ;              ; AUD_ADCLRCK   ; PIN_A6          ; QSF Assignment ;
+; Location         ;                ;              ; AUD_BCLK      ; PIN_A4          ; QSF Assignment ;
+; Location         ;                ;              ; AUD_DACDAT    ; PIN_B5          ; QSF Assignment ;
+; Location         ;                ;              ; AUD_DACLRCK   ; PIN_A5          ; QSF Assignment ;
+; Location         ;                ;              ; AUD_XCK       ; PIN_B4          ; QSF Assignment ;
+; Location         ;                ;              ; CLOCK_24[0]   ; PIN_B12         ; QSF Assignment ;
+; Location         ;                ;              ; CLOCK_24[1]   ; PIN_A12         ; QSF Assignment ;
+; Location         ;                ;              ; CLOCK_27[0]   ; PIN_D12         ; QSF Assignment ;
+; Location         ;                ;              ; CLOCK_27[1]   ; PIN_E12         ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_ADDR[0]  ; PIN_W4          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_ADDR[10] ; PIN_W3          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_ADDR[11] ; PIN_N6          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_ADDR[1]  ; PIN_W5          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_ADDR[2]  ; PIN_Y3          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_ADDR[3]  ; PIN_Y4          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_ADDR[4]  ; PIN_R6          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_ADDR[5]  ; PIN_R5          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_ADDR[6]  ; PIN_P6          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_ADDR[7]  ; PIN_P5          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_ADDR[8]  ; PIN_P3          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_ADDR[9]  ; PIN_N4          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_BA_0     ; PIN_U3          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_BA_1     ; PIN_V4          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_CAS_N    ; PIN_T3          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_CKE      ; PIN_N3          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_CLK      ; PIN_U4          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_CS_N     ; PIN_T6          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_DQ[0]    ; PIN_U1          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_DQ[10]   ; PIN_P1          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_DQ[11]   ; PIN_P2          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_DQ[12]   ; PIN_R1          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_DQ[13]   ; PIN_R2          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_DQ[14]   ; PIN_T1          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_DQ[15]   ; PIN_T2          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_DQ[1]    ; PIN_U2          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_DQ[2]    ; PIN_V1          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_DQ[3]    ; PIN_V2          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_DQ[4]    ; PIN_W1          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_DQ[5]    ; PIN_W2          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_DQ[6]    ; PIN_Y1          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_DQ[7]    ; PIN_Y2          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_DQ[8]    ; PIN_N1          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_DQ[9]    ; PIN_N2          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_LDQM     ; PIN_R7          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_RAS_N    ; PIN_T5          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_UDQM     ; PIN_M5          ; QSF Assignment ;
+; Location         ;                ;              ; DRAM_WE_N     ; PIN_R8          ; QSF Assignment ;
+; Location         ;                ;              ; EXT_CLOCK     ; PIN_M21         ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[0]    ; PIN_AB20        ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[10]   ; PIN_R12         ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[11]   ; PIN_T12         ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[12]   ; PIN_AB14        ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[13]   ; PIN_AA13        ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[14]   ; PIN_AB13        ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[15]   ; PIN_AA12        ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[16]   ; PIN_AB12        ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[17]   ; PIN_AA20        ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[18]   ; PIN_U14         ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[19]   ; PIN_V14         ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[1]    ; PIN_AA14        ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[20]   ; PIN_U13         ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[21]   ; PIN_R13         ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[2]    ; PIN_Y16         ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[3]    ; PIN_R15         ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[4]    ; PIN_T15         ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[5]    ; PIN_U15         ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[6]    ; PIN_V15         ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[7]    ; PIN_W15         ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[8]    ; PIN_R14         ; QSF Assignment ;
+; Location         ;                ;              ; FL_ADDR[9]    ; PIN_Y13         ; QSF Assignment ;
+; Location         ;                ;              ; FL_DQ[0]      ; PIN_AB16        ; QSF Assignment ;
+; Location         ;                ;              ; FL_DQ[1]      ; PIN_AA16        ; QSF Assignment ;
+; Location         ;                ;              ; FL_DQ[2]      ; PIN_AB17        ; QSF Assignment ;
+; Location         ;                ;              ; FL_DQ[3]      ; PIN_AA17        ; QSF Assignment ;
+; Location         ;                ;              ; FL_DQ[4]      ; PIN_AB18        ; QSF Assignment ;
+; Location         ;                ;              ; FL_DQ[5]      ; PIN_AA18        ; QSF Assignment ;
+; Location         ;                ;              ; FL_DQ[6]      ; PIN_AB19        ; QSF Assignment ;
+; Location         ;                ;              ; FL_DQ[7]      ; PIN_AA19        ; QSF Assignment ;
+; Location         ;                ;              ; FL_OE_N       ; PIN_AA15        ; QSF Assignment ;
+; Location         ;                ;              ; FL_RST_N      ; PIN_W14         ; QSF Assignment ;
+; Location         ;                ;              ; FL_WE_N       ; PIN_Y14         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[0]     ; PIN_A13         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[10]    ; PIN_A18         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[11]    ; PIN_B18         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[12]    ; PIN_A19         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[13]    ; PIN_B19         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[14]    ; PIN_A20         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[15]    ; PIN_B20         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[16]    ; PIN_C21         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[17]    ; PIN_C22         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[18]    ; PIN_D21         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[19]    ; PIN_D22         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[1]     ; PIN_B13         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[20]    ; PIN_E21         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[21]    ; PIN_E22         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[22]    ; PIN_F21         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[23]    ; PIN_F22         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[24]    ; PIN_G21         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[25]    ; PIN_G22         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[26]    ; PIN_J21         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[27]    ; PIN_J22         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[28]    ; PIN_K21         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[29]    ; PIN_K22         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[2]     ; PIN_A14         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[30]    ; PIN_J19         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[31]    ; PIN_J20         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[32]    ; PIN_J18         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[33]    ; PIN_K20         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[34]    ; PIN_L19         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[35]    ; PIN_L18         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[3]     ; PIN_B14         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[4]     ; PIN_A15         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[5]     ; PIN_B15         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[6]     ; PIN_A16         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[7]     ; PIN_B16         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[8]     ; PIN_A17         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_0[9]     ; PIN_B17         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[0]     ; PIN_H12         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[10]    ; PIN_C14         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[11]    ; PIN_D14         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[12]    ; PIN_D15         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[13]    ; PIN_D16         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[14]    ; PIN_C17         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[15]    ; PIN_C18         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[16]    ; PIN_C19         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[17]    ; PIN_C20         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[18]    ; PIN_D19         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[19]    ; PIN_D20         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[1]     ; PIN_H13         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[20]    ; PIN_E20         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[21]    ; PIN_F20         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[22]    ; PIN_E19         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[23]    ; PIN_E18         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[24]    ; PIN_G20         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[25]    ; PIN_G18         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[26]    ; PIN_G17         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[27]    ; PIN_H17         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[28]    ; PIN_J15         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[29]    ; PIN_H18         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[2]     ; PIN_H14         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[30]    ; PIN_N22         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[31]    ; PIN_N21         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[32]    ; PIN_P15         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[33]    ; PIN_N15         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[34]    ; PIN_P17         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[35]    ; PIN_P18         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[3]     ; PIN_G15         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[4]     ; PIN_E14         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[5]     ; PIN_E15         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[6]     ; PIN_F15         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[7]     ; PIN_G16         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[8]     ; PIN_F12         ; QSF Assignment ;
+; Location         ;                ;              ; GPIO_1[9]     ; PIN_F13         ; QSF Assignment ;
+; Location         ;                ;              ; I2C_SCLK      ; PIN_A3          ; QSF Assignment ;
+; Location         ;                ;              ; I2C_SDAT      ; PIN_B3          ; QSF Assignment ;
+; Location         ;                ;              ; LEDG[0]       ; PIN_U22         ; QSF Assignment ;
+; Location         ;                ;              ; LEDG[1]       ; PIN_U21         ; QSF Assignment ;
+; Location         ;                ;              ; LEDG[2]       ; PIN_V22         ; QSF Assignment ;
+; Location         ;                ;              ; LEDG[3]       ; PIN_V21         ; QSF Assignment ;
+; Location         ;                ;              ; LEDG[4]       ; PIN_W22         ; QSF Assignment ;
+; Location         ;                ;              ; LEDG[5]       ; PIN_W21         ; QSF Assignment ;
+; Location         ;                ;              ; LEDG[6]       ; PIN_Y22         ; QSF Assignment ;
+; Location         ;                ;              ; LEDG[7]       ; PIN_Y21         ; QSF Assignment ;
+; Location         ;                ;              ; PS2_CLK       ; PIN_H15         ; QSF Assignment ;
+; Location         ;                ;              ; PS2_DAT       ; PIN_J14         ; QSF Assignment ;
+; Location         ;                ;              ; SD_CLK        ; PIN_V20         ; QSF Assignment ;
+; Location         ;                ;              ; SD_CMD        ; PIN_Y20         ; QSF Assignment ;
+; Location         ;                ;              ; SD_DAT        ; PIN_W20         ; QSF Assignment ;
+; Location         ;                ;              ; SD_DAT3       ; PIN_U20         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_ADDR[0]  ; PIN_AA3         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_ADDR[10] ; PIN_R11         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_ADDR[11] ; PIN_T11         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_ADDR[12] ; PIN_Y10         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_ADDR[13] ; PIN_U10         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_ADDR[14] ; PIN_R10         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_ADDR[15] ; PIN_T7          ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_ADDR[16] ; PIN_Y6          ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_ADDR[17] ; PIN_Y5          ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_ADDR[1]  ; PIN_AB3         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_ADDR[2]  ; PIN_AA4         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_ADDR[3]  ; PIN_AB4         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_ADDR[4]  ; PIN_AA5         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_ADDR[5]  ; PIN_AB10        ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_ADDR[6]  ; PIN_AA11        ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_ADDR[7]  ; PIN_AB11        ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_ADDR[8]  ; PIN_V11         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_ADDR[9]  ; PIN_W11         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_CE_N     ; PIN_AB5         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_DQ[0]    ; PIN_AA6         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_DQ[10]   ; PIN_V9          ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_DQ[11]   ; PIN_U9          ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_DQ[12]   ; PIN_R9          ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_DQ[13]   ; PIN_W8          ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_DQ[14]   ; PIN_V8          ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_DQ[15]   ; PIN_U8          ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_DQ[1]    ; PIN_AB6         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_DQ[2]    ; PIN_AA7         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_DQ[3]    ; PIN_AB7         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_DQ[4]    ; PIN_AA8         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_DQ[5]    ; PIN_AB8         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_DQ[6]    ; PIN_AA9         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_DQ[7]    ; PIN_AB9         ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_DQ[8]    ; PIN_Y9          ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_DQ[9]    ; PIN_W9          ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_LB_N     ; PIN_Y7          ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_OE_N     ; PIN_T8          ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_UB_N     ; PIN_W7          ; QSF Assignment ;
+; Location         ;                ;              ; SRAM_WE_N     ; PIN_AA10        ; QSF Assignment ;
+; Location         ;                ;              ; TCK           ; PIN_C7          ; QSF Assignment ;
+; Location         ;                ;              ; TCS           ; PIN_D8          ; QSF Assignment ;
+; Location         ;                ;              ; TDI           ; PIN_E8          ; QSF Assignment ;
+; Location         ;                ;              ; TDO           ; PIN_D7          ; QSF Assignment ;
+; Location         ;                ;              ; UART_RXD      ; PIN_F14         ; QSF Assignment ;
+; Location         ;                ;              ; UART_TXD      ; PIN_G12         ; QSF Assignment ;
+; Location         ;                ;              ; VGA_B[0]      ; PIN_A9          ; QSF Assignment ;
+; Location         ;                ;              ; VGA_B[1]      ; PIN_D11         ; QSF Assignment ;
+; Location         ;                ;              ; VGA_B[2]      ; PIN_A10         ; QSF Assignment ;
+; Location         ;                ;              ; VGA_B[3]      ; PIN_B10         ; QSF Assignment ;
+; Location         ;                ;              ; VGA_G[0]      ; PIN_B8          ; QSF Assignment ;
+; Location         ;                ;              ; VGA_G[1]      ; PIN_C10         ; QSF Assignment ;
+; Location         ;                ;              ; VGA_G[2]      ; PIN_B9          ; QSF Assignment ;
+; Location         ;                ;              ; VGA_G[3]      ; PIN_A8          ; QSF Assignment ;
+; Location         ;                ;              ; VGA_HS        ; PIN_A11         ; QSF Assignment ;
+; Location         ;                ;              ; VGA_R[0]      ; PIN_D9          ; QSF Assignment ;
+; Location         ;                ;              ; VGA_R[1]      ; PIN_C9          ; QSF Assignment ;
+; Location         ;                ;              ; VGA_R[2]      ; PIN_A7          ; QSF Assignment ;
+; Location         ;                ;              ; VGA_R[3]      ; PIN_B7          ; QSF Assignment ;
+; Location         ;                ;              ; VGA_VS        ; PIN_B11         ; QSF Assignment ;
+; I/O Standard     ;                ;              ; AUD_ADCDAT    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; AUD_ADCLRCK   ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; AUD_BCLK      ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; AUD_DACDAT    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; AUD_DACLRCK   ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; AUD_XCK       ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; CLOCK_24[0]   ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; CLOCK_24[1]   ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; CLOCK_27[1]   ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; EXT_CLOCK     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[0]     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[10]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[11]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[12]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[13]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[14]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[15]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[16]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[17]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[18]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[19]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[1]     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[20]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[21]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[22]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[23]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[24]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[25]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[26]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[27]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[28]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[29]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[2]     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[30]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[31]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[32]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[33]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[34]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[35]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[3]     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[4]     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[5]     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[6]     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[7]     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[8]     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_0[9]     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[0]     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[10]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[11]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[12]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[13]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[14]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[15]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[16]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[17]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[18]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[19]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[1]     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[20]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[21]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[22]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[23]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[24]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[25]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[26]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[27]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[28]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[29]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[2]     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[30]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[31]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[32]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[33]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[34]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[35]    ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[3]     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[4]     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[5]     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[6]     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[7]     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[8]     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; GPIO_1[9]     ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; I2C_SCLK      ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; I2C_SDAT      ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; LEDG[0]       ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; LEDG[1]       ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; LEDG[2]       ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; LEDG[3]       ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; LEDG[4]       ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; LEDG[5]       ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; LEDG[6]       ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; LEDG[7]       ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; PS2_CLK       ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; PS2_DAT       ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; TCK           ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; TCS           ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; TDI           ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; TDO           ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; UART_RXD      ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; UART_TXD      ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; VGA_B[0]      ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; VGA_B[1]      ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; VGA_B[2]      ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; VGA_B[3]      ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; VGA_G[0]      ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; VGA_G[1]      ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; VGA_G[2]      ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; VGA_G[3]      ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; VGA_HS        ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; VGA_R[0]      ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; VGA_R[1]      ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; VGA_R[2]      ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; VGA_R[3]      ; LVTTL           ; QSF Assignment ;
+; I/O Standard     ;                ;              ; VGA_VS        ; LVTTL           ; QSF Assignment ;
+; Current Strength ; Timer          ;              ; I2C_SCLK      ; MAXIMUM CURRENT ; QSF Assignment ;
+; Current Strength ; Timer          ;              ; I2C_SDAT      ; MAXIMUM CURRENT ; QSF Assignment ;
++------------------+----------------+--------------+---------------+-----------------+----------------+
 
 
 +----------------------------------------------+
@@ -499,8 +522,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Type                ; Value                  ;
 +---------------------+------------------------+
 ; Placement (by node) ;                        ;
-;     -- Requested    ; 0 / 139 ( 0.00 % )     ;
-;     -- Achieved     ; 0 / 139 ( 0.00 % )     ;
+;     -- Requested    ; 0 / 131 ( 0.00 % )     ;
+;     -- Achieved     ; 0 / 131 ( 0.00 % )     ;
 ;                     ;                        ;
 ; Routing (by net)    ;                        ;
 ;     -- Requested    ; 0 / 0 ( 0.00 % )       ;
@@ -523,7 +546,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 ; Partition Name                 ; # Nodes ; # Preserved Nodes ; Preservation Level Used ; Netlist Type Used ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
-; Top                            ; 136     ; 0                 ; N/A                     ; Source File       ;
+; Top                            ; 128     ; 0                 ; N/A                     ; Source File       ;
 ; hard_block:auto_generated_inst ; 3       ; 0                 ; N/A                     ; Source File       ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 
@@ -539,46 +562,46 @@ The pin-out file can be found in X:/Repos/CS2200/Project 1/Quartus/output_files/
 +---------------------------------------------+-----------------------+
 ; Resource                                    ; Usage                 ;
 +---------------------------------------------+-----------------------+
-; Total logic elements                        ; 74 / 18,752 ( < 1 % ) ;
-;     -- Combinational with no register       ; 72                    ;
-;     -- Register only                        ; 0                     ;
-;     -- Combinational with a register        ; 2                     ;
+; Total logic elements                        ; 57 / 18,752 ( < 1 % ) ;
+;     -- Combinational with no register       ; 35                    ;
+;     -- Register only                        ; 6                     ;
+;     -- Combinational with a register        ; 16                    ;
 ;                                             ;                       ;
 ; Logic element usage by number of LUT inputs ;                       ;
 ;     -- 4 input functions                    ; 30                    ;
-;     -- 3 input functions                    ; 33                    ;
-;     -- <=2 input functions                  ; 11                    ;
-;     -- Register only                        ; 0                     ;
+;     -- 3 input functions                    ; 12                    ;
+;     -- <=2 input functions                  ; 9                     ;
+;     -- Register only                        ; 6                     ;
 ;                                             ;                       ;
 ; Logic elements by mode                      ;                       ;
-;     -- normal mode                          ; 74                    ;
+;     -- normal mode                          ; 51                    ;
 ;     -- arithmetic mode                      ; 0                     ;
 ;                                             ;                       ;
-; Total registers*                            ; 2 / 19,649 ( < 1 % )  ;
-;     -- Dedicated logic registers            ; 2 / 18,752 ( < 1 % )  ;
-;     -- I/O registers                        ; 0 / 897 ( 0 % )       ;
+; Total registers*                            ; 32 / 19,649 ( < 1 % ) ;
+;     -- Dedicated logic registers            ; 22 / 18,752 ( < 1 % ) ;
+;     -- I/O registers                        ; 10 / 897 ( 1 % )      ;
 ;                                             ;                       ;
-; Total LABs:  partially or completely used   ; 8 / 1,172 ( < 1 % )   ;
+; Total LABs:  partially or completely used   ; 6 / 1,172 ( < 1 % )   ;
 ; Virtual pins                                ; 0                     ;
-; I/O pins                                    ; 56 / 315 ( 18 % )     ;
+; I/O pins                                    ; 53 / 315 ( 17 % )     ;
 ;     -- Clock pins                           ; 6 / 8 ( 75 % )        ;
 ;                                             ;                       ;
-; Global signals                              ; 3                     ;
+; Global signals                              ; 1                     ;
 ; M4Ks                                        ; 0 / 52 ( 0 % )        ;
 ; Total block memory bits                     ; 0 / 239,616 ( 0 % )   ;
 ; Total block memory implementation bits      ; 0 / 239,616 ( 0 % )   ;
 ; Embedded Multiplier 9-bit elements          ; 0 / 52 ( 0 % )        ;
 ; PLLs                                        ; 0 / 4 ( 0 % )         ;
-; Global clocks                               ; 3 / 16 ( 19 % )       ;
+; Global clocks                               ; 1 / 16 ( 6 % )        ;
 ; JTAGs                                       ; 0 / 1 ( 0 % )         ;
 ; ASMI blocks                                 ; 0 / 1 ( 0 % )         ;
 ; CRC blocks                                  ; 0 / 1 ( 0 % )         ;
 ; Average interconnect usage (total/H/V)      ; 0% / 0% / 0%          ;
-; Peak interconnect usage (total/H/V)         ; 0% / 0% / 0%          ;
-; Maximum fan-out                             ; 11                    ;
+; Peak interconnect usage (total/H/V)         ; 0% / 0% / 1%          ;
+; Maximum fan-out                             ; 30                    ;
 ; Highest non-global fan-out                  ; 11                    ;
-; Total fan-out                               ; 286                   ;
-; Average fan-out                             ; 2.07                  ;
+; Total fan-out                               ; 296                   ;
+; Average fan-out                             ; 2.21                  ;
 +---------------------------------------------+-----------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -591,32 +614,33 @@ The pin-out file can be found in X:/Repos/CS2200/Project 1/Quartus/output_files/
 +---------------------------------------------+----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                  ; Low                            ;
 ;                                             ;                      ;                                ;
-; Total logic elements                        ; 74 / 18752 ( < 1 % ) ; 0 / 18752 ( 0 % )              ;
-;     -- Combinational with no register       ; 72                   ; 0                              ;
-;     -- Register only                        ; 0                    ; 0                              ;
-;     -- Combinational with a register        ; 2                    ; 0                              ;
+; Total logic elements                        ; 57 / 18752 ( < 1 % ) ; 0 / 18752 ( 0 % )              ;
+;     -- Combinational with no register       ; 35                   ; 0                              ;
+;     -- Register only                        ; 6                    ; 0                              ;
+;     -- Combinational with a register        ; 16                   ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic element usage by number of LUT inputs ;                      ;                                ;
 ;     -- 4 input functions                    ; 30                   ; 0                              ;
-;     -- 3 input functions                    ; 33                   ; 0                              ;
-;     -- <=2 input functions                  ; 11                   ; 0                              ;
-;     -- Register only                        ; 0                    ; 0                              ;
+;     -- 3 input functions                    ; 12                   ; 0                              ;
+;     -- <=2 input functions                  ; 9                    ; 0                              ;
+;     -- Register only                        ; 6                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic elements by mode                      ;                      ;                                ;
-;     -- normal mode                          ; 74                   ; 0                              ;
+;     -- normal mode                          ; 51                   ; 0                              ;
 ;     -- arithmetic mode                      ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
-; Total registers                             ; 2                    ; 0                              ;
-;     -- Dedicated logic registers            ; 2 / 18752 ( < 1 % )  ; 0 / 18752 ( 0 % )              ;
+; Total registers                             ; 32                   ; 0                              ;
+;     -- Dedicated logic registers            ; 22 / 18752 ( < 1 % ) ; 0 / 18752 ( 0 % )              ;
+;     -- I/O registers                        ; 10                   ; 0                              ;
 ;                                             ;                      ;                                ;
-; Total LABs:  partially or completely used   ; 8 / 1172 ( < 1 % )   ; 0 / 1172 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 6 / 1172 ( < 1 % )   ; 0 / 1172 ( 0 % )               ;
 ;                                             ;                      ;                                ;
 ; Virtual pins                                ; 0                    ; 0                              ;
-; I/O pins                                    ; 56                   ; 0                              ;
+; I/O pins                                    ; 53                   ; 0                              ;
 ; Embedded Multiplier 9-bit elements          ; 0 / 52 ( 0 % )       ; 0 / 52 ( 0 % )                 ;
 ; Total memory bits                           ; 0                    ; 0                              ;
 ; Total RAM block bits                        ; 0                    ; 0                              ;
-; Clock control block                         ; 3 / 20 ( 15 % )      ; 0 / 20 ( 0 % )                 ;
+; Clock control block                         ; 1 / 20 ( 5 % )       ; 0 / 20 ( 0 % )                 ;
 ;                                             ;                      ;                                ;
 ; Connections                                 ;                      ;                                ;
 ;     -- Input Connections                    ; 0                    ; 0                              ;
@@ -625,8 +649,8 @@ The pin-out file can be found in X:/Repos/CS2200/Project 1/Quartus/output_files/
 ;     -- Registered Output Connections        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Internal Connections                        ;                      ;                                ;
-;     -- Total Connections                    ; 286                  ; 0                              ;
-;     -- Registered Connections               ; 15                   ; 0                              ;
+;     -- Total Connections                    ; 296                  ; 0                              ;
+;     -- Registered Connections               ; 144                  ; 0                              ;
 ;                                             ;                      ;                                ;
 ; External Connections                        ;                      ;                                ;
 ;     -- Top                                  ; 0                    ; 0                              ;
@@ -634,7 +658,7 @@ The pin-out file can be found in X:/Repos/CS2200/Project 1/Quartus/output_files/
 ;                                             ;                      ;                                ;
 ; Partition Interface                         ;                      ;                                ;
 ;     -- Input Ports                          ; 15                   ; 0                              ;
-;     -- Output Ports                         ; 41                   ; 0                              ;
+;     -- Output Ports                         ; 38                   ; 0                              ;
 ;     -- Bidir Ports                          ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Registered Ports                            ;                      ;                                ;
@@ -658,8 +682,8 @@ The pin-out file can be found in X:/Repos/CS2200/Project 1/Quartus/output_files/
 +----------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 ; Name     ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Location assigned by ;
 +----------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
-; CLOCK_50 ; L1    ; 2        ; 0            ; 13           ; 0           ; 0                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
-; KEY[0]   ; R22   ; 6        ; 50           ; 10           ; 1           ; 4                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; CLOCK_50 ; L1    ; 2        ; 0            ; 13           ; 0           ; 1                     ; 0                  ; yes    ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; KEY[0]   ; R22   ; 6        ; 50           ; 10           ; 1           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; KEY[1]   ; R21   ; 6        ; 50           ; 10           ; 2           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; KEY[2]   ; T22   ; 6        ; 50           ; 9            ; 0           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; KEY[3]   ; T21   ; 6        ; 50           ; 9            ; 1           ; 0                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
@@ -671,8 +695,8 @@ The pin-out file can be found in X:/Repos/CS2200/Project 1/Quartus/output_files/
 ; SW[5]    ; U12   ; 8        ; 26           ; 0            ; 2           ; 4                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; SW[6]    ; U11   ; 8        ; 26           ; 0            ; 3           ; 5                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; SW[7]    ; M2    ; 1        ; 0            ; 13           ; 3           ; 7                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
-; SW[8]    ; M1    ; 1        ; 0            ; 13           ; 2           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
-; SW[9]    ; L2    ; 2        ; 0            ; 13           ; 1           ; 3                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; SW[8]    ; M1    ; 1        ; 0            ; 13           ; 2           ; 10                    ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; SW[9]    ; L2    ; 2        ; 0            ; 13           ; 1           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 +----------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 
 
@@ -709,19 +733,16 @@ The pin-out file can be found in X:/Repos/CS2200/Project 1/Quartus/output_files/
 ; HEX3[4] ; L8    ; 2        ; 0            ; 19           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; HEX3[5] ; F3    ; 2        ; 0            ; 22           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; HEX3[6] ; D4    ; 2        ; 0            ; 25           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; LEDG[0] ; U22   ; 6        ; 50           ; 7            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; LEDG[1] ; U21   ; 6        ; 50           ; 7            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; LEDG[2] ; V22   ; 6        ; 50           ; 7            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; LEDR[0] ; R20   ; 6        ; 50           ; 10           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; LEDR[1] ; R19   ; 6        ; 50           ; 8            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; LEDR[2] ; U19   ; 6        ; 50           ; 4            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; LEDR[3] ; Y19   ; 6        ; 50           ; 2            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; LEDR[4] ; T18   ; 6        ; 50           ; 3            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; LEDR[5] ; V19   ; 6        ; 50           ; 2            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; LEDR[6] ; Y18   ; 6        ; 50           ; 2            ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; LEDR[7] ; U18   ; 6        ; 50           ; 3            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; LEDR[8] ; R18   ; 6        ; 50           ; 8            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; LEDR[9] ; R17   ; 6        ; 50           ; 5            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; LEDR[0] ; R20   ; 6        ; 50           ; 10           ; 0           ; yes             ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; LEDR[1] ; R19   ; 6        ; 50           ; 8            ; 1           ; yes             ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; LEDR[2] ; U19   ; 6        ; 50           ; 4            ; 2           ; yes             ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; LEDR[3] ; Y19   ; 6        ; 50           ; 2            ; 0           ; yes             ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; LEDR[4] ; T18   ; 6        ; 50           ; 3            ; 0           ; yes             ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; LEDR[5] ; V19   ; 6        ; 50           ; 2            ; 2           ; yes             ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; LEDR[6] ; Y18   ; 6        ; 50           ; 2            ; 3           ; yes             ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; LEDR[7] ; U18   ; 6        ; 50           ; 3            ; 1           ; yes             ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; LEDR[8] ; R18   ; 6        ; 50           ; 8            ; 2           ; yes             ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; LEDR[9] ; R17   ; 6        ; 50           ; 5            ; 0           ; yes             ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 4mA              ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 +---------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
 
 
@@ -735,7 +756,7 @@ The pin-out file can be found in X:/Repos/CS2200/Project 1/Quartus/output_files/
 ; 3        ; 0 / 43 ( 0 % )   ; 3.3V          ; --           ;
 ; 4        ; 0 / 40 ( 0 % )   ; 3.3V          ; --           ;
 ; 5        ; 2 / 39 ( 5 % )   ; 3.3V          ; --           ;
-; 6        ; 19 / 36 ( 53 % ) ; 3.3V          ; --           ;
+; 6        ; 16 / 36 ( 44 % ) ; 3.3V          ; --           ;
 ; 7        ; 2 / 40 ( 5 % )   ; 3.3V          ; --           ;
 ; 8        ; 2 / 43 ( 5 % )   ; 3.3V          ; --           ;
 +----------+------------------+---------------+--------------+
@@ -1162,8 +1183,8 @@ The pin-out file can be found in X:/Repos/CS2200/Project 1/Quartus/output_files/
 ; U18      ; 170        ; 6        ; LEDR[7]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; U19      ; 172        ; 6        ; LEDR[2]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; U20      ; 176        ; 6        ; RESERVED_INPUT                           ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
-; U21      ; 182        ; 6        ; LEDG[1]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
-; U22      ; 183        ; 6        ; LEDG[0]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; U21      ; 182        ; 6        ; RESERVED_INPUT                           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; U22      ; 183        ; 6        ; RESERVED_INPUT                           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V1       ; 65         ; 1        ; RESERVED_INPUT                           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V2       ; 66         ; 1        ; RESERVED_INPUT                           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V3       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -1185,7 +1206,7 @@ The pin-out file can be found in X:/Repos/CS2200/Project 1/Quartus/output_files/
 ; V19      ; 166        ; 6        ; LEDR[5]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; V20      ; 173        ; 6        ; RESERVED_INPUT                           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V21      ; 180        ; 6        ; RESERVED_INPUT                           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; V22      ; 181        ; 6        ; LEDG[2]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; V22      ; 181        ; 6        ; RESERVED_INPUT                           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; W1       ; 71         ; 1        ; RESERVED_INPUT                           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; W2       ; 72         ; 1        ; RESERVED_INPUT                           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; W3       ; 75         ; 1        ; RESERVED_INPUT                           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -1276,9 +1297,9 @@ Note: User assignments will override these defaults. The user specified values a
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------+--------------+
 ; Compilation Hierarchy Node ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M4Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name     ; Library Name ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------+--------------+
-; |Timer                     ; 74 (42)     ; 2 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 56   ; 0            ; 72 (42)      ; 0 (0)             ; 2 (2)            ; |Timer                  ; work         ;
-;    |TFlipFlop:comb_3|      ; 2 (2)       ; 1 (1)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 1 (1)            ; |Timer|TFlipFlop:comb_3 ; work         ;
-;    |TFlipFlop:comb_4|      ; 2 (2)       ; 1 (1)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 1 (1)            ; |Timer|TFlipFlop:comb_4 ; work         ;
+; |Timer                     ; 57 (27)     ; 22 (20)                   ; 10 (10)       ; 0           ; 0    ; 0            ; 0       ; 0         ; 53   ; 0            ; 35 (7)       ; 6 (6)             ; 16 (14)          ; |Timer                  ; work         ;
+;    |TFlipFlop:comb_3|      ; 1 (1)       ; 1 (1)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; |Timer|TFlipFlop:comb_3 ; work         ;
+;    |TFlipFlop:comb_4|      ; 1 (1)       ; 1 (1)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; |Timer|TFlipFlop:comb_4 ; work         ;
 ;    |dec2_7seg:comb_5|      ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; |Timer|dec2_7seg:comb_5 ; work         ;
 ;    |dec2_7seg:comb_6|      ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; |Timer|dec2_7seg:comb_6 ; work         ;
 ;    |dec2_7seg:comb_7|      ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; |Timer|dec2_7seg:comb_7 ; work         ;
@@ -1287,68 +1308,65 @@ Note: User assignments will override these defaults. The user specified values a
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-----------------------------------------------------------------------------------+
-; Delay Chain Summary                                                               ;
-+----------+----------+---------------+---------------+-----------------------+-----+
-; Name     ; Pin Type ; Pad to Core 0 ; Pad to Core 1 ; Pad to Input Register ; TCO ;
-+----------+----------+---------------+---------------+-----------------------+-----+
-; CLOCK_50 ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; KEY[3]   ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; HEX0[0]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX0[1]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX0[2]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX0[3]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX0[4]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX0[5]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX0[6]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX1[0]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX1[1]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX1[2]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX1[3]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX1[4]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX1[5]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX1[6]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX2[0]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX2[1]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX2[2]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX2[3]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX2[4]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX2[5]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX2[6]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX3[0]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX3[1]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX3[2]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX3[3]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX3[4]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX3[5]  ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX3[6]  ; Output   ; --            ; --            ; --                    ; --  ;
-; LEDR[0]  ; Output   ; --            ; --            ; --                    ; --  ;
-; LEDR[1]  ; Output   ; --            ; --            ; --                    ; --  ;
-; LEDR[2]  ; Output   ; --            ; --            ; --                    ; --  ;
-; LEDR[3]  ; Output   ; --            ; --            ; --                    ; --  ;
-; LEDR[4]  ; Output   ; --            ; --            ; --                    ; --  ;
-; LEDR[5]  ; Output   ; --            ; --            ; --                    ; --  ;
-; LEDR[6]  ; Output   ; --            ; --            ; --                    ; --  ;
-; LEDR[7]  ; Output   ; --            ; --            ; --                    ; --  ;
-; LEDR[8]  ; Output   ; --            ; --            ; --                    ; --  ;
-; LEDR[9]  ; Output   ; --            ; --            ; --                    ; --  ;
-; LEDG[0]  ; Output   ; --            ; --            ; --                    ; --  ;
-; LEDG[1]  ; Output   ; --            ; --            ; --                    ; --  ;
-; LEDG[2]  ; Output   ; --            ; --            ; --                    ; --  ;
-; SW[0]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; SW[3]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
-; SW[1]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; SW[2]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; SW[7]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; SW[4]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
-; SW[5]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
-; SW[6]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
-; SW[8]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; SW[9]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; KEY[0]   ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; KEY[2]   ; Input    ; (6) 2523 ps   ; (6) 2523 ps   ; --                    ; --  ;
-; KEY[1]   ; Input    ; (6) 2523 ps   ; (6) 2523 ps   ; --                    ; --  ;
-+----------+----------+---------------+---------------+-----------------------+-----+
++-----------------------------------------------------------------------------------------+
+; Delay Chain Summary                                                                     ;
++----------+----------+---------------+---------------+-----------------------+-----------+
+; Name     ; Pin Type ; Pad to Core 0 ; Pad to Core 1 ; Pad to Input Register ; TCO       ;
++----------+----------+---------------+---------------+-----------------------+-----------+
+; KEY[3]   ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
+; HEX0[0]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX0[1]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX0[2]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX0[3]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX0[4]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX0[5]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX0[6]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX1[0]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX1[1]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX1[2]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX1[3]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX1[4]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX1[5]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX1[6]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX2[0]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX2[1]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX2[2]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX2[3]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX2[4]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX2[5]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX2[6]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX3[0]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX3[1]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX3[2]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX3[3]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX3[4]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX3[5]  ; Output   ; --            ; --            ; --                    ; --        ;
+; HEX3[6]  ; Output   ; --            ; --            ; --                    ; --        ;
+; LEDR[0]  ; Output   ; --            ; --            ; --                    ; (0) 38 ps ;
+; LEDR[1]  ; Output   ; --            ; --            ; --                    ; (0) 38 ps ;
+; LEDR[2]  ; Output   ; --            ; --            ; --                    ; (0) 38 ps ;
+; LEDR[3]  ; Output   ; --            ; --            ; --                    ; (0) 38 ps ;
+; LEDR[4]  ; Output   ; --            ; --            ; --                    ; (0) 38 ps ;
+; LEDR[5]  ; Output   ; --            ; --            ; --                    ; (0) 38 ps ;
+; LEDR[6]  ; Output   ; --            ; --            ; --                    ; (0) 38 ps ;
+; LEDR[7]  ; Output   ; --            ; --            ; --                    ; (0) 38 ps ;
+; LEDR[8]  ; Output   ; --            ; --            ; --                    ; (0) 38 ps ;
+; LEDR[9]  ; Output   ; --            ; --            ; --                    ; (0) 38 ps ;
+; SW[0]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
+; SW[3]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --        ;
+; SW[1]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
+; SW[2]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
+; CLOCK_50 ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
+; SW[7]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
+; SW[4]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --        ;
+; SW[5]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --        ;
+; SW[6]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --        ;
+; SW[8]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
+; SW[9]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
+; KEY[1]   ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
+; KEY[0]   ; Input    ; (6) 2523 ps   ; (6) 2523 ps   ; --                    ; --        ;
+; KEY[2]   ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --        ;
++----------+----------+---------------+---------------+-----------------------+-----------+
 
 
 +------------------------------------------------------------+
@@ -1356,55 +1374,50 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------+-------------------+---------+
 ; Source Pin / Fanout          ; Pad To Core Index ; Setting ;
 +------------------------------+-------------------+---------+
-; CLOCK_50                     ;                   ;         ;
 ; KEY[3]                       ;                   ;         ;
 ; SW[0]                        ;                   ;         ;
 ; SW[3]                        ;                   ;         ;
 ; SW[1]                        ;                   ;         ;
 ; SW[2]                        ;                   ;         ;
+; CLOCK_50                     ;                   ;         ;
 ; SW[7]                        ;                   ;         ;
 ; SW[4]                        ;                   ;         ;
 ; SW[5]                        ;                   ;         ;
 ; SW[6]                        ;                   ;         ;
 ; SW[8]                        ;                   ;         ;
 ; SW[9]                        ;                   ;         ;
-; KEY[0]                       ;                   ;         ;
-;      - TFlipFlop:comb_3|tOut ; 0                 ; 0       ;
-;      - TFlipFlop:comb_4|tOut ; 0                 ; 0       ;
-;      - Selector1~0           ; 0                 ; 0       ;
-;      - Selector1~2           ; 0                 ; 0       ;
-; KEY[2]                       ;                   ;         ;
-;      - TFlipFlop:comb_4|tOut ; 1                 ; 6       ;
 ; KEY[1]                       ;                   ;         ;
-;      - TFlipFlop:comb_3|tOut ; 0                 ; 6       ;
+;      - TFlipFlop:comb_3|tOut ; 0                 ; 0       ;
+; KEY[0]                       ;                   ;         ;
+;      - TFlipFlop:comb_3|tOut ; 1                 ; 6       ;
+;      - TFlipFlop:comb_4|tOut ; 1                 ; 6       ;
+; KEY[2]                       ;                   ;         ;
+;      - TFlipFlop:comb_4|tOut ; 0                 ; 0       ;
 +------------------------------+-------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                              ;
-+-----------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Name            ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+-----------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; KEY[0]          ; PIN_R22            ; 4       ; Clock        ; no     ; --                   ; --               ; --                        ;
-; KEY[1]          ; PIN_R21            ; 1       ; Async. clear ; no     ; --                   ; --               ; --                        ;
-; KEY[2]          ; PIN_T22            ; 1       ; Async. clear ; no     ; --                   ; --               ; --                        ;
-; Selector1~3     ; LCCOMB_X49_Y14_N6  ; 3       ; Latch enable ; no     ; --                   ; --               ; --                        ;
-; Selector1~3     ; LCCOMB_X49_Y14_N6  ; 3       ; Latch enable ; yes    ; Global Clock         ; GCLK5            ; --                        ;
-; oneminutes[0]~3 ; LCCOMB_X49_Y14_N10 ; 8       ; Latch enable ; yes    ; Global Clock         ; GCLK7            ; --                        ;
-; oneseconds[0]~0 ; LCCOMB_X49_Y14_N2  ; 7       ; Latch enable ; yes    ; Global Clock         ; GCLK4            ; --                        ;
-; state.FLASH_424 ; LCCOMB_X48_Y14_N30 ; 3       ; Latch enable ; no     ; --                   ; --               ; --                        ;
-+-----------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                             ;
++-----------------+-------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; Name            ; Location          ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++-----------------+-------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; CLOCK_50        ; PIN_L1            ; 30      ; Clock        ; yes    ; Global Clock         ; GCLK2            ; --                        ;
+; KEY[0]          ; PIN_R22           ; 2       ; Async. clear ; no     ; --                   ; --               ; --                        ;
+; KEY[1]          ; PIN_R21           ; 1       ; Clock        ; no     ; --                   ; --               ; --                        ;
+; KEY[2]          ; PIN_T22           ; 1       ; Clock        ; no     ; --                   ; --               ; --                        ;
+; oneminutes[0]~3 ; LCCOMB_X29_Y7_N26 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; oneseconds[0]~0 ; LCCOMB_X30_Y7_N4  ; 7       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; state.FLASH     ; LCFF_X30_Y7_N17   ; 11      ; Clock enable ; no     ; --                   ; --               ; --                        ;
++-----------------+-------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Global & Other Fast Signals                                                                                          ;
-+-----------------+--------------------+---------+----------------------+------------------+---------------------------+
-; Name            ; Location           ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+-----------------+--------------------+---------+----------------------+------------------+---------------------------+
-; Selector1~3     ; LCCOMB_X49_Y14_N6  ; 3       ; Global Clock         ; GCLK5            ; --                        ;
-; oneminutes[0]~3 ; LCCOMB_X49_Y14_N10 ; 8       ; Global Clock         ; GCLK7            ; --                        ;
-; oneseconds[0]~0 ; LCCOMB_X49_Y14_N2  ; 7       ; Global Clock         ; GCLK4            ; --                        ;
-+-----------------+--------------------+---------+----------------------+------------------+---------------------------+
++-----------------------------------------------------------------------------------------------------+
+; Global & Other Fast Signals                                                                         ;
++----------+----------+---------+----------------------+------------------+---------------------------+
+; Name     ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++----------+----------+---------+----------------------+------------------+---------------------------+
+; CLOCK_50 ; PIN_L1   ; 30      ; Global Clock         ; GCLK2            ; --                        ;
++----------+----------+---------+----------------------+------------------+---------------------------+
 
 
 +-----------------------------------------+
@@ -1412,59 +1425,58 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------+---------+
 ; Name                          ; Fan-Out ;
 +-------------------------------+---------+
-; LEDR[0]$latch                 ; 11      ;
+; state.FLASH                   ; 11      ;
+; SW[8]                         ; 10      ;
 ; TFlipFlop:comb_4|tOut         ; 9       ;
-; tenminutes[1]                 ; 8       ;
-; tenminutes[3]                 ; 8       ;
-; tenminutes[2]                 ; 8       ;
-; tenminutes[0]                 ; 8       ;
-; oneminutes[1]                 ; 8       ;
-; oneminutes[3]                 ; 8       ;
-; oneminutes[2]                 ; 8       ;
-; oneminutes[0]                 ; 8       ;
-; tenseconds[1]                 ; 8       ;
-; tenseconds[2]                 ; 8       ;
-; tenseconds[0]                 ; 8       ;
-; oneseconds[3]                 ; 8       ;
-; oneseconds[1]                 ; 8       ;
-; oneseconds[2]                 ; 8       ;
-; oneseconds[0]                 ; 8       ;
+; oneminutes[0]~3               ; 8       ;
 ; SW[7]                         ; 7       ;
-; state.START_466               ; 7       ;
-; state.000_508                 ; 7       ;
-; TFlipFlop:comb_3|tOut         ; 6       ;
+; oneseconds[0]~0               ; 7       ;
+; tenminutes[1]                 ; 7       ;
+; tenminutes[3]                 ; 7       ;
+; tenminutes[2]                 ; 7       ;
+; tenminutes[0]                 ; 7       ;
+; oneminutes[1]                 ; 7       ;
+; oneminutes[3]                 ; 7       ;
+; oneminutes[2]                 ; 7       ;
+; oneminutes[0]                 ; 7       ;
+; tenseconds[1]                 ; 7       ;
+; tenseconds[2]                 ; 7       ;
+; tenseconds[0]                 ; 7       ;
+; oneseconds[3]                 ; 7       ;
+; oneseconds[1]                 ; 7       ;
+; oneseconds[2]                 ; 7       ;
+; oneseconds[0]                 ; 7       ;
 ; SW[6]                         ; 5       ;
 ; SW[3]                         ; 5       ;
-; state.SET_MIN_487             ; 5       ;
-; KEY[0]                        ; 4       ;
+; state.START                   ; 5       ;
+; TFlipFlop:comb_3|tOut         ; 5       ;
 ; SW[5]                         ; 4       ;
-; state.STOP_445                ; 4       ;
-; SW[9]                         ; 3       ;
-; state.FLASH_424               ; 3       ;
+; Selector1~0                   ; 4       ;
+; state.000                     ; 4       ;
+; Selector1~3                   ; 3       ;
+; state.SET_MIN                 ; 3       ;
+; KEY[0]                        ; 2       ;
 ; SW[4]                         ; 2       ;
 ; SW[2]                         ; 2       ;
 ; SW[1]                         ; 2       ;
-; Selector1~3                   ; 2       ;
+; Selector1~2                   ; 2       ;
+; state.STOP                    ; 2       ;
+; Selector1~1                   ; 2       ;
 ; oneminutes~2                  ; 2       ;
 ; oneminutes~1                  ; 2       ;
 ; oneminutes~0                  ; 2       ;
-; KEY[1]                        ; 1       ;
 ; KEY[2]                        ; 1       ;
-; SW[8]                         ; 1       ;
+; KEY[1]                        ; 1       ;
+; SW[9]                         ; 1       ;
 ; SW[0]                         ; 1       ;
-; TFlipFlop:comb_3|tOut~0       ; 1       ;
 ; TFlipFlop:comb_4|tOut~0       ; 1       ;
-; Selector2~0                   ; 1       ;
+; TFlipFlop:comb_3|tOut~0       ; 1       ;
+; state.000~8                   ; 1       ;
 ; Selector3~1                   ; 1       ;
 ; Selector3~0                   ; 1       ;
-; Selector0~0                   ; 1       ;
+; Selector2~0                   ; 1       ;
 ; Selector4~0                   ; 1       ;
-; Selector1~2                   ; 1       ;
-; Selector1~1                   ; 1       ;
-; Selector1~0                   ; 1       ;
-; Selector5~2                   ; 1       ;
-; Selector5~1                   ; 1       ;
-; Selector5~0                   ; 1       ;
+; Selector1~4                   ; 1       ;
 ; tenminutes~2                  ; 1       ;
 ; tenminutes~1                  ; 1       ;
 ; tenminutes~0                  ; 1       ;
@@ -1507,111 +1519,133 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------+-----------------------+
 ; Other Routing Resource Type ; Usage                 ;
 +-----------------------------+-----------------------+
-; Block interconnects         ; 89 / 54,004 ( < 1 % ) ;
-; C16 interconnects           ; 11 / 2,100 ( < 1 % )  ;
-; C4 interconnects            ; 37 / 36,000 ( < 1 % ) ;
-; Direct links                ; 30 / 54,004 ( < 1 % ) ;
-; Global clocks               ; 3 / 16 ( 19 % )       ;
-; Local interconnects         ; 37 / 18,752 ( < 1 % ) ;
-; R24 interconnects           ; 18 / 1,900 ( < 1 % )  ;
-; R4 interconnects            ; 17 / 46,920 ( < 1 % ) ;
+; Block interconnects         ; 83 / 54,004 ( < 1 % ) ;
+; C16 interconnects           ; 14 / 2,100 ( < 1 % )  ;
+; C4 interconnects            ; 99 / 36,000 ( < 1 % ) ;
+; Direct links                ; 15 / 54,004 ( < 1 % ) ;
+; Global clocks               ; 1 / 16 ( 6 % )        ;
+; Local interconnects         ; 11 / 18,752 ( < 1 % ) ;
+; R24 interconnects           ; 28 / 1,900 ( 1 % )    ;
+; R4 interconnects            ; 65 / 46,920 ( < 1 % ) ;
 +-----------------------------+-----------------------+
 
 
 +--------------------------------------------------------------------------+
 ; LAB Logic Elements                                                       ;
 +--------------------------------------------+-----------------------------+
-; Number of Logic Elements  (Average = 9.25) ; Number of LABs  (Total = 8) ;
+; Number of Logic Elements  (Average = 9.50) ; Number of LABs  (Total = 6) ;
 +--------------------------------------------+-----------------------------+
-; 1                                          ; 0                           ;
+; 1                                          ; 1                           ;
 ; 2                                          ; 0                           ;
 ; 3                                          ; 0                           ;
-; 4                                          ; 1                           ;
-; 5                                          ; 0                           ;
-; 6                                          ; 1                           ;
-; 7                                          ; 3                           ;
+; 4                                          ; 0                           ;
+; 5                                          ; 1                           ;
+; 6                                          ; 0                           ;
+; 7                                          ; 0                           ;
 ; 8                                          ; 0                           ;
-; 9                                          ; 0                           ;
+; 9                                          ; 1                           ;
 ; 10                                         ; 0                           ;
-; 11                                         ; 1                           ;
-; 12                                         ; 0                           ;
+; 11                                         ; 0                           ;
+; 12                                         ; 1                           ;
 ; 13                                         ; 0                           ;
-; 14                                         ; 0                           ;
+; 14                                         ; 1                           ;
 ; 15                                         ; 0                           ;
-; 16                                         ; 2                           ;
+; 16                                         ; 1                           ;
 +--------------------------------------------+-----------------------------+
 
 
 +------------------------------------------------------------------+
 ; LAB-wide Signals                                                 ;
 +------------------------------------+-----------------------------+
-; LAB-wide Signals  (Average = 0.25) ; Number of LABs  (Total = 8) ;
+; LAB-wide Signals  (Average = 1.00) ; Number of LABs  (Total = 6) ;
 +------------------------------------+-----------------------------+
-; 1 Clock                            ; 1                           ;
-; 2 Async. clears                    ; 1                           ;
+; 1 Async. clear                     ; 2                           ;
+; 1 Clock                            ; 2                           ;
+; 1 Clock enable                     ; 1                           ;
+; 2 Clocks                           ; 1                           ;
 +------------------------------------+-----------------------------+
 
 
-+---------------------------------------------------------------------------+
-; LAB Signals Sourced                                                       ;
-+---------------------------------------------+-----------------------------+
-; Number of Signals Sourced  (Average = 9.50) ; Number of LABs  (Total = 8) ;
-+---------------------------------------------+-----------------------------+
-; 0                                           ; 0                           ;
-; 1                                           ; 0                           ;
-; 2                                           ; 0                           ;
-; 3                                           ; 0                           ;
-; 4                                           ; 1                           ;
-; 5                                           ; 0                           ;
-; 6                                           ; 1                           ;
-; 7                                           ; 3                           ;
-; 8                                           ; 0                           ;
-; 9                                           ; 0                           ;
-; 10                                          ; 0                           ;
-; 11                                          ; 1                           ;
-; 12                                          ; 0                           ;
-; 13                                          ; 0                           ;
-; 14                                          ; 0                           ;
-; 15                                          ; 0                           ;
-; 16                                          ; 1                           ;
-; 17                                          ; 0                           ;
-; 18                                          ; 1                           ;
-+---------------------------------------------+-----------------------------+
++----------------------------------------------------------------------------+
+; LAB Signals Sourced                                                        ;
++----------------------------------------------+-----------------------------+
+; Number of Signals Sourced  (Average = 12.83) ; Number of LABs  (Total = 6) ;
++----------------------------------------------+-----------------------------+
+; 0                                            ; 0                           ;
+; 1                                            ; 0                           ;
+; 2                                            ; 1                           ;
+; 3                                            ; 0                           ;
+; 4                                            ; 0                           ;
+; 5                                            ; 1                           ;
+; 6                                            ; 0                           ;
+; 7                                            ; 0                           ;
+; 8                                            ; 0                           ;
+; 9                                            ; 1                           ;
+; 10                                           ; 0                           ;
+; 11                                           ; 0                           ;
+; 12                                           ; 0                           ;
+; 13                                           ; 0                           ;
+; 14                                           ; 1                           ;
+; 15                                           ; 0                           ;
+; 16                                           ; 0                           ;
+; 17                                           ; 0                           ;
+; 18                                           ; 1                           ;
+; 19                                           ; 0                           ;
+; 20                                           ; 0                           ;
+; 21                                           ; 0                           ;
+; 22                                           ; 0                           ;
+; 23                                           ; 0                           ;
+; 24                                           ; 0                           ;
+; 25                                           ; 0                           ;
+; 26                                           ; 0                           ;
+; 27                                           ; 0                           ;
+; 28                                           ; 0                           ;
+; 29                                           ; 1                           ;
++----------------------------------------------+-----------------------------+
 
 
 +-------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                       ;
 +-------------------------------------------------+-----------------------------+
-; Number of Signals Sourced Out  (Average = 6.88) ; Number of LABs  (Total = 8) ;
+; Number of Signals Sourced Out  (Average = 8.00) ; Number of LABs  (Total = 6) ;
 +-------------------------------------------------+-----------------------------+
 ; 0                                               ; 0                           ;
-; 1                                               ; 0                           ;
+; 1                                               ; 1                           ;
 ; 2                                               ; 0                           ;
 ; 3                                               ; 0                           ;
 ; 4                                               ; 1                           ;
 ; 5                                               ; 1                           ;
 ; 6                                               ; 0                           ;
-; 7                                               ; 4                           ;
+; 7                                               ; 0                           ;
 ; 8                                               ; 0                           ;
-; 9                                               ; 2                           ;
+; 9                                               ; 1                           ;
+; 10                                              ; 0                           ;
+; 11                                              ; 0                           ;
+; 12                                              ; 0                           ;
+; 13                                              ; 0                           ;
+; 14                                              ; 1                           ;
+; 15                                              ; 1                           ;
 +-------------------------------------------------+-----------------------------+
 
 
 +---------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                       ;
 +---------------------------------------------+-----------------------------+
-; Number of Distinct Inputs  (Average = 5.63) ; Number of LABs  (Total = 8) ;
+; Number of Distinct Inputs  (Average = 6.17) ; Number of LABs  (Total = 6) ;
 +---------------------------------------------+-----------------------------+
 ; 0                                           ; 0                           ;
 ; 1                                           ; 0                           ;
-; 2                                           ; 0                           ;
-; 3                                           ; 0                           ;
-; 4                                           ; 2                           ;
-; 5                                           ; 4                           ;
+; 2                                           ; 1                           ;
+; 3                                           ; 1                           ;
+; 4                                           ; 0                           ;
+; 5                                           ; 1                           ;
 ; 6                                           ; 0                           ;
-; 7                                           ; 0                           ;
+; 7                                           ; 1                           ;
 ; 8                                           ; 1                           ;
-; 9                                           ; 1                           ;
+; 9                                           ; 0                           ;
+; 10                                          ; 0                           ;
+; 11                                          ; 0                           ;
+; 12                                          ; 1                           ;
 +---------------------------------------------+-----------------------------+
 
 
@@ -1661,26 +1695,59 @@ Info (169124): Fitter converted 3 user pins into dedicated programming pins
     Info (169125): Pin ~ASDO~ is reserved at location C4
     Info (169125): Pin ~nCSO~ is reserved at location C3
     Info (169125): Pin ~LVDS91p/nCEO~ is reserved at location W20
-Warning (335093): TimeQuest Timing Analyzer is analyzing 21 combinational loops as latches.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'Timer.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained base clocks found in the design
-Warning (332191): Clock target state.FLASH_424 of clock state.FLASH_424 is fed by another target of the same clock.
-Info (332097): The following timing edges are non-unate.  TimeQuest will assume pos-unate behavior for these edges in the clock network.
-    Info (332098): Cell: Selector1~2  from: datac  to: combout
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
-Info (176353): Automatically promoted node oneminutes[0]~3 
-    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
-Info (176353): Automatically promoted node oneseconds[0]~0 
-    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
-Info (176353): Automatically promoted node Selector1~3 
-    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
-    Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
-        Info (176357): Destination node state.000_508
-        Info (176357): Destination node state.SET_MIN_487
+Info (176353): Automatically promoted node CLOCK_50 (placed in PIN L1 (CLK0, LVDSCLK0p, Input))
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G2
 Info (176233): Starting register packing
-Warning (176250): Ignoring invalid fast I/O register assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
+Warning (176225): Can't pack node oneseconds[3] to I/O pin
+    Warning (176228): Can't pack node oneseconds[3] and I/O node SW[3] -- I/O node is a dedicated I/O pin
+Warning (176225): Can't pack node oneminutes[3] to I/O pin
+    Warning (176228): Can't pack node oneminutes[3] and I/O node SW[3] -- I/O node is a dedicated I/O pin
+Warning (176225): Can't pack node tenminutes[3] to I/O pin
+    Warning (176228): Can't pack node tenminutes[3] and I/O node SW[7] -- I/O node is a dedicated I/O pin
+Warning (176225): Can't pack node LEDR[0]~reg0 to I/O pin
+    Warning (176228): Can't pack node LEDR[0]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+Warning (176225): Can't pack node LEDR[1]~reg0 to I/O pin
+    Warning (176228): Can't pack node LEDR[1]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+Warning (176225): Can't pack node LEDR[2]~reg0 to I/O pin
+    Warning (176228): Can't pack node LEDR[2]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+Warning (176225): Can't pack node LEDR[3]~reg0 to I/O pin
+    Warning (176228): Can't pack node LEDR[3]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+Warning (176225): Can't pack node LEDR[4]~reg0 to I/O pin
+    Warning (176228): Can't pack node LEDR[4]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+Warning (176225): Can't pack node LEDR[5]~reg0 to I/O pin
+    Warning (176228): Can't pack node LEDR[5]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+Warning (176225): Can't pack node LEDR[6]~reg0 to I/O pin
+    Warning (176228): Can't pack node LEDR[6]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+Warning (176225): Can't pack node LEDR[7]~reg0 to I/O pin
+    Warning (176228): Can't pack node LEDR[7]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+Warning (176225): Can't pack node LEDR[8]~reg0 to I/O pin
+    Warning (176228): Can't pack node LEDR[8]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+Warning (176225): Can't pack node LEDR[9]~reg0 to I/O pin
+    Warning (176228): Can't pack node LEDR[9]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+Warning (176225): Can't pack node oneminutes[3] to I/O pin
+    Warning (176228): Can't pack node oneseconds[3] and I/O node SW[3] -- I/O node is a dedicated I/O pin
+    Warning (176228): Can't pack node oneminutes[3] and I/O node SW[3] -- I/O node is a dedicated I/O pin
+Warning (176225): Can't pack node tenminutes[3] to I/O pin
+    Warning (176228): Can't pack node tenminutes[3] and I/O node SW[7] -- I/O node is a dedicated I/O pin
+Warning (176225): Can't pack node LEDR[9]~reg0 to I/O pin
+    Warning (176228): Can't pack node LEDR[7]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+    Warning (176228): Can't pack node LEDR[6]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+    Warning (176228): Can't pack node LEDR[5]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+    Warning (176228): Can't pack node LEDR[4]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+    Warning (176228): Can't pack node LEDR[3]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+    Warning (176228): Can't pack node LEDR[2]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+    Warning (176228): Can't pack node LEDR[1]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+    Warning (176228): Can't pack node LEDR[0]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+    Warning (176228): Can't pack node LEDR[8]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+    Warning (176228): Can't pack node LEDR[9]~reg0 and I/O node SW[8] -- I/O node is a dedicated I/O pin
+Warning (176251): Ignoring some wildcard destinations of fast I/O register assignments
+    Info (176252): Wildcard assignment "Fast Output Register=ON" to "*" matches multiple destination nodes -- some destinations are not valid targets for this assignment
+    Info (176252): Wildcard assignment "Fast Input Register=ON" to "*" matches multiple destination nodes -- some destinations are not valid targets for this assignment
 Info (176235): Finished register packing
-    Extra Info (176219): No registers were packed into other blocks
+    Extra Info (176218): Packed 10 registers into blocks of type I/O
 Warning (15709): Ignored I/O standard assignments to the following nodes
     Warning (15710): Ignored I/O standard assignment to node "AUD_ADCDAT"
     Warning (15710): Ignored I/O standard assignment to node "AUD_ADCLRCK"
@@ -1766,6 +1833,9 @@ Warning (15709): Ignored I/O standard assignments to the following nodes
     Warning (15710): Ignored I/O standard assignment to node "GPIO_1[9]"
     Warning (15710): Ignored I/O standard assignment to node "I2C_SCLK"
     Warning (15710): Ignored I/O standard assignment to node "I2C_SDAT"
+    Warning (15710): Ignored I/O standard assignment to node "LEDG[0]"
+    Warning (15710): Ignored I/O standard assignment to node "LEDG[1]"
+    Warning (15710): Ignored I/O standard assignment to node "LEDG[2]"
     Warning (15710): Ignored I/O standard assignment to node "LEDG[3]"
     Warning (15710): Ignored I/O standard assignment to node "LEDG[4]"
     Warning (15710): Ignored I/O standard assignment to node "LEDG[5]"
@@ -1950,6 +2020,9 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "GPIO_1[9]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "I2C_SCLK" is assigned to location or region, but does not exist in design
     Warning (15706): Node "I2C_SDAT" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDG[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDG[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDG[2]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "LEDG[3]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "LEDG[4]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "LEDG[5]" is assigned to location or region, but does not exist in design
@@ -2020,7 +2093,7 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "VGA_R[2]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "VGA_R[3]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "VGA_VS" is assigned to location or region, but does not exist in design
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:00
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info (170191): Fitter placement operations beginning
@@ -2032,9 +2105,9 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 0.31 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.25 seconds.
 Info (306004): Started post-fitting delay annotation
-Warning (306006): Found 41 output pins without output pin load capacitance assignment
+Warning (306006): Found 38 output pins without output pin load capacitance assignment
     Info (306007): Pin "HEX0[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info (306007): Pin "HEX0[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info (306007): Pin "HEX0[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
@@ -2073,19 +2146,16 @@ Warning (306006): Found 41 output pins without output pin load capacitance assig
     Info (306007): Pin "LEDR[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info (306007): Pin "LEDR[8]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info (306007): Pin "LEDR[9]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "LEDG[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "LEDG[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "LEDG[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
 Info (306005): Delay annotation completed successfully
 Info (306004): Started post-fitting delay annotation
 Info (306005): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file X:/Repos/CS2200/Project 1/Quartus/output_files/Timer.fit.smsg
-Info: Quartus II 64-Bit Fitter was successful. 0 errors, 347 warnings
-    Info: Peak virtual memory: 624 megabytes
-    Info: Processing ended: Tue Sep 23 18:09:52 2014
-    Info: Elapsed time: 00:00:05
+Info: Quartus II 64-Bit Fitter was successful. 0 errors, 393 warnings
+    Info: Peak virtual memory: 620 megabytes
+    Info: Processing ended: Tue Sep 23 18:36:34 2014
+    Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:05
 
 

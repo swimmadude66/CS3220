@@ -6,20 +6,20 @@ module Timer(
    output [6:0] HEX1,
    output [6:0] HEX2,
    output [6:0] HEX3,
-   output reg [9:0] LEDR,
-	output reg [2:0] LEDG
+   output reg [9:0] LEDR
    );
 	
 	reg[3:0] tenminutes = 0;
 	reg[3:0] tenseconds = 0;
 	reg[3:0] oneminutes = 0;
 	reg[3:0] oneseconds = 0;
-	
 	reg[2:0] state = 0;
 	
+	
+	
 	//countSecond(CLOCK_50, CLOCK);
-	TFlipFlop(KEY[1], KEY[0], set);
-	TFlipFlop(KEY[2], KEY[0], start);
+	TFlipFlop(KEY[1], KEY[0], X);
+	TFlipFlop(KEY[2], KEY[0], Y);
 	dec2_7seg(oneseconds, HEX0);
 	dec2_7seg(tenseconds, HEX1);
 	dec2_7seg(oneminutes, HEX2);
@@ -27,15 +27,12 @@ module Timer(
 	
 	parameter SET_SEC = 0, SET_MIN = 1, START = 2, STOP = 3, FLASH = 4;
 	
-	always @(negedge KEY[0] or negedge CLOCK_50) begin
-		if (KEY[0] == 1'b0) begin
-			state <= SET_SEC;
-		end
+	always @(negedge CLOCK_50) begin
 		case(state)
-			SET_SEC:	if (set == 1'b1) begin
+			SET_SEC:	if (X == 1'b1) begin
 							state <= SET_MIN;
 						end
-						else if (start  == 1'b1) begin
+						else if (Y  == 1'b1) begin
 							state <= START;
 						end
 						else begin
@@ -51,7 +48,7 @@ module Timer(
 								oneseconds <= SW[3:0];
 							end
 						end	
-			SET_MIN: if (start == 1'b1) begin
+			SET_MIN: if (Y == 1'b1) begin
 							state <= START;
 						end
 						else begin
@@ -68,13 +65,13 @@ module Timer(
 								oneminutes <= SW[3:0];	
 							end
 						end
-			START: 	if (start == 1'b0) begin
+			START: 	if (Y == 1'b0) begin
 							state <= STOP;
 						end
 						else if (SW[9] ==  1'b1) begin
 							state <= FLASH;
 						end
-			STOP: 	if (start == 1'b1) begin
+			STOP: 	if (Y == 1'b1) begin
 							state <= START;
 						end
 			FLASH: 	if (SW[8] == 1'b1) begin
@@ -87,7 +84,7 @@ module Timer(
 	end
 endmodule
 
-module TFlipFlop(reset, clk, tOut);
+module TFlipFlop(clk, reset, tOut);
 	input reset, clk;
 	output tOut;
 	reg tOut = 0;
