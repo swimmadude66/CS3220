@@ -112,6 +112,7 @@ module dec2_7seg(
 	num == 7 ? ~7'b0000111 :
 	num == 8 ? ~7'b1111111 :
 	num == 9 ? ~7'b1100111 :
+	num == 10 ? ~ 7'b0000000 :
 	7'bxxxxxxx;   // Output is a don't care if illegal input
 endmodule // dec2_7seg
 
