@@ -485,7 +485,7 @@ LEDR[7]                      : U18       : output : 3.3-V LVTTL       :         
 LEDR[2]                      : U19       : output : 3.3-V LVTTL       :         : 6         : Y              
 RESERVED_INPUT               : U20       :        :                   :         : 6         :                
 RESERVED_INPUT               : U21       :        :                   :         : 6         :                
-RESERVED_INPUT               : U22       :        :                   :         : 6         :                
+LEDG[0]                      : U22       : output : 3.3-V LVTTL       :         : 6         : Y              
 RESERVED_INPUT               : V1        :        :                   :         : 1         :                
 RESERVED_INPUT               : V2        :        :                   :         : 1         :                
 GND                          : V3        : gnd    :                   :         :           :                
