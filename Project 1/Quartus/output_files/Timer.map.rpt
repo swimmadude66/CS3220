@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Timer
-Wed Sep 24 11:54:58 2014
+Wed Sep 24 12:28:06 2014
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -19,10 +19,9 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
  11. Multiplexer Restructuring Statistics (Restructuring Performed)
  12. Parameter Settings for User Entity Instance: Top-level Entity: |Timer
  13. Port Connectivity Checks: "countSecond:comb_8"
- 14. Port Connectivity Checks: "TFlipFlop:comb_5"
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
- 17. Analysis & Synthesis Suppressed Messages
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
+ 16. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -48,15 +47,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Sep 24 11:54:58 2014           ;
+; Analysis & Synthesis Status        ; Successful - Wed Sep 24 12:28:06 2014           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Timer                                           ;
 ; Top-level Entity Name              ; Timer                                           ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 183                                             ;
-;     Total combinational functions  ; 183                                             ;
-;     Dedicated logic registers      ; 94                                              ;
-; Total registers                    ; 94                                              ;
+; Total logic elements               ; 213                                             ;
+;     Total combinational functions  ; 213                                             ;
+;     Dedicated logic registers      ; 121                                             ;
+; Total registers                    ; 121                                             ;
 ; Total pins                         ; 54                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -175,28 +174,28 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+----------+
 ; Resource                                    ; Usage    ;
 +---------------------------------------------+----------+
-; Estimated Total logic elements              ; 183      ;
+; Estimated Total logic elements              ; 213      ;
 ;                                             ;          ;
-; Total combinational functions               ; 183      ;
+; Total combinational functions               ; 213      ;
 ; Logic element usage by number of LUT inputs ;          ;
-;     -- 4 input functions                    ; 103      ;
+;     -- 4 input functions                    ; 102      ;
 ;     -- 3 input functions                    ; 22       ;
-;     -- <=2 input functions                  ; 58       ;
+;     -- <=2 input functions                  ; 89       ;
 ;                                             ;          ;
 ; Logic elements by mode                      ;          ;
-;     -- normal mode                          ; 133      ;
-;     -- arithmetic mode                      ; 50       ;
+;     -- normal mode                          ; 138      ;
+;     -- arithmetic mode                      ; 75       ;
 ;                                             ;          ;
-; Total registers                             ; 94       ;
-;     -- Dedicated logic registers            ; 94       ;
+; Total registers                             ; 121      ;
+;     -- Dedicated logic registers            ; 121      ;
 ;     -- I/O registers                        ; 0        ;
 ;                                             ;          ;
 ; I/O pins                                    ; 54       ;
 ; Embedded Multiplier 9-bit elements          ; 0        ;
 ; Maximum fan-out node                        ; CLOCK_50 ;
-; Maximum fan-out                             ; 91       ;
-; Total fan-out                               ; 935      ;
-; Average fan-out                             ; 2.82     ;
+; Maximum fan-out                             ; 117      ;
+; Total fan-out                               ; 1072     ;
+; Average fan-out                             ; 2.76     ;
 +---------------------------------------------+----------+
 
 
@@ -205,32 +204,33 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name       ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------+--------------+
-; |Timer                     ; 183 (86)          ; 94 (37)      ; 0           ; 0            ; 0       ; 0         ; 54   ; 0            ; |Timer                    ; work         ;
+; |Timer                     ; 213 (82)          ; 121 (36)     ; 0           ; 0            ; 0       ; 0         ; 54   ; 0            ; |Timer                    ; work         ;
 ;    |TFlipFlop:comb_3|      ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Timer|TFlipFlop:comb_3   ; work         ;
 ;    |TFlipFlop:comb_4|      ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Timer|TFlipFlop:comb_4   ; work         ;
+;    |TFlipFlop:comb_5|      ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Timer|TFlipFlop:comb_5   ; work         ;
 ;    |TFlipFlop:comb_6|      ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Timer|TFlipFlop:comb_6   ; work         ;
+;    |blink:comb_9|          ; 33 (33)           ; 27 (27)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Timer|blink:comb_9       ; work         ;
 ;    |countSecond:comb_7|    ; 33 (33)           ; 27 (27)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Timer|countSecond:comb_7 ; work         ;
 ;    |countSecond:comb_8|    ; 33 (33)           ; 27 (27)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Timer|countSecond:comb_8 ; work         ;
 ;    |dec2_7seg:comb_10|     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Timer|dec2_7seg:comb_10  ; work         ;
 ;    |dec2_7seg:comb_11|     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Timer|dec2_7seg:comb_11  ; work         ;
 ;    |dec2_7seg:comb_12|     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Timer|dec2_7seg:comb_12  ; work         ;
-;    |dec2_7seg:comb_9|      ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Timer|dec2_7seg:comb_9   ; work         ;
+;    |dec2_7seg:comb_13|     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Timer|dec2_7seg:comb_13  ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+------------------------------------------------------------------------------------+
-; State Machine - |Timer|state                                                       ;
-+---------------+------------+-------------+---------------+-----------+-------------+
-; Name          ; state.STOP ; state.START ; state.SET_MIN ; state.000 ; state.FLASH ;
-+---------------+------------+-------------+---------------+-----------+-------------+
-; state.000     ; 0          ; 0           ; 0             ; 0         ; 0           ;
-; state.SET_MIN ; 0          ; 0           ; 1             ; 1         ; 0           ;
-; state.START   ; 0          ; 1           ; 0             ; 1         ; 0           ;
-; state.STOP    ; 1          ; 0           ; 0             ; 1         ; 0           ;
-; state.FLASH   ; 0          ; 0           ; 0             ; 1         ; 1           ;
-+---------------+------------+-------------+---------------+-----------+-------------+
++-----------------------------------------------------------------------+
+; State Machine - |Timer|state                                          ;
++---------------+-------------+-------------+---------------+-----------+
+; Name          ; state.FLASH ; state.START ; state.SET_MIN ; state.000 ;
++---------------+-------------+-------------+---------------+-----------+
+; state.000     ; 0           ; 0           ; 0             ; 0         ;
+; state.SET_MIN ; 0           ; 0           ; 1             ; 1         ;
+; state.START   ; 0           ; 1           ; 0             ; 1         ;
+; state.FLASH   ; 1           ; 0           ; 0             ; 1         ;
++---------------+-------------+-------------+---------------+-----------+
 
 
 +---------------------------------------------------------------------------------+
@@ -238,19 +238,20 @@ Encoding Type:  One-Hot
 +----------------------------------------+----------------------------------------+
 ; Register name                          ; Reason for Removal                     ;
 +----------------------------------------+----------------------------------------+
-; LEDR[1]~reg0                           ; Merged with LEDR[9]~reg0               ;
-; LEDR[2]~reg0                           ; Merged with LEDR[9]~reg0               ;
 ; LEDR[6]~reg0                           ; Merged with LEDR[9]~reg0               ;
+; LEDR[2]~reg0                           ; Merged with LEDR[9]~reg0               ;
+; LEDR[1]~reg0                           ; Merged with LEDR[9]~reg0               ;
 ; LEDR[8]~reg0                           ; Merged with LEDR[9]~reg0               ;
 ; LEDR[5]~reg0                           ; Merged with LEDR[9]~reg0               ;
 ; LEDR[0]~reg0                           ; Merged with LEDR[9]~reg0               ;
 ; LEDR[4]~reg0                           ; Merged with LEDR[9]~reg0               ;
 ; LEDR[7]~reg0                           ; Merged with LEDR[9]~reg0               ;
 ; LEDR[3]~reg0                           ; Merged with LEDR[9]~reg0               ;
+; state~6                                ; Lost fanout                            ;
 ; state~7                                ; Lost fanout                            ;
 ; state~8                                ; Lost fanout                            ;
 ; tenseconds[3]                          ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 12 ;                                        ;
+; Total Number of Removed Registers = 13 ;                                        ;
 +----------------------------------------+----------------------------------------+
 
 
@@ -259,10 +260,10 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 94    ;
-; Number of registers using Synchronous Clear  ; 61    ;
+; Total registers                              ; 121   ;
+; Number of registers using Synchronous Clear  ; 87    ;
 ; Number of registers using Synchronous Load   ; 2     ;
-; Number of registers using Asynchronous Clear ; 3     ;
+; Number of registers using Asynchronous Clear ; 4     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 53    ;
 ; Number of registers using Preset             ; 0     ;
@@ -274,17 +275,17 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
-; 7:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |Timer|tensecondsdisplay[2]         ;
-; 7:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |Timer|tenminutesdisplay[1]         ;
-; 13:1               ; 4 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |Timer|oneseconds[3]                ;
-; 13:1               ; 4 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |Timer|oneminutes[2]                ;
-; 14:1               ; 4 bits    ; 36 LEs        ; 8 LEs                ; 28 LEs                 ; Yes        ; |Timer|tenminutes[0]                ;
-; 14:1               ; 4 bits    ; 36 LEs        ; 12 LEs               ; 24 LEs                 ; Yes        ; |Timer|tenseconds[0]                ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Timer|dec2_7seg:comb_9|display[5]  ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Timer|dec2_7seg:comb_10|display[5] ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |Timer|onesecondsdisplay[0]         ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |Timer|oneminutesdisplay[0]         ;
+; 11:1               ; 4 bits    ; 28 LEs        ; 8 LEs                ; 20 LEs                 ; Yes        ; |Timer|oneseconds[3]                ;
+; 11:1               ; 4 bits    ; 28 LEs        ; 8 LEs                ; 20 LEs                 ; Yes        ; |Timer|oneminutes[1]                ;
+; 12:1               ; 4 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |Timer|tenminutes[3]                ;
+; 12:1               ; 4 bits    ; 32 LEs        ; 12 LEs               ; 20 LEs                 ; Yes        ; |Timer|tenseconds[0]                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Timer|dec2_7seg:comb_10|display[6] ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Timer|dec2_7seg:comb_11|display[6] ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Timer|dec2_7seg:comb_12|display[5] ;
-; 16:1               ; 5 bits    ; 50 LEs        ; 25 LEs               ; 25 LEs                 ; No         ; |Timer|state                        ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Timer|dec2_7seg:comb_13|display[5] ;
+; 14:1               ; 4 bits    ; 36 LEs        ; 16 LEs               ; 20 LEs                 ; No         ; |Timer|state                        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
 
 
@@ -296,8 +297,7 @@ Encoding Type:  One-Hot
 ; SET_SEC        ; 0     ; Signed Integer                               ;
 ; SET_MIN        ; 1     ; Signed Integer                               ;
 ; START          ; 2     ; Signed Integer                               ;
-; STOP           ; 3     ; Signed Integer                               ;
-; FLASH          ; 4     ; Signed Integer                               ;
+; FLASH          ; 3     ; Signed Integer                               ;
 +----------------+-------+----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -310,15 +310,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; running     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
 ; running[-1] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
 +-------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "TFlipFlop:comb_5"                                                                   ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; tOut ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -336,7 +327,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Sep 24 11:54:56 2014
+    Info: Processing started: Wed Sep 24 12:28:04 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Timer -c Timer
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 5 design units, including 5 entities, in source file timer.v
@@ -344,50 +335,55 @@ Info (12021): Found 5 design units, including 5 entities, in source file timer.v
     Info (12023): Found entity 2: TFlipFlop
     Info (12023): Found entity 3: dec2_7seg
     Info (12023): Found entity 4: countSecond
-    Info (12023): Found entity 5: countDown
+    Info (12023): Found entity 5: blink
 Warning (10236): Verilog HDL Implicit Net warning at Timer.v(26): created implicit net for "X"
 Warning (10236): Verilog HDL Implicit Net warning at Timer.v(27): created implicit net for "Y"
-Warning (10236): Verilog HDL Implicit Net warning at Timer.v(28): created implicit net for "CLOCK_10"
-Warning (10236): Verilog HDL Implicit Net warning at Timer.v(28): created implicit net for "Z"
-Warning (10236): Verilog HDL Implicit Net warning at Timer.v(29): created implicit net for "CLOCK_F"
-Warning (10236): Verilog HDL Implicit Net warning at Timer.v(29): created implicit net for "F"
+Warning (10236): Verilog HDL Implicit Net warning at Timer.v(28): created implicit net for "CLOCK_F"
+Warning (10236): Verilog HDL Implicit Net warning at Timer.v(28): created implicit net for "F"
+Warning (10236): Verilog HDL Implicit Net warning at Timer.v(29): created implicit net for "ALARM"
+Warning (10236): Verilog HDL Implicit Net warning at Timer.v(29): created implicit net for "A"
+Warning (10236): Verilog HDL Implicit Net warning at Timer.v(31): created implicit net for "CLOCK_10"
 Critical Warning (10846): Verilog HDL Instantiation warning at Timer.v(26): instance has no name
 Critical Warning (10846): Verilog HDL Instantiation warning at Timer.v(27): instance has no name
 Critical Warning (10846): Verilog HDL Instantiation warning at Timer.v(28): instance has no name
 Critical Warning (10846): Verilog HDL Instantiation warning at Timer.v(29): instance has no name
 Critical Warning (10846): Verilog HDL Instantiation warning at Timer.v(31): instance has no name
 Critical Warning (10846): Verilog HDL Instantiation warning at Timer.v(32): instance has no name
-Critical Warning (10846): Verilog HDL Instantiation warning at Timer.v(34): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at Timer.v(33): instance has no name
 Critical Warning (10846): Verilog HDL Instantiation warning at Timer.v(35): instance has no name
 Critical Warning (10846): Verilog HDL Instantiation warning at Timer.v(36): instance has no name
 Critical Warning (10846): Verilog HDL Instantiation warning at Timer.v(37): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at Timer.v(38): instance has no name
 Info (12127): Elaborating entity "Timer" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at Timer.v(135): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at Timer.v(139): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at Timer.v(144): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at Timer.v(150): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Timer.v(128): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Timer.v(132): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Timer.v(137): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Timer.v(143): truncated value with size 32 to match size of target (4)
 Warning (10034): Output port "LEDG[0]" at Timer.v(11) has no driver
 Info (12128): Elaborating entity "TFlipFlop" for hierarchy "TFlipFlop:comb_3"
 Info (12128): Elaborating entity "countSecond" for hierarchy "countSecond:comb_7"
-Warning (10230): Verilog HDL assignment warning at Timer.v(228): truncated value with size 32 to match size of target (26)
-Info (12128): Elaborating entity "dec2_7seg" for hierarchy "dec2_7seg:comb_9"
+Warning (10230): Verilog HDL assignment warning at Timer.v(217): truncated value with size 32 to match size of target (26)
+Info (12128): Elaborating entity "blink" for hierarchy "blink:comb_9"
+Warning (10230): Verilog HDL assignment warning at Timer.v(239): truncated value with size 32 to match size of target (26)
+Info (12128): Elaborating entity "dec2_7seg" for hierarchy "dec2_7seg:comb_10"
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDG[0]" is stuck at GND
-Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file X:/Repos/CS2200/Project 1/Quartus/output_files/Timer.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 2 input pin(s) that do not drive logic
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[8]"
+    Warning (15610): No output dependent on input pin "SW[9]"
     Warning (15610): No output dependent on input pin "KEY[3]"
-Info (21057): Implemented 240 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 271 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 39 output pins
-    Info (21061): Implemented 186 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 29 warnings
-    Info: Peak virtual memory: 455 megabytes
-    Info: Processing ended: Wed Sep 24 11:54:58 2014
+    Info (21061): Implemented 217 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 33 warnings
+    Info: Peak virtual memory: 447 megabytes
+    Info: Processing ended: Wed Sep 24 12:28:06 2014
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

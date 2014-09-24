@@ -23,25 +23,24 @@ module Timer(
 	reg[2:0] state = 0;
 	
 	
-	TFlipFlop(KEY[1], KEY[0], X);
-	TFlipFlop(KEY[2], KEY[0], Y);
-	TFlipFlop(CLOCK_10, KEY[0], Z);
-	TFlipFlop(CLOCK_F, KEY[0], F);
+	TFlipFlop(KEY[1], KEY[0], X);				//SET transisiton
+	TFlipFlop(KEY[2], KEY[0], Y);				//Start/Stop
+	TFlipFlop(CLOCK_F, KEY[0], F);			//stores HEX flash state
+	TFlipFlop(ALARM, KEY[0], A);				//Store ALARM state
 	
-	countSecond(CLOCK_50, Y ,CLOCK_10);
-	countSecond(CLOCK_50, 1 ,CLOCK_F);
+	countSecond(CLOCK_50, Y ,CLOCK_10);		//Counter clock, 1 second, pauses on stop
+	countSecond(CLOCK_50, 1, ALARM);			// Alarm Clock, flashes at 1Hz, no pause
+	blink(CLOCK_50, CLOCK_F);					//HEX Blinker, flashes at ~3HZ
 	
-	dec2_7seg(onesecondsdisplay, HEX0);
+	dec2_7seg(onesecondsdisplay, HEX0);		//Write out relevant times
 	dec2_7seg(tensecondsdisplay, HEX1);
 	dec2_7seg(oneminutesdisplay, HEX2);
 	dec2_7seg(tenminutesdisplay, HEX3);
-	
-	//countDown(CLOCK_10, tenminutes, oneminutes, tenseconds, oneseconds, DONE);
-	
-	parameter SET_SEC = 0, SET_MIN = 1, START = 2, STOP = 3, FLASH = 4;
+		
+	parameter SET_SEC = 0, SET_MIN = 1, START = 2, FLASH = 3; //No stop needed because our clock pauses in run.
 	
 	always @(negedge CLOCK_50) begin
-		if (KEY[0] == 0) begin
+		if (KEY[0] == 0) begin			//Check for RESET first
 			state <= SET_SEC;
 			tenminutes = 0;
 			oneminutes = 0;
@@ -55,8 +54,8 @@ module Timer(
 		end
 		else begin
 			case(state)
-				SET_SEC:	begin
-								tenminutesdisplay <= tenminutes;
+				SET_SEC:	begin												//set the seconds
+								tenminutesdisplay <= tenminutes;		//make sure display is on
 								oneminutesdisplay <= oneminutes;
 								if (X == 1'b1) begin
 									state <= SET_MIN;
@@ -76,13 +75,13 @@ module Timer(
 									else begin
 										oneseconds <= SW[3:0];
 									end
-									if (F == 1) begin
-										tensecondsdisplay <= tenseconds;
-										onesecondsdisplay <= oneseconds;
-									end
-									else begin
+									if (F == 1) begin						//blink the relevant HEX board
 										tensecondsdisplay <= 10;
 										onesecondsdisplay <= 10;
+									end
+									else begin
+										tensecondsdisplay <= tenseconds;
+										onesecondsdisplay <= oneseconds;
 									end
 								end
 							end
@@ -109,62 +108,52 @@ module Timer(
 										oneminutes <= SW[3:0];	
 									end
 									if (F == 1) begin
-										tenminutesdisplay <= tenminutes;
-										oneminutesdisplay <= oneminutes;
-									end
-									else begin
 										tenminutesdisplay <= 10;
 										oneminutesdisplay <= 10;
+									end
+									else begin
+										tenminutesdisplay <= tenminutes;
+										oneminutesdisplay <= oneminutes;
+										
 									end
 								end
 							end
 				START: 	begin
-								tenminutesdisplay <= tenminutes;
+								tenminutesdisplay <= tenminutes;			//ensure all HEX are on, not blinking
 								oneminutesdisplay <= oneminutes;
 								tensecondsdisplay <= tenseconds;
 								onesecondsdisplay <= oneseconds;
-								if (Y == 1'b0) begin
-									state <= STOP;
-								end
-								else if (SW[9] ==  1'b1) begin
-									state <= FLASH;
-								end
-								else begin 
-									if(CLOCK_10 == 1'b1) begin
-										if(oneseconds >0)begin
-											oneseconds <= oneseconds - 1;
+								if(CLOCK_10 == 1'b1) begin					//fires every second
+									if(oneseconds >0)begin
+										oneseconds <= oneseconds - 1;
+									end
+									else begin									//check seconds, and roll upward
+										if(tenseconds >0)begin
+											tenseconds <= tenseconds - 1;
+											oneseconds <= 9;
 										end
 										else begin
-											if(tenseconds >0)begin
-												tenseconds <= tenseconds - 1;
+											if(oneminutes>0)begin
+												oneminutes <= oneminutes - 1;
+												tenseconds <= 5;
 												oneseconds <= 9;
 											end
 											else begin
-												if(oneminutes>0)begin
-													oneminutes <= oneminutes - 1;
+												if(tenminutes>0)begin
+													tenminutes <= tenminutes - 1;
+													oneminutes <= 9;
 													tenseconds <= 5;
 													oneseconds <= 9;
 												end
 												else begin
-													if(tenminutes>0)begin
-														tenminutes <= tenminutes - 1;
-														oneminutes <= 9;
-														tenseconds <= 5;
-														oneseconds <= 9;
-													end
-													else begin
-														state <= FLASH;
-													end
+													state <= FLASH;		//if everything is zero, no need to stick around!
 												end
 											end
-										end 
-									end
+										end
+									end 
 								end
 							end
-				STOP: 	if (Y == 1'b1) begin
-								state <= START;
-							end
-				FLASH: 	if (F == 1'b1) begin
+				FLASH: 	if (A == 1'b1) begin
 								LEDR = 10'b1111111111;
 							end
 							else begin
@@ -231,44 +220,28 @@ module countSecond(clkin, running, second);
 	end
 endmodule
 
-module countDown(secondClock, tm, om, ts, os, DONE);
-	input secondClock;
-	inout reg[3:0] tm, om, ts, os;
-	output reg DONE;
+// The CLOCK_27 and CLOCK_24 inputs were not being recognized. Otherwise, every use of this would just be a countSecond
+// with a different clock and constant running bit
 
-	always @(negedge secondClock) begin
-		if(os >0)begin
-			os <= os - 1;
+module blink(clkin, blinkout);
+	input clkin;
+	output blinkout;
+	reg blinkout = 0;
+	
+	reg[25:0] counter = 0;
+	always @(negedge clkin) begin
+		if (counter >= 20000000) begin
+			blinkout = 1;
+			counter <= 0;
 		end
 		else begin
-			if(ts >0)begin
-				ts <= ts - 1;
-				os <= 9;
-			end
-			else begin
-				if(om>0)begin
-					om <= om - 1;
-					ts <= 5;
-					os <= 9;
-				end
-				else begin
-					if(tm>0)begin
-						tm <= tm - 1;
-						om <= 9;
-						ts <= 5;
-						os <= 9;
-					end
-					else begin
-						DONE <= 1;
-					end
-				end
-			end
+			blinkout = 0;
+			counter <= counter + 1;
 		end
 	end
-	
-	
-		
 endmodule
+
+
 
 
 
