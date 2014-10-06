@@ -1,15 +1,17 @@
 __author__ = 'ayost'
 
 import re
+import sys
+
 
 WIDTH = 32
 DEPTH = 2048
 ADDRESS_RADIX = 'HEX'
 DATA_RADIX = 'HEX'
-
+VARIABLE_NAMES = dict()
 PCREL = [0x8B, 0x65, 0x66, 0x67, 0x6D, 0x6E, 0x6F]
-HexDigits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
-RegNames = ['Zero', 'A0', 'A1', 'A2', 'T0', 'T1', 'S0', 'S1', 'R6', 'R7', 'R8', 'R9', 'R12', 'FP', 'SP', 'RA']
+HexDigits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
+RegNames = ['A0', 'A1', 'A2', 'A3', 'T0', 'T1', 'T2', 'S0', 'S1', 'S2', 'R6', 'R9', 'GP', 'FP', 'SP', 'RA']
 ISA = {
     'ADD'   : 0x00,
     'SUB'   : 0x01,
@@ -20,7 +22,6 @@ ISA = {
     'NOR'   : 0x0D,
     'XNOR'  : 0x0E,
     'ADDI'  : 0x80,
-    'SUBI'  : 0x81,
     'ANDI'  : 0x84,
     'ORI'   : 0x85,
     'XORI'  : 0x86,
@@ -48,30 +49,72 @@ ISA = {
     'GTI'   : 0xAB,
     'BF'    : 0x60,
     'BEQ'   : 0x61,
-    'BLT'   : 0x62,
-    'BLTE'  : 0x63,
     'BEQZ'  : 0x65,
     'BLTZ'  : 0x66,
     'BLTEZ' : 0x67,
     'BT'    : 0x68,
     'BNE'   : 0x69,
-    'BGTE'  : 0x6A,
-    'BGT'   : 0x6B,
     'BNEZ'  : 0x6D,
     'BGTZZ' : 0x6E,
     'BGTZ'  : 0x6F,
-    'JAL'   : 0xB0
+    'JAL'   : 0xB0,
+    # Fake instructions
+    'BR'    : 0xF0,
+    'SUBI'  : 0xF1,
+    'NOT'   : 0xF2,
+    'BLT'   : 0xF3,
+    'BLTE'  : 0xF4,
+    'BGT'   : 0xF5,
+    'BGTE'  : 0xF6,
+    'CALL'  : 0xF7,
+    'RET'   : 0xF8,
+    'JMP'   : 0xF9
     }
 
+class Instruction():
+    line_number = 0
+    location = 0x00
+    text = ""
+
+    def __init__(self, ln, l, t):
+        self.line_number = ln
+        self.location = l
+        self.text = t
+
+
+def toBinaryString(number):
+    binstring = ""
+    for i in range(WIDTH):
+        binstring = str(binstring % 2) + binstring
+        binstring >>= 1
+    return binstring
 
 
 def toHexString(number):
     hexstring = ""
-    for i in range(8):
+    for i in range(WIDTH//4):
         hexstring = HexDigits[number % 16] + hexstring
         number >>= 4
-    return hexstring
+    return hexstring.lower()
 
+def parsenum(num):
+    number = str(num)
+    output = ""
+    if re.match(r'0x[A-Fa-f0-9]+',number):
+        number = re.sub(r'^0x', "", number).upper()
+        integer = 0
+        i = len(number) - 1
+        for j in range(0,len(number)):
+            char = number[j]
+            intrep = HexDigits.index(char)
+            integer += intrep * (16 ** i)
+            i -= 1
+        return integer
+    elif re.fullmatch(r'\-?\d+', number):
+        return int(number)
+    else:
+        print("Invalid Number Format")
+        exit(-1)
 
 def Registers(opcode, params):
     instrbytes = opcode << 16
@@ -86,7 +129,7 @@ def Registers(opcode, params):
             print("Error: Register number out of bounds")
             exit(-1)
     out = instrbytes << 8
-    print(toHexString(out))
+    return toHexString(out)
 
 def Immediate(opcode, params):
     instrbytes = opcode << 16
@@ -103,13 +146,20 @@ def Immediate(opcode, params):
             print("Error: Register number out of bounds")
             exit(-1)
     out = instrbytes << 8
-    imm = int(params[2])
-    if (imm <= 32767) and (imm >= -32768):
+    imm = params[2].strip()
+    if not re.match(r'((0x)|(\-))?\d+', imm):
+        imm = VARIABLE_NAMES[imm]
+    imm = parsenum(imm)
+    if opcode == 0x8B:
+        imm >>= 16
         out |= (imm & 0x0000FFFF)
     else:
-        print('Invalid Immediate')
-        exit(-1)
-    print(toHexString(out))
+        if (imm <= 32767) and (imm >= -32768):
+            out |= (imm & 0x0000FFFF)
+        else:
+            print('Invalid Immediate')
+            exit(-1)
+    return toHexString(out)
 
 def Offset(opcode, params):
     regOffset = re.sub(r'\s*(.*?)\((.*?)\)\s*', r'\2|\1', params[1])
@@ -118,10 +168,52 @@ def Offset(opcode, params):
     return Immediate(opcode, newparams)
 
 def Fake(opcode, params):
-    return
+    # switch based on opcode
+    if opcode == 0xF0:
+        # br
+        params = [RegNames.index('R6'), RegNames.index('R6'), params[0]]
+        return Immediate(ISA['BEQ'], params)
+    elif opcode == 0xF1:
+        # subi
+        params[2] = (-1 * parsenum(params[2]))
+        return Registers(ISA['ADDI'], params)
+    elif opcode == 0xF2:
+        # not
+        params.append(params[1])
+        return Registers(ISA['NAND'], params)
+    elif opcode == 0xF3:
+        # blt
+        return None
+    elif opcode == 0xF4:
+        # BLTE
+        return None
+    elif opcode == 0xF5:
+        # BGT
+        return None
+    elif opcode == 0xF6:
+        # BGTE
+        return None
+    elif opcode == 0xF7:
+        # CALL
+        params = [RegNames.index('RA'), params[0]]
+        return Offset(ISA['JAL'], params)
+    elif opcode == 0xF8:
+        # RET
+        params = [RegNames.index('R9'), '0(' + str(RegNames.index('RA')) +')']
+        return Offset(ISA['JAL'], params)
+    elif opcode == 0xF9:
+        # JMP
+        params = [RegNames.index('RA'), params[0]]
+        return Offset(ISA['JAL'], params)
+    else:
+        print("Invalid instruction!")
+        exit(-1)
+    return None
 
-def parseLine(line):
-    instruction = re.sub(r'^.*?([A-Za-z]{1,5})\s+', r'\1|', line)
+def parseLine(instrline):
+    if instrline.location < 0x40:
+        return None
+    instruction = re.sub(r'^.*?([A-Za-z]{1,5})\s+', r'\1|', instrline.text)
     parts = re.split(r'\|', instruction)
     op = parts[0]
     paramstring = parts[1]
@@ -130,19 +222,69 @@ def parseLine(line):
     opcode = int(opbytes)
     family = opbytes >> 4
     if (family == 0x0) or (family == 0x2):
-        Registers(opcode, params)
+        return Registers(opcode, params)
     elif (family == 0x6) or (family == 0x8) or (family == 0xA):
-        Immediate(opcode, params)
+        return Immediate(opcode, params)
     elif (family == 0x5) or (family == 0x9) or (family == 0xB):
-        Offset(opcode, params)
+        return Offset(opcode, params)
     elif family == 0xF:
-        Fake(opcode, params)
+        return Fake(opcode, params)
+
+
+def ReadFile(filepath):
+    linenum = 0
+    currentline = None
+    parsedlines = []
+    f = open(filepath, 'r')
+    for fline in f:
+ #       print(fline.strip())
+        nocomm = re.sub(r';.*$', "", fline).strip()
+        if nocomm is not "":
+            if re.search(r'\.[Nn][Aa][Mm][Ee]', nocomm):
+                namestring = re.sub(r'\s*\.[Nn][Aa][Mm][Ee]\s+', "", nocomm)
+                varparts = re.split(r'\s*=\s*', namestring)
+                print(varparts[0] + " : " + varparts[1])
+                VARIABLE_NAMES[varparts[0]] = parsenum(varparts[1])
+            elif re.search(r'\.[Oo][Rr][Ii][Gg]', nocomm):
+                # read file and assign ORIG
+                origstring = re.sub(r'.*\.[Oo][Rr][Ii][Gg]\s+', "", nocomm)
+                currentline = parsenum(origstring)
+            elif re.search(r'\s*[A-zA-z0-9]:\s*', nocomm):
+                labelname = re.sub(r'[\s:]', "", nocomm).upper()
+                VARIABLE_NAMES[labelname] = currentline
+            else:
+                instructionstring = re.sub(r'\s*([A-Za-z]{1,5})\s+', r'\1|',nocomm)
+                instrparts = instructionstring.split('|')
+                func = instrparts[0].upper()
+                args = re.split(r'\s*,\s*', instrparts[1])
+                for arg in args:
+                    if not re.match(r'^(\-?\d+|0x[0-9A-Fa-f]+)$', arg):
+                        arg = arg.upper().strip()
+                        if arg in RegNames:
+                            arg = RegNames.index(arg)
+                        elif re.match(r'(\-)?[A-Za-z\d]+\([A-Za-z\d]+\)', arg):
+                            arg1string = re.sub(r'\(.*$', "", arg).upper()
+                            arg2string = re.sub(r'^(.*\()|(\).*)$', "", arg).upper()
+                            arg2string = RegNames.index(arg2string)
+                            arg = str(arg1string) + '(' + str(arg2string) + ')'
+                    else:
+                        arg = parsenum(arg)
+                    func += " " + str(arg) + ","
+                func = re.sub(r',$',"",func)
+                if currentline is None:
+                    print("No ORIG Statement... Exiting")
+                    exit(-1)
+                parsedlines.append(Instruction(linenum, currentline, func))
+                currentline += 0x04
+        linenum += 1
+    f.close()
+    return parsedlines
 
 
 if __name__ == "__main__":
-    parseLine('ADD 4,3,2')
-    parseLine('SUB 1,2,3')
-    parseLine('F 14,1,1')
-    parseLine('ADDI 15,0, -2487')
-    parseLine('MVHI 15, 874')
-    parseLine(' JAL 15, 87(12)')
+    lines = ReadFile(sys.argv[1])
+    for line in lines:
+        print("-- @ 0x" + toHexString(line.location) + " : " + str(line.text) )
+        bytecodes = parseLine(line)
+        if bytecodes is not None:
+            print(toHexString(line.location//4) + " : " + bytecodes +";")
