@@ -93,10 +93,12 @@ class Instruction():
     line_number = 0
     location = 0x00
     text = ""
+    rawtext = ""
 
-    def __init__(self, ln, l, t):
+    def __init__(self, ln, l, t, r):
         self.line_number = ln
         self.location = l
+        self.rawtext = r
         self.text = t
 
 
@@ -239,7 +241,6 @@ def ReadFile(filepath):
     parsedlines = []
     f = open(filepath, 'r')
     for fline in f:
- #       print(fline.strip())
         nocomm = re.sub(r';.*$', "", fline).strip()
         if nocomm is not "":
             if re.search(r'\.[Nn][Aa][Mm][Ee]', nocomm):
@@ -309,16 +310,38 @@ def ReadFile(filepath):
                     if currentline is None:
                         print("No ORIG Statement... Exiting")
                         exit(-1)
-                    parsedlines.append(Instruction(linenum, currentline, func))
+                    parsedlines.append(Instruction(linenum, currentline, func, re.sub(r'\s+', " ",nocomm)))
                     currentline += 0x04
         linenum += 1
     f.close()
-    return parsedlines
+    last_line = currentline//4
+    return parsedlines, last_line
 
 if __name__ == "__main__":
-    lines = ReadFile(sys.argv[1])
+    infile = sys.argv[1]
+    outfile = re.sub(r'\..*?$', ".mif", infile)
+    lines, last_mem = ReadFile(infile)
+    miflines = []
     for line in lines:
-        print("-- @ 0x" + toHexString(line.location) + " : " + str(line.text) )
         bytecodes = parseLine(line)
         if bytecodes is not None:
-            print(toHexString(line.location//4) + " : " + bytecodes +";")
+            miflines.append("-- @ 0x" + toHexString(line.location) + " : " + str(line.rawtext) + "\n" + toHexString(line.location//4) + " : " + bytecodes +";\n")
+    fout = open(outfile, 'w')
+    fout.write("WIDTH=" + str(WIDTH) + ";\n")
+    fout.write("DEPTH=" + str(DEPTH) + ";\n")
+    fout.write("ADDRESS_RADIX=" + ADDRESS_RADIX + ";\n")
+    fout.write("DATA_RADIX=" + DATA_RADIX + ";\n")
+    fout.write("CONTENT BEGIN\n")
+    if ADDRESS_RADIX == 'HEX':
+        empty_zones = toHexString(0) + ".." + toHexString(0x0f)
+    else:
+        empty_zones = toBinaryString(0) + ".." + toBinaryString(0x0f)
+    fout.write("[" + empty_zones + "] : DEAD;\n")
+    for mifline in miflines:
+        fout.write(mifline)
+    if ADDRESS_RADIX == 'HEX':
+        empty_zones = toHexString(last_mem) + ".." + toHexString(0x07ff)
+    else:
+        empty_zones = toBinaryString(last_mem) + ".." + toBinaryString(0x07ff)
+    fout.write("[" + empty_zones + "] : DEAD;\n")
+    fout.write('END;\n')
