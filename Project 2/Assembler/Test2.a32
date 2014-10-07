@@ -237,3 +237,7 @@ Done:
 	sw		t0,OFSLEDG(gp)
 	sw		t0,OFSHEX(gp)
 	bt		t0,t0,Done
+
+.WORD 0xFFFF
+.Word Done
+.WORD -45
