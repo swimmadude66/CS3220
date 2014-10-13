@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Project2
-Tue Oct 07 23:06:10 2014
+Mon Oct 13 17:25:07 2014
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -51,7 +51,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Oct 07 23:06:10 2014           ;
+; Analysis & Synthesis Status        ; Successful - Mon Oct 13 17:25:07 2014           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Project2                                        ;
 ; Top-level Entity Name              ; Project2                                        ;
@@ -169,15 +169,15 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                        ; Library ;
 +----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
-; Project2.v                       ; yes             ; User Verilog HDL File        ; C:/Users/j3gb3rt/Documents/CS3220/Project2/Project2.v               ;         ;
-; PLL.v                            ; yes             ; User Wizard-Generated File   ; C:/Users/j3gb3rt/Documents/CS3220/Project2/PLL.v                    ;         ;
+; Project2.v                       ; yes             ; User Verilog HDL File        ; C:/Users/j3gb3rt/Documents/CS3220/Project 2/Quartus/Project2.v      ;         ;
+; PLL.v                            ; yes             ; User Wizard-Generated File   ; C:/Users/j3gb3rt/Documents/CS3220/Project 2/Quartus/PLL.v           ;         ;
 ; altpll.tdf                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altpll.tdf        ;         ;
 ; aglobal130.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc    ;         ;
 ; stratix_pll.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_pll.inc   ;         ;
 ; stratixii_pll.inc                ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratixii_pll.inc ;         ;
 ; cycloneii_pll.inc                ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/cycloneii_pll.inc ;         ;
-; register.v                       ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project2/register.v               ;         ;
-; instmemory.v                     ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project2/instmemory.v             ;         ;
+; register.v                       ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project 2/Quartus/register.v      ;         ;
+; instmemory.v                     ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project 2/Quartus/instmemory.v    ;         ;
 +----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
 
 
@@ -216,13 +216,13 @@ Parallel compilation was disabled, but you have multiple processors available. E
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis IP Cores Summary                                                                                                     ;
-+--------+--------------+---------+--------------+--------------+------------------------+--------------------------------------------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance        ; IP Include File                                  ;
-+--------+--------------+---------+--------------+--------------+------------------------+--------------------------------------------------+
-; Altera ; ALTPLL       ; 13.0    ; N/A          ; N/A          ; |Project2|PLL:PLL_inst ; C:/Users/j3gb3rt/Documents/CS3220/Project2/PLL.v ;
-+--------+--------------+---------+--------------+--------------+------------------------+--------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                              ;
++--------+--------------+---------+--------------+--------------+------------------------+-----------------------------------------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance        ; IP Include File                                           ;
++--------+--------------+---------+--------------+--------------+------------------------+-----------------------------------------------------------+
+; Altera ; ALTPLL       ; 13.0    ; N/A          ; N/A          ; |Project2|PLL:PLL_inst ; C:/Users/j3gb3rt/Documents/CS3220/Project 2/Quartus/PLL.v ;
++--------+--------------+---------+--------------+--------------+------------------------+-----------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -781,13 +781,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Tue Oct 07 23:06:03 2014
+    Info: Processing started: Mon Oct 13 17:25:02 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project2 -c Project2
 Warning (20028): Parallel compilation is not licensed and has been disabled
-Info (12021): Found 3 design units, including 3 entities, in source file project2.v
+Info (12021): Found 4 design units, including 4 entities, in source file project2.v
     Info (12023): Found entity 1: Project2
     Info (12023): Found entity 2: RegFile
-    Info (12023): Found entity 3: ALU
+    Info (12023): Found entity 3: DMem
+    Info (12023): Found entity 4: ALU
 Info (12021): Found 1 design units, including 1 entities, in source file sevenseg.v
     Info (12023): Found entity 1: SevenSeg
 Info (12021): Found 1 design units, including 1 entities, in source file pll.v
@@ -949,8 +950,8 @@ Info (21057): Implemented 61 device resources after synthesis - the final resour
     Info (21059): Implemented 46 output pins
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 86 warnings
     Info: Peak virtual memory: 478 megabytes
-    Info: Processing ended: Tue Oct 07 23:06:10 2014
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Processing ended: Mon Oct 13 17:25:07 2014
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:04
 
 

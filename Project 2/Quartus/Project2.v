@@ -139,7 +139,23 @@ module RegFile(RADDR1,DOUT1,RADDR2,DOUT2,WADDR,DIN,WE,CLK);
   assign DOUT2=mem[RADDR2];
 endmodule
 
-module ALU(opcode, aluIn1, aluIn2, aluOut);
+module DMem(ADDRIN, DATAIN, DATAOUT, WE, CLK);
+  parameter DBITS; // Number of data bits
+  parameter ABITS; // Number of address bits
+  parameter WORDS = (1<<ABITS);
+  parameter MFILE = "";
+  reg [(DBITS-1):0] mem[(WORDS-1):0];
+  input  [(ABITS-1):0] ADDRIN;
+  input  [(DBITS-1):0] DATAIN;
+  output wire [(DBITS-1):0] DATAOUT;
+  input CLK,WE;
+  always @(posedge CLK)
+    if(WE)
+      mem[ADDRIN]=DATAIN;
+  assign DATAOUT=mem[ADDRIN];
+endmodule
+
+module ALU(opcode, AIn, BInReg, BInImm, aluOut);
   parameter DBITS;
   parameter OPBITS;
   
@@ -152,18 +168,20 @@ module ALU(opcode, aluIn1, aluIn2, aluOut);
   parameter OP2_NOR 						 = 4'b1010;
   parameter OP2_NXOR						 = 4'b1011;
   
-  input [(DBITS - 1):0] aluIn1, aluIn2;
-  input [(OPBITS - 1): 0] opcode; 
+  input [(DBITS - 1):0] AIn, BInReg, BInImm;
+  input [(OPBITS - 1): 0] opcode;
+  reg BIn;
   output reg [(DBITS - 1): 0] aluOut;
-  always @(opcode or aluIn1 or aluIn2) begin
-    aluOut = (opcode == OP2_ADD)  ?   aluIn1  + aluIn2:
-				 (opcode == OP2_SUB)  ?   aluIn1  - aluIn2:
-				 (opcode == OP2_AND)  ?   aluIn1  & aluIn2:
-				 (opcode == OP2_OR)   ?   aluIn1  | aluIn2:
-				 (opcode == OP2_XOR)  ?   aluIn1  ^ aluIn2:
-				 (opcode == OP2_NAND) ? ~(aluIn1  & aluIn2):
-				 (opcode == OP2_NOR)  ? ~(aluIn1  | aluIn2):
-									           aluIn1 ~^ aluIn2;
+  always @(opcode or AIn or BInReg or BInImm) begin
+    BIn = (opcode[OPBITS - 1] == 1) ? BInImm : BInReg;
+	 aluOut = (opcode == OP2_ADD)  ?   AIn  + BIn:
+				 (opcode == OP2_SUB)  ?   AIn  - BIn:
+				 (opcode == OP2_AND)  ?   AIn  & BIn:
+				 (opcode == OP2_OR)   ?   AIn  | BIn:
+				 (opcode == OP2_XOR)  ?   AIn  ^ BIn:
+				 (opcode == OP2_NAND) ? ~(AIn  & BIn):
+				 (opcode == OP2_NOR)  ? ~(AIn  | BIn):
+									           AIn ~^ BIn;
   end
 endmodule
 
