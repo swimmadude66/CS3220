@@ -11,7 +11,7 @@ VARIABLE_NAMES = dict()
 PCREL = [0x8B, 0x65, 0x66, 0x67, 0x6D, 0x6E, 0x6F]
 HexDigits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
 RegNames = ['R0', 'R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7', 'R8', 'R9', 'R10', 'R11', 'R12', 'R13', 'R14', 'R15']
-PreProcess= ['BLT', 'BLTE', 'BGT', 'BGTE']
+PreProcess = ['BLT', 'BLTE', 'BGT', 'BGTE']
 RegAliases = {
     'A0'    : 0,
     'A1'    : 1,
@@ -185,6 +185,8 @@ def Offset(opcode, params, linenumber):
     regOffset = re.sub(r'\s*(.*?)\((.*?)\)\s*', r'\2|\1', params[1])
     offsetArgs = regOffset.split("|")
     newparams = [params[0], offsetArgs[0], offsetArgs[1]]
+    if (opcode in PCREL) or opcode == 0xb0:
+        params[2] //= 4
     return Immediate(opcode, newparams, linenumber)
 
 def Fake(opcode, params, linenumber):
@@ -199,15 +201,15 @@ def Fake(opcode, params, linenumber):
         return Registers(ISA['NAND'], params, linenumber)
     elif opcode == 0xF7:
         # CALL
-        params = [RegNames.index('RA'), params[0]]
+        params = [RegAliases['RA'], params[0]]
         return Offset(ISA['JAL'], params, linenumber)
     elif opcode == 0xF8:
         # RET
-        params = [RegNames.index('R9'), '0(' + str(RegNames.index('RA')) +')']
+        params = [RegNames.index('R9'), '0(' + str(RegAliases['RA']) + ')']
         return Offset(ISA['JAL'], params, linenumber)
     elif opcode == 0xF9:
         # JMP
-        params = [RegNames.index('RA'), params[0]]
+        params = [RegAliases['RA'], params[0]]
         return Offset(ISA['JAL'], params, linenumber)
     else:
         print("Invalid instruction @ " + str(linenumber))
@@ -220,8 +222,10 @@ def parseLine(instrline):
     instruction = re.sub(r'^.*?([A-Za-z]{1,5})\s+', r'\1|', instrline.text)
     parts = re.split(r'\|', instruction)
     op = parts[0]
-    paramstring = parts[1]
-    params = re.split(r'\s*,\s*', paramstring)
+    params = []
+    if len(parts) > 1:
+        paramstring = parts[1]
+        params = re.split(r'\s*,\s*', paramstring)
     opbytes = ISA.get(op.upper())
     opcode = int(opbytes)
     family = opbytes >> 4
@@ -246,13 +250,15 @@ def ReadFile(filepath):
         if nocomm is not "":
             if re.search(r'\.[Nn][Aa][Mm][Ee]', nocomm):
                 namestring = re.sub(r'\s*\.[Nn][Aa][Mm][Ee]\s+', "", nocomm)
-                varparts = re.split(r'\s*=\s*', namestring)
-                VARIABLE_NAMES[varparts[0]] = parsenum(varparts[1])
+                varparts = re.split(r'\s*=\s*', namestring.strip())
+                name = varparts[0].upper()
+                VARIABLE_NAMES[name] = parsenum(varparts[1])
+                print(name + " : " + varparts[1])
             elif re.search(r'\.[Oo][Rr][Ii][Gg]', nocomm):
                 # read file and assign ORIG
                 origstring = re.sub(r'.*\.[Oo][Rr][Ii][Gg]\s+', "", nocomm)
                 if first_line is None:
-                    first_line = parsenum(origstring)
+                    first_line = parsenum(origstring) - 0x04
                 currentline = parsenum(origstring)
             elif re.search(r'\.[Ww][Oo][Rr][Dd]\s+', nocomm):
                 if currentline is None:
@@ -262,7 +268,7 @@ def ReadFile(filepath):
                 if re.search(r'(0[Xx]|\-)?[A-Fa-f0-9]+', kvp[1]):
                     VARIABLE_NAMES[currentline] = kvp[1].strip()
                 elif kvp[1].upper() in VARIABLE_NAMES.keys():
-                    VARIABLE_NAMES[currentline] = VARIABLE_NAMES[kvp[1]]
+                    VARIABLE_NAMES[parsenum(currentline//4)] = VARIABLE_NAMES[kvp[1]]
                 else:
                     print('Word @ ' + str(linenum) + ' is not a Label or 32-bit value')
                     exit(-1)
@@ -271,7 +277,7 @@ def ReadFile(filepath):
                 labelname = re.sub(r'[\s:]', "", nocomm).upper()
                 VARIABLE_NAMES[labelname] = currentline
             else:
-                instructionstring = re.sub(r'\s*([A-Za-z]{1,5})\s+', r'\1|',nocomm)
+                instructionstring = re.sub(r'\s*([A-Za-z]{1,5})\s+', r'\1|', nocomm)
                 instrparts = instructionstring.split('|')
                 funcs = []
                 arguments = []
@@ -284,12 +290,16 @@ def ReadFile(filepath):
                     arguments.append(['R6', 'Zero', origargs[2]])
                 else:
                     funcs.append(instrparts[0].upper())
-                    arguments.append(re.split(r'\s*,\s*', instrparts[1]))
+                    if len(instrparts) > 1:
+                        arguments.append(re.split(r'\s*,\s*', instrparts[1]))
                 for i in range(len(funcs)):
                     func = funcs[i]
-                    args = arguments[i]
+                    args = []
+                    if len(arguments) > 0:
+                        args = arguments[i]
                     for arg in args:
-                        if not re.match(r'^(\-?\d+|0x[0-9A-Fa-f]+)$', arg):
+                        uarg = arg.upper().strip()
+                        if (uarg in VARIABLE_NAMES.keys()) or (not re.match(r'^(\-?\d+|0x[0-9A-Fa-f]+)$', arg)):
                             arg = arg.upper().strip()
                             if arg in RegNames:
                                 arg = RegNames.index(arg)
@@ -316,7 +326,7 @@ def ReadFile(filepath):
                     currentline += 0x04
         linenum += 1
     f.close()
-    last_line = currentline//4
+    last_line = currentline
     return parsedlines, last_line, first_line
 
 if __name__ == "__main__":
@@ -336,15 +346,15 @@ if __name__ == "__main__":
     fout.write("CONTENT BEGIN\n")
     if first_mem > 0:
         if ADDRESS_RADIX == 'HEX':
-            empty_zones = toHexString(0) + ".." + toHexString(first_mem)
+            empty_zones = toHexString(0) + ".." + toHexString(first_mem//4)
         else:
-            empty_zones = toBinaryString(0) + ".." + toBinaryString(first_mem)
+            empty_zones = toBinaryString(0) + ".." + toBinaryString(first_mem//4)
         fout.write("[" + empty_zones + "] : DEAD;\n")
     for mifline in miflines:
         fout.write(mifline)
     if ADDRESS_RADIX == 'HEX':
-        empty_zones = toHexString(last_mem) + ".." + toHexString(0x07ff)
+        empty_zones = toHexString(last_mem//4) + ".." + toHexString(0x07ff)
     else:
-        empty_zones = toBinaryString(last_mem) + ".." + toBinaryString(0x07ff)
+        empty_zones = toBinaryString(last_mem//4) + ".." + toBinaryString(0x07ff)
     fout.write("[" + empty_zones + "] : DEAD;\n")
     fout.write('END;\n')
