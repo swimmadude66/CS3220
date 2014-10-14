@@ -174,14 +174,46 @@ module ALU(opcode, AIn, BInReg, BInImm, aluOut);
   output reg [(DBITS - 1): 0] aluOut;
   always @(opcode or AIn or BInReg or BInImm) begin
     BIn = (opcode[OPBITS - 1] == 1) ? BInImm : BInReg;
-	 aluOut = (opcode == OP2_ADD)  ?   AIn  + BIn:
-				 (opcode == OP2_SUB)  ?   AIn  - BIn:
-				 (opcode == OP2_AND)  ?   AIn  & BIn:
-				 (opcode == OP2_OR)   ?   AIn  | BIn:
-				 (opcode == OP2_XOR)  ?   AIn  ^ BIn:
-				 (opcode == OP2_NAND) ? ~(AIn  & BIn):
-				 (opcode == OP2_NOR)  ? ~(AIn  | BIn):
+	 aluOut = (opcode[3:0] == OP2_ADD)  ?   AIn  + BIn:
+				 (opcode[3:0] == OP2_SUB)  ?   AIn  - BIn:
+				 (opcode[3:0] == OP2_AND)  ?   AIn  & BIn:
+				 (opcode[3:0] == OP2_OR)   ?   AIn  | BIn:
+				 (opcode[3:0] == OP2_XOR)  ?   AIn  ^ BIn:
+				 (opcode[3:0] == OP2_NAND) ? ~(AIn  & BIn):
+				 (opcode[3:0] == OP2_NOR)  ? ~(AIn  | BIn):
 									           AIn ~^ BIn;
+  end
+endmodule
+
+module PC(Imm, AluOut, opcode, pcOut);
+  parameter ADDRBITS = 11;
+  parameter DBITS;
+  parameter OPBITS;
+  parameter PC_START;
+  
+  parameter OP2_ADD 						 = 4'b0000;
+  parameter OP2_SUB 						 = 4'b0001;
+  parameter OP2_AND 						 = 4'b0010;
+  parameter OP2_OR 						 = 4'b0011;
+  parameter OP2_XOR						 = 4'b1000;
+  parameter OP2_NAND						 = 4'b1001;
+  parameter OP2_NOR 						 = 4'b1010;
+  parameter OP2_NXOR						 = 4'b1011;
+  
+  input [(DBITS - 1):0] Imm, AluOut;
+  input [(OPBITS - 1): 0] opcode;
+  reg [ADDRBITS - 1: 0] pc = PC_START;
+  output reg [(DBITS - 1): 0] pcOut;
+  always @(opcode or Imm or AluOut) begin
+	 if (opcode[5] == 1 && opcode[6] == 1) begin
+	   pcOut = pc + 1 + Imm;
+	 end
+	 else if (opcode[5] == 1 && opcode[4] == 1) begin
+	   pcOut = pc + 1 + AluOut;
+	 end
+	 else begin
+		pcOut = pc + 1;
+	 end
   end
 endmodule
 
