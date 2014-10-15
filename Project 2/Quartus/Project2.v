@@ -82,26 +82,12 @@ module Project2(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
   InstMemory #(IMEM_INIT_FILE, IMEM_ADDR_BIT_WIDTH, IMEM_DATA_BIT_WIDTH) instMem (pcOut[IMEM_PC_BITS_HI - 1: IMEM_PC_BITS_LO], instWord);
   
   // Put the code for getting opcode1, rd, rs, rt, imm, etc. here 
-  wire opcode1 = instWord[31: 28];
-  wire opcode2 = instWord[27: 24];
-  wire rd = instWord[23 : 20];
-  wire rs1;
-  assign rs1 = (instWord[30] == 1'b1) ? instWord[23: 20]:
-												    instWord[19: 16];
-  wire rs2;
-  assign rs2 = (instWord[31:30] == 2'b0) ? instWord[23: 20]:
-					(instWord[31:30] == 2'b0  &&
-					 instWord[26] == 1'b0)	  ? instWord[19: 16]:
-																		  4'b0;
-  wire imm;
-  assign imm = (instWord[31:30] == 2'b10  ||
-					 instWord[31:30] == 2'b01) ? instWord[15: 0]:
-																		16'b0;
+  
   
   // Create the registers
-  wire [3:0] rregno1=rs1, rregno2=rs2;
-  wire [(DBITS-1):0] regout1,regout2;
-  wire [3:0] wregno=rd;
+  //wire [3:0] rregno1=rs1, rregno2=rs2;
+  //wire [(DBITS-1):0] regout1,regout2;
+  //wire [3:0] wregno=rd;
   // This comes from decoding logic
   // (reg becomes wire in non-edge always block)
   reg wrreg;
@@ -155,7 +141,7 @@ module DMem(ADDRIN, DATAIN, DATAOUT, WE, CLK);
   assign DATAOUT=mem[ADDRIN];
 endmodule
 
-module ALU(opcode, AIn, BInReg, BInImm, aluOut);
+module ALU(opcode, AIn, BInReg, BInImm, aluOut, pnz);
   parameter DBITS;
   parameter OPBITS;
   
@@ -172,6 +158,7 @@ module ALU(opcode, AIn, BInReg, BInImm, aluOut);
   input [(OPBITS - 1): 0] opcode;
   reg BIn;
   output reg [(DBITS - 1): 0] aluOut;
+  output reg [2: 0] pnz;
   always @(opcode or AIn or BInReg or BInImm) begin
     BIn = (opcode[OPBITS - 1] == 1) ? BInImm : BInReg;
 	 aluOut = (opcode[3:0] == OP2_ADD)  ?   AIn  + BIn:
@@ -182,6 +169,15 @@ module ALU(opcode, AIn, BInReg, BInImm, aluOut);
 				 (opcode[3:0] == OP2_NAND) ? ~(AIn  & BIn):
 				 (opcode[3:0] == OP2_NOR)  ? ~(AIn  | BIn):
 									           AIn ~^ BIn;
+    if (aluOut == 0) begin
+		pnz = 3'b001;
+	 end
+	 else if (aluOut[31] == 1'b1) begin
+	   pnz = 3'b010;
+	 end
+	 else if (aluOut[31] == 1'b0) begin
+		pnz = 3'b100;
+	 end
   end
 endmodule
 
