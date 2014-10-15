@@ -161,14 +161,21 @@ module ALU(opcode, AIn, BInReg, BInImm, aluOut, pnz);
   output reg [2: 0] pnz;
   always @(opcode or AIn or BInReg or BInImm) begin
     BIn = (opcode[OPBITS - 1] == 1) ? BInImm : BInReg;
-	 aluOut = (opcode[3:0] == OP2_ADD)  ?   AIn  + BIn:
-				 (opcode[3:0] == OP2_SUB)  ?   AIn  - BIn:
-				 (opcode[3:0] == OP2_AND)  ?   AIn  & BIn:
-				 (opcode[3:0] == OP2_OR)   ?   AIn  | BIn:
-				 (opcode[3:0] == OP2_XOR)  ?   AIn  ^ BIn:
-				 (opcode[3:0] == OP2_NAND) ? ~(AIn  & BIn):
-				 (opcode[3:0] == OP2_NOR)  ? ~(AIn  | BIn):
-									           AIn ~^ BIn;
+	 if (opcode[OPBITS-3:4] == 2'b10)begin
+		aluOut = (opcode[3:0] == 4'b0000) ? 0:
+				   (opcode[3:0] == 4'b1000) ? 1:
+														AIn - BIn;
+	 end
+	 else begin
+		aluOut =  (opcode[3:0] == OP2_ADD)  ?   AIn  + BIn:
+					 (opcode[3:0] == OP2_SUB)  ?   AIn  - BIn:
+					 (opcode[3:0] == OP2_AND)  ?   AIn  & BIn:
+					 (opcode[3:0] == OP2_OR)   ?   AIn  | BIn:
+					 (opcode[3:0] == OP2_XOR)  ?   AIn  ^ BIn:
+					 (opcode[3:0] == OP2_NAND) ? ~(AIn  & BIn):
+					 (opcode[3:0] == OP2_NOR)  ? ~(AIn  | BIn):
+															 AIn ~^ BIn;
+	 end
     if (aluOut == 0) begin
 		pnz = 3'b001;
 	 end
