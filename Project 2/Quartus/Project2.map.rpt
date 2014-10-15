@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Project2
-Wed Oct 15 02:18:09 2014
+Wed Oct 15 02:42:04 2014
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -57,7 +57,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Oct 15 02:18:09 2014           ;
+; Analysis & Synthesis Status        ; Successful - Wed Oct 15 02:42:04 2014           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Project2                                        ;
 ; Top-level Entity Name              ; Project2                                        ;
@@ -750,16 +750,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------+
-; Parameter Settings for User Entity Instance: DMem:dmem ;
-+----------------+-------+-------------------------------+
-; Parameter Name ; Value ; Type                          ;
-+----------------+-------+-------------------------------+
-; DBITS          ; 32    ; Signed Integer                ;
-; ABITS          ; 11    ; Signed Integer                ;
-; WORDS          ; 2048  ; Signed Integer                ;
-; MFILE          ;       ; String                        ;
-+----------------+-------+-------------------------------+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DMem:dmem              ;
++----------------+----------------------------------+-----------------+
+; Parameter Name ; Value                            ; Type            ;
++----------------+----------------------------------+-----------------+
+; DBITS          ; 32                               ; Signed Integer  ;
+; ABITS          ; 11                               ; Signed Integer  ;
+; WORDS          ; 2048                             ; Signed Integer  ;
+; MFILE          ;                                  ; String          ;
+; ADDR_KEY       ; 11110000000000000000000000010000 ; Unsigned Binary ;
+; ADDR_SW        ; 11110000000000000000000000010100 ; Unsigned Binary ;
+; ADDR_HEX       ; 11110000000000000000000000000000 ; Unsigned Binary ;
+; ADDR_LEDR      ; 11110000000000000000000000000100 ; Unsigned Binary ;
+; ADDR_LEDG      ; 11110000000000000000000000001000 ; Unsigned Binary ;
++----------------+----------------------------------+-----------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -866,7 +871,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Oct 15 02:18:03 2014
+    Info: Processing started: Wed Oct 15 02:41:58 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project2 -c Project2
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 5 design units, including 5 entities, in source file project2.v
@@ -883,12 +888,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file scprocc
     Info (12023): Found entity 1: Control
 Info (12127): Elaborating entity "Project2" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at Project2.v(72): object "reset" assigned a value but never read
-Warning (10034): Output port "LEDR" at Project2.v(5) has no driver
-Warning (10034): Output port "LEDG" at Project2.v(6) has no driver
-Warning (10034): Output port "HEX0" at Project2.v(7) has no driver
-Warning (10034): Output port "HEX1" at Project2.v(7) has no driver
-Warning (10034): Output port "HEX2" at Project2.v(7) has no driver
-Warning (10034): Output port "HEX3" at Project2.v(7) has no driver
 Info (12128): Elaborating entity "PLL" for hierarchy "PLL:PLL_inst"
 Info (12128): Elaborating entity "altpll" for hierarchy "PLL:PLL_inst|altpll:altpll_component"
 Info (12130): Elaborated megafunction instantiation "PLL:PLL_inst|altpll:altpll_component"
@@ -954,66 +953,72 @@ Info (12128): Elaborating entity "InstMemory" for hierarchy "InstMemory:instMem"
 Warning (10858): Verilog HDL warning at instmemory.v(11): object data used but never assigned
 Info (12128): Elaborating entity "Control" for hierarchy "Control:control"
 Info (12128): Elaborating entity "PC" for hierarchy "PC:pc"
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(216): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(219): variable "pnz" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(219): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(220): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(223): variable "pnz" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(223): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(224): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(227): variable "pnz" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(227): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(228): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(233): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(236): variable "pnz" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(236): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(237): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(240): variable "pnz" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(240): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(241): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(244): variable "pnz" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(244): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(245): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(251): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Project2.v(254): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10240): Verilog HDL Always Construct warning at Project2.v(212): inferring latch(es) for variable "pcOut", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "pcOut[0]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[1]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[2]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[3]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[4]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[5]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[6]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[7]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[8]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[9]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[10]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[11]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[12]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[13]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[14]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[15]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[16]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[17]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[18]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[19]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[20]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[21]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[22]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[23]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[24]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[25]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[26]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[27]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[28]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[29]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[30]" at Project2.v(250)
-Info (10041): Inferred latch for "pcOut[31]" at Project2.v(250)
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(255): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(258): variable "pnz" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(258): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(259): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(262): variable "pnz" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(262): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(263): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(266): variable "pnz" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(266): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(267): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(272): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(275): variable "pnz" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(275): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(276): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(279): variable "pnz" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(279): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(280): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(283): variable "pnz" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(283): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(284): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(290): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Project2.v(293): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10240): Verilog HDL Always Construct warning at Project2.v(251): inferring latch(es) for variable "pcOut", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "pcOut[0]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[1]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[2]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[3]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[4]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[5]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[6]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[7]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[8]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[9]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[10]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[11]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[12]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[13]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[14]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[15]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[16]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[17]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[18]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[19]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[20]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[21]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[22]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[23]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[24]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[25]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[26]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[27]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[28]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[29]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[30]" at Project2.v(289)
+Info (10041): Inferred latch for "pcOut[31]" at Project2.v(289)
 Info (12128): Elaborating entity "RegFile" for hierarchy "RegFile:regFile"
 Info (12128): Elaborating entity "ALU" for hierarchy "ALU:alu"
-Warning (10230): Verilog HDL assignment warning at Project2.v(173): truncated value with size 32 to match size of target (1)
-Warning (10240): Verilog HDL Always Construct warning at Project2.v(172): inferring latch(es) for variable "pnz", which holds its previous value in one or more paths through the always construct
+Warning (10230): Verilog HDL assignment warning at Project2.v(212): truncated value with size 32 to match size of target (1)
+Warning (10240): Verilog HDL Always Construct warning at Project2.v(211): inferring latch(es) for variable "pnz", which holds its previous value in one or more paths through the always construct
 Info (12128): Elaborating entity "DMem" for hierarchy "DMem:dmem"
+Warning (10034): Output port "LEDR" at Project2.v(152) has no driver
+Warning (10034): Output port "LEDG" at Project2.v(153) has no driver
+Warning (10034): Output port "HEX0" at Project2.v(154) has no driver
+Warning (10034): Output port "HEX1" at Project2.v(154) has no driver
+Warning (10034): Output port "HEX2" at Project2.v(154) has no driver
+Warning (10034): Output port "HEX3" at Project2.v(154) has no driver
 Warning (12011): Net is missing source, defaulting to GND
     Warning (12110): Net "dmemOut[32]" is missing source, defaulting to GND
     Warning (12110): Net "regout1[32]" is missing source, defaulting to GND
@@ -1111,8 +1116,8 @@ Info (21057): Implemented 61 device resources after synthesis - the final resour
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 46 output pins
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 126 warnings
-    Info: Peak virtual memory: 478 megabytes
-    Info: Processing ended: Wed Oct 15 02:18:09 2014
+    Info: Peak virtual memory: 467 megabytes
+    Info: Processing ended: Wed Oct 15 02:42:04 2014
     Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:05
 

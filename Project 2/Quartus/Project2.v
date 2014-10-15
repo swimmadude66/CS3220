@@ -105,7 +105,7 @@ module Project2(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
   ALU #(DBITS, OPBITS) alu (opcode, regout1, regout2, imm, aluOut, pnz);
 
   // Put the code for data memory and I/O here
-  DMem #(DBITS, IMEM_ADDR_BIT_WIDTH) dmem (aluOut, regout2, dmemOut, 0, clk);
+  DMem #(DBITS, IMEM_ADDR_BIT_WIDTH) dmem (aluOut, regout2, dmemOut, 0,SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3, clk);
   
   // KEYS, SWITCHES, HEXS, and LEDS are memeory mapped IO
     
@@ -135,7 +135,7 @@ module RegFile(RADDR1,DOUT1,RADDR2,DOUT2,WADDR,aluIn,DmemIn,opcode,CLK);
   assign DOUT2=mem[RADDR2];
 endmodule
 
-module DMem(ADDRIN, DATAIN, DATAOUT, WE, CLK);
+module DMem(ADDRIN, DATAIN, DATAOUT, WE,SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3, CLK);
   parameter DBITS; // Number of data bits
   parameter ABITS; // Number of address bits
   parameter WORDS = (1<<ABITS);
@@ -147,10 +147,16 @@ module DMem(ADDRIN, DATAIN, DATAOUT, WE, CLK);
   parameter ADDR_LEDR 	= 32'hF0000004;
   parameter ADDR_LEDG 	= 32'hF0000008;
   
+  input  [9:0] SW;
+  input  [3:0] KEY;
+  output reg[9:0] LEDR;
+  output reg[7:0] LEDG;
+  output reg[6:0] HEX0,HEX1,HEX2,HEX3;
   reg [(DBITS-1):0] mem[(WORDS-1):0];
   input  [(ABITS-1):0] ADDRIN;
   input  [(DBITS-1):0] DATAIN;
-  output wire [(DBITS-1):0] DATAOUT;
+  
+  output reg [(DBITS-1):0] DATAOUT;
   input CLK,WE;
   always @(posedge CLK) begin
     if(WE) begin
@@ -172,13 +178,13 @@ module DMem(ADDRIN, DATAIN, DATAOUT, WE, CLK);
 	  end
 	  else begin
 		  if (ADDRIN == ADDR_KEY) begin
-		      assign DATAOUT = KEY;
+		    DATAOUT = KEY;
 		  end
 		  else if (ADDRIN == ADDR_SW) begin
-				assign DATAOUT = SW;
+		    DATAOUT = SW;
 		  end
 		  else begin
-		    assign DATAOUT=mem[ADDRIN];
+		    DATAOUT=mem[ADDRIN];
 		  end
 		end 
   end
