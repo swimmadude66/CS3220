@@ -535,4 +535,5 @@ set_global_assignment -name VERILOG_FILE SevenSeg.v
 set_global_assignment -name SDC_FILE Timing.sdc
 set_global_assignment -name QIP_FILE Pll.qip
 set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS REPLACE_CONFLICTING -section_id Top
+set_global_assignment -name VERILOG_FILE SCProcController.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
