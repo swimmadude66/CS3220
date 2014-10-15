@@ -8,7 +8,7 @@ DEPTH = 2048
 ADDRESS_RADIX = 'HEX'
 DATA_RADIX = 'HEX'
 VARIABLE_NAMES = dict()
-PCREL = [0x8B, 0x65, 0x66, 0x67, 0x6D, 0x6E, 0x6F]
+ONEREG = [0x8B, 0x65, 0x66, 0x67, 0x6D, 0x6E, 0x6F]
 HexDigits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
 RegNames = ['R0', 'R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7', 'R8', 'R9', 'R10', 'R11', 'R12', 'R13', 'R14', 'R15']
 PreProcess = ['BLT', 'BLTE', 'BGT', 'BGTE']
@@ -23,7 +23,7 @@ RegAliases = {
     'S0'    : 6,
     'S1'    : 7,
     'S2'    : 8,
-    'ZERO'  : 9,
+    'ZERO'  : 11,
     'GP'    : 12,
     'FP'    : 13,
     'SP'    : 14,
@@ -136,7 +136,7 @@ def parsenum(num):
         print("Invalid Number Format")
         exit(-1)
 
-def Registers(opcode, params, linenumber):
+def Registers(opcode, params, location, linenumber):
     instrbytes = opcode << 16
     i = len(params)
     for param in params:
@@ -151,9 +151,9 @@ def Registers(opcode, params, linenumber):
     out = instrbytes << 8
     return toHexString(out)
 
-def Immediate(opcode, params, linenumber):
+def Immediate(opcode, params, location, linenumber):
     instrbytes = opcode << 16
-    if opcode in PCREL:
+    if opcode in ONEREG:
         params = [params[0], '0', params[1]]
     i = 3
     for p in range(len(params)-1):
@@ -170,6 +170,10 @@ def Immediate(opcode, params, linenumber):
     if imm in VARIABLE_NAMES.keys():
         imm = VARIABLE_NAMES[imm]
     imm = parsenum(imm)
+    if ((opcode >> 4) & 0x0F == 0x06) or opcode == 0xb0:
+        if opcode != 0xb0:
+            imm -= location
+        imm //= 4
     if opcode == 0x8B:
         imm >>= 16
         out |= (imm & 0x0000FFFF)
@@ -181,36 +185,36 @@ def Immediate(opcode, params, linenumber):
             exit(-1)
     return toHexString(out)
 
-def Offset(opcode, params, linenumber):
+def Offset(opcode, params, location, linenumber):
     regOffset = re.sub(r'\s*(.*?)\((.*?)\)\s*', r'\2|\1', params[1])
     offsetArgs = regOffset.split("|")
     newparams = [params[0], offsetArgs[0], offsetArgs[1]]
-    if (opcode in PCREL) or opcode == 0xb0:
-        params[2] //= 4
-    return Immediate(opcode, newparams, linenumber)
+    if opcode == 0x50:
+        newparams = [offsetArgs[0], params[0], offsetArgs[1]]
+    return Immediate(opcode, newparams, location, linenumber)
 
-def Fake(opcode, params, linenumber):
+def Fake(opcode, params, location, linenumber):
     # switch based on opcode
     if opcode == 0xF0:
         # br
         params = [RegNames.index('R6'), RegNames.index('R6'), params[0]]
-        return Immediate(ISA['BEQ'], params, linenumber)
+        return Immediate(ISA['BEQ'], params, location, linenumber)
     elif opcode == 0xF2:
         # not
         params.append(params[1])
-        return Registers(ISA['NAND'], params, linenumber)
+        return Registers(ISA['NAND'], params, location, linenumber)
     elif opcode == 0xF7:
         # CALL
         params = [RegAliases['RA'], params[0]]
-        return Offset(ISA['JAL'], params, linenumber)
+        return Offset(ISA['JAL'], params, location, linenumber)
     elif opcode == 0xF8:
         # RET
         params = [RegNames.index('R9'), '0(' + str(RegAliases['RA']) + ')']
-        return Offset(ISA['JAL'], params, linenumber)
+        return Offset(ISA['JAL'], params, location, linenumber)
     elif opcode == 0xF9:
         # JMP
         params = [RegAliases['RA'], params[0]]
-        return Offset(ISA['JAL'], params, linenumber)
+        return Offset(ISA['JAL'], params, location, linenumber)
     else:
         print("Invalid instruction @ " + str(linenumber))
         exit(-1)
@@ -230,13 +234,13 @@ def parseLine(instrline):
     opcode = int(opbytes)
     family = opbytes >> 4
     if (family == 0x0) or (family == 0x2):
-        return Registers(opcode, params, instrline.line_number)
+        return Registers(opcode, params, instrline.location, instrline.line_number)
     elif (family == 0x6) or (family == 0x8) or (family == 0xA):
-        return Immediate(opcode, params, instrline.line_number)
+        return Immediate(opcode, params, instrline.location, instrline.line_number)
     elif (family == 0x5) or (family == 0x9) or (family == 0xB):
-        return Offset(opcode, params, instrline.line_number)
+        return Offset(opcode, params, instrline.location, instrline.line_number)
     elif family == 0xF:
-        return Fake(opcode, params, instrline.line_number)
+        return Fake(opcode, params, instrline.location, instrline.line_number)
 
 
 def ReadFile(filepath):
