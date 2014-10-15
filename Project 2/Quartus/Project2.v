@@ -96,7 +96,7 @@ module Project2(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
   wire[32:0] aluOut, dmemOut, regout1, regout2;
   wire[2:0] pnz;
   
-  PC #(DBITS, OPBITS, 2'b10) pc (imm, aluOut, pnz, opcode, pcOut);
+  PC #(.DBITS(DBITS), .OPBITS(OPBITS)) pc (imm, aluOut, pnz, opcode, pcOut);
   
   // Now instantiate the register file module
   RegFile # (.DBITS(DBITS),.ABITS(5)) regFile (rs1, regout1, rs2, regout2, rd, aluOut, dmemOut, opcode, clk);
