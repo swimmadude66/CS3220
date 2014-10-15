@@ -99,13 +99,13 @@ module Project2(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
   PC #(.DBITS(DBITS), .OPBITS(OPBITS)) pc (imm, aluOut, pnz, opcode, pcOut);
   
   // Now instantiate the register file module
-  RegFile # (.DBITS(DBITS),.ABITS(5)) regFile (rs1, regout1, rs2, regout2, rd, aluOut, dmemOut, opcode, clk);
+  RegFile # (.DBITS(DBITS),.ABITS(4)) regFile (rs1, regout1, rs2, regout2, rd, aluOut, dmemOut, opcode, clk);
   
   // Create ALU unit
   ALU #(DBITS, OPBITS) alu (opcode, regout1, regout2, imm, aluOut, pnz);
 
   // Put the code for data memory and I/O here
-  DMem #(DBITS, IMEM_ADDR_BIT_WIDTH) dmem (aluOut, regout2, dmemOut, 0,SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3, clk);
+  DMem #(DBITS, IMEM_ADDR_BIT_WIDTH) dmem (aluOut,regout2,dmemOut,opcode,SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3, clk);
   
   // KEYS, SWITCHES, HEXS, and LEDS are memeory mapped IO
     
@@ -124,18 +124,23 @@ module RegFile(RADDR1,DOUT1,RADDR2,DOUT2,WADDR,aluIn,DmemIn,opcode,CLK);
   input CLK;
   always @(posedge CLK)
     if(opcode[6] == 1'b0) begin 
-      if(opcode[7:4] == 4'b1001) begin
+		if(WADDR == 4'b1010)begin
+			mem[WADDR] = 0;
+		end
+      else if(opcode[7:4] == 4'b1001) begin
 		  mem[WADDR]=DmemIn;
 		end
 		else begin
 		  mem[WADDR]=aluIn;
 		end
 	 end
-  assign DOUT1=mem[RADDR1];
-  assign DOUT2=mem[RADDR2];
+  assign DOUT1 = (RADDR1 == 4'b1010) ? 0:
+													mem[RADDR1];
+  assign DOUT2 = (RADDR2 == 4'b1010) ? 0:
+													mem[RADDR2];
 endmodule
 
-module DMem(ADDRIN, DATAIN, DATAOUT, WE,SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3, CLK);
+module DMem(ADDRIN, DATAIN, DATAOUT, OP,SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3, CLK);
   parameter DBITS; // Number of data bits
   parameter ABITS; // Number of address bits
   parameter WORDS = (1<<ABITS);
@@ -157,9 +162,10 @@ module DMem(ADDRIN, DATAIN, DATAOUT, WE,SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3, CL
   input  [(DBITS-1):0] DATAIN;
   
   output reg [(DBITS-1):0] DATAOUT;
-  input CLK,WE;
+  input CLK;
+  input [7:0] OP;
   always @(posedge CLK) begin
-    if(WE) begin
+    if(OP == 8'b01010000) begin
 		if (ADDRIN == ADDR_HEX) begin
 			HEX0 = DATAIN[30:23];
 			HEX1 = DATAIN[22:15];
@@ -176,7 +182,7 @@ module DMem(ADDRIN, DATAIN, DATAOUT, WE,SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3, CL
 			mem[ADDRIN]=DATAIN;
 		end
 	  end
-	  else begin
+	  else if (OP == 8'b10010000) begin
 		  if (ADDRIN == ADDR_KEY) begin
 		    DATAOUT = KEY;
 		  end
