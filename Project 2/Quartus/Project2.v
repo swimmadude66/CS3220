@@ -71,14 +71,7 @@ module Project2(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
   PLL	PLL_inst (.inclk0 (CLOCK_50),.c0 (clk),.locked (lock));
   wire reset = ~lock;
   
-  // Create PC and its logic
-  //wire pcWrtEn = 1'b1;
-  //wire[DBITS - 1: 0] pcIn; // Implement the logic that generates pcIn; you may change pcIn to reg if necessary
-  //wire[DBITS - 1: 0] pcOut;
-  // This PC instantiation is your starting point
-  //Register #(.BIT_WIDTH(DBITS), .RESET_VALUE(START_PC)) pc (clk, reset, pcWrtEn, pcIn, pcOut);
-
-  // Creat instruction memeory
+  // Create instruction memeory
   wire[32:0] pcOut;
   wire[IMEM_DATA_BIT_WIDTH - 1: 0] instWord;
   InstMemory #(IMEM_INIT_FILE, IMEM_ADDR_BIT_WIDTH, IMEM_DATA_BIT_WIDTH) instMem (pcOut[IMEM_PC_BITS_HI - 1: IMEM_PC_BITS_LO], instWord);
@@ -99,7 +92,7 @@ module Project2(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
   PC #(.DBITS(DBITS), .OPBITS(OPBITS)) pc (imm, aluOut, pnz, opcode, pcOut);
   
   // Now instantiate the register file module
-  RegFile # (.DBITS(DBITS),.ABITS(4)) regFile (rs1, regout1, rs2, regout2, rd, aluOut, dmemOut, opcode, clk);
+  RegFile # (.DBITS(DBITS),.ABITS(REG_INDEX_BIT_WIDTH)) regFile (rs1, regout1, rs2, regout2, rd, aluOut, dmemOut, opcode, clk);
   
   // Create ALU unit
   ALU #(DBITS, OPBITS) alu (opcode, regout1, regout2, imm, aluOut, pnz);
@@ -289,8 +282,7 @@ module PC(Imm, AluOut, pnz, opcode, pcOut);
 				pcOut = pnz[2] == 1'b1 ? pc + 1 + Imm:
 												 pc + 1;
 			end
-		end
-		
+		end	
 	 end
 	 else if (opcode[5:4] == 2'b11) begin
 	   pcOut = pc + 1 + AluOut;
