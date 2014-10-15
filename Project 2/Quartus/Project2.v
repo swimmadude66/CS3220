@@ -140,15 +140,48 @@ module DMem(ADDRIN, DATAIN, DATAOUT, WE, CLK);
   parameter ABITS; // Number of address bits
   parameter WORDS = (1<<ABITS);
   parameter MFILE = "";
+  
+  parameter ADDR_KEY  	= 32'hF0000010;
+  parameter ADDR_SW   	= 32'hF0000014;
+  parameter ADDR_HEX  	= 32'hF0000000;
+  parameter ADDR_LEDR 	= 32'hF0000004;
+  parameter ADDR_LEDG 	= 32'hF0000008;
+  
   reg [(DBITS-1):0] mem[(WORDS-1):0];
   input  [(ABITS-1):0] ADDRIN;
   input  [(DBITS-1):0] DATAIN;
   output wire [(DBITS-1):0] DATAOUT;
   input CLK,WE;
-  always @(posedge CLK)
-    if(WE)
-      mem[ADDRIN]=DATAIN;
-  assign DATAOUT=mem[ADDRIN];
+  always @(posedge CLK) begin
+    if(WE) begin
+		if (ADDRIN == ADDR_HEX) begin
+			HEX0 = DATAIN[30:23];
+			HEX1 = DATAIN[22:15];
+			HEX2 = DATAIN[14:8];
+			HEX3 = DATAIN[7:0];	
+		end
+		else if (ADDRIN == ADDR_LEDG) begin
+			LEDG = DATAIN[7:0];
+		end
+		else if (ADDRIN == ADDR_LEDR) begin
+			LEDR = DATAIN[9:0];
+		end
+		else begin
+			mem[ADDRIN]=DATAIN;
+		end
+	  end
+	  else begin
+		  if (ADDRIN == ADDR_KEY) begin
+		      assign DATAOUT = KEY;
+		  end
+		  else if (ADDRIN == ADDR_SW) begin
+				assign DATAOUT = SW;
+		  end
+		  else begin
+		    assign DATAOUT=mem[ADDRIN];
+		  end
+		end 
+  end
 endmodule
 
 module ALU(opcode, AIn, BInReg, BInImm, aluOut, pnz);
