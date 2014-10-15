@@ -171,14 +171,21 @@ module ALU(opcode, AIn, BInReg, BInImm, aluOut, pnz);
   output reg [2: 0] pnz;
   always @(opcode or AIn or BInReg or BInImm) begin
     BIn = (opcode[OPBITS - 1] == 1) ? BInImm : BInReg;
-	 aluOut = (opcode[3:0] == OP2_ADD)  ?   AIn  + BIn:
-				 (opcode[3:0] == OP2_SUB)  ?   AIn  - BIn:
-				 (opcode[3:0] == OP2_AND)  ?   AIn  & BIn:
-				 (opcode[3:0] == OP2_OR)   ?   AIn  | BIn:
-				 (opcode[3:0] == OP2_XOR)  ?   AIn  ^ BIn:
-				 (opcode[3:0] == OP2_NAND) ? ~(AIn  & BIn):
-				 (opcode[3:0] == OP2_NOR)  ? ~(AIn  | BIn):
-									           AIn ~^ BIn;
+	 if (opcode[OPBITS-3:4] == 2'b10)begin
+		aluOut = (opcode[3:0] == 4'b0000) ? 0:
+				   (opcode[3:0] == 4'b1000) ? 1:
+														AIn - BIn;
+	 end
+	 else begin
+		aluOut =  (opcode[3:0] == OP2_ADD)  ?   AIn  + BIn:
+					 (opcode[3:0] == OP2_SUB)  ?   AIn  - BIn:
+					 (opcode[3:0] == OP2_AND)  ?   AIn  & BIn:
+					 (opcode[3:0] == OP2_OR)   ?   AIn  | BIn:
+					 (opcode[3:0] == OP2_XOR)  ?   AIn  ^ BIn:
+					 (opcode[3:0] == OP2_NAND) ? ~(AIn  & BIn):
+					 (opcode[3:0] == OP2_NOR)  ? ~(AIn  | BIn):
+															 AIn ~^ BIn;
+	 end
     if (aluOut == 0) begin
 		pnz = 3'b001;
 	 end
@@ -191,30 +198,56 @@ module ALU(opcode, AIn, BInReg, BInImm, aluOut, pnz);
   end
 endmodule
 
-module PC(Imm, AluOut, opcode, pcOut);
+module PC(Imm, AluOut, pnz, opcode, pcOut);
   parameter ADDRBITS = 11;
   parameter DBITS;
   parameter OPBITS;
   parameter PC_START = 2'b10;
-  
-  parameter OP2_ADD 						 = 4'b0000;
-  parameter OP2_SUB 						 = 4'b0001;
-  parameter OP2_AND 						 = 4'b0010;
-  parameter OP2_OR 						 = 4'b0011;
-  parameter OP2_XOR						 = 4'b1000;
-  parameter OP2_NAND						 = 4'b1001;
-  parameter OP2_NOR 						 = 4'b1010;
-  parameter OP2_NXOR						 = 4'b1011;
-  
+
   input [(DBITS - 1):0] Imm, AluOut;
   input [(OPBITS - 1): 0] opcode;
+  input[2:0] pnz;
   reg [ADDRBITS - 1: 0] pc = PC_START;
   output reg [(DBITS - 1): 0] pcOut;
   always @(opcode or Imm or AluOut) begin
-	 if (opcode[5] == 1 && opcode[6] == 1) begin
-	   pcOut = pc + 1 + Imm;
+	 if (opcode[6:5] == 2'b11) begin
+		if (opcode[3]==1'b0) begin
+			if(opcode[3:0] == 4'b0000) begin
+				pcOut = pc + 1;
+			end
+			else if (opcode[1:0]  == 2'b01) begin
+				pcOut = pnz[0] == 1'b1 ? pc + 1 + Imm:
+												 pc + 1;
+			end
+			else if (opcode[1:0]  == 2'b10) begin
+				pcOut = pnz[1] == 1'b1 ? pc + 1 + Imm:
+												 pc + 1;
+			end
+			else if (opcode[1:0]  == 2'b11) begin
+				pcOut = (pnz[0] == 1'b1 || pnz[1] == 1'b1) ? pc + 1 + Imm:
+												 pc + 1;
+			end
+		end
+		else if (opcode[3] == 1'b1) begin
+			if (opcode[3:0] == 4'b1000)begin
+				pcOut = pc + 1 + Imm;
+			end
+			else if (opcode[1:0]  == 2'b01) begin
+				pcOut = pnz[0] == 1'b1 ? pc + 1:
+												 pc + 1 + Imm;
+			end
+			else if (opcode[1:0]  == 2'b10) begin
+				pcOut = (pnz[0] == 1'b1 || pnz[2] == 1'b1) ? pc + 1 + Imm:
+												 pc + 1;
+			end
+			else if (opcode[1:0]  == 2'b11) begin
+				pcOut = pnz[2] == 1'b1 ? pc + 1 + Imm:
+												 pc + 1;
+			end
+		end
+		
 	 end
-	 else if (opcode[5] == 1 && opcode[4] == 1) begin
+	 else if (opcode[5:4] == 2'b11) begin
 	   pcOut = pc + 1 + AluOut;
 	 end
 	 else begin
