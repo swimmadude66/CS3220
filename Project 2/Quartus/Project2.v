@@ -7,6 +7,7 @@ module Project2(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
   output [6:0] HEX0,HEX1,HEX2,HEX3;
  
   parameter DBITS         				 = 32;
+  parameter OPBITS						 = 8;
   parameter INST_SIZE      			 = 32'd4;
   parameter INST_BIT_WIDTH				 = 32;
   parameter START_PC       			 = 32'h40;
@@ -71,56 +72,65 @@ module Project2(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
   wire reset = ~lock;
   
   // Create PC and its logic
-  wire pcWrtEn = 1'b1;
-  wire[DBITS - 1: 0] pcIn; // Implement the logic that generates pcIn; you may change pcIn to reg if necessary
-  wire[DBITS - 1: 0] pcOut;
+  //wire pcWrtEn = 1'b1;
+  //wire[DBITS - 1: 0] pcIn; // Implement the logic that generates pcIn; you may change pcIn to reg if necessary
+  //wire[DBITS - 1: 0] pcOut;
   // This PC instantiation is your starting point
-  Register #(.BIT_WIDTH(DBITS), .RESET_VALUE(START_PC)) pc (clk, reset, pcWrtEn, pcIn, pcOut);
+  //Register #(.BIT_WIDTH(DBITS), .RESET_VALUE(START_PC)) pc (clk, reset, pcWrtEn, pcIn, pcOut);
 
   // Creat instruction memeory
+  wire[32:0] pcOut;
   wire[IMEM_DATA_BIT_WIDTH - 1: 0] instWord;
   InstMemory #(IMEM_INIT_FILE, IMEM_ADDR_BIT_WIDTH, IMEM_DATA_BIT_WIDTH) instMem (pcOut[IMEM_PC_BITS_HI - 1: IMEM_PC_BITS_LO], instWord);
   
   // Put the code for getting opcode1, rd, rs, rt, imm, etc. here 
-  
+  wire[7:0] opcode;
+  wire[3:0] rd, rs1, rs2;
+  wire[15:0] imm;
+  Control #(DBITS, OPBITS, REG_INDEX_BIT_WIDTH) control (instWord, opcode, rd, rs1, rs2, imm);
   
   // Create the registers
-  //wire [3:0] rregno1=rs1, rregno2=rs2;
-  //wire [(DBITS-1):0] regout1,regout2;
-  //wire [3:0] wregno=rd;
+  
   // This comes from decoding logic
   // (reg becomes wire in non-edge always block)
-  reg wrreg;
-  reg [(DBITS-1):0] wregval;
+  wire[32:0] aluOut, dmemOut, regout1, regout2;
+  wire[2:0] pnz;
+  
+  PC #(DBITS, OPBITS, 2'b10) pc (imm, aluOut, pnz, opcode, pcOut);
+  
   // Now instantiate the register file module
-  RegFile # (.DBITS(DBITS),.ABITS(5)) regFile (
-			    rregno1, regout1, rregno2, regout2,
-			    wregno, wregval, wrreg, clk);
+  RegFile # (.DBITS(DBITS),.ABITS(5)) regFile (rs1, regout1, rs2, regout2, rd, aluOut, dmemOut, opcode, clk);
   
   // Create ALU unit
-  always @(negedge clk) begin
-	 
-	 
-  end
+  ALU #(DBITS, OPBITS) alu (opcode, regout1, regout2, imm, aluOut, pnz);
+
   // Put the code for data memory and I/O here
+  DMem #(DBITS, IMEM_ADDR_BIT_WIDTH) dmem (aluOut, regout2, dmemOut, 0, clk);
   
   // KEYS, SWITCHES, HEXS, and LEDS are memeory mapped IO
     
 endmodule
 
-module RegFile(RADDR1,DOUT1,RADDR2,DOUT2,WADDR,DIN,WE,CLK);
+module RegFile(RADDR1,DOUT1,RADDR2,DOUT2,WADDR,aluIn,DmemIn,opcode,CLK);
   parameter DBITS; // Number of data bits
   parameter ABITS; // Number of address bits
   parameter WORDS = (1<<ABITS);
   parameter MFILE = "";
   reg [(DBITS-1):0] mem[(WORDS-1):0];
   input  [(ABITS-1):0] RADDR1,RADDR2,WADDR;
-  input  [(DBITS-1):0] DIN;
+  input  [(DBITS-1):0] aluIn, DmemIn;
+  input [7:0] opcode;
   output wire [(DBITS-1):0] DOUT1,DOUT2;
-  input CLK,WE;
+  input CLK;
   always @(posedge CLK)
-    if(WE)
-      mem[WADDR]=DIN;
+    if(opcode[6] == 1'b0) begin 
+      if(opcode[7:4] == 4'b1001) begin
+		  mem[WADDR]=DmemIn;
+		end
+		else begin
+		  mem[WADDR]=aluIn;
+		end
+	 end
   assign DOUT1=mem[RADDR1];
   assign DOUT2=mem[RADDR2];
 endmodule
@@ -185,7 +195,7 @@ module PC(Imm, AluOut, opcode, pcOut);
   parameter ADDRBITS = 11;
   parameter DBITS;
   parameter OPBITS;
-  parameter PC_START;
+  parameter PC_START = 2'b10;
   
   parameter OP2_ADD 						 = 4'b0000;
   parameter OP2_SUB 						 = 4'b0001;
