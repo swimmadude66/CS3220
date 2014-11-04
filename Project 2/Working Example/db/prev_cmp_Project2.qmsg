@@ -1,0 +1,11 @@
+{ "Info" "0" "" "qar.tcl version #1" {  } {  } 0 0 "qar.tcl version #1" 0 0 "0" 0 0 1415072248271 ""}
+{ "Info" "0" "" "Including '-use_file_set basic' by default" {  } {  } 0 0 "Including '-use_file_set basic' by default" 0 0 "0" 0 0 1415072248867 ""}
+{ "Info" "0" "" "Initializing files for 'Debug' revision" {  } {  } 0 0 "Initializing files for 'Debug' revision" 0 0 "0" 0 0 1415072249008 ""}
+{ "Info" "0" "" "File Set 'Source control' contains:" { { "Info" "0" "" "Project source and settings files" {  } {  } 0 0 "Project source and settings files" 0 0 "0" 0 0 1415072249025 ""} { "Info" "0" "" "Automatically detected source files" {  } {  } 0 0 "Automatically detected source files" 0 0 "0" 0 0 1415072249025 ""}  } {  } 0 0 "File Set 'Source control' contains:" 0 0 "0" 0 0 1415072249025 ""}
+{ "Info" "0" "" "Initializing files for 'Project2' revision" {  } {  } 0 0 "Initializing files for 'Project2' revision" 0 0 "0" 0 0 1415072249501 ""}
+{ "Info" "0" "" "File Set 'Source control' contains:" { { "Info" "0" "" "Project source and settings files" {  } {  } 0 0 "Project source and settings files" 0 0 "0" 0 0 1415072249535 ""} { "Info" "0" "" "Automatically detected source files" {  } {  } 0 0 "Automatically detected source files" 0 0 "0" 0 0 1415072249535 ""}  } {  } 0 0 "File Set 'Source control' contains:" 0 0 "0" 0 0 1415072249535 ""}
+{ "Info" "0" "" "----------------------------------------------------------" {  } {  } 0 0 "----------------------------------------------------------" 0 0 "0" 0 0 1415072249993 ""}
+{ "Info" "0" "" "----------------------------------------------------------" {  } {  } 0 0 "----------------------------------------------------------" 0 0 "0" 0 0 1415072249993 ""}
+{ "Info" "0" "" "Generated archive 'Project2_tmp_archive.qar'" {  } {  } 0 0 "Generated archive 'Project2_tmp_archive.qar'" 0 0 "0" 0 0 1415072249993 ""}
+{ "Info" "0" "" "----------------------------------------------------------" {  } {  } 0 0 "----------------------------------------------------------" 0 0 "0" 0 0 1415072249993 ""}
+{ "Info" "0" "" "----------------------------------------------------------" {  } {  } 0 0 "----------------------------------------------------------" 0 0 "0" 0 0 1415072249993 ""}

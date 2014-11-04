@@ -1,0 +1,105 @@
+Restore Archived Project report for Debug
+Mon Nov 03 22:37:31 2014
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Restore Archived Project Summary
+  3. Restore Archived Project Messages
+  4. Files Restored
+  5. Files Not Restored
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Restore Archived Project Summary                                        ;
++---------------------------------+---------------------------------------+
+; Restore Archived Project Status ; Successful - Mon Nov 03 22:37:31 2014 ;
+; Revision Name                   ; Debug                                 ;
+; Top-level Entity Name           ; Project2                              ;
+; Family                          ; Cyclone II                            ;
++---------------------------------+---------------------------------------+
+
+
++-----------------------------------+
+; Restore Archived Project Messages ;
++-----------------------------------+
+Info: Successfully restored 'X:/Repos/CS3220/Project 2/Working Example/Project2_tmp_archive.qar' into the 'X:/Repos/CS3220/Project 3' directory
+Info: Generated report 'Debug.restore.rpt'
+
+
++-----------------------------------------------------+
+; Files Restored                                      ;
++-----------------------------------------------------+
+; File Name                                           ;
++-----------------------------------------------------+
+; Alu.v                                               ;
+; Amir.hex                                            ;
+; BranchAddrCalculator.v                              ;
+; Controller.v                                        ;
+; DataMemory.v                                        ;
+; Debug.qsf                                           ;
+; InstMemory.v                                        ;
+; Mux2to1.v                                           ;
+; Mux4to1.v                                           ;
+; PLL.ppf                                             ;
+; PLL.qip                                             ;
+; PLL.v                                               ;
+; PLL_bb.v                                            ;
+; PLL_inst.v                                          ;
+; PcLogic.v                                           ;
+; Pll.qip                                             ;
+; Project2.qpf                                        ;
+; Project2.qsf                                        ;
+; Project2.v                                          ;
+; Project2_assignment_defaults.qdf                    ;
+; Register.v                                          ;
+; RegisterFile.v                                      ;
+; SevenSeg.v                                          ;
+; SignExtension.v                                     ;
+; Sorter2.a32                                         ;
+; Sorter2.mif                                         ;
+; Test2.a32                                           ;
+; Test2.mif                                           ;
+; Timing.sdc                                          ;
+; Waveform.vwf                                        ;
+; assignment_defaults.qdf                             ;
+; bad_test.stp                                        ;
+; comparator.v                                        ;
+; incremental_db/compiled_partitions/Debug.db_info    ;
+; incremental_db/compiled_partitions/Project2.db_info ;
+; negRegister.v                                       ;
+; project1.sdc                                        ;
+; stp1.stp                                            ;
++-----------------------------------------------------+
+
+
++--------------------+
+; Files Not Restored ;
++--------------------+
+; File Name          ;
++--------------------+
+
+

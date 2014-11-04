@@ -1,0 +1,55 @@
+Quartus II Archive log --	X:/Repos/CS3220/Project 2/Working Example/Project2_tmp_archive.qarlog
+
+Archive:	X:/Repos/CS3220/Project 2/Working Example/Project2_tmp_archive.qar
+Date:		Mon Nov 03 22:37:29 2014
+Quartus II 64-Bit		13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+
+	=========== Files Selected: ===========
+X:/Repos/CS3220/Project 2/Working Example/Alu.v
+X:/Repos/CS3220/Project 2/Working Example/Amir.hex
+X:/Repos/CS3220/Project 2/Working Example/BranchAddrCalculator.v
+X:/Repos/CS3220/Project 2/Working Example/Controller.v
+X:/Repos/CS3220/Project 2/Working Example/DataMemory.v
+X:/Repos/CS3220/Project 2/Working Example/Debug.qsf
+X:/Repos/CS3220/Project 2/Working Example/InstMemory.v
+X:/Repos/CS3220/Project 2/Working Example/Mux2to1.v
+X:/Repos/CS3220/Project 2/Working Example/Mux4to1.v
+X:/Repos/CS3220/Project 2/Working Example/PLL.ppf
+X:/Repos/CS3220/Project 2/Working Example/PLL.qip
+X:/Repos/CS3220/Project 2/Working Example/PLL.v
+X:/Repos/CS3220/Project 2/Working Example/PLL_bb.v
+X:/Repos/CS3220/Project 2/Working Example/PLL_inst.v
+X:/Repos/CS3220/Project 2/Working Example/PcLogic.v
+X:/Repos/CS3220/Project 2/Working Example/Pll.qip
+X:/Repos/CS3220/Project 2/Working Example/Project2.qpf
+X:/Repos/CS3220/Project 2/Working Example/Project2.qsf
+X:/Repos/CS3220/Project 2/Working Example/Project2.v
+X:/Repos/CS3220/Project 2/Working Example/Project2_assignment_defaults.qdf
+X:/Repos/CS3220/Project 2/Working Example/Register.v
+X:/Repos/CS3220/Project 2/Working Example/RegisterFile.v
+X:/Repos/CS3220/Project 2/Working Example/SevenSeg.v
+X:/Repos/CS3220/Project 2/Working Example/SignExtension.v
+X:/Repos/CS3220/Project 2/Working Example/Sorter2.a32
+X:/Repos/CS3220/Project 2/Working Example/Sorter2.mif
+X:/Repos/CS3220/Project 2/Working Example/Test2.a32
+X:/Repos/CS3220/Project 2/Working Example/Test2.mif
+X:/Repos/CS3220/Project 2/Working Example/Timing.sdc
+X:/Repos/CS3220/Project 2/Working Example/Waveform.vwf
+X:/Repos/CS3220/Project 2/Working Example/assignment_defaults.qdf
+X:/Repos/CS3220/Project 2/Working Example/bad_test.stp
+X:/Repos/CS3220/Project 2/Working Example/comparator.v
+X:/Repos/CS3220/Project 2/Working Example/incremental_db/compiled_partitions/Debug.db_info
+X:/Repos/CS3220/Project 2/Working Example/incremental_db/compiled_partitions/Project2.db_info
+X:/Repos/CS3220/Project 2/Working Example/negRegister.v
+X:/Repos/CS3220/Project 2/Working Example/project1.sdc
+X:/Repos/CS3220/Project 2/Working Example/stp1.stp
+	======= Total: 38 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Mon Nov 03 22:37:31 2014
+Source archive file:	X:/Repos/CS3220/Project 2/Working Example/Project2_tmp_archive.qar
+Archive was extracted into	X:/Repos/CS3220/Project 3/
+		 - successfully.
