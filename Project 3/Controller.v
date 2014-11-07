@@ -1,10 +1,14 @@
-module Controller (inst, aluCmpIn, sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileWrtEn, immSel, memOutSel, pcSel, isLoad, isStore);
+module Controller (inst, aluCmpIn, prevDRegAddr, sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileWrtEn, s1Sel, s2Sel, memOutSel, pcSel, isLoad, isStore);
 	
 	parameter INST_BIT_WIDTH = 32;
 	
 	// inputs
 	input [INST_BIT_WIDTH-1:0] inst;
 	input aluCmpIn;
+	input [3: 0] prevDRegAddr;
+	
+	// intermediate values
+	reg immSel;
 	
 	// output opcodes
 	output reg [4: 0] sndOpcode;
@@ -19,7 +23,8 @@ module Controller (inst, aluCmpIn, sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, im
 	
 	// control signals
 	output reg regFileWrtEn;
-	output reg immSel;  
+	output reg s1Sel;
+	output reg [1:0] s2Sel;
 	output reg [1:0] memOutSel;
 	output reg [1:0] pcSel;
 	output reg isLoad, isStore;
@@ -159,5 +164,11 @@ module Controller (inst, aluCmpIn, sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, im
 					end
 				
 		endcase
+		begin
+			s1Sel = (prevDRegAddr == s1RegAddr)?	1'b1: //use forwarded
+																	1'b0; //use register
+			s2Sel = (prevDRegAddr == s2RegAddr)?  {1'b1, immSel}: //useforwarded
+																	{1'b0, immSel};
+		end
 	end
 endmodule

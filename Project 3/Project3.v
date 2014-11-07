@@ -67,10 +67,11 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	wire reset = SW[0]; //~lock;
 	
 	wire [DMEM_DATA_BIT_WIDTH - 1: 0] aluIn2;
-	wire immSel;
+	wire s1Sel;
+	wire [1: 0] s2Sel;
 	wire[DMEM_DATA_BIT_WIDTH - 1: 0] dataWord;
    wire [1:0] memOutSel;
-	wire [3: 0] wrtIndex, rdIndex1, rdIndex2;
+	wire [3: 0] prevWrtIndex, wrtIndex, rdIndex1, rdIndex2;
 	wire [4: 0] sndOpcode;
 	wire [15: 0] imm;
 	wire regFileEn;
@@ -116,13 +117,13 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	wire [DBITS-1:0] nxtPC;
 	wire [IMEM_DATA_BIT_WIDTH-1:0] iWord;
 	wire pipelineWrtEn  = 1'b1; //only diable on bubble
-	PipelineRegister #(.PC_BIT_WIDTH(32), .IWORD_BIT_WIDTH(32)) pipelineReg (clk, reset, pipelineWrtEn, pcLogicOut, instWord, nxtPC, iWord);
+	PipelineRegister #(.PC_BIT_WIDTH(32), .IWORD_BIT_WIDTH(32)) pipelineReg (clk, reset, pipelineWrtEn, pcLogicOut, instWord, wrtIndex ,nxtPC, iWord, prevWrtIndex);
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //Stage 2
 	// Controller 
-	Controller cont (.inst(iWord), .aluCmpIn(cmpOut_top), .sndOpcode(sndOpcode), .dRegAddr(wrtIndex), .s1RegAddr(rdIndex1), .s2RegAddr(rdIndex2), .imm(imm), 
-							.regFileWrtEn(regFileEn), .immSel(immSel), .memOutSel(memOutSel), .pcSel(pcSel), .isLoad(isLoad), .isStore(isStore));
+	Controller cont (.inst(iWord), .aluCmpIn(cmpOut_top), .prevDRegAddr(prevWrtIndex), .sndOpcode(sndOpcode), .dRegAddr(wrtIndex), .s1RegAddr(rdIndex1), .s2RegAddr(rdIndex2), .imm(imm), 
+							.regFileWrtEn(regFileEn), .s1Sel(s1Sel), .s2Sel(s2Sel), .memOutSel(memOutSel), .pcSel(pcSel), .isLoad(isLoad), .isStore(isStore));
   
 	// RegisterFile
 	RegisterFile regFile (.clk(clk), .wrtEn(regFileEn), .wrtIndex(wrtIndex), .rdIndex1(rdIndex1), .rdIndex2(rdIndex2), .dataIn(dataIn), .dataOut1(dataOut1), .dataOut2(dataOut2));
