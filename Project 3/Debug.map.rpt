@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Debug
-Fri Nov 07 15:29:47 2014
+Fri Nov 07 16:03:08 2014
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -29,7 +29,7 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
  21. Parameter Settings for User Entity Instance: Controller:cont
  22. Parameter Settings for User Entity Instance: RegisterFile:regFile
  23. Parameter Settings for User Entity Instance: SignExtension:se
- 24. Parameter Settings for User Entity Instance: Mux2to1:muxAluIn
+ 24. Parameter Settings for User Entity Instance: Mux4to1:muxAluIn
  25. Parameter Settings for User Entity Instance: Alu:alu1
  26. Parameter Settings for User Entity Instance: negRegister:dataReg
  27. Parameter Settings for User Entity Instance: DataMemory:dataMem
@@ -51,13 +51,14 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
  43. Port Connectivity Checks: "Mux4to1:muxDataMemOut"
  44. Port Connectivity Checks: "Mux4to1:muxMemOut"
  45. Port Connectivity Checks: "negRegister:dataReg"
- 46. Port Connectivity Checks: "Controller:cont"
- 47. Port Connectivity Checks: "PipelineRegister:pipelineReg"
- 48. Port Connectivity Checks: "Mux4to1:muxPcOut"
- 49. Port Connectivity Checks: "Register:pc"
- 50. Elapsed Time Per Partition
- 51. Analysis & Synthesis Messages
- 52. Analysis & Synthesis Suppressed Messages
+ 46. Port Connectivity Checks: "Mux4to1:muxAluIn"
+ 47. Port Connectivity Checks: "Controller:cont"
+ 48. Port Connectivity Checks: "PipelineRegister:pipelineReg"
+ 49. Port Connectivity Checks: "Mux4to1:muxPcOut"
+ 50. Port Connectivity Checks: "Register:pc"
+ 51. Elapsed Time Per Partition
+ 52. Analysis & Synthesis Messages
+ 53. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -83,13 +84,13 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Nov 07 15:29:47 2014           ;
+; Analysis & Synthesis Status        ; Successful - Fri Nov 07 16:03:08 2014           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Debug                                           ;
 ; Top-level Entity Name              ; Project3                                        ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 2,396                                           ;
-;     Total combinational functions  ; 1,898                                           ;
+; Total logic elements               ; 2,395                                           ;
+;     Total combinational functions  ; 1,897                                           ;
 ;     Dedicated logic registers      ; 699                                             ;
 ; Total registers                    ; 699                                             ;
 ; Total pins                         ; 61                                              ;
@@ -191,7 +192,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 ; Processors                 ; Number ;
 +----------------------------+--------+
-; Number detected on machine ; 2      ;
+; Number detected on machine ; 8      ;
 ; Maximum allowed            ; 1      ;
 +----------------------------+--------+
 
@@ -201,31 +202,30 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                            ; Library ;
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
-; negRegister.v                    ; yes             ; User Verilog HDL File        ; C:/Users/j3gb3rt/Documents/CS3220/Project 3/negRegister.v               ;         ;
-; PcLogic.v                        ; yes             ; User Verilog HDL File        ; C:/Users/j3gb3rt/Documents/CS3220/Project 3/PcLogic.v                   ;         ;
-; Alu.v                            ; yes             ; User Verilog HDL File        ; C:/Users/j3gb3rt/Documents/CS3220/Project 3/Alu.v                       ;         ;
-; InstMemory.v                     ; yes             ; User Verilog HDL File        ; C:/Users/j3gb3rt/Documents/CS3220/Project 3/InstMemory.v                ;         ;
-; Register.v                       ; yes             ; User Verilog HDL File        ; C:/Users/j3gb3rt/Documents/CS3220/Project 3/Register.v                  ;         ;
-; SignExtension.v                  ; yes             ; User Verilog HDL File        ; C:/Users/j3gb3rt/Documents/CS3220/Project 3/SignExtension.v             ;         ;
-; Controller.v                     ; yes             ; User Verilog HDL File        ; C:/Users/j3gb3rt/Documents/CS3220/Project 3/Controller.v                ;         ;
-; Mux2to1.v                        ; yes             ; User Verilog HDL File        ; C:/Users/j3gb3rt/Documents/CS3220/Project 3/Mux2to1.v                   ;         ;
-; RegisterFile.v                   ; yes             ; User Verilog HDL File        ; C:/Users/j3gb3rt/Documents/CS3220/Project 3/RegisterFile.v              ;         ;
-; DataMemory.v                     ; yes             ; User Verilog HDL File        ; C:/Users/j3gb3rt/Documents/CS3220/Project 3/DataMemory.v                ;         ;
-; BranchAddrCalculator.v           ; yes             ; User Verilog HDL File        ; C:/Users/j3gb3rt/Documents/CS3220/Project 3/BranchAddrCalculator.v      ;         ;
-; Mux4to1.v                        ; yes             ; User Verilog HDL File        ; C:/Users/j3gb3rt/Documents/CS3220/Project 3/Mux4to1.v                   ;         ;
-; PipelineRegister.v               ; yes             ; User Verilog HDL File        ; C:/Users/j3gb3rt/Documents/CS3220/Project 3/PipelineRegister.v          ;         ;
-; project3.v                       ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project 3/project3.v                  ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
-; aglobal130.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc        ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
-; altrom.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altrom.inc            ;         ;
-; altram.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altram.inc            ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_e4d1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/j3gb3rt/Documents/CS3220/Project 3/db/altsyncram_e4d1.tdf      ;         ;
-; db/altsyncram_hng1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/j3gb3rt/Documents/CS3220/Project 3/db/altsyncram_hng1.tdf      ;         ;
+; negRegister.v                    ; yes             ; User Verilog HDL File        ; X:/Repos/CS3220/Project 3/negRegister.v                                 ;         ;
+; PcLogic.v                        ; yes             ; User Verilog HDL File        ; X:/Repos/CS3220/Project 3/PcLogic.v                                     ;         ;
+; Alu.v                            ; yes             ; User Verilog HDL File        ; X:/Repos/CS3220/Project 3/Alu.v                                         ;         ;
+; InstMemory.v                     ; yes             ; User Verilog HDL File        ; X:/Repos/CS3220/Project 3/InstMemory.v                                  ;         ;
+; Register.v                       ; yes             ; User Verilog HDL File        ; X:/Repos/CS3220/Project 3/Register.v                                    ;         ;
+; SignExtension.v                  ; yes             ; User Verilog HDL File        ; X:/Repos/CS3220/Project 3/SignExtension.v                               ;         ;
+; Controller.v                     ; yes             ; User Verilog HDL File        ; X:/Repos/CS3220/Project 3/Controller.v                                  ;         ;
+; RegisterFile.v                   ; yes             ; User Verilog HDL File        ; X:/Repos/CS3220/Project 3/RegisterFile.v                                ;         ;
+; DataMemory.v                     ; yes             ; User Verilog HDL File        ; X:/Repos/CS3220/Project 3/DataMemory.v                                  ;         ;
+; BranchAddrCalculator.v           ; yes             ; User Verilog HDL File        ; X:/Repos/CS3220/Project 3/BranchAddrCalculator.v                        ;         ;
+; Mux4to1.v                        ; yes             ; User Verilog HDL File        ; X:/Repos/CS3220/Project 3/Mux4to1.v                                     ;         ;
+; PipelineRegister.v               ; yes             ; User Verilog HDL File        ; X:/Repos/CS3220/Project 3/PipelineRegister.v                            ;         ;
+; project3.v                       ; yes             ; Auto-Found Verilog HDL File  ; X:/Repos/CS3220/Project 3/project3.v                                    ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; x:/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; x:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; x:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; x:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; x:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; x:/altera/13.0sp1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; x:/altera/13.0sp1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; x:/altera/13.0sp1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; x:/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_e4d1.tdf           ; yes             ; Auto-Generated Megafunction  ; X:/Repos/CS3220/Project 3/db/altsyncram_e4d1.tdf                        ;         ;
+; db/altsyncram_hng1.tdf           ; yes             ; Auto-Generated Megafunction  ; X:/Repos/CS3220/Project 3/db/altsyncram_hng1.tdf                        ;         ;
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
 
 
@@ -234,16 +234,16 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------------------------+
 ; Resource                                    ; Usage                   ;
 +---------------------------------------------+-------------------------+
-; Estimated Total logic elements              ; 2,396                   ;
+; Estimated Total logic elements              ; 2,395                   ;
 ;                                             ;                         ;
-; Total combinational functions               ; 1898                    ;
+; Total combinational functions               ; 1897                    ;
 ; Logic element usage by number of LUT inputs ;                         ;
-;     -- 4 input functions                    ; 1397                    ;
-;     -- 3 input functions                    ; 336                     ;
-;     -- <=2 input functions                  ; 165                     ;
+;     -- 4 input functions                    ; 1394                    ;
+;     -- 3 input functions                    ; 339                     ;
+;     -- <=2 input functions                  ; 164                     ;
 ;                                             ;                         ;
 ; Logic elements by mode                      ;                         ;
-;     -- normal mode                          ; 1685                    ;
+;     -- normal mode                          ; 1684                    ;
 ;     -- arithmetic mode                      ; 213                     ;
 ;                                             ;                         ;
 ; Total registers                             ; 699                     ;
@@ -255,7 +255,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Embedded Multiplier 9-bit elements          ; 0                       ;
 ; Maximum fan-out node                        ; ClkDivider:clkdi|clkReg ;
 ; Maximum fan-out                             ; 699                     ;
-; Total fan-out                               ; 9851                    ;
+; Total fan-out                               ; 9846                    ;
 ; Average fan-out                             ; 3.66                    ;
 +---------------------------------------------+-------------------------+
 
@@ -265,7 +265,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                           ; Library Name ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------+--------------+
-; |Project3                                 ; 1898 (0)          ; 699 (0)      ; 65536       ; 0            ; 0       ; 0         ; 61   ; 0            ; |Project3                                                                                                     ; work         ;
+; |Project3                                 ; 1897 (0)          ; 699 (0)      ; 65536       ; 0            ; 0       ; 0         ; 61   ; 0            ; |Project3                                                                                                     ; work         ;
 ;    |Alu:alu1|                             ; 390 (390)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project3|Alu:alu1                                                                                            ; work         ;
 ;    |BranchAddrCalculator:bac|             ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project3|BranchAddrCalculator:bac                                                                            ; work         ;
 ;    |ClkDivider:clkdi|                     ; 52 (52)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project3|ClkDivider:clkdi                                                                                    ; work         ;
@@ -274,10 +274,10 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;       |altsyncram:data_rtl_0|             ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project3|DataMemory:dataMem|altsyncram:data_rtl_0                                                            ; work         ;
 ;          |altsyncram_e4d1:auto_generated| ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project3|DataMemory:dataMem|altsyncram:data_rtl_0|altsyncram_e4d1:auto_generated                             ; work         ;
 ;             |altsyncram_hng1:altsyncram1| ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project3|DataMemory:dataMem|altsyncram:data_rtl_0|altsyncram_e4d1:auto_generated|altsyncram_hng1:altsyncram1 ; work         ;
-;    |IO_controller:ioCtrl|                 ; 11 (11)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project3|IO_controller:ioCtrl                                                                                ; work         ;
+;    |IO_controller:ioCtrl|                 ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project3|IO_controller:ioCtrl                                                                                ; work         ;
 ;    |InstMemory:instMem|                   ; 391 (391)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project3|InstMemory:instMem                                                                                  ; work         ;
-;    |Mux2to1:muxAluIn|                     ; 41 (41)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project3|Mux2to1:muxAluIn                                                                                    ; work         ;
-;    |Mux4to1:muxMemOut|                    ; 80 (80)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project3|Mux4to1:muxMemOut                                                                                   ; work         ;
+;    |Mux4to1:muxAluIn|                     ; 40 (40)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project3|Mux4to1:muxAluIn                                                                                    ; work         ;
+;    |Mux4to1:muxMemOut|                    ; 81 (81)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project3|Mux4to1:muxMemOut                                                                                   ; work         ;
 ;    |PcLogic:pcLogic|                      ; 30 (30)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project3|PcLogic:pcLogic                                                                                     ; work         ;
 ;    |PipelineRegister:pipelineReg|         ; 32 (32)           ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project3|PipelineRegister:pipelineReg                                                                        ; work         ;
 ;    |Register:pc|                          ; 32 (32)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project3|Register:pc                                                                                         ; work         ;
@@ -370,26 +370,26 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |Project3|negRegister:ledrReg|dataOut[6]        ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Project3|negRegister:ledgReg|dataOut[3]        ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |Project3|negRegister:hexReg|dataOut[4]         ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Project3|negRegister:keyReg|dataOut[1]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |Project3|negRegister:switchReg|dataOut[9]      ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |Project3|Register:pc|dataOut[0]                ;
-; 5:1                ; 29 bits   ; 87 LEs        ; 58 LEs               ; 29 LEs                 ; Yes        ; |Project3|Register:pc|dataOut[20]               ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |Project3|negRegister:ledrReg|dataOut[0]        ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Project3|negRegister:ledgReg|dataOut[0]        ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |Project3|negRegister:hexReg|dataOut[14]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Project3|negRegister:keyReg|dataOut[0]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |Project3|negRegister:switchReg|dataOut[5]      ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |Project3|Register:pc|dataOut[1]                ;
+; 5:1                ; 29 bits   ; 87 LEs        ; 58 LEs               ; 29 LEs                 ; Yes        ; |Project3|Register:pc|dataOut[22]               ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |Project3|IO_controller:ioCtrl|dataMemOutSel[1] ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Project3|Controller:cont|Selector10            ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |Project3|IO_controller:ioCtrl|ledrEn           ;
-; 5:1                ; 22 bits   ; 66 LEs        ; 66 LEs               ; 0 LEs                  ; No         ; |Project3|Mux4to1:muxMemOut|Mux15               ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; No         ; |Project3|Controller:cont|Selector14            ;
+; 5:1                ; 22 bits   ; 66 LEs        ; 66 LEs               ; 0 LEs                  ; No         ; |Project3|Mux4to1:muxMemOut|Mux21               ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; No         ; |Project3|Controller:cont|Selector15            ;
 ; 7:1                ; 6 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; No         ; |Project3|Mux4to1:muxMemOut|Mux22               ;
 ; 7:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Project3|Mux4to1:muxMemOut|Mux31               ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Project3|Controller:cont|Selector8             ;
 ; 8:1                ; 4 bits    ; 20 LEs        ; 8 LEs                ; 12 LEs                 ; No         ; |Project3|Controller:cont|Selector3             ;
-; 32:1               ; 15 bits   ; 315 LEs       ; 90 LEs               ; 225 LEs                ; No         ; |Project3|Alu:alu1|Mux23                        ;
-; 32:1               ; 16 bits   ; 336 LEs       ; 128 LEs              ; 208 LEs                ; No         ; |Project3|Alu:alu1|Mux10                        ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |Project3|Controller:cont|Selector5             ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Project3|Controller:cont|Selector8             ;
+; 32:1               ; 15 bits   ; 315 LEs       ; 90 LEs               ; 225 LEs                ; No         ; |Project3|Alu:alu1|Mux24                        ;
+; 32:1               ; 16 bits   ; 336 LEs       ; 128 LEs              ; 208 LEs                ; No         ; |Project3|Alu:alu1|Mux7                         ;
 ; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |Project3|Controller:cont|Selector21            ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |Project3|Controller:cont|Selector4             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
 
 
@@ -549,7 +549,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +---------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Mux2to1:muxAluIn ;
+; Parameter Settings for User Entity Instance: Mux4to1:muxAluIn ;
 +----------------+-------+--------------------------------------+
 ; Parameter Name ; Value ; Type                                 ;
 +----------------+-------+--------------------------------------+
@@ -833,6 +833,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Mux4to1:muxAluIn"                                                                                                                          ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                     ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; sel  ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "sel[1..1]" will be connected to GND. ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +--------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "Controller:cont"                                                                        ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
@@ -875,7 +884,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:20     ;
+; Top            ; 00:00:10     ;
 +----------------+--------------+
 
 
@@ -885,7 +894,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Nov 07 15:29:20 2014
+    Info: Processing started: Fri Nov 07 16:02:56 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project3 -c Debug
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file negregister.v
@@ -937,7 +946,6 @@ Info (12128): Elaborating entity "PipelineRegister" for hierarchy "PipelineRegis
 Info (12128): Elaborating entity "Controller" for hierarchy "Controller:cont"
 Info (12128): Elaborating entity "RegisterFile" for hierarchy "RegisterFile:regFile"
 Info (12128): Elaborating entity "SignExtension" for hierarchy "SignExtension:se"
-Info (12128): Elaborating entity "Mux2to1" for hierarchy "Mux2to1:muxAluIn"
 Info (12128): Elaborating entity "Alu" for hierarchy "Alu:alu1"
 Info (12128): Elaborating entity "negRegister" for hierarchy "negRegister:dataReg"
 Info (12128): Elaborating entity "DataMemory" for hierarchy "DataMemory:dataMem"
@@ -983,25 +991,26 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
     Info (12023): Found entity 1: altsyncram_e4d1
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_hng1.tdf
     Info (12023): Found entity 1: altsyncram_hng1
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (17049): 32 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file C:/Users/j3gb3rt/Documents/CS3220/Project 3/Debug.map.smsg
+Info (144001): Generated suppressed messages file X:/Repos/CS3220/Project 3/Debug.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 2542 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2541 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 46 output pins
-    Info (21061): Implemented 2449 logic cells
+    Info (21061): Implemented 2448 logic cells
     Info (21064): Implemented 32 RAM segments
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 483 megabytes
-    Info: Processing ended: Fri Nov 07 15:29:47 2014
-    Info: Elapsed time: 00:00:27
-    Info: Total CPU time (on all processors): 00:00:26
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 466 megabytes
+    Info: Processing ended: Fri Nov 07 16:03:08 2014
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:12
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/j3gb3rt/Documents/CS3220/Project 3/Debug.map.smsg.
+The suppressed messages can be found in X:/Repos/CS3220/Project 3/Debug.map.smsg.
 
 

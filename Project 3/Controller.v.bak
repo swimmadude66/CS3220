@@ -8,7 +8,7 @@ module Controller (inst, aluCmpIn, sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, im
 	
 	// intermediate values
 	reg immSel;
-	reg prevWrt = 1'b0;
+	
 	
 	// output opcodes
 	output reg [4: 0] sndOpcode;
@@ -166,18 +166,11 @@ module Controller (inst, aluCmpIn, sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, im
 				
 		endcase
 		begin
-			if(prevWrt == 1'b1) begin		//hazard possible
-				s1Sel = (prevDRegAddr == s1RegAddr)?	1'b1: //use forwarded
+			s1Sel = (prevDRegAddr == s1RegAddr)?	1'b1: //use forwarded
 																	1'b0; //use register
-				s2Sel = (prevDRegAddr == s2RegAddr)? 	{1'b1, immSel}: //useforwarded
+			s2Sel = (prevDRegAddr == s2RegAddr)?  {1'b1, immSel}: //useforwarded
 																	{1'b0, immSel};
-			end
-			else begin			//no hazards
-				s1Sel = 1'b0; 
-				s2Sel = {1'b0, immSel};
-			end
 			prevDRegAddr <= dRegAddr;
-			prevWrt <= regFileWrtEn;
 		end
 	end
 endmodule

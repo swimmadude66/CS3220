@@ -132,7 +132,7 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	SignExtension #(.IN_BIT_WIDTH(16), .OUT_BIT_WIDTH(32)) se (imm, seImm);
 	
 	// ALU Mux
-	Mux2to1 #(.DATA_BIT_WIDTH(DBITS)) muxAluIn (s2Sel[0], dataOut2, seImm, aluIn2);
+	Mux4to1 #(.DATA_BIT_WIDTH(DBITS)) muxAluIn (s2Sel[0], dataOut2, seImm, dataIn, dataIn, aluIn2);
 	
 	// ALU
 	Alu alu1 (.ctrl(sndOpcode), .rawDataIn1(dataOut1), .rawDataIn2(aluIn2), .dataOut(aluOut), .cmpOut(cmpOut_top)); 
