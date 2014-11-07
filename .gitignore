@@ -1,2 +1,4 @@
 Project 2/Assembler/.idea/
 *.qws
+*/db
+*/incremental_db
