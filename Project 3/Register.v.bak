@@ -4,7 +4,7 @@ module Register(clk, reset, wrtEn, dataIn, dataOut);
 	
 	input clk, reset, wrtEn;
 	input[BIT_WIDTH - 1: 0] dataIn;
-	output[BIT_WIDTH - 1: 0] dataOut = RESET_VALUE;
+	output[BIT_WIDTH - 1: 0] dataOut;
 	reg[BIT_WIDTH - 1: 0] dataOut;
 	
 	always @(posedge clk) begin

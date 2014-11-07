@@ -1,0 +1,11 @@
+module pcSelector(isBranch, isJAL, cmp, pcSel)
+
+input isBranch, isJAL, cmp;
+output[1:0] pcsel;
+reg[1:0] pcsel;
+
+always begin
+	assign pcsel = ((isBranch&cmp)<<1)&isJAL;
+end
+
+endmodule

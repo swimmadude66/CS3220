@@ -1,5 +1,5 @@
 module ClkDivider(input clkIn, output clkOut);
-	parameter divider = 2500000;
+	parameter divider = 25000000;
 	parameter len = 31;
 	reg[len: 0] counter = 0;
 	reg clkReg = 0;
@@ -84,7 +84,7 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	wire [DMEM_DATA_BIT_WIDTH - 1: 0] seImm;
 	wire[IMEM_DATA_BIT_WIDTH - 1: 0] instWord;
 	wire[DBITS - 1: 0] branchPc;
-	wire isLoad, isStore;
+	wire isLoad, isStore, isBranch, isJAL;
 	wire [31:0] dataMemoryOut;
 	wire [1:0] dataMemOutSel;
 	wire[DBITS - 1: 0] switchOut;
@@ -94,10 +94,8 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	wire[DBITS - 1: 0] hexOut;
 	wire swEn, ledrEn, ledgEn, keyEn, hexEn;
   
-	
-	
-	
-//Stage 1
+
+//Stage 1 -- FETCH
 	// PC register
 	wire pcWrtEn = 1'b1; // always write to PC
 	wire[DBITS - 1: 0] pcIn; // Implement the logic that generates pcIn; you may change pcIn to reg if necessary
@@ -108,7 +106,7 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	PcLogic pcLogic (pcOut, pcLogicOut);
 	
 	//Mux2to1 #(.DATA_BIT_WIDTH(DBITS)) muxPcOut (pcSel, pcLogicOut, branchPc, pcIn);
-	Mux4to1 muxPcOut (pcSel, pcLogicOut, branchPc, aluOut, 32'd0, pcIn);
+	Mux4to1 muxPcOut ({isBranch&cmpOut_top, isJAL}, pcLogicOut, 32'b0, branchPc, aluOut, pcIn);
 
 	// Instruction Memory
 	InstMemory #(IMEM_INIT_FILE, IMEM_ADDR_BIT_WIDTH, IMEM_DATA_BIT_WIDTH) instMem (pcOut[IMEM_PC_BITS_HI - 1: IMEM_PC_BITS_LO], instWord);
@@ -116,14 +114,16 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	wire [DBITS-1:0] nxtPC;
 	wire [IMEM_DATA_BIT_WIDTH-1:0] iWord;
+	wire [IMEM_DATA_BIT_WIDTH-1:0] pipeLineout;
 	wire pipelineWrtEn  = 1'b1; //only diable on bubble
-	PipelineRegister #(.PC_BIT_WIDTH(32), .IWORD_BIT_WIDTH(32)) pipelineReg (clk, reset, pipelineWrtEn, pcLogicOut, instWord,nxtPC, iWord);
+	PipelineRegister #(.PC_BIT_WIDTH(32), .IWORD_BIT_WIDTH(32)) pipelineReg (clk, reset, pipelineWrtEn, pcLogicOut, instWord, nxtPC, pipeLineout);
+	Mux2to1 #(.DATA_BIT_WIDTH(IMEM_DATA_BIT_WIDTH)) pipelineMux(isBranch&cmpOut_top, pipeLineout, 32'hFFFFFFFF, iWord);
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //Stage 2
 	// Controller 
-	Controller cont (.inst(iWord), .aluCmpIn(cmpOut_top), .sndOpcode(sndOpcode), .dRegAddr(wrtIndex), .s1RegAddr(rdIndex1), .s2RegAddr(rdIndex2), .imm(imm), 
-							.regFileWrtEn(regFileEn), .s1Sel(s1Sel), .s2Sel(s2Sel), .memOutSel(memOutSel), .pcSel(pcSel), .isLoad(isLoad), .isStore(isStore));
+	Controller cont (.inst(iWord), .sndOpcode(sndOpcode), .dRegAddr(wrtIndex), .s1RegAddr(rdIndex1), .s2RegAddr(rdIndex2), .imm(imm), 
+							.regFileWrtEn(regFileEn), .s1Sel(s1Sel), .s2Sel(s2Sel), .memOutSel(memOutSel), .isLoad(isLoad), .isStore(isStore), .isBranch(isBranch), .isJAL(isJAL));
   
 	// RegisterFile
 	RegisterFile regFile (.clk(clk), .wrtEn(regFileEn), .wrtIndex(wrtIndex), .rdIndex1(rdIndex1), .rdIndex2(rdIndex2), .dataIn(dataIn), .dataOut1(dataOut1), .dataOut2(dataOut2));
@@ -136,7 +136,7 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	
 	// ALU
 	Alu alu1 (.ctrl(sndOpcode), .rawDataIn1(dataOut1), .rawDataIn2(aluIn2), .dataOut(aluOut), .cmpOut(cmpOut_top)); 
-	
+
 	// Data Memory and I/O
 	negRegister dataReg (clk, reset, 1'b1, aluOut, addrMemIn);
 	DataMemory #(DMEM_ADDR_BIT_WIDTH, DMEM_DATA_BIT_WIDTH) dataMem (.clk(clk), .addr(addrMemIn[DMEM_ADDR_BITS_HI - 1: DMEM_ADDR_BITS_LO]), .dataWrtEn(dataWrtEn), .dataIn(dataOut2), .dataOut(dataWord));
@@ -155,10 +155,10 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	negRegister switchReg (clk, reset, swEn, {22'd0,SW}, switchOut);
 	// LEDR
 	negRegister ledrReg 	 (clk, reset, ledrEn, dataOut2, ledrOut); // 
-	assign LEDR = ledrOut[9:0];
+	assign LEDR = ledrOut[9:0];/*{isBranch, cmpOut_top, isJAL, 4'b0, pcSel};*/
 	// LEDG
 	negRegister ledgReg 	 (clk, reset, ledgEn, dataOut2, ledgOut); // 
-	assign LEDG = ledgOut[7:0];
+	assign LEDG = ledgOut[7:0]; /**//*nxtPC[9:2];*/
 	// KEY
 	negRegister keyReg 	 (clk, reset, keyEn, {28'd0,KEY}, keyOut);
 	// HEXS
