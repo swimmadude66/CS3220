@@ -1,4 +1,4 @@
-module Controller (inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileWrtEn, immSel, memOutSel, isLoad, isStore, isBranch, isJAL);
+module Controller (inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileWrtEn, immSel, memOutSel, isLoad, isStore, isBranch, isJAL, s1used, s2used);
 	
 	parameter INST_BIT_WIDTH = 32;
 	
@@ -25,6 +25,7 @@ module Controller (inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileW
 	output reg regFileWrtEn;
 	output reg [1:0] memOutSel;
 	output reg isLoad, isStore, isBranch, isJAL;
+	output reg s1used, s2used;
 	
 	always @(*)
 	begin
@@ -43,6 +44,8 @@ module Controller (inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileW
 								isStore 			<= 1'b0;
 								isBranch			<= 1'b0;
 								isJAL				<= 1'b0;
+								s1used			<= 1'b1;
+								s2used			<= 1'b1;
 							end
 		4'b1000:begin // immediate arithmetic
 								sndOpcode 		<= {1'b0, inst[27:24]};
@@ -58,6 +61,9 @@ module Controller (inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileW
 								isStore 			<= 1'b0;
 								isBranch			<= 1'b0;
 								isJAL				<= 1'b0;
+								s1used			<= (inst[27:24] == 4'b1011)? 1'b0:
+																						  1'b1;
+								s2used			<= 1'b0;
 							end
 		4'b0010:begin // comparison
 								sndOpcode 		<= {1'b1, inst[27:24]};
@@ -73,6 +79,8 @@ module Controller (inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileW
 								isStore 			<= 1'b0;
 								isBranch			<= 1'b0;
 								isJAL				<= 1'b0;
+								s1used			<= 1'b1;
+								s2used			<= 1'b1;
 							end
 							
 		4'b1010:begin // immediate comparison
@@ -89,6 +97,8 @@ module Controller (inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileW
 								isStore 			<= 1'b0;
 								isBranch			<= 1'b0;
 								isJAL				<= 1'b0;
+								s1used			<= 1'b1;
+								s2used			<= 1'b0;
 							end
 		4'b0110:begin // compare and branch
 								sndOpcode 		<= {1'b1, inst[27:24]};
@@ -104,6 +114,9 @@ module Controller (inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileW
 								isStore 			<= 1'b0;
 								isBranch			<= 1'b1;
 								isJAL				<= 1'b0;
+								s1used			<= 1'b1;
+								s2used			<= (inst[26] == 1'b0)? 1'b1:
+																				 1'b0;
 							end
 		4'b1001:begin // load instruction
 								sndOpcode 		<= 5'b00000;
@@ -119,6 +132,8 @@ module Controller (inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileW
 								isStore 			<= 1'b0;
 								isBranch			<= 1'b0;
 								isJAL				<= 1'b0;
+								s1used			<= 1'b1;
+								s2used			<= 1'b0;
 							end
 		4'b0101:begin // store instruction
 								sndOpcode 		<= 5'b00000;
@@ -134,6 +149,8 @@ module Controller (inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileW
 								isStore 			<= 1'b1;
 								isBranch			<= 1'b0;
 								isJAL				<= 1'b0;
+								s1used			<= 1'b1;
+								s2used			<= 1'b1;
 							end
 		4'b1011:begin // JAL instruction
 								sndOpcode 		<= 5'b00000; // addition
@@ -149,6 +166,8 @@ module Controller (inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileW
 								isStore 			<= 1'b0;
 								isBranch			<= 1'b0;
 								isJAL				<= 1'b1;
+								s1used			<= 1'b1;
+								s2used			<= 1'b0;
 							end
 		4'b1111:begin // NOOP
 								sndOpcode 		<= 5'b11111;
@@ -164,6 +183,8 @@ module Controller (inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileW
 								isStore 			<= 1'b0;
 								isBranch			<= 1'b0;
 								isJAL				<= 1'b0;
+								s1used			<= 1'b0;
+								s2used			<= 1'b0;
 					end
 		default:begin
 								sndOpcode 		<= 5'd0;
@@ -179,6 +200,8 @@ module Controller (inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileW
 								isStore 			<= 1'b0;
 								isBranch			<= 1'b0;
 								isJAL				<= 1'b0;
+								s1used			<= 1'b0;
+								s2used			<= 1'b0;
 					end
 				
 		endcase

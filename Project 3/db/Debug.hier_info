@@ -1112,21 +1112,26 @@ inst[24] => Mux3.IN16
 inst[24] => Mux3.IN17
 inst[24] => Mux3.IN18
 inst[24] => Mux3.IN19
+inst[24] => Equal0.IN2
 inst[25] => Mux2.IN15
 inst[25] => Mux2.IN16
 inst[25] => Mux2.IN17
 inst[25] => Mux2.IN18
 inst[25] => Mux2.IN19
+inst[25] => Equal0.IN1
 inst[26] => Mux1.IN15
 inst[26] => Mux1.IN16
 inst[26] => Mux1.IN17
 inst[26] => Mux1.IN18
 inst[26] => Mux1.IN19
+inst[26] => Equal0.IN3
+inst[26] => Selector23.IN2
 inst[27] => Mux0.IN15
 inst[27] => Mux0.IN16
 inst[27] => Mux0.IN17
 inst[27] => Mux0.IN18
 inst[27] => Mux0.IN19
+inst[27] => Equal0.IN0
 inst[28] => Decoder0.IN3
 inst[28] => Mux0.IN14
 inst[28] => Mux1.IN14
@@ -1188,6 +1193,36 @@ isLoad <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
 isStore <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
 isBranch <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
 isJAL <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+s1used <= Selector22.DB_MAX_OUTPUT_PORT_TYPE
+s2used <= Selector23.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Project3|Bubbler:bubbler
+clk => bubbleOut~reg0.CLK
+isLoad => always0.IN0
+isBranch => always0.IN1
+isJAL => always0.IN1
+cmpIn => ~NO_FANOUT~
+s1Addr[0] => Equal0.IN3
+s1Addr[1] => Equal0.IN2
+s1Addr[2] => Equal0.IN1
+s1Addr[3] => Equal0.IN0
+s2Addr[0] => Equal1.IN3
+s2Addr[1] => Equal1.IN2
+s2Addr[2] => Equal1.IN1
+s2Addr[3] => Equal1.IN0
+s1used => always0.IN1
+s2used => always0.IN1
+dAddr[0] => Equal0.IN7
+dAddr[0] => Equal1.IN7
+dAddr[1] => Equal0.IN6
+dAddr[1] => Equal1.IN6
+dAddr[2] => Equal0.IN5
+dAddr[2] => Equal1.IN5
+dAddr[3] => Equal0.IN4
+dAddr[3] => Equal1.IN4
+regWrtEn => ~NO_FANOUT~
+bubbleOut <= bubbleOut~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |Project3|RegisterFile:regFile

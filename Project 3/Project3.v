@@ -67,6 +67,7 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	wire reset = SW[0]; //~lock;
 	
 	wire [DMEM_DATA_BIT_WIDTH - 1: 0] aluIn2;
+	wire bubble;
 	wire s1Sel;
 	wire [1: 0] s2Sel;
 	wire[DMEM_DATA_BIT_WIDTH - 1: 0] dataWord;
@@ -76,6 +77,7 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	wire [15: 0] imm;
 	wire regFileEn;
 	wire dataWrtEn;
+	wire s1used, s2used;
 	wire [DMEM_DATA_BIT_WIDTH - 1: 0] dataIn, dataOut1, dataOut2;
 	wire cmpOut_top;  
 	wire [DMEM_DATA_BIT_WIDTH - 1: 0] aluOut;
@@ -114,17 +116,21 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	wire [DBITS-1:0] nxtPC;
 	wire [IMEM_DATA_BIT_WIDTH-1:0] iWord;
-	wire [IMEM_DATA_BIT_WIDTH-1:0] pipeLineout;
+	wire [IMEM_DATA_BIT_WIDTH-1:0] pipeLineOut;
 	wire pipelineWrtEn  = 1'b1; //only diable on bubble
-	PipelineRegister #(.PC_BIT_WIDTH(32), .IWORD_BIT_WIDTH(32)) pipelineReg (clk, reset, pipelineWrtEn, pcLogicOut, instWord, nxtPC, pipeLineout);
-	Mux2to1 #(.DATA_BIT_WIDTH(IMEM_DATA_BIT_WIDTH)) pipelineMux(isBranch&cmpOut_top, pipeLineout, 32'hFFFFFFFF, iWord);
+	PipelineRegister #(.PC_BIT_WIDTH(32), .IWORD_BIT_WIDTH(32)) pipelineReg (clk, reset, pipelineWrtEn, pcLogicOut, instWord, nxtPC, pipeLineOut);
+	Mux2to1 #(.DATA_BIT_WIDTH(IMEM_DATA_BIT_WIDTH)) pipelineMux(bubble, pipeLineOut, 32'hFFFFFFFF, iWord);
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //Stage 2
 	// Controller 
-	Controller cont (.inst(iWord), .sndOpcode(sndOpcode), .dRegAddr(wrtIndex), .s1RegAddr(rdIndex1), .s2RegAddr(rdIndex2), .imm(imm), 
-							.regFileWrtEn(regFileEn), .immSel(immSel), .memOutSel(memOutSel), .isLoad(isLoad), .isStore(isStore), .isBranch(isBranch), .isJAL(isJAL));
+	Controller cont (.inst(iWord), .sndOpcode(sndOpcode), .dRegAddr(wrtIndex), .s1RegAddr(rdIndex1), .s2RegAddr(rdIndex2), .imm(imm), .regFileWrtEn(regFileEn),
+						  .immSel(immSel), .memOutSel(memOutSel), .isLoad(isLoad), .isStore(isStore), .isBranch(isBranch), .isJAL(isJAL), .s1used(s1used),
+						  .s2used(s2used));
   
+	//Bubbler
+	Bubbler bubbler (clk, isLoad, isBranch, isJAL, cmpOut_top , rdIndex1, rdIndex2, s1used, s2used, wrtIndex, regFileEn, bubble);
+	
 	// RegisterFile
 	RegisterFile regFile (.clk(clk), .wrtEn(regFileEn), .wrtIndex(wrtIndex), .rdIndex1(rdIndex1), .rdIndex2(rdIndex2), .dataIn(dataIn), .dataOut1(dataOut1), .dataOut2(dataOut2));
 	
