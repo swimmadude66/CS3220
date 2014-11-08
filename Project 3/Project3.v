@@ -106,7 +106,7 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	PcLogic pcLogic (pcOut, pcLogicOut);
 	
 	//Mux2to1 #(.DATA_BIT_WIDTH(DBITS)) muxPcOut (pcSel, pcLogicOut, branchPc, pcIn);
-	Mux4to1 muxPcOut ({isBranch&cmpOut_top, isJAL}, pcLogicOut, 32'b0, branchPc, aluOut, pcIn);
+	Mux4to1 muxPcOut (pcSel, pcLogicOut, pcOut, branchPc, aluOut, pcIn);
 
 	// Instruction Memory
 	InstMemory #(IMEM_INIT_FILE, IMEM_ADDR_BIT_WIDTH, IMEM_DATA_BIT_WIDTH) instMem (pcOut[IMEM_PC_BITS_HI - 1: IMEM_PC_BITS_LO], instWord);
@@ -123,7 +123,7 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 //Stage 2
 	// Controller 
 	Controller cont (.inst(iWord), .sndOpcode(sndOpcode), .dRegAddr(wrtIndex), .s1RegAddr(rdIndex1), .s2RegAddr(rdIndex2), .imm(imm), 
-							.regFileWrtEn(regFileEn), .s1Sel(s1Sel), .s2Sel(s2Sel), .memOutSel(memOutSel), .isLoad(isLoad), .isStore(isStore), .isBranch(isBranch), .isJAL(isJAL));
+							.regFileWrtEn(regFileEn), .immSel(immSel), .memOutSel(memOutSel), .isLoad(isLoad), .isStore(isStore), .isBranch(isBranch), .isJAL(isJAL));
   
 	// RegisterFile
 	RegisterFile regFile (.clk(clk), .wrtEn(regFileEn), .wrtIndex(wrtIndex), .rdIndex1(rdIndex1), .rdIndex2(rdIndex2), .dataIn(dataIn), .dataOut1(dataOut1), .dataOut2(dataOut2));
@@ -132,7 +132,7 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	SignExtension #(.IN_BIT_WIDTH(16), .OUT_BIT_WIDTH(32)) se (imm, seImm);
 	
 	// ALU Mux
-	Mux4to1 #(.DATA_BIT_WIDTH(DBITS)) muxAluIn (s2Sel[0], dataOut2, seImm, dataIn, dataIn, aluIn2);
+	Mux2to1 #(.DATA_BIT_WIDTH(DBITS)) muxAluIn2(immSel, dataOut2, seImm, aluIn2);
 	
 	// ALU
 	Alu alu1 (.ctrl(sndOpcode), .rawDataIn1(dataOut1), .rawDataIn2(aluIn2), .dataOut(aluOut), .cmpOut(cmpOut_top)); 
@@ -145,7 +145,7 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	
 	// Branch Address Calculator
 	BranchAddrCalculator bac (.nextPc(nxtPC), .pcRel(seImm), .branchAddr(branchPc));
-
+	assign pcSel = {isBranch&cmpOut_top, isJAL};
 	// IO controller
 	IO_controller ioCtrl (.dataAddr(aluOut), .isLoad(isLoad), .isStore(isStore), .dataWrtEn(dataWrtEn), .dataMemOutSel(dataMemOutSel), 
 									.swEn(swEn), .keyEn(keyEn), .ledrEn(ledrEn), .ledgEn(ledgEn), .hexEn(hexEn));

@@ -528,6 +528,12 @@ set_global_assignment -name SIMULATION_MODE FUNCTIONAL
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST ON -section_id eda_simulation
 set_global_assignment -name VECTOR_OUTPUT_FORMAT VWF
 set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE "C:/Users/jspark/Desktop/cs3220-examples/Project2/Waveform.vwf"
+set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING ON
+set_global_assignment -name SLD_FILE "C:/Users/jspark/Desktop/cs3220-examples/Project2/stp1_auto_stripped.stp"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VERILOG_FILE Project3.v
 set_global_assignment -name VERILOG_FILE negRegister.v
 set_global_assignment -name VERILOG_FILE PcLogic.v
 set_global_assignment -name MIF_FILE Test2.mif
@@ -535,7 +541,6 @@ set_global_assignment -name MIF_FILE Sorter2.mif
 set_global_assignment -name VERILOG_FILE Alu.v
 set_global_assignment -name VERILOG_FILE InstMemory.v
 set_global_assignment -name VERILOG_FILE Register.v
-set_global_assignment -name VERILOG_FILE Project2.v
 set_global_assignment -name SOURCE_FILE Test2.a32
 set_global_assignment -name SOURCE_FILE Sorter2.a32
 set_global_assignment -name VERILOG_FILE SevenSeg.v
@@ -556,12 +561,7 @@ set_global_assignment -name CDF_FILE ../led_test/output_files/Chain2.cdf
 set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
 set_global_assignment -name SIGNALTAP_FILE bad_test.stp
 set_global_assignment -name SIGNALTAP_FILE stp1.stp
-set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING ON
 set_global_assignment -name VERILOG_FILE Mux4to1.v
-set_global_assignment -name SLD_FILE "C:/Users/jspark/Desktop/cs3220-examples/Project2/stp1_auto_stripped.stp"
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name VERILOG_FILE PipelineRegister.v
 set_global_assignment -name VERILOG_FILE PCSelector.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
