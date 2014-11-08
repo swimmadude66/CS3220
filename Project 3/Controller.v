@@ -1,9 +1,10 @@
-module Controller (inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileWrtEn, s1Sel, s2Sel, memOutSel, isLoad, isStore, isBranch, isJAL);
+module Controller (clk, inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileWrtEn, s1Sel, s2Sel, memOutSel, isLoad, isStore, isBranch, isJAL);
 	
 	parameter INST_BIT_WIDTH = 32;
 	
 	// inputs
 	input [INST_BIT_WIDTH-1:0] inst;
+	input clk;
 	
 	// intermediate values
 	reg immSel;
@@ -184,19 +185,20 @@ module Controller (inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileW
 					end
 				
 		endcase
+		if(prevWrt == 1'b1) begin		//hazard possible
+			s1Sel = (prevDRegAddr == s1RegAddr)?	1'b1: //use forwarded
+																1'b0; //use register
+			s2Sel = (prevDRegAddr == s2RegAddr)? 	{1'b1, immSel}: //useforwarded
+																{1'b0, immSel};
+		end
+		else begin			//no hazards
+			s1Sel = 1'b0; 
+			s2Sel = {1'b0, immSel};
+		end
+	end
+		always @(negedge clk)
 		begin
-			if(prevWrt == 1'b1) begin		//hazard possible
-				s1Sel = (prevDRegAddr == s1RegAddr)?	1'b1: //use forwarded
-																	1'b0; //use register
-				s2Sel = (prevDRegAddr == s2RegAddr)? 	{1'b1, immSel}: //useforwarded
-																	{1'b0, immSel};
-			end
-			else begin			//no hazards
-				s1Sel = 1'b0; 
-				s2Sel = {1'b0, immSel};
-			end
 			prevDRegAddr <= dRegAddr;
 			prevWrt <= regFileWrtEn;
 		end
-	end
 endmodule

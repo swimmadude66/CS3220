@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for Debug
-Fri Nov 07 18:25:04 2014
+Fri Nov 07 20:56:35 2014
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -78,7 +78,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 ; Processors                 ; Number ;
 +----------------------------+--------+
-; Number detected on machine ; 8      ;
+; Number detected on machine ; 2      ;
 ; Maximum allowed            ; 1      ;
 +----------------------------+--------+
 
@@ -88,7 +88,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------+--------+--------------------------+
 ; SDC File Path ; Status ; Read at                  ;
 +---------------+--------+--------------------------+
-; Timing.sdc    ; OK     ; Fri Nov 07 18:25:00 2014 ;
+; Timing.sdc    ; OK     ; Fri Nov 07 20:56:28 2014 ;
 +---------------+--------+--------------------------+
 
 
@@ -913,7 +913,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Nov 07 18:24:59 2014
+    Info: Processing started: Fri Nov 07 20:56:24 2014
 Info: Command: quartus_sta Project3 -c Debug
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -4311,9 +4311,9 @@ Info (332113): Path #1: slack is 49.000
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 3078 warnings
-    Info: Peak virtual memory: 455 megabytes
-    Info: Processing ended: Fri Nov 07 18:25:04 2014
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Peak virtual memory: 453 megabytes
+    Info: Processing ended: Fri Nov 07 20:56:34 2014
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:10
 
 

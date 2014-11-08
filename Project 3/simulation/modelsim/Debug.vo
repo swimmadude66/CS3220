@@ -16,7 +16,7 @@
 // PROGRAM "Quartus II 64-Bit"
 // VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
 
-// DATE "11/07/2014 18:25:06"
+// DATE "11/07/2014 20:56:38"
 
 // 
 // Device: Altera EP2C20F484C7 Package FBGA484
@@ -2902,6 +2902,9 @@ wire \hex3Converter|display[3]~10_combout ;
 wire \hex3Converter|display[4]~11_combout ;
 wire \hex3Converter|display[5]~12_combout ;
 wire \hex3Converter|display[6]~13_combout ;
+wire [3:0] \KEY~combout ;
+wire [9:0] \SW~combout ;
+wire [31:0] \dataReg|dataOut ;
 wire [31:0] \switchReg|dataOut ;
 wire [31:0] \ledrReg|dataOut ;
 wire [31:0] \ledgReg|dataOut ;
@@ -2911,9 +2914,6 @@ wire [31:0] \clkdi|counter ;
 wire [31:0] \pc|dataOut ;
 wire [31:0] \pipelineReg|nxtPCout ;
 wire [31:0] \pipelineReg|iwordout ;
-wire [3:0] \KEY~combout ;
-wire [9:0] \SW~combout ;
-wire [31:0] \dataReg|dataOut ;
 
 wire [1:0] \dataMem|data_rtl_0|auto_generated|altsyncram1|ram_block2a0_PORTADATAOUT_bus ;
 wire [1:0] \dataMem|data_rtl_0|auto_generated|altsyncram1|ram_block2a1_PORTADATAOUT_bus ;

@@ -1057,6 +1057,11 @@ dOut[31] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |Project3|Controller:cont
+clk => prevWrt.CLK
+clk => prevDRegAddr[0].CLK
+clk => prevDRegAddr[1].CLK
+clk => prevDRegAddr[2].CLK
+clk => prevDRegAddr[3].CLK
 inst[0] => Selector21.IN5
 inst[0] => imm.DATAB
 inst[1] => Selector20.IN5

@@ -122,7 +122,7 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 
 //Stage 2
 	// Controller 
-	Controller cont (.inst(iWord), .sndOpcode(sndOpcode), .dRegAddr(wrtIndex), .s1RegAddr(rdIndex1), .s2RegAddr(rdIndex2), .imm(imm), 
+	Controller cont (.clk(clk), .inst(iWord), .sndOpcode(sndOpcode), .dRegAddr(wrtIndex), .s1RegAddr(rdIndex1), .s2RegAddr(rdIndex2), .imm(imm), 
 							.regFileWrtEn(regFileEn), .s1Sel(s1Sel), .s2Sel(s2Sel), .memOutSel(memOutSel), .isLoad(isLoad), .isStore(isStore), .isBranch(isBranch), .isJAL(isJAL));
   
 	// RegisterFile
