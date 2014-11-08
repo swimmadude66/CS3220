@@ -65,6 +65,7 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	ClkDivider clkdi(CLOCK_50, clk);
 	
 	wire reset = SW[0]; //~lock;
+	//wire clk = SW[1];
 	
 	wire [DMEM_DATA_BIT_WIDTH - 1: 0] aluIn1, aluIn2;
 	wire s1Sel;
@@ -133,8 +134,10 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	
 	//ALU MUX
 	Mux2to1 #(.DATA_BIT_WIDTH(DBITS)) mucAluIn1 (s1Sel, dataOut1, dataIn, aluIn1);
+	//assign LEDR = s1Sel;
    // ALU Mux 2
    Mux4to1 #(.DATA_BIT_WIDTH(DBITS)) muxAluIn2 (s2Sel, dataOut2, seImm, dataIn, dataIn, aluIn2);
+	//assign LEDG = s2Sel;
 	
 	// ALU
 	Alu alu1 (.ctrl(sndOpcode), .rawDataIn1(aluIn1), .rawDataIn2(aluIn2), .dataOut(aluOut), .cmpOut(cmpOut_top)); 

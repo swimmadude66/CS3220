@@ -1,0 +1,383 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\j3gb3rt\Documents\CS3220\Project 3
+vAlu
+IPLIo@f`kFMcJLX1X_M?[@0
+VD^U@I_dz]5nYb]^V89lR32
+Z1 dC:\Users\j3gb3rt\Documents\CS3220\Project 3
+Z2 w1415200517
+8C:/Users/j3gb3rt/Documents/CS3220/Project 3/Alu.v
+FC:/Users/j3gb3rt/Documents/CS3220/Project 3/Alu.v
+L0 1
+Z3 OV;L;10.1d;51
+r1
+31
+Z4 o-work work -O0
+n@alu
+!s100 z6BCl7z<7U8S0n9V9g:oO2
+!s108 1415399817.766000
+!s107 C:/Users/j3gb3rt/Documents/CS3220/Project 3/Alu.v|
+!s90 -reportprogress|300|-work|work|C:/Users/j3gb3rt/Documents/CS3220/Project 3/Alu.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vBranchAddrCalculator
+IoSTQCM8J9EVRzn7gih79V1
+V_D4iSO?:j1l8B8bl5zI]93
+R1
+R2
+8C:/Users/j3gb3rt/Documents/CS3220/Project 3/BranchAddrCalculator.v
+FC:/Users/j3gb3rt/Documents/CS3220/Project 3/BranchAddrCalculator.v
+L0 1
+R3
+r1
+31
+R4
+n@branch@addr@calculator
+!s100 QNfS4Fom5eNKN58lUT]O`0
+!s108 1415399817.953000
+!s107 C:/Users/j3gb3rt/Documents/CS3220/Project 3/BranchAddrCalculator.v|
+!s90 -reportprogress|300|-work|work|C:/Users/j3gb3rt/Documents/CS3220/Project 3/BranchAddrCalculator.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vClkDivider
+!s100 5@75_[>[Xz^L=VA2b>nLE2
+I8e3JW;dG:gGz2>UoT5ngJ0
+VSn1aHH[`XNmSK`=oIQnY30
+R1
+Z5 w1415397260
+Z6 8C:/Users/j3gb3rt/Documents/CS3220/Project 3/Project3.v
+Z7 FC:/Users/j3gb3rt/Documents/CS3220/Project 3/Project3.v
+L0 1
+R3
+r1
+31
+Z8 !s108 1415399820.264000
+Z9 !s107 C:/Users/j3gb3rt/Documents/CS3220/Project 3/Project3.v|
+Z10 !s90 -reportprogress|30|-work|work|C:/Users/j3gb3rt/Documents/CS3220/Project 3/Project3.v|
+R4
+n@clk@divider
+!i10b 1
+!s85 0
+!s101 -O0
+vcomparator
+IfFQNZ@V=MkPc[4W[nZT@V3
+V=N8c1Y9K94zADjD>gaPLR3
+R1
+R2
+8C:/Users/j3gb3rt/Documents/CS3220/Project 3/comparator.v
+FC:/Users/j3gb3rt/Documents/CS3220/Project 3/comparator.v
+L0 1
+R3
+r1
+31
+R4
+!s100 MD2heg4G?WelI2oPJUO=K0
+!s108 1415399818.148000
+!s107 C:/Users/j3gb3rt/Documents/CS3220/Project 3/comparator.v|
+!s90 -reportprogress|300|-work|work|C:/Users/j3gb3rt/Documents/CS3220/Project 3/comparator.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vController
+Io7cS]eJh>?H]]N>T?jJN?2
+VzZD4K3MLb;[iamMOPPeCW0
+R1
+Z11 w1415394396
+8C:/Users/j3gb3rt/Documents/CS3220/Project 3/Controller.v
+FC:/Users/j3gb3rt/Documents/CS3220/Project 3/Controller.v
+L0 1
+R3
+r1
+31
+R4
+n@controller
+!s100 C:MKc;]J_?hz`P0889[ZH2
+!s108 1415399818.328000
+!s107 C:/Users/j3gb3rt/Documents/CS3220/Project 3/Controller.v|
+!s90 -reportprogress|300|-work|work|C:/Users/j3gb3rt/Documents/CS3220/Project 3/Controller.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vDataMemory
+I24?gkiUEhjWW>HQPBZjOQ1
+VgFRnfAN6LDAlQ_lTWn6970
+R1
+R2
+8C:/Users/j3gb3rt/Documents/CS3220/Project 3/DataMemory.v
+FC:/Users/j3gb3rt/Documents/CS3220/Project 3/DataMemory.v
+L0 1
+R3
+r1
+31
+R4
+n@data@memory
+!s100 53lKN`=Mc3eQ;S>L4OJ=S0
+!s108 1415399818.512000
+!s107 C:/Users/j3gb3rt/Documents/CS3220/Project 3/DataMemory.v|
+!s90 -reportprogress|300|-work|work|C:/Users/j3gb3rt/Documents/CS3220/Project 3/DataMemory.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vdec2_7seg
+!s100 gPF3f3lPE>IM8lI<mfA[d2
+IOdNiG^AF^4zZO[GC6mW>R1
+V>=@`lWP8z@0bHzMjKAf>H1
+R1
+R5
+R6
+R7
+L0 310
+R3
+r1
+31
+R8
+R9
+R10
+R4
+!i10b 1
+!s85 0
+!s101 -O0
+vInstMemory
+I1dKE]BcA[kKJA@czbD5If1
+VUJYb>IZO9F_mPNHYd`^832
+R1
+R2
+8C:/Users/j3gb3rt/Documents/CS3220/Project 3/InstMemory.v
+FC:/Users/j3gb3rt/Documents/CS3220/Project 3/InstMemory.v
+L0 1
+R3
+r1
+31
+R4
+n@inst@memory
+!s100 bUH<jh@6ajJgn<IG=2ZAX2
+!s108 1415399818.683000
+!s107 C:/Users/j3gb3rt/Documents/CS3220/Project 3/InstMemory.v|
+!s90 -reportprogress|300|-work|work|C:/Users/j3gb3rt/Documents/CS3220/Project 3/InstMemory.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vIO_controller
+!s100 ZehB^Pa_FjeSTnC2O1o6d2
+IFeF>fZ5TY::NOjYeg7_Me3
+Vn2<UIKB65]8]C03MF`aZX1
+R1
+R5
+R6
+R7
+L0 178
+R3
+r1
+31
+R8
+R9
+R10
+R4
+n@i@o_controller
+!i10b 1
+!s85 0
+!s101 -O0
+vMux2to1
+IEI:FWF^M<^ii^DgAkea6]2
+VU^_Dg?j]1<J>HF?_[JZN_0
+R1
+R11
+8C:/Users/j3gb3rt/Documents/CS3220/Project 3/Mux2to1.v
+FC:/Users/j3gb3rt/Documents/CS3220/Project 3/Mux2to1.v
+L0 1
+R3
+r1
+31
+R4
+n@mux2to1
+!s100 hJ75>1FCCQm5@TV83I<_:1
+!s108 1415399818.866000
+!s107 C:/Users/j3gb3rt/Documents/CS3220/Project 3/Mux2to1.v|
+!s90 -reportprogress|300|-work|work|C:/Users/j3gb3rt/Documents/CS3220/Project 3/Mux2to1.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vMux4to1
+I`FlK;kM8RZiNgWJzUQ7253
+VzBFkPaF^JS^PcmU0LdS352
+R1
+R2
+8C:/Users/j3gb3rt/Documents/CS3220/Project 3/Mux4to1.v
+FC:/Users/j3gb3rt/Documents/CS3220/Project 3/Mux4to1.v
+L0 1
+R3
+r1
+31
+R4
+n@mux4to1
+!s100 SbiK:0Y_NZk@A@Og1zKVA1
+!s108 1415399819.056000
+!s107 C:/Users/j3gb3rt/Documents/CS3220/Project 3/Mux4to1.v|
+!s90 -reportprogress|300|-work|work|C:/Users/j3gb3rt/Documents/CS3220/Project 3/Mux4to1.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vnegRegister
+IBon`o`@;=R_Idg?d?3b6C0
+VN]>Tdh==80@DD3@Z8``C;0
+R1
+R2
+8C:/Users/j3gb3rt/Documents/CS3220/Project 3/negRegister.v
+FC:/Users/j3gb3rt/Documents/CS3220/Project 3/negRegister.v
+L0 1
+R3
+r1
+31
+R4
+nneg@register
+!s100 YdgnQ33i=8ez[liijhVWV3
+!s108 1415399819.232000
+!s107 C:/Users/j3gb3rt/Documents/CS3220/Project 3/negRegister.v|
+!s90 -reportprogress|300|-work|work|C:/Users/j3gb3rt/Documents/CS3220/Project 3/negRegister.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vPcLogic
+IU]]n=:febSePM>aDJ41HB3
+V8?EB`doURJ74[[JgOFVVO2
+R1
+R2
+8C:/Users/j3gb3rt/Documents/CS3220/Project 3/PcLogic.v
+FC:/Users/j3gb3rt/Documents/CS3220/Project 3/PcLogic.v
+L0 1
+R3
+r1
+31
+R4
+n@pc@logic
+!s100 6L9OePNa[l`4nMiY6I>AT0
+!s108 1415399819.408000
+!s107 C:/Users/j3gb3rt/Documents/CS3220/Project 3/PcLogic.v|
+!s90 -reportprogress|300|-work|work|C:/Users/j3gb3rt/Documents/CS3220/Project 3/PcLogic.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vPipelineRegister
+Ic^SZ:^>aNkL]4W?aEn3<N3
+VzWWeV97O@=^;En`;UBU521
+R1
+w1415389708
+8C:/Users/j3gb3rt/Documents/CS3220/Project 3/PipelineRegister.v
+FC:/Users/j3gb3rt/Documents/CS3220/Project 3/PipelineRegister.v
+L0 1
+R3
+r1
+31
+R4
+n@pipeline@register
+!s100 9K]AGk^<GZzkcTRCm87602
+!s108 1415399819.581000
+!s107 C:/Users/j3gb3rt/Documents/CS3220/Project 3/PipelineRegister.v|
+!s90 -reportprogress|300|-work|work|C:/Users/j3gb3rt/Documents/CS3220/Project 3/PipelineRegister.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vProject3
+!s100 iUD3OeUbdd]0:nmgM6>AL0
+I4]QdeIg=HSgd1SoAl9SUh3
+VRZJ^_?^Ka:BSFIBVCmjMC2
+R1
+R5
+R6
+R7
+L0 20
+R3
+r1
+31
+R8
+R9
+R10
+R4
+n@project3
+!i10b 1
+!s85 0
+!s101 -O0
+vRegister
+Ii1[1RkT<bNCecJJP=3S3U3
+VYG[k4?SB[JW;7e2G3GnAD0
+R1
+w1415395800
+8C:/Users/j3gb3rt/Documents/CS3220/Project 3/Register.v
+FC:/Users/j3gb3rt/Documents/CS3220/Project 3/Register.v
+L0 1
+R3
+r1
+31
+R4
+n@register
+!s100 HmC_mdgc2zM3g?A1@DDQA0
+!s108 1415399820.578000
+!s107 C:/Users/j3gb3rt/Documents/CS3220/Project 3/Register.v|
+!s90 -reportprogress|30|-work|work|C:/Users/j3gb3rt/Documents/CS3220/Project 3/Register.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vRegisterFile
+I_SSk6nPj@id?l[BcT`?4Q1
+VM3LN]?`?Tb^EOUFSK1:zn0
+R1
+R2
+8C:/Users/j3gb3rt/Documents/CS3220/Project 3/RegisterFile.v
+FC:/Users/j3gb3rt/Documents/CS3220/Project 3/RegisterFile.v
+L0 1
+R3
+r1
+31
+R4
+n@register@file
+!s100 D5F5<zRek0Pd<iIQ7TYac1
+!s108 1415399820.781000
+!s107 C:/Users/j3gb3rt/Documents/CS3220/Project 3/RegisterFile.v|
+!s90 -reportprogress|30|-work|work|C:/Users/j3gb3rt/Documents/CS3220/Project 3/RegisterFile.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vSevenSeg
+I_6mb<n<B]R@FR[[kCZ=2o0
+VKZQ;?2zCF>`gI56YS>C7c1
+R1
+R2
+8C:/Users/j3gb3rt/Documents/CS3220/Project 3/SevenSeg.v
+FC:/Users/j3gb3rt/Documents/CS3220/Project 3/SevenSeg.v
+L0 1
+R3
+r1
+31
+R4
+n@seven@seg
+!s100 mHlQWWKK9Z]:eakZoTHcz2
+!s108 1415399820.961000
+!s107 C:/Users/j3gb3rt/Documents/CS3220/Project 3/SevenSeg.v|
+!s90 -reportprogress|30|-work|work|C:/Users/j3gb3rt/Documents/CS3220/Project 3/SevenSeg.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vSignExtension
+Ig2OV8iZ`o2C>4^MlBT62X1
+VjjMXQ2A_@M;USO7=KT?Vh1
+R1
+R2
+8C:/Users/j3gb3rt/Documents/CS3220/Project 3/SignExtension.v
+FC:/Users/j3gb3rt/Documents/CS3220/Project 3/SignExtension.v
+L0 1
+R3
+r1
+31
+R4
+n@sign@extension
+!i10b 1
+!s100 >jB^XRDeA_?UEZVU08UED1
+!s85 0
+!s108 1415399821.139000
+!s107 C:/Users/j3gb3rt/Documents/CS3220/Project 3/SignExtension.v|
+!s90 -reportprogress|30|-work|work|C:/Users/j3gb3rt/Documents/CS3220/Project 3/SignExtension.v|
+!s101 -O0

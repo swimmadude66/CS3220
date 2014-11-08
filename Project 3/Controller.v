@@ -8,6 +8,7 @@ module Controller (clk, inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, reg
 	// intermediate values
 	reg immSel;
 	reg prevWrt = 1'b0;
+	reg s2used = 1'b0;
 	
 	// output opcodes
 	output reg [4: 0] sndOpcode;
@@ -45,6 +46,7 @@ module Controller (clk, inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, reg
 								isStore 			<= 1'b0;
 								isBranch			<= 1'b0;
 								isJAL				<= 1'b0;
+								s2used			 = 1'b1;
 							end
 		4'b1000:begin // immediate arithmetic
 								sndOpcode 		<= {1'b0, inst[27:24]};
@@ -60,6 +62,7 @@ module Controller (clk, inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, reg
 								isStore 			<= 1'b0;
 								isBranch			<= 1'b0;
 								isJAL				<= 1'b0;
+								s2used			 = 1'b0;
 							end
 		4'b0010:begin // comparison
 								sndOpcode 		<= {1'b1, inst[27:24]};
@@ -75,6 +78,7 @@ module Controller (clk, inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, reg
 								isStore 			<= 1'b0;
 								isBranch			<= 1'b0;
 								isJAL				<= 1'b0;
+								s2used			 = 1'b1;
 							end
 							
 		4'b1010:begin // immediate comparison
@@ -91,6 +95,7 @@ module Controller (clk, inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, reg
 								isStore 			<= 1'b0;
 								isBranch			<= 1'b0;
 								isJAL				<= 1'b0;
+								s2used			 = 1'b0;
 							end
 		4'b0110:begin // compare and branch
 								sndOpcode 		<= {1'b1, inst[27:24]};
@@ -106,6 +111,12 @@ module Controller (clk, inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, reg
 								isStore 			<= 1'b0;
 								isBranch			<= 1'b1;
 								isJAL				<= 1'b0;
+								if (inst[26] == 1'b1) begin
+									s2used			 = 1'b0;
+								end
+								else begin
+									s2used			 = 1'b1;
+								end
 							end
 		4'b1001:begin // load instruction
 								sndOpcode 		<= 5'b00000;
@@ -121,6 +132,7 @@ module Controller (clk, inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, reg
 								isStore 			<= 1'b0;
 								isBranch			<= 1'b0;
 								isJAL				<= 1'b0;
+								s2used			 = 1'b0;
 							end
 		4'b0101:begin // store instruction
 								sndOpcode 		<= 5'b00000;
@@ -136,6 +148,7 @@ module Controller (clk, inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, reg
 								isStore 			<= 1'b1;
 								isBranch			<= 1'b0;
 								isJAL				<= 1'b0;
+								s2used			 = 1'b1;
 							end
 		4'b1011:begin // JAL instruction
 								sndOpcode 		<= 5'b00000; // addition
@@ -151,6 +164,7 @@ module Controller (clk, inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, reg
 								isStore 			<= 1'b0;
 								isBranch			<= 1'b0;
 								isJAL				<= 1'b1;
+								s2used			 = 1'b0;
 							end
 		4'b1111:begin // NOOP
 								sndOpcode 		<= 5'b11111;
@@ -166,6 +180,7 @@ module Controller (clk, inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, reg
 								isStore 			<= 1'b0;
 								isBranch			<= 1'b0;
 								isJAL				<= 1'b0;
+								s2used			 = 1'b0;
 					end
 		default:begin
 								sndOpcode 		<= 5'd0;
@@ -181,15 +196,21 @@ module Controller (clk, inst,sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, reg
 								isStore 			<= 1'b0;
 								isBranch			<= 1'b0;
 								isJAL				<= 1'b0;
+								s2used			 = 1'b0;
 					end
 				
 		endcase
 		if(prevWrt == 1'b1) begin        //hazard possible
 			s1Sel = (prevDRegAddr == s1RegAddr)?    1'b1: //use forwarded
                                                  1'b0; //use register
-         s2Sel = (prevDRegAddr == s2RegAddr)?     {1'b1, immSel}: //useforwarded
-                                                  {1'b0, immSel};
-      end
+         if (s2used == 1'b1) begin
+				s2Sel = (prevDRegAddr == s2RegAddr)?     {1'b1, immSel}: //useforwarded
+																	  {1'b0, immSel};
+			end
+			else begin
+				s2Sel = {1'b0, immSel};
+			end
+		end
       else begin            //no hazards
 			s1Sel = 1'b0; 
 			s2Sel = {1'b0, immSel};
