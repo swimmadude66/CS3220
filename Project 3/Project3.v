@@ -66,7 +66,7 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	
 	wire reset = SW[0]; //~lock;
 	
-	wire [DMEM_DATA_BIT_WIDTH - 1: 0] aluIn2;
+	wire [DMEM_DATA_BIT_WIDTH - 1: 0] aluIn1, aluIn2;
 	wire s1Sel;
 	wire [1: 0] s2Sel;
 	wire[DMEM_DATA_BIT_WIDTH - 1: 0] dataWord;
@@ -122,7 +122,7 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 
 //Stage 2
 	// Controller 
-	Controller cont (.inst(iWord), .sndOpcode(sndOpcode), .dRegAddr(wrtIndex), .s1RegAddr(rdIndex1), .s2RegAddr(rdIndex2), .imm(imm), 
+	Controller cont (.clk(clk), .inst(iWord), .sndOpcode(sndOpcode), .dRegAddr(wrtIndex), .s1RegAddr(rdIndex1), .s2RegAddr(rdIndex2), .imm(imm), 
 							.regFileWrtEn(regFileEn), .s1Sel(s1Sel), .s2Sel(s2Sel), .memOutSel(memOutSel), .isLoad(isLoad), .isStore(isStore), .isBranch(isBranch), .isJAL(isJAL));
   
 	// RegisterFile
@@ -131,11 +131,13 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	// Sign Extension
 	SignExtension #(.IN_BIT_WIDTH(16), .OUT_BIT_WIDTH(32)) se (imm, seImm);
 	
-	// ALU Mux
-	Mux4to1 #(.DATA_BIT_WIDTH(DBITS)) muxAluIn (s2Sel[0], dataOut2, seImm, dataIn, dataIn, aluIn2);
+	//ALU MUX
+	Mux2to1 #(.DATA_BIT_WIDTH(DBITS)) mucAluIn1 (s1Sel, dataOut1, dataIn, aluIn1);
+   // ALU Mux 2
+   Mux4to1 #(.DATA_BIT_WIDTH(DBITS)) muxAluIn2 (s2Sel, dataOut2, seImm, dataIn, dataIn, aluIn2);
 	
 	// ALU
-	Alu alu1 (.ctrl(sndOpcode), .rawDataIn1(dataOut1), .rawDataIn2(aluIn2), .dataOut(aluOut), .cmpOut(cmpOut_top)); 
+	Alu alu1 (.ctrl(sndOpcode), .rawDataIn1(aluIn1), .rawDataIn2(aluIn2), .dataOut(aluOut), .cmpOut(cmpOut_top)); 
 
 	// Data Memory and I/O
 	negRegister dataReg (clk, reset, 1'b1, aluOut, addrMemIn);
@@ -167,7 +169,6 @@ module Project3(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	dec2_7seg hex1Converter(hexOut[7:4], HEX1);
 	dec2_7seg hex2Converter(hexOut[11:8], HEX2);
 	dec2_7seg hex3Converter(hexOut[15:12], HEX3);
-	
 endmodule
 
 
