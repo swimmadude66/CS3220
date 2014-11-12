@@ -1,10 +1,11 @@
-module Controller (inst, aluCmpIn, sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileWrtEn, immSel, memOutSel, pcSel, isLoad, isStore);
+module Controller (inst, aluCmpIn, bubble, sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileWrtEn, immSel, memOutSel, pcSel, isLoad, isStore);
 	
 	parameter INST_BIT_WIDTH = 32;
 	
 	// inputs
 	input [INST_BIT_WIDTH-1:0] inst;
 	input aluCmpIn;
+	input bubble;
 	
 	// output opcodes
 	output reg [4: 0] sndOpcode;
@@ -18,11 +19,13 @@ module Controller (inst, aluCmpIn, sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, im
 	output reg [15: 0] imm;
 	
 	// control signals
-	output reg regFileWrtEn;
+	output reg regFileWrtEn, isLoad, isStore;
 	output reg immSel;  
 	output reg [1:0] memOutSel;
 	output reg [1:0] pcSel;
-	output reg isLoad, isStore;
+	
+	reg rfwe, iL, iS;
+	reg[1:0] pcs;
 	
 	always @(*)
 	begin
@@ -33,11 +36,10 @@ module Controller (inst, aluCmpIn, sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, im
 								s1RegAddr 		<= inst[19:16];
 								s2RegAddr 		<= inst[15:12];
 								imm 		 		<= 16'd0;
-								
-								regFileWrtEn 	<= 1'b1; // write to register
 								immSel			<= 1'b0; // doesn't matter
 								memOutSel		<= 2'b00; // doesn't matter
-								pcSel 			<= 2'b00; // pc + 4
+								pcs 				<= 2'b00; // pc + 4
+								regFileWrtEn 	<= 1'b1; // write to register
 								isLoad 			<= 1'b0;
 								isStore 			<= 1'b0;
 							end
@@ -47,11 +49,10 @@ module Controller (inst, aluCmpIn, sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, im
 								s1RegAddr 		<= inst[19:16];
 								s2RegAddr 		<= 4'd0;
 								imm 		 		<= inst[15:0];
-								
-								regFileWrtEn 	<= 1'b1; // write to register
 								immSel			<= 1'b1; // get the data from immediate
 								memOutSel		<= 2'b00; // doesn't matter
-								pcSel 			<= 2'b00; // pc + 4
+								pcs 				<= 2'b00; // pc + 4
+								regFileWrtEn 	<= 1'b1; // write to register
 								isLoad 			<= 1'b0;
 								isStore 			<= 1'b0;
 							end
@@ -61,11 +62,11 @@ module Controller (inst, aluCmpIn, sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, im
 								s1RegAddr 		<= inst[19:16];
 								s2RegAddr 		<= inst[15:12];
 								imm 		 		<= 16'd0;
-								
 								regFileWrtEn 	<= 1'b1; // write to register
+								//dataWrtEn 		<= 1'b0; // no write to data memory
 								immSel			<= 1'b0; // doesn't matter
 								memOutSel		<= 2'b00; // doesn't matter
-								pcSel 			<= 2'b00; // pc + 4
+								pcs 				<= 2'b00; // pc + 4
 								isLoad 			<= 1'b0;
 								isStore 			<= 1'b0;
 							end
@@ -76,11 +77,11 @@ module Controller (inst, aluCmpIn, sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, im
 								s1RegAddr 		<= inst[19:16];
 								s2RegAddr 		<= 4'd0;
 								imm 		 		<= inst[15:0];
-								
 								regFileWrtEn 	<= 1'b1; // write to register
+								//dataWrtEn 		<= 1'b0; // no write to data memory
 								immSel			<= 1'b1; // get the data from immediate
 								memOutSel		<= 2'b00; // doesn't matter
-								pcSel 			<= 2'b00; // pc + 4
+								pcs 				<= 2'b00; // pc + 4
 								isLoad 			<= 1'b0;
 								isStore 			<= 1'b0;
 							end
@@ -91,12 +92,13 @@ module Controller (inst, aluCmpIn, sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, im
 								s2RegAddr 		<= inst[19:16];
 								imm 		 		<= inst[15:0]; // relative pc
 								regFileWrtEn 	<= 1'b0; // no write to register
+								//dataWrtEn 		<= 1'b0; // no write to data memory
 								immSel			<= 1'b0; // relative pc
 								memOutSel		<= 2'b00; // doesn't matter
 								if(aluCmpIn)
-									pcSel 		<= 2'b01; // branch
+									pcs 			<= 2'b01; // branch
 								else
-									pcSel	  		<= 2'b00; // do not branch
+									pcs	  		<= 2'b00; // do not branch
 								isLoad 			<= 1'b0;
 								isStore 			<= 1'b0;
 							end
@@ -106,11 +108,11 @@ module Controller (inst, aluCmpIn, sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, im
 								s1RegAddr 		<= inst[19:16];
 								s2RegAddr 		<= 4'd0;
 								imm 		 		<= inst[15:0]; // relative pc
-								
 								regFileWrtEn 	<= 1'b1; // write to register
+								//dataWrtEn 		<= 1'b0; // no write to data memory
 								immSel			<= 1'b1; // relative pc
 								memOutSel		<= 2'b01; // load data from memory
-								pcSel 			<= 2'b00; // pc + 4
+								pcs 				<= 2'b00; // pc + 4
 								isLoad 			<= 1'b1;
 								isStore 			<= 1'b0;
 							end
@@ -120,11 +122,11 @@ module Controller (inst, aluCmpIn, sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, im
 								s1RegAddr 		<= inst[23:20];
 								s2RegAddr 		<= inst[19:16];
 								imm 		 		<= inst[15:0]; // relative pc
-								
 								regFileWrtEn 	<= 1'b0; // no write to register
+								//dataWrtEn 		<= 1'b1; // write to data memory
 								immSel			<= 1'b1; // relative pc
 								memOutSel		<= 2'b00; // load data from memory
-								pcSel 			<= 2'b00; // pc + 4
+								pcs 				<= 2'b00; // pc + 4
 								isLoad 			<= 1'b0;
 								isStore 			<= 1'b1;
 							end
@@ -134,43 +136,55 @@ module Controller (inst, aluCmpIn, sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, im
 								s1RegAddr 		<= inst[19:16];
 								s2RegAddr 		<= 4'd0;
 								imm 		 		<= inst[15:0] << 2; // relative pc
-								
 								regFileWrtEn 	<= 1'b1; // no write to register
+								//dataWrtEn 		<= 1'b0; // no write to data memory
 								immSel			<= 1'b1; // relative pc
 								memOutSel		<= 2'b10; // load data from memory
-								pcSel 			<= 2'b10; // aluout
+								pcs 				<= 2'b10; // pc + 4
 								isLoad 			<= 1'b0;
 								isStore 			<= 1'b0;
 							end
-		4'b1111:begin //NOOP
+		4'b1111:begin
 								sndOpcode 		<= 5'd0;
 								dRegAddr  		<= 4'd0;
 								s1RegAddr 		<= 4'd0;
 								s2RegAddr 		<= 4'd0;
 								imm 		 		<= 16'd0; // relative pc
-								
 								regFileWrtEn 	<= 1'b0; // no write to register
+								//dataWrtEn 		<= 1'b0; // no write to data memory
 								immSel			<= 1'b0; // relative pc
 								memOutSel		<= 2'b00; // load data from memory
-								pcSel 			<= 2'b00; // pc + 4
+								pcs 				<= 2'b00; // pc + 4
 								isLoad 			<= 1'b0;
 								isStore 			<= 1'b0;
-					end
+							end
+							
 		default:begin
 								sndOpcode 		<= 5'd0;
 								dRegAddr  		<= 4'd0;
 								s1RegAddr 		<= 4'd0;
 								s2RegAddr 		<= 4'd0;
 								imm 		 		<= 16'd0; // relative pc
-								
 								regFileWrtEn 	<= 1'b0; // no write to register
+								//dataWrtEn 		<= 1'b0; // no write to data memory
 								immSel			<= 1'b0; // relative pc
 								memOutSel		<= 2'b00; // load data from memory
-								pcSel 			<= 2'b00; // pc + 4
+								pcs 				<= 2'b00; // pc + 4
 								isLoad 			<= 1'b0;
 								isStore 			<= 1'b0;
 					end
-				
 		endcase
+		if(bubble)begin
+			regFileWrtEn 	<=	1'b0;
+			isLoad			<= 1'b0;
+			isStore			<= 1'b0;
+			pcSel				<= 2'b11;
+		end
+		else begin
+			regFileWrtEn 	<=	rfwe;
+			isLoad			<= iL;
+			isStore			<= iS;
+			pcSel				<= pcs;
+		end
 	end
 endmodule

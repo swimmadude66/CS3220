@@ -1,0 +1,16 @@
+module PipeLineReg(clk, rst, nxtPC, memSel, regWrtEn, isLoad, isStore, destReg, aluOut, data2, memSelOut, aluOutOut, data2Out, isLoadOut, isStoreOut, nxtPCOut, regWrtEnOut, destRegOut);
+
+input clk, rst;
+input regWrtEn, isLoad, isStore;
+input[1:0] memSel;
+input[3:0] destReg;
+input[31:0] nxtPC, aluOut, data2;
+
+output regWrtEnOut, isLoadOut, isStoreOut;
+output[1:0] memSelOut;
+output[3:0] destRegOut;
+output[31:0] nxtPCOut, aluOutOut, data2Out;
+
+
+
+endmodule
