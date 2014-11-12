@@ -6,16 +6,17 @@ module Bubbler (clk, isLoad, isBranch, isJAL, cmpIn, s1Addr, s2Addr, s1used, s2u
 	reg [3: 0] prevDAddr = 4'b0000;
 	reg prevRegWrtEn = 0;
 	reg bubble = 1'b0;
-	output reg bubbleOut;
+	output bubbleOut;
+	reg bubbleOut;
 	
 	always @ (*) begin
-		if (isLoad | isBranch | isJAL) begin
+		if (isBranch | isJAL) begin
 			bubble = 1'b1;
 		end
-		else if (s1used & dAddr == s1Addr) begin
+		else if (s1used && (prevDAddr == s1Addr)) begin
 			bubble = 1'b1;
 		end
-		else if (s2used & dAddr == s2Addr) begin
+		else if (s2used && (prevDAddr == s2Addr)) begin
 			bubble = 1'b1;
 		end
 		else begin
