@@ -1,5 +1,5 @@
 module ClkDivider(input clkIn, output clkOut);
-	parameter divider = 25000000;
+	parameter divider = 2500000;
 	parameter len = 31;
 	reg[len: 0] counter = 0;
 	reg clkReg = 0;
@@ -111,7 +111,7 @@ module Project4(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	// Instruction Memory
 	InstMemory #(IMEM_INIT_FILE, IMEM_ADDR_BIT_WIDTH, IMEM_DATA_BIT_WIDTH) instMem (pcOut[IMEM_PC_BITS_HI - 1: IMEM_PC_BITS_LO], instWord);
   
-	// Controller 
+	// Controller	
 	Controller cont (.inst(instWord), .aluCmpIn(cmpOut_top), .bubble(bubble), .sndOpcode(sndOpcode), .dRegAddr(wrtIndex), .s1RegAddr(rdIndex1), .s2RegAddr(rdIndex2), .imm(imm), 
 							.regFileWrtEn(regFileEn), .immSel(immSel), .memOutSel(memOutSel), .pcSel(pcSel), .isLoad(isLoad), .isStore(isStore));
   
@@ -119,7 +119,7 @@ module Project4(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	SignExtension #(.IN_BIT_WIDTH(16), .OUT_BIT_WIDTH(32)) se (imm, seImm);
 	
 	// RegisterFile
-	RegisterFile regFile (.clk(clk), .wrtEn(regFileEn), .wrtIndex(wrtIndex), .rdIndex1(rdIndex1), .rdIndex2(rdIndex2), .dataIn(dataIn), .dataOut1(dataOut1), .dataOut2(dataOut2));
+	RegisterFile regFile (.clk(clk), .wrtEn(regWrtEnOut), .wrtIndex(destRegOut), .rdIndex1(rdIndex1), .rdIndex2(rdIndex2), .dataIn(dataIn), .dataOut1(dataOut1), .dataOut2(dataOut2));
  
  	// ALU Mux
 	Mux2to1 #(.DATA_BIT_WIDTH(DBITS)) muxAluIn (immSel, dataOut2, seImm, aluIn2);
@@ -127,29 +127,40 @@ module Project4(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	// ALU
 	Alu alu1 (.ctrl(sndOpcode), .rawDataIn1(dataOut1), .rawDataIn2(aluIn2), .dataOut(aluOut), .cmpOut(cmpOut_top)); 
   
+  //Bubbler
+  Bubbler bubbler (.prevWrEn(regWrtEnOut), .rs1(rdIndex1), .rs2(rdIndex2), .prevrd(destRegOut), .bubble(bubble));
+  
+  //Pipeline register
+  wire regWrtEnOut, isLoadOut, isStoreOut;
+  wire[1:0] memSelOut;
+  wire[3:0] destRegOut;
+  wire[31:0] nxtPCOut, dataOut, aluOutOut;
+  PipeLineReg pipelineregister (.clk(clk), .rst(reset), .nxtPC(pcLogicOut), .memSel(memOutSel), .regWrtEn(regFileEn), .isLoad(isLoad), .isStore(isStore), .destReg(wrtIndex), .aluOut(aluOut), .datain(dataOut2),
+					.nxtPCOut(nxtPCOut), .memSelOut(memSelOut), .regWrtEnOut(regWrtEnOut), .isLoadOut(isLoadOut), .isStoreOut(isStoreOut), .destRegOut(destRegOut), .aluOutOut(aluOutOut), .dataOut(dataOut));
+					
 	// Data Memory and I/O
-	negRegister dataReg (clk, reset, 1'b1, aluOut, addrMemIn);
-	DataMemory #(DMEM_ADDR_BIT_WIDTH, DMEM_DATA_BIT_WIDTH) dataMem (.clk(clk), .addr(addrMemIn[DMEM_ADDR_BITS_HI - 1: DMEM_ADDR_BITS_LO]), .dataWrtEn(dataWrtEn), .dataIn(dataOut2), .dataOut(dataWord));
-	Mux4to1 muxMemOut (memOutSel, aluOut, dataMemoryOut, pcLogicOut, 32'd0, dataIn);
+	negRegister dataReg (clk, reset, 1'b1, aluOutOut, addrMemIn);
+	DataMemory #(DMEM_ADDR_BIT_WIDTH, DMEM_DATA_BIT_WIDTH) dataMem (.clk(clk), .addr(addrMemIn[DMEM_ADDR_BITS_HI - 1: DMEM_ADDR_BITS_LO]), .dataWrtEn(dataWrtEn), .dataIn(dataOut), .dataOut(dataWord));
+	Mux4to1 muxMemOut (memSelOut, aluOutOut, dataMemoryOut, nxtPCOut, 32'd0, dataIn);
 	Mux4to1 muxDataMemOut (dataMemOutSel, dataWord, switchOut, keyOut, 32'd0, dataMemoryOut);
 	
 	// IO controller
-	IO_controller ioCtrl (.dataAddr(aluOut), .isLoad(isLoad), .isStore(isStore), .dataWrtEn(dataWrtEn), .dataMemOutSel(dataMemOutSel), 
+	IO_controller ioCtrl (.dataAddr(aluOutOut), .isLoad(isLoadOut), .isStore(isStoreOut), .dataWrtEn(dataWrtEn), .dataMemOutSel(dataMemOutSel), 
 									.swEn(swEn), .keyEn(keyEn), .ledrEn(ledrEn), .ledgEn(ledgEn), .hexEn(hexEn));
 
 	// KEYS, SWITCHES, HEXS, and LEDS are memeory mapped IO
 	// SWITCH
 	negRegister switchReg (clk, reset, swEn, {22'd0,SW}, switchOut);
 	// LEDR
-	negRegister ledrReg 	 (clk, reset, ledrEn, dataOut2, ledrOut); // 
+	negRegister ledrReg 	 (clk, reset, ledrEn, dataOut, ledrOut); // 
 	assign LEDR = ledrOut[9:0];
 	// LEDG
-	negRegister ledgReg 	 (clk, reset, ledgEn, dataOut2, ledgOut); // 
+	negRegister ledgReg 	 (clk, reset, ledgEn, dataOut, ledgOut); // 
 	assign LEDG = ledgOut[7:0];
 	// KEY
 	negRegister keyReg 	 (clk, reset, keyEn, {28'd0,KEY}, keyOut);
 	// HEXS
-	negRegister hexReg 	 (clk, reset, hexEn, dataOut2, hexOut); //
+	negRegister hexReg 	 (clk, reset, hexEn, dataOut, hexOut); //
 	dec2_7seg hex0Converter(hexOut[3:0], HEX0);
 	dec2_7seg hex1Converter(hexOut[7:4], HEX1);
 	dec2_7seg hex2Converter(hexOut[11:8], HEX2);
