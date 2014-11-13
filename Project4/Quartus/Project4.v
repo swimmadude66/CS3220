@@ -149,7 +149,7 @@ module Project4(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	
 	// IO controller
 	wire[DBITS-1:0] abus;
-	wire[DBITS-1:0] dbus;
+	tri[DBITS-1:0] dbus;
 	wire we;
 	IO_controller ioCtrl (.clk(clk), .rst(reset), .ABUS(abus), .DBUS(dbus), .we(we), .SW(SW), .KEY(KEY), .LEDR(LEDR), .LEDG(LEDG), .HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .HEX3(HEX3));
 	
@@ -169,8 +169,9 @@ module IO_controller(clk, rst, ABUS, DBUS, we, SW, KEY, LEDR, LEDG, HEX0, HEX1, 
 	output[7:0] LEDG;
 	output[3:0] HEX0, HEX1, HEX2, HEX3;
 	
-	KeyDevices key(ABUS, DBUS, we, KEY);
+	KeyDevices key(rst, ABUS, DBUS, we, KEY);
 	//Switches switch(clk, rst, ABUS, DBUS, SW);
+	LEDandHEXDevices opticalOut(rst, ABUS, DBUS, we, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3);
 	//Ledg ledg(clk, rst, ABUS, DBUS, we, LEDG);
 	//Ledr ledr(clk, rst, ABUS, DBUS, we, LEDR);
 	//Hex hex(clk, rst, ABUS, DBUS, we, {HEX0, HEX1, HEX2, HEX3});

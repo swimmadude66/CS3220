@@ -565,4 +565,5 @@ set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name VERILOG_FILE PipeLineReg.v
 set_global_assignment -name VERILOG_FILE Bubbler.v
 set_global_assignment -name VERILOG_FILE KeyDevices.v
+set_global_assignment -name VERILOG_FILE LEDandHEXDevices.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

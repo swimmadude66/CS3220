@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Debug
-Thu Nov 13 01:17:32 2014
+Thu Nov 13 13:57:35 2014
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -31,15 +31,21 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
  23. Parameter Settings for User Entity Instance: Mux4to1:muxMemOut
  24. Parameter Settings for User Entity Instance: Mux4to1:muxDataMemOut
  25. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|KeyDevices:key
- 26. Port Connectivity Checks: "IO_controller:ioCtrl"
- 27. Port Connectivity Checks: "Mux4to1:muxDataMemOut"
- 28. Port Connectivity Checks: "Mux4to1:muxMemOut"
- 29. Port Connectivity Checks: "negRegister:dataReg"
- 30. Port Connectivity Checks: "PipeLineReg:pipelineregister"
- 31. Port Connectivity Checks: "Register:pc"
- 32. Elapsed Time Per Partition
- 33. Analysis & Synthesis Messages
- 34. Analysis & Synthesis Suppressed Messages
+ 26. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|LEDandHEXDevices:opticalOut
+ 27. Port Connectivity Checks: "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|SevenSeg:hex3Converter"
+ 28. Port Connectivity Checks: "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|SevenSeg:hex2Converter"
+ 29. Port Connectivity Checks: "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|SevenSeg:hex1Converter"
+ 30. Port Connectivity Checks: "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|SevenSeg:hex0Converter"
+ 31. Port Connectivity Checks: "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut"
+ 32. Port Connectivity Checks: "IO_controller:ioCtrl"
+ 33. Port Connectivity Checks: "Mux4to1:muxDataMemOut"
+ 34. Port Connectivity Checks: "Mux4to1:muxMemOut"
+ 35. Port Connectivity Checks: "negRegister:dataReg"
+ 36. Port Connectivity Checks: "PipeLineReg:pipelineregister"
+ 37. Port Connectivity Checks: "Register:pc"
+ 38. Elapsed Time Per Partition
+ 39. Analysis & Synthesis Messages
+ 40. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -65,7 +71,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Nov 13 01:17:32 2014           ;
+; Analysis & Synthesis Status        ; Successful - Thu Nov 13 13:57:35 2014           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Debug                                           ;
 ; Top-level Entity Name              ; Project4                                        ;
@@ -173,33 +179,35 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 ; Processors                 ; Number ;
 +----------------------------+--------+
-; Number detected on machine ; 8      ;
+; Number detected on machine ; 2      ;
 ; Maximum allowed            ; 1      ;
 +----------------------------+--------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                          ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                            ; Library ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------+---------+
-; Project4.v                       ; yes             ; User Verilog HDL File  ; X:/Repos/CS3220/Project4/Quartus/Project4.v             ;         ;
-; negRegister.v                    ; yes             ; User Verilog HDL File  ; X:/Repos/CS3220/Project4/Quartus/negRegister.v          ;         ;
-; PcLogic.v                        ; yes             ; User Verilog HDL File  ; X:/Repos/CS3220/Project4/Quartus/PcLogic.v              ;         ;
-; Alu.v                            ; yes             ; User Verilog HDL File  ; X:/Repos/CS3220/Project4/Quartus/Alu.v                  ;         ;
-; InstMemory.v                     ; yes             ; User Verilog HDL File  ; X:/Repos/CS3220/Project4/Quartus/InstMemory.v           ;         ;
-; Register.v                       ; yes             ; User Verilog HDL File  ; X:/Repos/CS3220/Project4/Quartus/Register.v             ;         ;
-; SignExtension.v                  ; yes             ; User Verilog HDL File  ; X:/Repos/CS3220/Project4/Quartus/SignExtension.v        ;         ;
-; Controller.v                     ; yes             ; User Verilog HDL File  ; X:/Repos/CS3220/Project4/Quartus/Controller.v           ;         ;
-; Mux2to1.v                        ; yes             ; User Verilog HDL File  ; X:/Repos/CS3220/Project4/Quartus/Mux2to1.v              ;         ;
-; RegisterFile.v                   ; yes             ; User Verilog HDL File  ; X:/Repos/CS3220/Project4/Quartus/RegisterFile.v         ;         ;
-; DataMemory.v                     ; yes             ; User Verilog HDL File  ; X:/Repos/CS3220/Project4/Quartus/DataMemory.v           ;         ;
-; BranchAddrCalculator.v           ; yes             ; User Verilog HDL File  ; X:/Repos/CS3220/Project4/Quartus/BranchAddrCalculator.v ;         ;
-; Mux4to1.v                        ; yes             ; User Verilog HDL File  ; X:/Repos/CS3220/Project4/Quartus/Mux4to1.v              ;         ;
-; PipeLineReg.v                    ; yes             ; User Verilog HDL File  ; X:/Repos/CS3220/Project4/Quartus/PipeLineReg.v          ;         ;
-; Bubbler.v                        ; yes             ; User Verilog HDL File  ; X:/Repos/CS3220/Project4/Quartus/Bubbler.v              ;         ;
-; KeyDevices.v                     ; yes             ; User Verilog HDL File  ; X:/Repos/CS3220/Project4/Quartus/KeyDevices.v           ;         ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                            ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                              ; Library ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------+---------+
+; Project4.v                       ; yes             ; User Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/Project4.v             ;         ;
+; negRegister.v                    ; yes             ; User Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/negRegister.v          ;         ;
+; PcLogic.v                        ; yes             ; User Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/PcLogic.v              ;         ;
+; Alu.v                            ; yes             ; User Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/Alu.v                  ;         ;
+; InstMemory.v                     ; yes             ; User Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/InstMemory.v           ;         ;
+; Register.v                       ; yes             ; User Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/Register.v             ;         ;
+; SevenSeg.v                       ; yes             ; User Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/SevenSeg.v             ;         ;
+; SignExtension.v                  ; yes             ; User Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/SignExtension.v        ;         ;
+; Controller.v                     ; yes             ; User Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/Controller.v           ;         ;
+; Mux2to1.v                        ; yes             ; User Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/Mux2to1.v              ;         ;
+; RegisterFile.v                   ; yes             ; User Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/RegisterFile.v         ;         ;
+; DataMemory.v                     ; yes             ; User Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/DataMemory.v           ;         ;
+; BranchAddrCalculator.v           ; yes             ; User Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/BranchAddrCalculator.v ;         ;
+; Mux4to1.v                        ; yes             ; User Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/Mux4to1.v              ;         ;
+; PipeLineReg.v                    ; yes             ; User Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/PipeLineReg.v          ;         ;
+; Bubbler.v                        ; yes             ; User Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/Bubbler.v              ;         ;
+; KeyDevices.v                     ; yes             ; User Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/KeyDevices.v           ;         ;
+; LEDandHEXDevices.v               ; yes             ; User Verilog HDL File  ; C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/LEDandHEXDevices.v     ;         ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -453,13 +461,79 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +----------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: IO_controller:ioCtrl|KeyDevices:key ;
-+----------------+-------+---------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                    ;
-+----------------+-------+---------------------------------------------------------+
-; ABUS_WIDTH     ; 32    ; Signed Integer                                          ;
-; DBUS_WIDTH     ; 32    ; Signed Integer                                          ;
-+----------------+-------+---------------------------------------------------------+
++-------------------+----------------------------------+---------------------------+
+; Parameter Name    ; Value                            ; Type                      ;
++-------------------+----------------------------------+---------------------------+
+; ABUS_WIDTH        ; 32                               ; Signed Integer            ;
+; DBUS_WIDTH        ; 32                               ; Signed Integer            ;
+; KDATA_RESET_VALUE ; 00000000000000000000000000000000 ; Unsigned Binary           ;
+; KCTRL_RESET_VALUE ; 00000000000000000000000000000000 ; Unsigned Binary           ;
++-------------------+----------------------------------+---------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: IO_controller:ioCtrl|LEDandHEXDevices:opticalOut ;
++----------------+----------------------------------+-------------------------------------------+
+; Parameter Name ; Value                            ; Type                                      ;
++----------------+----------------------------------+-------------------------------------------+
+; ABUS_WIDTH     ; 32                               ; Signed Integer                            ;
+; DBUS_WIDTH     ; 32                               ; Signed Integer                            ;
+; RESET_VALUE    ; 00000000000000000000000000000000 ; Unsigned Binary                           ;
++----------------+----------------------------------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|SevenSeg:hex3Converter"                                                ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                 ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+; dOut ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (1 bits) it drives; bit(s) "dOut[6..1]" have no fanouts ;
+; dOut ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                     ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|SevenSeg:hex2Converter"                                                ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                 ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+; dOut ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (1 bits) it drives; bit(s) "dOut[6..1]" have no fanouts ;
+; dOut ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                     ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|SevenSeg:hex1Converter"                                                ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                 ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+; dOut ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (1 bits) it drives; bit(s) "dOut[6..1]" have no fanouts ;
+; dOut ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                     ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|SevenSeg:hex0Converter"                                                ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                 ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+; dOut ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (1 bits) it drives; bit(s) "dOut[6..1]" have no fanouts ;
+; dOut ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                     ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut"                                                                       ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                 ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+; hex0 ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (4 bits) it drives; bit(s) "hex0[6..4]" have no fanouts ;
+; hex1 ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (4 bits) it drives; bit(s) "hex1[6..4]" have no fanouts ;
+; hex2 ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (4 bits) it drives; bit(s) "hex2[6..4]" have no fanouts ;
+; hex3 ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (4 bits) it drives; bit(s) "hex3[6..4]" have no fanouts ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -538,7 +612,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Nov 13 01:17:31 2014
+    Info: Processing started: Thu Nov 13 13:57:30 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project4 -c Debug
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 4 design units, including 4 entities, in source file project4.v
@@ -582,6 +656,12 @@ Info (12021): Found 1 design units, including 1 entities, in source file bubbler
     Info (12023): Found entity 1: Bubbler
 Info (12021): Found 1 design units, including 1 entities, in source file keydevices.v
     Info (12023): Found entity 1: KeyDevices
+Info (12021): Found 1 design units, including 1 entities, in source file ledandhexdevices.v
+    Info (12023): Found entity 1: LEDandHEXDevices
+Warning (10236): Verilog HDL Implicit Net warning at LEDandHEXDevices.v(64): created implicit net for "HEX0"
+Warning (10236): Verilog HDL Implicit Net warning at LEDandHEXDevices.v(65): created implicit net for "HEX1"
+Warning (10236): Verilog HDL Implicit Net warning at LEDandHEXDevices.v(66): created implicit net for "HEX2"
+Warning (10236): Verilog HDL Implicit Net warning at LEDandHEXDevices.v(67): created implicit net for "HEX3"
 Info (12127): Elaborating entity "Project4" for the top level hierarchy
 Info (12128): Elaborating entity "ClkDivider" for hierarchy "ClkDivider:clkdi"
 Info (12128): Elaborating entity "Register" for hierarchy "Register:pc"
@@ -600,84 +680,266 @@ Info (12128): Elaborating entity "PipeLineReg" for hierarchy "PipeLineReg:pipeli
 Info (12128): Elaborating entity "negRegister" for hierarchy "negRegister:dataReg"
 Info (12128): Elaborating entity "DataMemory" for hierarchy "DataMemory:dataMem"
 Info (12128): Elaborating entity "IO_controller" for hierarchy "IO_controller:ioCtrl"
-Warning (10034): Output port "LEDR" at Project4.v(168) has no driver
-Warning (10034): Output port "LEDG" at Project4.v(169) has no driver
-Warning (10034): Output port "HEX0" at Project4.v(170) has no driver
-Warning (10034): Output port "HEX1" at Project4.v(170) has no driver
-Warning (10034): Output port "HEX2" at Project4.v(170) has no driver
-Warning (10034): Output port "HEX3" at Project4.v(170) has no driver
 Info (12128): Elaborating entity "KeyDevices" for hierarchy "IO_controller:ioCtrl|KeyDevices:key"
-Warning (10240): Verilog HDL Always Construct warning at KeyDevices.v(15): inferring latch(es) for variable "dBus", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at KeyDevices.v(15): inferring latch(es) for variable "kctrl", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at KeyDevices.v(15): inferring latch(es) for variable "kdata", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "kctrl[0]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "kctrl[2]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "kctrl[8]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[0]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[1]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[2]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[3]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[4]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[5]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[6]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[7]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[8]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[9]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[10]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[11]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[12]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[13]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[14]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[15]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[16]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[17]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[18]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[19]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[20]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[21]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[22]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[23]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[24]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[25]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[26]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[27]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[28]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[29]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[30]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "dBus[31]" at KeyDevices.v(15)
-Info (10041): Inferred latch for "kdata[0]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[1]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[2]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[3]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[4]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[5]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[6]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[7]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[8]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[9]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[10]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[11]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[12]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[13]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[14]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[15]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[16]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[17]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[18]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[19]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[20]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[21]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[22]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[23]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[24]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[25]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[26]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[27]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[28]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[29]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[30]" at KeyDevices.v(32)
-Info (10041): Inferred latch for "kdata[31]" at KeyDevices.v(32)
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (10240): Verilog HDL Always Construct warning at KeyDevices.v(18): inferring latch(es) for variable "kdata", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at KeyDevices.v(18): inferring latch(es) for variable "kctrl", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at KeyDevices.v(18): inferring latch(es) for variable "dBus", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "dBus[0]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[1]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[2]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[3]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[4]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[5]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[6]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[7]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[8]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[9]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[10]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[11]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[12]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[13]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[14]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[15]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[16]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[17]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[18]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[19]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[20]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[21]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[22]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[23]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[24]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[25]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[26]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[27]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[28]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[29]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[30]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "dBus[31]" at KeyDevices.v(18)
+Info (10041): Inferred latch for "kctrl[0]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[1]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[2]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[3]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[4]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[5]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[6]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[7]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[8]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[9]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[10]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[11]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[12]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[13]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[14]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[15]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[16]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[17]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[18]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[19]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[20]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[21]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[22]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[23]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[24]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[25]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[26]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[27]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[28]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[29]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[30]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kctrl[31]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[0]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[1]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[2]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[3]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[4]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[5]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[6]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[7]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[8]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[9]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[10]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[11]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[12]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[13]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[14]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[15]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[16]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[17]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[18]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[19]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[20]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[21]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[22]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[23]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[24]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[25]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[26]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[27]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[28]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[29]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[30]" at KeyDevices.v(23)
+Info (10041): Inferred latch for "kdata[31]" at KeyDevices.v(23)
+Info (12128): Elaborating entity "LEDandHEXDevices" for hierarchy "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut"
+Warning (10240): Verilog HDL Always Construct warning at LEDandHEXDevices.v(23): inferring latch(es) for variable "rledr", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at LEDandHEXDevices.v(23): inferring latch(es) for variable "rledg", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at LEDandHEXDevices.v(23): inferring latch(es) for variable "rhex", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at LEDandHEXDevices.v(23): inferring latch(es) for variable "dBus", which holds its previous value in one or more paths through the always construct
+Warning (10230): Verilog HDL assignment warning at LEDandHEXDevices.v(62): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at LEDandHEXDevices.v(63): truncated value with size 32 to match size of target (8)
+Warning (10034): Output port "hex0" at LEDandHEXDevices.v(12) has no driver
+Warning (10034): Output port "hex1" at LEDandHEXDevices.v(13) has no driver
+Warning (10034): Output port "hex2" at LEDandHEXDevices.v(14) has no driver
+Warning (10034): Output port "hex3" at LEDandHEXDevices.v(15) has no driver
+Info (10041): Inferred latch for "dBus[0]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[1]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[2]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[3]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[4]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[5]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[6]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[7]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[8]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[9]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[10]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[11]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[12]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[13]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[14]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[15]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[16]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[17]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[18]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[19]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[20]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[21]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[22]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[23]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[24]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[25]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[26]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[27]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[28]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[29]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[30]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "dBus[31]" at LEDandHEXDevices.v(23)
+Info (10041): Inferred latch for "rhex[0]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[1]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[2]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[3]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[4]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[5]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[6]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[7]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[8]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[9]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[10]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[11]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[12]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[13]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[14]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[15]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[16]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[17]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[18]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[19]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[20]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[21]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[22]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[23]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[24]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[25]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[26]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[27]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[28]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[29]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[30]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rhex[31]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[0]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[1]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[2]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[3]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[4]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[5]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[6]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[7]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[8]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[9]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[10]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[11]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[12]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[13]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[14]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[15]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[16]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[17]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[18]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[19]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[20]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[21]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[22]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[23]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[24]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[25]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[26]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[27]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[28]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[29]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[30]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledg[31]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[0]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[1]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[2]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[3]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[4]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[5]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[6]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[7]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[8]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[9]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[10]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[11]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[12]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[13]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[14]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[15]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[16]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[17]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[18]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[19]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[20]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[21]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[22]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[23]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[24]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[25]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[26]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[27]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[28]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[29]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[30]" at LEDandHEXDevices.v(29)
+Info (10041): Inferred latch for "rledr[31]" at LEDandHEXDevices.v(29)
+Info (12128): Elaborating entity "SevenSeg" for hierarchy "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|SevenSeg:hex0Converter"
+Warning (14025): LATCH primitive "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|rledg[0]" is permanently disabled
+Warning (14025): LATCH primitive "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|rledg[1]" is permanently disabled
+Warning (14025): LATCH primitive "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|rledg[2]" is permanently disabled
+Warning (14025): LATCH primitive "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|rledg[3]" is permanently disabled
+Warning (14025): LATCH primitive "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|rledg[4]" is permanently disabled
+Warning (14025): LATCH primitive "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|rledg[5]" is permanently disabled
+Warning (14025): LATCH primitive "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|rledg[6]" is permanently disabled
+Warning (14025): LATCH primitive "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|rledg[7]" is permanently disabled
+Warning (14025): LATCH primitive "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|rledr[0]" is permanently disabled
+Warning (14025): LATCH primitive "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|rledr[1]" is permanently disabled
+Warning (14025): LATCH primitive "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|rledr[2]" is permanently disabled
+Warning (14025): LATCH primitive "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|rledr[3]" is permanently disabled
+Warning (14025): LATCH primitive "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|rledr[4]" is permanently disabled
+Warning (14025): LATCH primitive "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|rledr[5]" is permanently disabled
+Warning (14025): LATCH primitive "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|rledr[6]" is permanently disabled
+Warning (14025): LATCH primitive "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|rledr[7]" is permanently disabled
+Warning (14025): LATCH primitive "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|rledr[8]" is permanently disabled
+Warning (14025): LATCH primitive "IO_controller:ioCtrl|LEDandHEXDevices:opticalOut|rledr[9]" is permanently disabled
+Warning (14025): LATCH primitive "IO_controller:ioCtrl|KeyDevices:key|kctrl[8]" is permanently disabled
+Warning (12241): 6 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[0]" is stuck at GND
     Warning (13410): Pin "LEDR[1]" is stuck at GND
@@ -725,7 +987,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX3[4]" is stuck at GND
     Warning (13410): Pin "HEX3[5]" is stuck at GND
     Warning (13410): Pin "HEX3[6]" is stuck at GND
-Info (144001): Generated suppressed messages file X:/Repos/CS3220/Project4/Quartus/Debug.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/Debug.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 15 input pin(s) that do not drive logic
@@ -747,16 +1009,16 @@ Warning (21074): Design contains 15 input pin(s) that do not drive logic
 Info (21057): Implemented 61 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 46 output pins
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 75 warnings
-    Info: Peak virtual memory: 451 megabytes
-    Info: Processing ended: Thu Nov 13 01:17:32 2014
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 102 warnings
+    Info: Peak virtual memory: 458 megabytes
+    Info: Processing ended: Thu Nov 13 13:57:35 2014
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:05
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in X:/Repos/CS3220/Project4/Quartus/Debug.map.smsg.
+The suppressed messages can be found in C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/Debug.map.smsg.
 
 
