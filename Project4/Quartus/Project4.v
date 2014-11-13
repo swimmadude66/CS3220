@@ -86,7 +86,7 @@ module Project4(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	wire[DBITS - 1: 0] branchPc;
 	wire isLoad, isStore;
 	wire [31:0] dataMemoryOut;
-	wire [1:0] dataMemOutSel;
+	wire dataMemOutSel;
 	wire[DBITS - 1: 0] switchOut;
 	wire[DBITS - 1: 0] keyOut;
 	wire[DBITS - 1: 0] ledrOut;
@@ -140,42 +140,42 @@ module Project4(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 					.nxtPCOut(nxtPCOut), .memSelOut(memSelOut), .regWrtEnOut(regWrtEnOut), .isLoadOut(isLoadOut), .isStoreOut(isStoreOut), .destRegOut(destRegOut), 
 					.aluOutOut(aluOutOut), .dataOut(dataOut));
 					
-	// Data Memory and I/O
+	// Data Memory and I/O controller
+	tri[31:0] DBUS;
+	assign DBUS = (isStore) ? dataOut : 32'bz;
 	negRegister dataReg (clk, reset, 1'b1, aluOutOut, addrMemIn);
-	DataMemory #(DMEM_ADDR_BIT_WIDTH, DMEM_DATA_BIT_WIDTH) dataMem (.clk(clk), .addr(addrMemIn[DMEM_ADDR_BITS_HI - 1: DMEM_ADDR_BITS_LO]), .dataWrtEn(dataWrtEn), 
-						.dataIn(dataOut), .dataOut(dataWord));
+	DataMemory #(DMEM_ADDR_BIT_WIDTH, DMEM_DATA_BIT_WIDTH) dataMem (.clk(clk), .ABUS(addrMemIn), .dataWrtEn(isStoreOut), .DBUS(DBUS));
 	Mux4to1 muxMemOut (memSelOut, aluOutOut, dataMemoryOut, nxtPCOut, 32'd0, dataIn);
-	Mux4to1 muxDataMemOut (dataMemOutSel, dataWord, switchOut, keyOut, 32'd0, dataMemoryOut);
+	Mux2to1 #(.DATA_BIT_WIDTH(DBITS)) muxDataMemOut (dataMemOutSel, dataWord, DBUS, dataMemoryOut);
 	
-	// IO controller
-	wire[DBITS-1:0] abus;
-	tri[DBITS-1:0] dbus;
-	wire we;
-	IO_controller ioCtrl (.clk(clk), .rst(reset), .ABUS(abus), .DBUS(dbus), .we(we), .SW(SW), .KEY(KEY), .LEDR(LEDR), .LEDG(LEDG), .HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .HEX3(HEX3));
+	IO_controller ioCtrl (.rst(reset), .ABUS(addrMemIn), .DBUS(DBUS), .we(isStoreOut), .SW(SW), .KEY(KEY), .dmsel(dataMemOutSel),
+									.LEDR(LEDR), .LEDG(LEDG), .HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .HEX3(HEX3));
 	
 endmodule
 
 //module IO_controller(dataAddr, isLoad, isStore, dataWrtEn, dataMemOutSel, swEn, keyEn, ledrEn, ledgEn, hexEn);
-module IO_controller(clk, rst, ABUS, DBUS, we, SW, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3);
+module IO_controller(rst, ABUS, DBUS, we, SW, KEY, dmsel, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3);
 
-	input clk, rst;
+	input rst;
 	input[31:0] ABUS;
 	inout[31:0] DBUS;
 	input we;
 	
 	input[9:0] SW;
 	input[3:0] KEY;
+	output dmsel;
 	output[9:0] LEDR;
 	output[7:0] LEDG;
 	output[3:0] HEX0, HEX1, HEX2, HEX3;
 	
 	KeyDevices key(rst, ABUS, DBUS, we, KEY);
 	//Switches switch(clk, rst, ABUS, DBUS, SW);
-	LEDandHEXDevices opticalOut(rst, ABUS, DBUS, we, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3);
-	//Ledg ledg(clk, rst, ABUS, DBUS, we, LEDG);
-	//Ledr ledr(clk, rst, ABUS, DBUS, we, LEDR);
-	//Hex hex(clk, rst, ABUS, DBUS, we, {HEX0, HEX1, HEX2, HEX3});
+	Ledr ledR(rst, ABUS, DBUS, we, LEDR);
+	Ledg ledG(rst, ABUS, DBUS, we, LEDG);
+	Hex heX(rst, ABUS, DBUS, we, HEX0, HEX1, HEX2, HEX3);
 	//Timer timer(clk, rst, ABUS, DBUS, we);
+	
+	assign dmsel = (ABUS >= 32'hF0000000) ? 1'b1 : 1'b0;
 	
 endmodule
 

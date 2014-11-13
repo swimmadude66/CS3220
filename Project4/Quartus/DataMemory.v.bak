@@ -1,20 +1,22 @@
-module DataMemory(clk, ABUS, dataWrtEn, DBUS);
+module DataMemory(clk, addr, dataWrtEn, dataIn, dataOut);
 	parameter ADDR_BIT_WIDTH = 11;
 	parameter DATA_BIT_WIDTH = 32;
 	parameter N_WORDS = (1 << ADDR_BIT_WIDTH);
 	
 	input clk;
-	input[DATA_BIT_WIDTH-1:0] ABUS;
+	input[ADDR_BIT_WIDTH - 1: 0] addr;
 	input dataWrtEn;
-	inout[DATA_BIT_WIDTH - 1: 0] DBUS;
+	input[DATA_BIT_WIDTH - 1: 0] dataIn;
+	output[DATA_BIT_WIDTH - 1: 0] dataOut;
+
 	
 	reg[DATA_BIT_WIDTH - 1: 0] data[0: N_WORDS - 1];
 	
 	always @ (posedge clk) begin
 		if (dataWrtEn) 
-			data[ABUS[ADDR_BIT_WIDTH-1:0]] <= DBUS;
+			data[addr] <= dataIn;
 	end
 	
-	assign DBUS = (dataWrtEn && (ABUS[31:28] != 4'hF)) ? 32'bz : data[ABUS[ADDR_BIT_WIDTH-1:0]];
+	assign dataOut = data[addr];
 	
 endmodule
