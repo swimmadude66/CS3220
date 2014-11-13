@@ -135,169 +135,46 @@ module Project4(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
   wire[1:0] memSelOut;
   wire[3:0] destRegOut;
   wire[31:0] nxtPCOut, dataOut, aluOutOut;
-  PipeLineReg pipelineregister (.clk(clk), .rst(reset), .nxtPC(pcLogicOut), .memSel(memOutSel), .regWrtEn(regFileEn), .isLoad(isLoad), .isStore(isStore), .destReg(wrtIndex), .aluOut(aluOut), .datain(dataOut2),
-					.nxtPCOut(nxtPCOut), .memSelOut(memSelOut), .regWrtEnOut(regWrtEnOut), .isLoadOut(isLoadOut), .isStoreOut(isStoreOut), .destRegOut(destRegOut), .aluOutOut(aluOutOut), .dataOut(dataOut));
+  PipeLineReg pipelineregister (.clk(clk), .rst(reset), .nxtPC(pcLogicOut), .memSel(memOutSel), .regWrtEn(regFileEn), .isLoad(isLoad), .isStore(isStore), .destReg(wrtIndex), 
+					.aluOut(aluOut), .datain(dataOut2),
+					.nxtPCOut(nxtPCOut), .memSelOut(memSelOut), .regWrtEnOut(regWrtEnOut), .isLoadOut(isLoadOut), .isStoreOut(isStoreOut), .destRegOut(destRegOut), 
+					.aluOutOut(aluOutOut), .dataOut(dataOut));
 					
 	// Data Memory and I/O
 	negRegister dataReg (clk, reset, 1'b1, aluOutOut, addrMemIn);
-	DataMemory #(DMEM_ADDR_BIT_WIDTH, DMEM_DATA_BIT_WIDTH) dataMem (.clk(clk), .addr(addrMemIn[DMEM_ADDR_BITS_HI - 1: DMEM_ADDR_BITS_LO]), .dataWrtEn(dataWrtEn), .dataIn(dataOut), .dataOut(dataWord));
+	DataMemory #(DMEM_ADDR_BIT_WIDTH, DMEM_DATA_BIT_WIDTH) dataMem (.clk(clk), .addr(addrMemIn[DMEM_ADDR_BITS_HI - 1: DMEM_ADDR_BITS_LO]), .dataWrtEn(dataWrtEn), 
+						.dataIn(dataOut), .dataOut(dataWord));
 	Mux4to1 muxMemOut (memSelOut, aluOutOut, dataMemoryOut, nxtPCOut, 32'd0, dataIn);
 	Mux4to1 muxDataMemOut (dataMemOutSel, dataWord, switchOut, keyOut, 32'd0, dataMemoryOut);
 	
 	// IO controller
-	IO_controller ioCtrl (.dataAddr(aluOutOut), .isLoad(isLoadOut), .isStore(isStoreOut), .dataWrtEn(dataWrtEn), .dataMemOutSel(dataMemOutSel), 
-									.swEn(swEn), .keyEn(keyEn), .ledrEn(ledrEn), .ledgEn(ledgEn), .hexEn(hexEn));
-
-	// KEYS, SWITCHES, HEXS, and LEDS are memeory mapped IO
-	// SWITCH
-	negRegister switchReg (clk, reset, swEn, {22'd0,SW}, switchOut);
-	// LEDR
-	negRegister ledrReg 	 (clk, reset, ledrEn, dataOut, ledrOut); // 
-	assign LEDR = ledrOut[9:0];
-	// LEDG
-	negRegister ledgReg 	 (clk, reset, ledgEn, dataOut, ledgOut); // 
-	assign LEDG = ledgOut[7:0];
-	// KEY
-	negRegister keyReg 	 (clk, reset, keyEn, {28'd0,KEY}, keyOut);
-	// HEXS
-	negRegister hexReg 	 (clk, reset, hexEn, dataOut, hexOut); //
-	dec2_7seg hex0Converter(hexOut[3:0], HEX0);
-	dec2_7seg hex1Converter(hexOut[7:4], HEX1);
-	dec2_7seg hex2Converter(hexOut[11:8], HEX2);
-	dec2_7seg hex3Converter(hexOut[15:12], HEX3);
+	wire[DATA_BIT_WIDTH-1:0] abus;
+	wire[DATA_BIT_WIDTH-1:0] dbus;
+	wire we;
+	IO_controller ioCtrl (.clk(clk), .rst(reset), .ABUS(abus), .DBUS(dbus), .we(we), .SW(SW), .KEY(KEY), .LEDR(LEDR), .LEDG(LEDG), .HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .HEX3(HEX3));
 	
 endmodule
 
+//module IO_controller(dataAddr, isLoad, isStore, dataWrtEn, dataMemOutSel, swEn, keyEn, ledrEn, ledgEn, hexEn);
+module IO_controller(clk, rst, ABUS, DBUS, we, SW, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3);
 
-module IO_controller(dataAddr, isLoad, isStore, dataWrtEn, dataMemOutSel, swEn, keyEn, ledrEn, ledgEn, hexEn);
-
-	input[31:0] dataAddr;
-	input isLoad;
-	input isStore;
+	input clk, rst;
+	input[31:0] ABUS;
+	tri[31:0] DBUS;
+	wire we;
 	
-	output reg dataWrtEn;
-	output reg [1:0] dataMemOutSel;
-	output reg swEn;
-	output reg keyEn;
-	output reg ledrEn;
-	output reg ledgEn;
-	output reg hexEn;
+	input[9:0] SW;
+	input[3:0] KEY;
+	output[9:0] LEDR;
+	output[7:0] LEDG;
+	output[3:0] HEX0, HEX1, HEX2, HEX3;
 	
-	always @(*)
-	begin
-	// STORE/LOAD?
-	if(isLoad) // LOAD
-	begin
-		case (dataAddr[31:28])
-			4'hF: // I/O
-			begin
-					case (dataAddr[7:0]) // select which I/O
-							8'h14:begin
-								dataWrtEn			<= 1'b0;
-								dataMemOutSel		<= 2'd1;
-								swEn 					<= 1'b1;
-								keyEn					<= 1'b0;
-								ledrEn 				<= 1'b0;
-								ledgEn 				<= 1'b0;
-								hexEn 				<= 1'b0;
-							end
-							8'h10:begin
-								dataWrtEn			<= 1'b0;
-								dataMemOutSel		<= 2'd2;
-								swEn 					<= 1'b0;
-								keyEn					<= 1'b1;
-								ledrEn 				<= 1'b0;
-								ledgEn 				<= 1'b0;
-								hexEn 				<= 1'b0;
-							end
-							default:begin
-								dataWrtEn			<= 1'b0;
-								dataMemOutSel		<= 2'd0;
-								swEn 					<= 1'b0;
-								keyEn					<= 1'b0;
-								ledrEn 				<= 1'b0;
-								ledgEn 				<= 1'b0;
-								hexEn 				<= 1'b0;
-							end
-					endcase
-			end
-			default:begin
-				dataWrtEn			<= 1'b0;
-				dataMemOutSel		<= 2'd0;
-				swEn 					<= 1'b0;
-				keyEn					<= 1'b0;
-				ledrEn 				<= 1'b0;
-				ledgEn 				<= 1'b0;
-				hexEn 				<= 1'b0;
-			end
-		endcase
-	end
-	else if(isStore) // STORE
-	begin
-		case (dataAddr[31:28])
-			4'hF: // I/O
-			begin
-				case (dataAddr[7:0]) // select which I/O
-						8'h04:begin // LEDR
-							dataWrtEn			<= 1'b0;
-							dataMemOutSel		<= 2'd0;
-							swEn 					<= 1'b0;
-							keyEn					<= 1'b0;
-							ledrEn 				<= 1'b1;
-							ledgEn 				<= 1'b0;
-							hexEn 				<= 1'b0;
-						end
-						8'h08:begin // LEDG
-							dataWrtEn			<= 1'b0;
-							dataMemOutSel		<= 2'd0;
-							swEn 					<= 1'b0;
-							keyEn					<= 1'b0;
-							ledrEn 				<= 1'b0;
-							ledgEn 				<= 1'b1;
-							hexEn 				<= 1'b0;
-						end
-						8'h00:begin // HEX
-							dataWrtEn			<= 1'b0;
-							dataMemOutSel		<= 2'd0;
-							swEn 					<= 1'b0;
-							keyEn					<= 1'b0;
-							ledrEn 				<= 1'b0;
-							ledgEn 				<= 1'b0;
-							hexEn 				<= 1'b1;
-						end
-						default:begin
-							dataWrtEn			<= 1'b0;
-							dataMemOutSel		<= 2'd0;
-							swEn 					<= 1'b0;
-							keyEn					<= 1'b0;
-							ledrEn 				<= 1'b0;
-							ledgEn 				<= 1'b0;
-							hexEn 				<= 1'b0;
-						end
-				endcase
-			end
-			default:begin
-				dataWrtEn			<= 1'b1;
-				dataMemOutSel		<= 2'd0;
-				swEn 					<= 1'b0;
-				keyEn					<= 1'b0;
-				ledrEn 				<= 1'b0;
-				ledgEn 				<= 1'b0;
-				hexEn 				<= 1'b0;
-			end
-		endcase
-	end
-	else // not LOAD neither STORE
-	begin
-		dataWrtEn			<= 1'b0;
-		dataMemOutSel		<= 2'd0;
-		swEn 					<= 1'b0;
-		keyEn					<= 1'b0;
-		ledrEn 				<= 1'b0;
-		ledgEn 				<= 1'b0;
-		hexEn 				<= 1'b0;
-	end
-end
+	Keys key(clk, rst, ABUS, DBUS, KEY);
+	Switches switch(clk, rst, ABUS, DBUS, SW);
+	Ledg ledg(clk, rst, ABUS, DBUS, we, LEDG);
+	ledr ledr(clk, rst, ABUS, DBUS, we, LEDR);
+	Hex hex(clk, rst, ABUS, DBUS, we, {HEX0, HEX1, HEX2, HEX3});
+	Timer timer(clk, rst, ABUS, DBUS, we);
 	
 endmodule
 
