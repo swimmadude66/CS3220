@@ -148,8 +148,8 @@ module Project4(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	Mux4to1 muxDataMemOut (dataMemOutSel, dataWord, switchOut, keyOut, 32'd0, dataMemoryOut);
 	
 	// IO controller
-	wire[DATA_BIT_WIDTH-1:0] abus;
-	wire[DATA_BIT_WIDTH-1:0] dbus;
+	wire[DBITS-1:0] abus;
+	wire[DBITS-1:0] dbus;
 	wire we;
 	IO_controller ioCtrl (.clk(clk), .rst(reset), .ABUS(abus), .DBUS(dbus), .we(we), .SW(SW), .KEY(KEY), .LEDR(LEDR), .LEDG(LEDG), .HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .HEX3(HEX3));
 	
@@ -160,8 +160,8 @@ module IO_controller(clk, rst, ABUS, DBUS, we, SW, KEY, LEDR, LEDG, HEX0, HEX1, 
 
 	input clk, rst;
 	input[31:0] ABUS;
-	tri[31:0] DBUS;
-	wire we;
+	inout[31:0] DBUS;
+	input we;
 	
 	input[9:0] SW;
 	input[3:0] KEY;
@@ -169,12 +169,12 @@ module IO_controller(clk, rst, ABUS, DBUS, we, SW, KEY, LEDR, LEDG, HEX0, HEX1, 
 	output[7:0] LEDG;
 	output[3:0] HEX0, HEX1, HEX2, HEX3;
 	
-	Keys key(clk, rst, ABUS, DBUS, KEY);
-	Switches switch(clk, rst, ABUS, DBUS, SW);
-	Ledg ledg(clk, rst, ABUS, DBUS, we, LEDG);
-	ledr ledr(clk, rst, ABUS, DBUS, we, LEDR);
-	Hex hex(clk, rst, ABUS, DBUS, we, {HEX0, HEX1, HEX2, HEX3});
-	Timer timer(clk, rst, ABUS, DBUS, we);
+	KeyDevices key(ABUS, DBUS, we, KEY);
+	//Switches switch(clk, rst, ABUS, DBUS, SW);
+	//Ledg ledg(clk, rst, ABUS, DBUS, we, LEDG);
+	//Ledr ledr(clk, rst, ABUS, DBUS, we, LEDR);
+	//Hex hex(clk, rst, ABUS, DBUS, we, {HEX0, HEX1, HEX2, HEX3});
+	//Timer timer(clk, rst, ABUS, DBUS, we);
 	
 endmodule
 

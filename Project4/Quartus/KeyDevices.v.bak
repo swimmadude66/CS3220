@@ -14,13 +14,13 @@ module KeyDevices(aBus, dBus, wrtEn, keys);
 	always @(*) begin
 		if (aBus == 32'hF0000010) begin
 			if (wrtEn == 1'b0) begin
-				dBus <= kdata;
+				assign dBus = kdata;
 				kctrl[0] <= 1'b0;
 			end
 		end
-		else if (aBus == 32'hF0000110) begin	
+		if (aBus == 32'hF0000110) begin	
 			if (wrtEn == 1'b0) begin
-				dBus <= kctrl;
+				assign dBus = kctrl;
 			end
 			else begin
 				if (dBus[2] == 1'b0) begin
@@ -29,12 +29,17 @@ module KeyDevices(aBus, dBus, wrtEn, keys);
 				kctrl[8] <= dBus[8];
 			end
 		end
-		if(keys)begin
-			kdata = keys;
-			if (kctrl[0] == 1'b0)
-				kctrl[0] <= 1'b1;
-			else
-				kctrl[2] <= 1'b1;
-		end
 	end
+	
+	always @(keys) begin
+		if (kctrl[0] == 1'b0) begin
+			kctrl[0] = 1'b1;
+		end
+		else begin 
+			kctrl[2] = 1'b1;
+		end
+		kdata = keys;
+	end
+		
+	
 endmodule
