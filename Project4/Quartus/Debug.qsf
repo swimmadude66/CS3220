@@ -566,4 +566,6 @@ set_global_assignment -name VERILOG_FILE PipeLineReg.v
 set_global_assignment -name VERILOG_FILE Bubbler.v
 set_global_assignment -name VERILOG_FILE KeyDevices.v
 set_global_assignment -name VERILOG_FILE LEDandHEXDevices.v
+set_global_assignment -name VERILOG_FILE SwitchDevices.v
+set_global_assignment -name VERILOG_FILE MemoryBus.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
