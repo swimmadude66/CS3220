@@ -10,8 +10,6 @@ module KeyDevices(clk, reset, aBus, dBus, wrtEn, keys);
 	inout [DBUS_WIDTH -1:0] dBus;
 	input wrtEn;
 	
-	reg registerClk, registerreset;
-	
 	Register #(.BIT_WIDTH(4), .RESET_VALUE(KDATA_RESET_VALUE)) kdata (clk, reset, 1'b1, keys, kdataOut);
 	Register #(.BIT_WIDTH(9), .RESET_VALUE(KCTRL_RESET_VALUE)) kctrl (clk, reset, 1'b1, kctrlIn, kctrlOut);
 	
@@ -27,7 +25,7 @@ module KeyDevices(clk, reset, aBus, dBus, wrtEn, keys);
 			if (dBus[2] == 0) begin
 				kctrl[2] = 1'b0;
 			end
-			kctrl[8] = 1'b0;
+			kctrl[8] = dBus[8];
 		end	
 		else if(keys != kdataOut) begin				//Keys has changed
 		   kctrl[2] = 1'b1&kctrl[0];
