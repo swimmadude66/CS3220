@@ -147,14 +147,15 @@ module Project4(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	DataMemory #(DMEM_ADDR_BIT_WIDTH, DMEM_DATA_BIT_WIDTH) dataMem (.clk(clk), .ABUS(addrMemIn), .dataWrtEn(isStoreOut), .DBUS(DBUS));
 	Mux4to1 muxMemOut (memSelOut, aluOutOut, DBUS, nxtPCOut, 32'd0, dataIn);
 	
-	IO_controller ioCtrl (.rst(reset), .ABUS(addrMemIn), .DBUS(DBUS), .we(isStoreOut), .SW(SW), .KEY(KEY),
+	IO_controller ioCtrl (.clk(CLOCK_50), .rst(reset), .ABUS(addrMemIn), .DBUS(DBUS), .we(isStoreOut), .SW(SW), .KEY(KEY),
 									.LEDR(LEDR), .LEDG(LEDG), .HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .HEX3(HEX3));
 	
 endmodule
 
 //module IO_controller(dataAddr, isLoad, isStore, dataWrtEn, dataMemOutSel, swEn, keyEn, ledrEn, ledgEn, hexEn);
-module IO_controller(rst, ABUS, DBUS, we, SW, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3);
+module IO_controller(clk, rst, ABUS, DBUS, we, SW, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3);
 
+	input clk;
 	input rst;
 	input[31:0] ABUS;
 	inout tri[31:0] DBUS;
@@ -166,11 +167,11 @@ module IO_controller(rst, ABUS, DBUS, we, SW, KEY, LEDR, LEDG, HEX0, HEX1, HEX2,
 	output[7:0] LEDG;
 	output[6:0] HEX0, HEX1, HEX2, HEX3;
 	
-	KeyDevices key(rst, ABUS, DBUS, we, KEY);
+	KeyDevices key(clk, rst, ABUS, DBUS, we, KEY);
 	SwitchDevices switches(rst, ABUS, DBUS, we, SW);
-	Ledr ledR(rst, ABUS, DBUS, we, LEDR);
-	Ledg ledG(rst, ABUS, DBUS, we, LEDG);
-	Hex heX(rst, ABUS, DBUS, we, HEX0, HEX1, HEX2, HEX3);
+	Ledr ledR(clk, rst, ABUS, DBUS, we, LEDR);
+	Ledg ledG(clk, rst, ABUS, DBUS, we, LEDG);
+	Hex heX(clk, rst, ABUS, DBUS, we, HEX0, HEX1, HEX2, HEX3);
 	//Timer timer(clk, rst, ABUS, DBUS, we);
 	
 endmodule
