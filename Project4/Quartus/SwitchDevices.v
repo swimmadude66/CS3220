@@ -17,7 +17,7 @@ module SwitchDevices(clk, reset, aBus, dBus, wrtEn, switches);
 	input[9:0] switches;
 	reg [9:0] swdebounce;
 	reg [9:0] swdataIn;
-	reg [19:0] swcounter = 21'b0;
+	reg [20:0] swcounter = 21'b0;
 	wire [3:0] swdataOut;
 	wire [8:0] swctrlIn;
 	wire [8:0] swctrlOut;
@@ -50,7 +50,7 @@ module SwitchDevices(clk, reset, aBus, dBus, wrtEn, switches);
 			swdataIn <= swdebounce;
 		end
 		else begin
-			swcounter <= swcounter + 1;
+			swcounter <= swcounter + 21'd1;
 		end
 	end
 	

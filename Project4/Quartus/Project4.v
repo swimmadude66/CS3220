@@ -143,11 +143,11 @@ module Project4(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	// Data Memory and I/O controller
 	tri[31:0] DBUS;
 	assign DBUS = (isStoreOut) ? dataOut : 32'bz;
-	negRegister dataReg (clk, reset, 1'b1, aluOutOut, addrMemIn);
-	DataMemory #(DMEM_ADDR_BIT_WIDTH, DMEM_DATA_BIT_WIDTH) dataMem (.clk(clk), .ABUS(addrMemIn), .dataWrtEn(isStoreOut), .DBUS(DBUS));
+	//negRegister dataReg (clk, reset, 1'b1, aluOutOut, addrMemIn);
+	DataMemory #(DMEM_ADDR_BIT_WIDTH, DMEM_DATA_BIT_WIDTH) dataMem (.clk(clk), .ABUS(aluOutOut), .dataWrtEn(isStoreOut), .DBUS(DBUS));
 	Mux4to1 muxMemOut (memSelOut, aluOutOut, DBUS, nxtPCOut, 32'd0, dataIn);
 	
-	IO_controller ioCtrl (.clk(CLOCK_50), .rst(reset), .ABUS(addrMemIn), .DBUS(DBUS), .we(isStoreOut), .SW(SW), .KEY(KEY),
+	IO_controller ioCtrl (.clk(CLOCK_50), .rst(reset), .ABUS(aluOutOut), .DBUS(DBUS), .we(isStoreOut), .SW(SW), .KEY(KEY),
 									.LEDR(LEDR), .LEDG(LEDG), .HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .HEX3(HEX3));
 	
 endmodule
