@@ -18,10 +18,10 @@ module Ledr(clk, reset, aBus, dBus, wrtEn, ledr);
 
 	always @(posedge clk) begin
 		if (reset) begin
-			rledrOut = RESET_VALUE;
+			rledrOut <= RESET_VALUE;
 		end
 		else begin
-			rledrOut = (aBus == 32'hF0000004 && wrtEn) ? dBus[9:0] : rledrOut;//rledrValue;
+			rledrOut <= (aBus == 32'hF0000004 && wrtEn) ? dBus[9:0] : rledrOut;//rledrValue;
 			//rledrValue = rledrOut;
 		end
 	end
@@ -39,8 +39,8 @@ module Ledg(clk, reset, aBus, dBus, wrtEn, ledg);
 	
 	input clk;
 	input reset;
-	input [ABUS_WIDTH -1:0] aBus;
-	inout [DBUS_WIDTH -1:0] dBus;
+	input [ABUS_WIDTH-1:0] aBus;
+	inout [DBUS_WIDTH-1:0] dBus;
 	input wrtEn;
 	output [7:0] ledg;
 	
@@ -52,10 +52,10 @@ module Ledg(clk, reset, aBus, dBus, wrtEn, ledg);
 	
 	always @(posedge clk) begin
 		if (reset) begin
-			rledgOut = RESET_VALUE;
+			rledgOut <= RESET_VALUE;
 		end
 		else begin
-			rledgOut = (aBus == 32'hF0000008 && wrtEn) ? dBus[7:0] : rledgOut;//rledgValue;
+			rledgOut <= (aBus == 32'hF0000008 && wrtEn) ? dBus[7:0] : rledgOut;//rledgValue;
 			//rledgValue = rledgOut;
 		end
 	end

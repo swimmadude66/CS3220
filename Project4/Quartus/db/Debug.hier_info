@@ -2828,6 +2828,7 @@ ABUS[29] => Equal0.IN2
 ABUS[30] => Equal0.IN1
 ABUS[31] => Equal0.IN0
 dataWrtEn => always0.IN1
+dataWrtEn => DBUS.IN1
 DBUS[0] <> DBUS[0]
 DBUS[1] <> DBUS[1]
 DBUS[2] <> DBUS[2]
