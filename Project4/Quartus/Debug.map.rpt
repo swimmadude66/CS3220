@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Debug
-Sun Nov 16 22:24:51 2014
+Mon Nov 17 05:07:19 2014
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -15,52 +15,39 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
   9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Inverted Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Source assignments for DataMemory:dataMem|altsyncram:data_rtl_0|altsyncram_ghc1:auto_generated
- 14. Parameter Settings for User Entity Instance: Top-level Entity: |Project4
- 15. Parameter Settings for User Entity Instance: ClkDivider:clkdi
- 16. Parameter Settings for User Entity Instance: Register:pc
- 17. Parameter Settings for User Entity Instance: PcLogic:pcLogic
- 18. Parameter Settings for User Entity Instance: Mux4to1:muxPcOut
- 19. Parameter Settings for User Entity Instance: BranchAddrCalculator:bac
- 20. Parameter Settings for User Entity Instance: InstMemory:instMem
- 21. Parameter Settings for User Entity Instance: Controller:cont
- 22. Parameter Settings for User Entity Instance: SignExtension:se
- 23. Parameter Settings for User Entity Instance: RegisterFile:regFile
- 24. Parameter Settings for User Entity Instance: Mux2to1:muxAluIn
- 25. Parameter Settings for User Entity Instance: Alu:alu1
- 26. Parameter Settings for User Entity Instance: DataMemory:dataMem
- 27. Parameter Settings for User Entity Instance: Mux4to1:muxMemOut
- 28. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|KeyDevices:key
- 29. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|KeyDevices:key|Register:kdata
- 30. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|KeyDevices:key|Register:kctrl
- 31. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|SwitchDevices:switches
- 32. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|SwitchDevices:switches|Register:swdata
- 33. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|SwitchDevices:switches|Register:swctrl
- 34. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|Ledr:ledR
- 35. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|Ledg:ledG
- 36. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|Hex:heX
- 37. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|Timer:timer
- 38. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|Timer:timer|Register:tcnt
- 39. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|Timer:timer|Register:tlim
- 40. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|Timer:timer|Register:tctrl
- 41. Parameter Settings for Inferred Entity Instance: DataMemory:dataMem|altsyncram:data_rtl_0
- 42. altsyncram Parameter Settings by Entity Instance
- 43. Port Connectivity Checks: "IO_controller:ioCtrl|Timer:timer|Register:tctrl"
- 44. Port Connectivity Checks: "IO_controller:ioCtrl|Timer:timer|Register:tlim"
- 45. Port Connectivity Checks: "IO_controller:ioCtrl|Timer:timer|Register:tcnt"
- 46. Port Connectivity Checks: "IO_controller:ioCtrl|SwitchDevices:switches|Register:swctrl"
- 47. Port Connectivity Checks: "IO_controller:ioCtrl|SwitchDevices:switches|Register:swdata"
- 48. Port Connectivity Checks: "IO_controller:ioCtrl|KeyDevices:key|Register:kctrl"
- 49. Port Connectivity Checks: "IO_controller:ioCtrl|KeyDevices:key|Register:kdata"
- 50. Port Connectivity Checks: "Mux4to1:muxMemOut"
- 51. Port Connectivity Checks: "PipeLineReg:pipelineregister"
- 52. Port Connectivity Checks: "Register:pc"
- 53. Elapsed Time Per Partition
- 54. Analysis & Synthesis Messages
- 55. Analysis & Synthesis Suppressed Messages
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for DataMemory:dataMem|altsyncram:data_rtl_0|altsyncram_ghc1:auto_generated
+ 15. Parameter Settings for User Entity Instance: Top-level Entity: |Project4
+ 16. Parameter Settings for User Entity Instance: ClkDivider:clkdi
+ 17. Parameter Settings for User Entity Instance: Register:pc
+ 18. Parameter Settings for User Entity Instance: PcLogic:pcLogic
+ 19. Parameter Settings for User Entity Instance: Mux4to1:muxPcOut
+ 20. Parameter Settings for User Entity Instance: BranchAddrCalculator:bac
+ 21. Parameter Settings for User Entity Instance: InstMemory:instMem
+ 22. Parameter Settings for User Entity Instance: Controller:cont
+ 23. Parameter Settings for User Entity Instance: SignExtension:se
+ 24. Parameter Settings for User Entity Instance: RegisterFile:regFile
+ 25. Parameter Settings for User Entity Instance: Mux2to1:muxAluIn
+ 26. Parameter Settings for User Entity Instance: Alu:alu1
+ 27. Parameter Settings for User Entity Instance: DataMemory:dataMem
+ 28. Parameter Settings for User Entity Instance: Mux4to1:muxMemOut
+ 29. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|KeyDevices:key
+ 30. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|SwitchDevices:switches
+ 31. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|Ledr:ledR
+ 32. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|Ledg:ledG
+ 33. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|Hex:heX
+ 34. Parameter Settings for User Entity Instance: IO_controller:ioCtrl|Timer:timer
+ 35. Parameter Settings for Inferred Entity Instance: DataMemory:dataMem|altsyncram:data_rtl_0
+ 36. altsyncram Parameter Settings by Entity Instance
+ 37. Port Connectivity Checks: "Mux4to1:muxMemOut"
+ 38. Port Connectivity Checks: "PipeLineReg:pipelineregister"
+ 39. Port Connectivity Checks: "Register:pc"
+ 40. Elapsed Time Per Partition
+ 41. Analysis & Synthesis Messages
+ 42. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -86,15 +73,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Nov 16 22:24:51 2014           ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 17 05:07:19 2014           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Debug                                           ;
 ; Top-level Entity Name              ; Project4                                        ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 2,877                                           ;
-;     Total combinational functions  ; 2,351                                           ;
-;     Dedicated logic registers      ; 887                                             ;
-; Total registers                    ; 887                                             ;
+; Total logic elements               ; 2,906                                           ;
+;     Total combinational functions  ; 2,381                                           ;
+;     Dedicated logic registers      ; 876                                             ;
+; Total registers                    ; 876                                             ;
 ; Total pins                         ; 61                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 65,536                                          ;
@@ -241,20 +228,20 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------------------------+
 ; Resource                                    ; Usage                   ;
 +---------------------------------------------+-------------------------+
-; Estimated Total logic elements              ; 2,877                   ;
+; Estimated Total logic elements              ; 2,906                   ;
 ;                                             ;                         ;
-; Total combinational functions               ; 2351                    ;
+; Total combinational functions               ; 2381                    ;
 ; Logic element usage by number of LUT inputs ;                         ;
-;     -- 4 input functions                    ; 1690                    ;
-;     -- 3 input functions                    ; 315                     ;
-;     -- <=2 input functions                  ; 346                     ;
+;     -- 4 input functions                    ; 1695                    ;
+;     -- 3 input functions                    ; 349                     ;
+;     -- <=2 input functions                  ; 337                     ;
 ;                                             ;                         ;
 ; Logic elements by mode                      ;                         ;
-;     -- normal mode                          ; 2087                    ;
-;     -- arithmetic mode                      ; 264                     ;
+;     -- normal mode                          ; 2073                    ;
+;     -- arithmetic mode                      ; 308                     ;
 ;                                             ;                         ;
-; Total registers                             ; 887                     ;
-;     -- Dedicated logic registers            ; 887                     ;
+; Total registers                             ; 876                     ;
+;     -- Dedicated logic registers            ; 876                     ;
 ;     -- I/O registers                        ; 0                       ;
 ;                                             ;                         ;
 ; I/O pins                                    ; 61                      ;
@@ -262,8 +249,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Embedded Multiplier 9-bit elements          ; 0                       ;
 ; Maximum fan-out node                        ; ClkDivider:clkdi|clkReg ;
 ; Maximum fan-out                             ; 681                     ;
-; Total fan-out                               ; 11859                   ;
-; Average fan-out                             ; 3.56                    ;
+; Total fan-out                               ; 11947                   ;
+; Average fan-out                             ; 3.57                    ;
 +---------------------------------------------+-------------------------+
 
 
@@ -272,30 +259,26 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                               ; Library Name ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------+--------------+
-; |Project4                                 ; 2351 (22)         ; 887 (0)      ; 65536       ; 0            ; 0       ; 0         ; 61   ; 0            ; |Project4                                                                         ; work         ;
-;    |Alu:alu1|                             ; 369 (369)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|Alu:alu1                                                                ; work         ;
+; |Project4                                 ; 2381 (25)         ; 876 (0)      ; 65536       ; 0            ; 0       ; 0         ; 61   ; 0            ; |Project4                                                                         ; work         ;
+;    |Alu:alu1|                             ; 368 (368)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|Alu:alu1                                                                ; work         ;
 ;    |BranchAddrCalculator:bac|             ; 30 (30)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|BranchAddrCalculator:bac                                                ; work         ;
 ;    |Bubbler:bubbler|                      ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|Bubbler:bubbler                                                         ; work         ;
-;    |ClkDivider:clkdi|                     ; 52 (52)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|ClkDivider:clkdi                                                        ; work         ;
+;    |ClkDivider:clkdi|                     ; 53 (53)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|ClkDivider:clkdi                                                        ; work         ;
 ;    |Controller:cont|                      ; 102 (102)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|Controller:cont                                                         ; work         ;
 ;    |DataMemory:dataMem|                   ; 2 (2)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|DataMemory:dataMem                                                      ; work         ;
 ;       |altsyncram:data_rtl_0|             ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|DataMemory:dataMem|altsyncram:data_rtl_0                                ; work         ;
 ;          |altsyncram_ghc1:auto_generated| ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|DataMemory:dataMem|altsyncram:data_rtl_0|altsyncram_ghc1:auto_generated ; work         ;
-;    |IO_controller:ioCtrl|                 ; 455 (0)           ; 206 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl                                                    ; work         ;
-;       |Hex:heX|                           ; 44 (16)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl|Hex:heX                                            ; work         ;
+;    |IO_controller:ioCtrl|                 ; 482 (0)           ; 195 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl                                                    ; work         ;
+;       |Hex:heX|                           ; 37 (9)            ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl|Hex:heX                                            ; work         ;
 ;          |SevenSeg:hex0Converter|         ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl|Hex:heX|SevenSeg:hex0Converter                     ; work         ;
 ;          |SevenSeg:hex1Converter|         ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl|Hex:heX|SevenSeg:hex1Converter                     ; work         ;
 ;          |SevenSeg:hex2Converter|         ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl|Hex:heX|SevenSeg:hex2Converter                     ; work         ;
 ;          |SevenSeg:hex3Converter|         ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl|Hex:heX|SevenSeg:hex3Converter                     ; work         ;
-;       |KeyDevices:key|                    ; 91 (87)           ; 4 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl|KeyDevices:key                                     ; work         ;
-;          |Register:kdata|                 ; 4 (4)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl|KeyDevices:key|Register:kdata                      ; work         ;
-;       |Ledg:ledG|                         ; 5 (5)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl|Ledg:ledG                                          ; work         ;
+;       |KeyDevices:key|                    ; 104 (104)         ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl|KeyDevices:key                                     ; work         ;
+;       |Ledg:ledG|                         ; 10 (10)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl|Ledg:ledG                                          ; work         ;
 ;       |Ledr:ledR|                         ; 12 (12)           ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl|Ledr:ledR                                          ; work         ;
-;       |SwitchDevices:switches|            ; 19 (9)            ; 20 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl|SwitchDevices:switches                             ; work         ;
-;          |Register:swdata|                ; 10 (10)           ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl|SwitchDevices:switches|Register:swdata             ; work         ;
-;       |Timer:timer|                       ; 284 (220)         ; 148 (84)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl|Timer:timer                                        ; work         ;
-;          |Register:tcnt|                  ; 32 (32)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl|Timer:timer|Register:tcnt                          ; work         ;
-;          |Register:tlim|                  ; 32 (32)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl|Timer:timer|Register:tlim                          ; work         ;
+;       |SwitchDevices:switches|            ; 85 (85)           ; 54 (54)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl|SwitchDevices:switches                             ; work         ;
+;       |Timer:timer|                       ; 234 (234)         ; 100 (100)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|IO_controller:ioCtrl|Timer:timer                                        ; work         ;
 ;    |InstMemory:instMem|                   ; 383 (383)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|InstMemory:instMem                                                      ; work         ;
 ;    |Mux2to1:muxAluIn|                     ; 33 (33)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|Mux2to1:muxAluIn                                                        ; work         ;
 ;    |Mux4to1:muxMemOut|                    ; 64 (64)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project4|Mux4to1:muxMemOut                                                       ; work         ;
@@ -317,51 +300,61 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                 ;
-+---------------------------------------------------------------------------+----------------------------------------+
-; Register name                                                             ; Reason for Removal                     ;
-+---------------------------------------------------------------------------+----------------------------------------+
-; IO_controller:ioCtrl|Timer:timer|Register:tctrl|dataOut[1..8]             ; Stuck at GND due to stuck port data_in ;
-; IO_controller:ioCtrl|SwitchDevices:switches|Register:swctrl|dataOut[1..8] ; Stuck at GND due to stuck port data_in ;
-; IO_controller:ioCtrl|KeyDevices:key|Register:kctrl|dataOut[1..8]          ; Stuck at GND due to stuck port data_in ;
-; IO_controller:ioCtrl|Timer:timer|Register:tctrl|dataOut[0]                ; Stuck at GND due to stuck port data_in ;
-; IO_controller:ioCtrl|SwitchDevices:switches|Register:swctrl|dataOut[0]    ; Stuck at GND due to stuck port data_in ;
-; IO_controller:ioCtrl|KeyDevices:key|Register:kctrl|dataOut[0]             ; Stuck at GND due to stuck port data_in ;
-; RegisterFile:regFile|data~512                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~513                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~514                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~515                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~516                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~517                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~518                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~519                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~520                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~521                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~522                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~523                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~524                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~525                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~526                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~527                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~528                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~529                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~530                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~531                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~532                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~533                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~534                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~535                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~536                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~537                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~538                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~539                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~540                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~541                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~542                                             ; Lost fanout                            ;
-; RegisterFile:regFile|data~543                                             ; Lost fanout                            ;
-; Total Number of Removed Registers = 59                                    ;                                        ;
-+---------------------------------------------------------------------------+----------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                 ;
++------------------------------------------------------------+-----------------------------------------------------------------------+
+; Register name                                              ; Reason for Removal                                                    ;
++------------------------------------------------------------+-----------------------------------------------------------------------+
+; IO_controller:ioCtrl|Timer:timer|tctrl[1,3..7]             ; Stuck at GND due to stuck port data_in                                ;
+; IO_controller:ioCtrl|SwitchDevices:switches|swctrl[1,3..7] ; Stuck at GND due to stuck port data_in                                ;
+; IO_controller:ioCtrl|KeyDevices:key|kctrl[1,3..7]          ; Stuck at GND due to stuck port data_in                                ;
+; IO_controller:ioCtrl|KeyDevices:key|oneTimeKInit           ; Merged with IO_controller:ioCtrl|SwitchDevices:switches|oneTimeSwInit ;
+; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[0]  ; Stuck at GND due to stuck port data_in                                ;
+; IO_controller:ioCtrl|SwitchDevices:switches|swdata[0]      ; Stuck at GND due to stuck port data_in                                ;
+; RegisterFile:regFile|data~512                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~513                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~514                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~515                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~516                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~517                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~518                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~519                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~520                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~521                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~522                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~523                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~524                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~525                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~526                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~527                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~528                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~529                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~530                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~531                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~532                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~533                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~534                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~535                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~536                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~537                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~538                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~539                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~540                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~541                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~542                              ; Lost fanout                                                           ;
+; RegisterFile:regFile|data~543                              ; Lost fanout                                                           ;
+; Total Number of Removed Registers = 53                     ;                                                                       ;
++------------------------------------------------------------+-----------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                   ;
++-----------------------------------------------------------+---------------------------+-------------------------------------------------------+
+; Register name                                             ; Reason for Removal        ; Registers Removed due to This Register                ;
++-----------------------------------------------------------+---------------------------+-------------------------------------------------------+
+; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[0] ; Stuck at GND              ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[0] ;
+;                                                           ; due to stuck port data_in ;                                                       ;
++-----------------------------------------------------------+---------------------------+-------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -369,51 +362,56 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 887   ;
-; Number of registers using Synchronous Clear  ; 84    ;
-; Number of registers using Synchronous Load   ; 61    ;
+; Total registers                              ; 876   ;
+; Number of registers using Synchronous Clear  ; 138   ;
+; Number of registers using Synchronous Load   ; 29    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 641   ;
+; Number of registers using Clock Enable       ; 659   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; Register:pc|dataOut[6]                 ; 144     ;
-; Total number of inverted registers = 1 ;         ;
-+----------------------------------------+---------+
++---------------------------------------------------------------------+
+; Inverted Register Statistics                                        ;
++-----------------------------------------------------------+---------+
+; Inverted Register                                         ; Fan out ;
++-----------------------------------------------------------+---------+
+; Register:pc|dataOut[6]                                    ; 144     ;
+; IO_controller:ioCtrl|SwitchDevices:switches|oneTimeSwInit ; 16      ;
+; Total number of inverted registers = 2                    ;         ;
++-----------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Project4|IO_controller:ioCtrl|Timer:timer|tlimIn[15]      ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Project4|Register:pc|dataOut[0]                           ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Project4|PipeLineReg:pipelineregister|destRegOut[3]       ;
-; 5:1                ; 29 bits   ; 87 LEs        ; 58 LEs               ; 29 LEs                 ; Yes        ; |Project4|Register:pc|dataOut[4]                           ;
-; 4:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |Project4|IO_controller:ioCtrl|Timer:timer|internalcnt[16] ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |Project4|IO_controller:ioCtrl|Timer:timer|tcntIn[5]       ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |Project4|IO_controller:ioCtrl|Ledr:ledR|rledrOut[1]       ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |Project4|IO_controller:ioCtrl|Ledg:ledG|rledgOut[5]       ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |Project4|IO_controller:ioCtrl|Hex:heX|rhexOut[3]          ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Project4|Mux4to1:muxMemOut|Mux16                          ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Project4|IO_controller:ioCtrl|Timer:timer|dBus[25]        ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Project4|Controller:cont|Selector11                       ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; No         ; |Project4|Controller:cont|Selector13                       ;
-; 32:1               ; 15 bits   ; 315 LEs       ; 75 LEs               ; 240 LEs                ; No         ; |Project4|Alu:alu1|Mux16                                   ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Project4|Controller:cont|Selector9                        ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 8 LEs                ; 12 LEs                 ; No         ; |Project4|Controller:cont|Selector3                        ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |Project4|Controller:cont|Selector4                        ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |Project4|Controller:cont|Selector20                       ;
-; 20:1               ; 16 bits   ; 208 LEs       ; 112 LEs              ; 96 LEs                 ; No         ; |Project4|Alu:alu1|Mux5                                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
+; 3:1                ; 33 bits   ; 66 LEs        ; 33 LEs               ; 33 LEs                 ; Yes        ; |Project4|IO_controller:ioCtrl|Timer:timer|internalcnt[0]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Project4|IO_controller:ioCtrl|Timer:timer|tlim[0]                  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Project4|Register:pc|dataOut[1]                                    ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Project4|PipeLineReg:pipelineregister|destRegOut[0]                ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |Project4|IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[2] ;
+; 5:1                ; 29 bits   ; 87 LEs        ; 58 LEs               ; 29 LEs                 ; Yes        ; |Project4|Register:pc|dataOut[18]                                   ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |Project4|IO_controller:ioCtrl|SwitchDevices:switches|swcounter[5]  ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 10 LEs               ; 20 LEs                 ; Yes        ; |Project4|IO_controller:ioCtrl|SwitchDevices:switches|swdata[4]     ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Project4|IO_controller:ioCtrl|Timer:timer|tcnt[14]                 ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |Project4|IO_controller:ioCtrl|Ledr:ledR|rledrOut[2]                ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |Project4|IO_controller:ioCtrl|Ledg:ledG|rledgOut[6]                ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |Project4|IO_controller:ioCtrl|Hex:heX|rhexOut[14]                  ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Project4|Mux4to1:muxMemOut|Mux27                                   ;
+; 3:1                ; 29 bits   ; 58 LEs        ; 58 LEs               ; 0 LEs                  ; No         ; |Project4|IO_controller:ioCtrl|Timer:timer|dBus[12]                 ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Project4|IO_controller:ioCtrl|Timer:timer|dBus[0]                  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Project4|Controller:cont|Selector11                                ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; No         ; |Project4|Controller:cont|Selector14                                ;
+; 32:1               ; 15 bits   ; 315 LEs       ; 75 LEs               ; 240 LEs                ; No         ; |Project4|Alu:alu1|Mux29                                            ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Project4|Controller:cont|Selector8                                 ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 8 LEs                ; 12 LEs                 ; No         ; |Project4|Controller:cont|Selector3                                 ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |Project4|Controller:cont|Selector7                                 ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |Project4|Controller:cont|Selector21                                ;
+; 20:1               ; 16 bits   ; 208 LEs       ; 112 LEs              ; 96 LEs                 ; No         ; |Project4|Alu:alu1|Mux3                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------+
@@ -605,71 +603,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +----------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: IO_controller:ioCtrl|KeyDevices:key ;
-+-------------------+----------+---------------------------------------------------+
-; Parameter Name    ; Value    ; Type                                              ;
-+-------------------+----------+---------------------------------------------------+
-; ABUS_WIDTH        ; 32       ; Signed Integer                                    ;
-; DBUS_WIDTH        ; 32       ; Signed Integer                                    ;
-; KDATA_RESET_VALUE ; 0000     ; Unsigned Binary                                   ;
-; KCTRL_RESET_VALUE ; 00000000 ; Unsigned Binary                                   ;
-+-------------------+----------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: IO_controller:ioCtrl|KeyDevices:key|Register:kdata ;
-+----------------+-------+------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                   ;
-+----------------+-------+------------------------------------------------------------------------+
-; BIT_WIDTH      ; 4     ; Signed Integer                                                         ;
-; RESET_VALUE    ; 0000  ; Unsigned Binary                                                        ;
-+----------------+-------+------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: IO_controller:ioCtrl|KeyDevices:key|Register:kctrl ;
-+----------------+----------+---------------------------------------------------------------------+
-; Parameter Name ; Value    ; Type                                                                ;
-+----------------+----------+---------------------------------------------------------------------+
-; BIT_WIDTH      ; 9        ; Signed Integer                                                      ;
-; RESET_VALUE    ; 00000000 ; Unsigned Binary                                                     ;
-+----------------+----------+---------------------------------------------------------------------+
++-------------------+-----------+--------------------------------------------------+
+; Parameter Name    ; Value     ; Type                                             ;
++-------------------+-----------+--------------------------------------------------+
+; ABUS_WIDTH        ; 32        ; Signed Integer                                   ;
+; DBUS_WIDTH        ; 32        ; Signed Integer                                   ;
+; KDATA_RESET_VALUE ; 0000      ; Unsigned Binary                                  ;
+; KCTRL_RESET_VALUE ; 000000000 ; Unsigned Binary                                  ;
++-------------------+-----------+--------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +------------------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: IO_controller:ioCtrl|SwitchDevices:switches ;
-+-------------------+----------+-----------------------------------------------------------+
-; Parameter Name    ; Value    ; Type                                                      ;
-+-------------------+----------+-----------------------------------------------------------+
-; ABUS_WIDTH        ; 32       ; Signed Integer                                            ;
-; DBUS_WIDTH        ; 32       ; Signed Integer                                            ;
-; KDATA_RESET_VALUE ; 0000     ; Unsigned Binary                                           ;
-; KCTRL_RESET_VALUE ; 00000000 ; Unsigned Binary                                           ;
-+-------------------+----------+-----------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: IO_controller:ioCtrl|SwitchDevices:switches|Register:swdata ;
-+----------------+-------+---------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                            ;
-+----------------+-------+---------------------------------------------------------------------------------+
-; BIT_WIDTH      ; 10    ; Signed Integer                                                                  ;
-; RESET_VALUE    ; 0000  ; Unsigned Binary                                                                 ;
-+----------------+-------+---------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: IO_controller:ioCtrl|SwitchDevices:switches|Register:swctrl ;
-+----------------+----------+------------------------------------------------------------------------------+
-; Parameter Name ; Value    ; Type                                                                         ;
-+----------------+----------+------------------------------------------------------------------------------+
-; BIT_WIDTH      ; 9        ; Signed Integer                                                               ;
-; RESET_VALUE    ; 00000000 ; Unsigned Binary                                                              ;
-+----------------+----------+------------------------------------------------------------------------------+
++--------------------------+----------------------------------+----------------------------+
+; Parameter Name           ; Value                            ; Type                       ;
++--------------------------+----------------------------------+----------------------------+
+; ABUS_WIDTH               ; 32                               ; Signed Integer             ;
+; DBUS_WIDTH               ; 32                               ; Signed Integer             ;
+; SWDATA_RESET_VALUE       ; 0000000000                       ; Unsigned Binary            ;
+; SWCTRL_RESET_VALUE       ; 000000000                        ; Unsigned Binary            ;
+; INTERNAL_CNT_RESET_VALUE ; 00000000000000000000000000000000 ; Unsigned Binary            ;
++--------------------------+----------------------------------+----------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -711,48 +666,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +-------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: IO_controller:ioCtrl|Timer:timer ;
-+----------------------+----------------------------------+---------------------+
-; Parameter Name       ; Value                            ; Type                ;
-+----------------------+----------------------------------+---------------------+
-; ABUS_WIDTH           ; 32                               ; Signed Integer      ;
-; DBUS_WIDTH           ; 32                               ; Signed Integer      ;
-; RESET_VALUE          ; 00000000000000000000000000000000 ; Unsigned Binary     ;
-; INTERNAL_RESET_VALUE ; 00000000000000000000             ; Unsigned Binary     ;
-; TCTRL_RESET_VALUE    ; 000000000                        ; Unsigned Binary     ;
-+----------------------+----------------------------------+---------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: IO_controller:ioCtrl|Timer:timer|Register:tcnt ;
-+----------------+----------------------------------+-----------------------------------------+
-; Parameter Name ; Value                            ; Type                                    ;
-+----------------+----------------------------------+-----------------------------------------+
-; BIT_WIDTH      ; 32                               ; Signed Integer                          ;
-; RESET_VALUE    ; 00000000000000000000000000000000 ; Unsigned Binary                         ;
-+----------------+----------------------------------+-----------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: IO_controller:ioCtrl|Timer:timer|Register:tlim ;
-+----------------+----------------------------------+-----------------------------------------+
-; Parameter Name ; Value                            ; Type                                    ;
-+----------------+----------------------------------+-----------------------------------------+
-; BIT_WIDTH      ; 32                               ; Signed Integer                          ;
-; RESET_VALUE    ; 00000000000000000000000000000000 ; Unsigned Binary                         ;
-+----------------+----------------------------------+-----------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: IO_controller:ioCtrl|Timer:timer|Register:tctrl ;
-+----------------+-----------+-----------------------------------------------------------------+
-; Parameter Name ; Value     ; Type                                                            ;
-+----------------+-----------+-----------------------------------------------------------------+
-; BIT_WIDTH      ; 9         ; Signed Integer                                                  ;
-; RESET_VALUE    ; 000000000 ; Unsigned Binary                                                 ;
-+----------------+-----------+-----------------------------------------------------------------+
++-------------------+----------------------------------+------------------------+
+; Parameter Name    ; Value                            ; Type                   ;
++-------------------+----------------------------------+------------------------+
+; ABUS_WIDTH        ; 32                               ; Signed Integer         ;
+; DBUS_WIDTH        ; 32                               ; Signed Integer         ;
+; TCTRL_RESET_VALUE ; 000000000                        ; Unsigned Binary        ;
+; CNT_RESET_VALUE   ; 00000000000000000000000000000000 ; Unsigned Binary        ;
++-------------------+----------------------------------+------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -837,69 +758,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+------------------------------------------+
 
 
-+-----------------------------------------------------------------------------+
-; Port Connectivity Checks: "IO_controller:ioCtrl|Timer:timer|Register:tctrl" ;
-+-------+-------+----------+--------------------------------------------------+
-; Port  ; Type  ; Severity ; Details                                          ;
-+-------+-------+----------+--------------------------------------------------+
-; wrtEn ; Input ; Info     ; Stuck at VCC                                     ;
-+-------+-------+----------+--------------------------------------------------+
-
-
-+----------------------------------------------------------------------------+
-; Port Connectivity Checks: "IO_controller:ioCtrl|Timer:timer|Register:tlim" ;
-+-------+-------+----------+-------------------------------------------------+
-; Port  ; Type  ; Severity ; Details                                         ;
-+-------+-------+----------+-------------------------------------------------+
-; wrtEn ; Input ; Info     ; Stuck at VCC                                    ;
-+-------+-------+----------+-------------------------------------------------+
-
-
-+----------------------------------------------------------------------------+
-; Port Connectivity Checks: "IO_controller:ioCtrl|Timer:timer|Register:tcnt" ;
-+-------+-------+----------+-------------------------------------------------+
-; Port  ; Type  ; Severity ; Details                                         ;
-+-------+-------+----------+-------------------------------------------------+
-; wrtEn ; Input ; Info     ; Stuck at VCC                                    ;
-+-------+-------+----------+-------------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "IO_controller:ioCtrl|SwitchDevices:switches|Register:swctrl" ;
-+-------+-------+----------+--------------------------------------------------------------+
-; Port  ; Type  ; Severity ; Details                                                      ;
-+-------+-------+----------+--------------------------------------------------------------+
-; wrtEn ; Input ; Info     ; Stuck at VCC                                                 ;
-+-------+-------+----------+--------------------------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "IO_controller:ioCtrl|SwitchDevices:switches|Register:swdata" ;
-+-------+-------+----------+--------------------------------------------------------------+
-; Port  ; Type  ; Severity ; Details                                                      ;
-+-------+-------+----------+--------------------------------------------------------------+
-; wrtEn ; Input ; Info     ; Stuck at VCC                                                 ;
-+-------+-------+----------+--------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------+
-; Port Connectivity Checks: "IO_controller:ioCtrl|KeyDevices:key|Register:kctrl" ;
-+-------+-------+----------+-----------------------------------------------------+
-; Port  ; Type  ; Severity ; Details                                             ;
-+-------+-------+----------+-----------------------------------------------------+
-; wrtEn ; Input ; Info     ; Stuck at VCC                                        ;
-+-------+-------+----------+-----------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------+
-; Port Connectivity Checks: "IO_controller:ioCtrl|KeyDevices:key|Register:kdata" ;
-+-------+-------+----------+-----------------------------------------------------+
-; Port  ; Type  ; Severity ; Details                                             ;
-+-------+-------+----------+-----------------------------------------------------+
-; wrtEn ; Input ; Info     ; Stuck at VCC                                        ;
-+-------+-------+----------+-----------------------------------------------------+
-
-
 +-----------------------------------------------+
 ; Port Connectivity Checks: "Mux4to1:muxMemOut" ;
 +------+-------+----------+---------------------+
@@ -942,7 +800,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sun Nov 16 22:24:13 2014
+    Info: Processing started: Mon Nov 17 05:06:42 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project4 -c Debug
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file timerdevice.v
@@ -1014,17 +872,12 @@ Info (12128): Elaborating entity "PipeLineReg" for hierarchy "PipeLineReg:pipeli
 Info (12128): Elaborating entity "DataMemory" for hierarchy "DataMemory:dataMem"
 Info (12128): Elaborating entity "IO_controller" for hierarchy "IO_controller:ioCtrl"
 Info (12128): Elaborating entity "KeyDevices" for hierarchy "IO_controller:ioCtrl|KeyDevices:key"
-Info (12128): Elaborating entity "Register" for hierarchy "IO_controller:ioCtrl|KeyDevices:key|Register:kdata"
-Info (12128): Elaborating entity "Register" for hierarchy "IO_controller:ioCtrl|KeyDevices:key|Register:kctrl"
 Info (12128): Elaborating entity "SwitchDevices" for hierarchy "IO_controller:ioCtrl|SwitchDevices:switches"
-Info (12128): Elaborating entity "Register" for hierarchy "IO_controller:ioCtrl|SwitchDevices:switches|Register:swdata"
 Info (12128): Elaborating entity "Ledr" for hierarchy "IO_controller:ioCtrl|Ledr:ledR"
 Info (12128): Elaborating entity "Ledg" for hierarchy "IO_controller:ioCtrl|Ledg:ledG"
 Info (12128): Elaborating entity "Hex" for hierarchy "IO_controller:ioCtrl|Hex:heX"
 Info (12128): Elaborating entity "SevenSeg" for hierarchy "IO_controller:ioCtrl|Hex:heX|SevenSeg:hex0Converter"
 Info (12128): Elaborating entity "Timer" for hierarchy "IO_controller:ioCtrl|Timer:timer"
-Info (12128): Elaborating entity "Register" for hierarchy "IO_controller:ioCtrl|Timer:timer|Register:tcnt"
-Info (12128): Elaborating entity "Register" for hierarchy "IO_controller:ioCtrl|Timer:timer|Register:tctrl"
 Info (276024): Pass-through logic not created for RAM node "DataMemory:dataMem|data_rtl_0"
 Info (276014): Found 2 instances of uninferred RAM logic
     Info (276007): RAM logic "InstMemory:instMem|data" is uninferred due to asynchronous read logic
@@ -1072,7 +925,7 @@ Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
     Warning (13047): Converted the fan-out from the tri-state buffer "IO_controller:ioCtrl|KeyDevices:key|dBus[5]" to the node "Mux4to1:muxMemOut|Mux26" into an OR gate
     Warning (13047): Converted the fan-out from the tri-state buffer "IO_controller:ioCtrl|KeyDevices:key|dBus[6]" to the node "Mux4to1:muxMemOut|Mux25" into an OR gate
     Warning (13047): Converted the fan-out from the tri-state buffer "IO_controller:ioCtrl|KeyDevices:key|dBus[7]" to the node "Mux4to1:muxMemOut|Mux24" into an OR gate
-    Warning (13047): Converted the fan-out from the tri-state buffer "IO_controller:ioCtrl|KeyDevices:key|dBus[8]" to the node "Mux4to1:muxMemOut|Mux23" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "IO_controller:ioCtrl|Ledg:ledG|dBus[8]" to the node "Mux4to1:muxMemOut|Mux23" into an OR gate
     Warning (13047): Converted the fan-out from the tri-state buffer "IO_controller:ioCtrl|KeyDevices:key|dBus[9]" to the node "Mux4to1:muxMemOut|Mux22" into an OR gate
     Warning (13047): Converted the fan-out from the tri-state buffer "IO_controller:ioCtrl|KeyDevices:key|dBus[10]" to the node "Mux4to1:muxMemOut|Mux21" into an OR gate
     Warning (13047): Converted the fan-out from the tri-state buffer "IO_controller:ioCtrl|KeyDevices:key|dBus[11]" to the node "Mux4to1:muxMemOut|Mux20" into an OR gate
@@ -1100,16 +953,16 @@ Info (17049): 32 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/j3gb3rt/Documents/CS3220/Project4/Quartus/Debug.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 3029 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3058 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 46 output pins
-    Info (21061): Implemented 2936 logic cells
+    Info (21061): Implemented 2965 logic cells
     Info (21064): Implemented 32 RAM segments
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 35 warnings
-    Info: Peak virtual memory: 484 megabytes
-    Info: Processing ended: Sun Nov 16 22:24:51 2014
-    Info: Elapsed time: 00:00:38
-    Info: Total CPU time (on all processors): 00:00:37
+    Info: Peak virtual memory: 478 megabytes
+    Info: Processing ended: Mon Nov 17 05:07:19 2014
+    Info: Elapsed time: 00:00:37
+    Info: Total CPU time (on all processors): 00:00:36
 
 
 +------------------------------------------+
