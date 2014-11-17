@@ -530,6 +530,10 @@ set_global_assignment -name VECTOR_OUTPUT_FORMAT VWF
 set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE "C:/Users/jspark/Desktop/cs3220-examples/Project2/Waveform.vwf"
 set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING ON
 set_global_assignment -name SLD_FILE "C:/Users/jspark/Desktop/cs3220-examples/Project2/stp1_auto_stripped.stp"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VERILOG_FILE TimerDevice.v
 set_global_assignment -name VERILOG_FILE Project4.v
 set_global_assignment -name VERILOG_FILE negRegister.v
 set_global_assignment -name VERILOG_FILE PcLogic.v
@@ -559,9 +563,6 @@ set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
 set_global_assignment -name SIGNALTAP_FILE bad_test.stp
 set_global_assignment -name SIGNALTAP_FILE stp1.stp
 set_global_assignment -name VERILOG_FILE Mux4to1.v
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name VERILOG_FILE PipeLineReg.v
 set_global_assignment -name VERILOG_FILE Bubbler.v
 set_global_assignment -name VERILOG_FILE KeyDevices.v

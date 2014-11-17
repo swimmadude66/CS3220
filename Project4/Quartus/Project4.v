@@ -172,7 +172,7 @@ module IO_controller(clk, rst, ABUS, DBUS, we, SW, KEY, LEDR, LEDG, HEX0, HEX1, 
 	Ledr ledR(clk, rst, ABUS, DBUS, we, LEDR);
 	Ledg ledG(clk, rst, ABUS, DBUS, we, LEDG);
 	Hex heX(clk, rst, ABUS, DBUS, we, HEX0, HEX1, HEX2, HEX3);
-	//Timer timer(clk, rst, ABUS, DBUS, we);
+	Timer timer(clk, rst, ABUS, DBUS, we);
 	
 endmodule
 

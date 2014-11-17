@@ -18,7 +18,7 @@ module SwitchDevices(clk, reset, aBus, dBus, wrtEn, switches);
 	reg [9:0] swdebounce;
 	reg [9:0] swdataIn;
 	reg [20:0] swcounter = 21'b0;
-	wire [3:0] swdataOut;
+	wire [9:0] swdataOut;
 	wire [8:0] swctrlIn;
 	wire [8:0] swctrlOut;
 	
