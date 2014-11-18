@@ -64,76 +64,15 @@ AfterCapNineMin:
 	or		s0, s0, s1			;  combine minutes and seconds
 	sw		s0, OFSHEX(gp)
 Bridge2:
-	lw		s1, OFSKEY(gp)		;get key
-	andi	s1, s1, 0x04		;key key[2]
+	lw		s0, OFSKEY(gp)		;get key
+	andi	s0, s0, 0x04		;key key[2]
 	xor		t1, t1, t1
 	addi	t1, t1, 0x04
-	bne		s1, t1, SetMinutes
-TimerStart:
-	xor		t0, t0,	t0
-	addi	t0,	t0, 1000		;1s timer
-	sw		t0, TLIM(gp)		;set timer to fire every second
-
-Wait:
-	xor		t0, t0, t0
-	not		t0, t0
-	sw		t0, OFSLEDG(gp)
-	lw		t1, TCTL(gp)			;get timer control
-	beqz	t1, Wait
-	xor		t1, t1, t1
-	sw		t1, TCTL(gp)
-Decrement:
-	xor		t0, t0, t0
-	sw		t0, OFSLEDG(gp)	
-	andi	s1, s0, 0x0F		;get ones of seconds
-	beqz	s1, Cascade			;seconds are zero
-	subi	s0, s0, 1
-AfterCascade:
-	sw		s0, OFSHEX(gp)		;store updated timer to HEX
-	bt		t0, t0, Wait 		;keep running
-Done:
-	xor		a0, a0, a0
-	addi	a0, a0, 500			; half second
-	sw		a0, TLIM(gp)
-	addi	s2, s0, 0x3FF		;10 bits of 1
-	xor		t1, t1, t1
-	addi	t1, t1, 1			;Check bit
-Alarm:
-	xor		s0, s0, s0
-	sw		s0, TCTL(gp)			;reset ready bit
-	addi	s2, s0, 0x3FF		;10 bits of 1
-	sw		s2, OFSLEDR(gp)		;All Red
-	lw		a0, TCTL(gp)
-	andi	a0, a0, 0x01		;get ready bit
-	beqz	a0, Alarm
-AlarmOff:
-	xor		s0, s0, s0
-	sw		s0, TCTL(gp)			;reset ready bit
-	sw		s2, OFSLEDR(gp)		;All off
-	lw		a0, TCTL(gp)
-	andi	a0, a0, 0x01		;get ready bit
-	beqz	a0, AlarmOFF
-	bt		t0, t0, Alarm
-	
-	
-;sub routines	
-	
-Cascade:
-	andi	s1,  s0, 0x0F0		;tenseconds
-	beqz	s1, Cascade1		;tenseconds are zero
-	subi	s0, s0, 0x010			;subtract 10 seconds
-	addi	s0, s0, 0x09			;set ones to 9
-	bt		t0, t0, AfterCascade
-Cascade1:
-	andi	s1,  s0, 0x0F00		;minues
-	beqz	s1, Cascade2		;minutes are zero
-	subi	s0, s0, 0x0100			;subtract 1 minute
-	addi	s0,	s0, 0x059			;set seconds to 59
-	bt		t0, t0, AfterCascade
-Cascade2:
-	subi	s0, s0, 0x01000			;subtract 10 minutes
-	addi	s0, s0, 0x00959			;set minutes to 9
-	bt		t0, t0, AfterCascade
+	bne		s0, t1, SetMinutes
+MoveOn:
+	not		s0, gp
+	sw		s0, OFSLEDR(gp)
+	bt		t0, t0, MoveOn
 CapFive:
 	xor 	s2, s2, s2
 	addi	s2, s2, 0x050

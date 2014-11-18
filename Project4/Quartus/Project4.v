@@ -1,9 +1,8 @@
 module ClkDivider(input clkIn, output clkOut);
-	parameter divider = 2500000;
+	parameter divider = 250000;
 	parameter len = 31;
 	reg[len: 0] counter = 0;
-	reg clkReg = 0;
-	
+	reg clkReg = 0;	
 	assign clkOut = clkReg;
 	
 	always @(posedge clkIn) begin
@@ -36,7 +35,7 @@ module Project4(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	parameter ADDR_LEDR 						 = 32'hF0000004;
 	parameter ADDR_LEDG 						 = 32'hF0000008;
   
-	parameter IMEM_INIT_FILE				 = "stopwatch_perl.mif";//"Sort2_counter.mif"; //"Sorter2.mif";
+	parameter IMEM_INIT_FILE				 = "stopwatch.mif";//"timertest.mif";////"Sort2_counter.mif"; //"Sorter2.mif";
 	parameter IMEM_ADDR_BIT_WIDTH 		 = 11;
 	parameter IMEM_DATA_BIT_WIDTH 		 = INST_BIT_WIDTH;
 	parameter IMEM_PC_BITS_HI     		 = IMEM_ADDR_BIT_WIDTH + 2;
@@ -60,11 +59,9 @@ module Project4(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
   
 	//PLL, clock genration, and reset generation
 	wire clk, lock;
-	//Pll pll(.inclk0(CLOCK_50), .c0(clk), .locked(lock));
-	//PLL	PLL_inst (.inclk0 (CLOCK_50),.c0 (clk),.locked (lock));
 	ClkDivider clkdi(CLOCK_50, clk);
 	
-	wire reset = SW[0]; //~lock;
+	wire reset = ~KEY[0]; //~lock;
 	
 	wire [DMEM_DATA_BIT_WIDTH - 1: 0] aluIn2;
 	wire immSel;
@@ -85,14 +82,6 @@ module Project4(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	wire[IMEM_DATA_BIT_WIDTH - 1: 0] instWord;
 	wire[DBITS - 1: 0] branchPc;
 	wire isLoad, isStore;
-	//wire [31:0] dataMemoryOut;
-	//wire dataMemOutSel;
-	//wire[DBITS - 1: 0] switchOut;
-	//wire[DBITS - 1: 0] keyOut;
-	//wire[DBITS - 1: 0] ledrOut;
-	//wire[DBITS - 1: 0] ledgOut;
-	//wire[DBITS - 1: 0] hexOut;
-	//wire swEn, ledrEn, ledgEn, keyEn, hexEn;
   
 	// PC register
 	wire pcWrtEn = 1'b1; // always right to PC
@@ -143,7 +132,6 @@ module Project4(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	// Data Memory and I/O controller
 	tri[31:0] DBUS;
 	assign DBUS = (isStoreOut) ? dataOut : 32'bz;
-	//negRegister dataReg (clk, reset, 1'b1, aluOutOut, addrMemIn);
 	DataMemory #(DMEM_ADDR_BIT_WIDTH, DMEM_DATA_BIT_WIDTH) dataMem (.clk(clk), .ABUS(aluOutOut), .dataWrtEn(isStoreOut), .DBUS(DBUS));
 	Mux4to1 muxMemOut (memSelOut, aluOutOut, DBUS, nxtPCOut, 32'd0, dataIn);
 	
@@ -152,7 +140,7 @@ module Project4(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	
 endmodule
 
-//module IO_controller(dataAddr, isLoad, isStore, dataWrtEn, dataMemOutSel, swEn, keyEn, ledrEn, ledgEn, hexEn);
+
 module IO_controller(clk, rst, ABUS, DBUS, we, SW, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3);
 
 	input clk;
@@ -167,12 +155,15 @@ module IO_controller(clk, rst, ABUS, DBUS, we, SW, KEY, LEDR, LEDG, HEX0, HEX1, 
 	output[7:0] LEDG;
 	output[6:0] HEX0, HEX1, HEX2, HEX3;
 	
-	KeyDevices key(clk, rst, ABUS, DBUS, we, KEY);
+	wire msclk;
+	ClkDivider #(.divider(24999)) msClk (clk, msclk);
+	
+	KeyDevices key(clk, rst, ABUS, DBUS, we, ~KEY);
 	SwitchDevices switches(clk, rst, ABUS, DBUS, we, SW);
 	Ledr ledR(clk, rst, ABUS, DBUS, we, LEDR);
 	Ledg ledG(clk, rst, ABUS, DBUS, we, LEDG);
 	Hex heX(clk, rst, ABUS, DBUS, we, HEX0, HEX1, HEX2, HEX3);
-	Timer timer(clk, rst, ABUS, DBUS, we);
+	Timer2 timer(msclk, rst, ABUS, DBUS, we);
 	
 endmodule
 
