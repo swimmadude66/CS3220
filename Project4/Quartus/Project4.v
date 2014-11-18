@@ -15,6 +15,7 @@ module ClkDivider(input clkIn, output clkOut);
 	end
 endmodule
 
+
 module Project4(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	input  [9:0] SW;
 	input  [3:0] KEY;
@@ -34,7 +35,7 @@ module Project4(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	parameter ADDR_LEDR 						 = 32'hF0000004;
 	parameter ADDR_LEDG 						 = 32'hF0000008;
   
-	parameter IMEM_INIT_FILE				 = "stopwatch.mif";//"timertest.mif";////"Sort2_counter.mif"; //"Sorter2.mif";
+	parameter IMEM_INIT_FILE				 = "timertest.mif";//"stopwatch_test.mif";//////"Sort2_counter.mif"; //"Sorter2.mif";
 	parameter IMEM_ADDR_BIT_WIDTH 		 = 11;
 	parameter IMEM_DATA_BIT_WIDTH 		 = INST_BIT_WIDTH;
 	parameter IMEM_PC_BITS_HI     		 = IMEM_ADDR_BIT_WIDTH + 2;
@@ -154,7 +155,7 @@ module IO_controller(clk, rst, ABUS, DBUS, we, SW, KEY, LEDR, LEDG, HEX0, HEX1, 
 	output[6:0] HEX0, HEX1, HEX2, HEX3;
 	
 	wire msclk;
-	ClkDivider #(.divider(50000)) msClk (clk, msclk);
+	ClkDivider #(.divider(25000)) msClk (clk, msclk);
 	
 	KeyDevices key(clk, rst, ABUS, DBUS, we, ~KEY);
 	SwitchDevices switches(clk, rst, ABUS, DBUS, we, SW);

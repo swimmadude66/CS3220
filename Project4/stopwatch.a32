@@ -75,6 +75,8 @@ TimerRunning:
 	sw		s2,	TLIM(gp)
 	sw		s0, OFSHEX(gp)
 	xor		s2, s2, s2
+	not		a1, s2
+	sw		a1, OFSLEDG(gp)
 WAIT:
 	lw		t1, TCTL(gp)
 	beq		t1, s2, WAIT

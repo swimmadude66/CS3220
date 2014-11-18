@@ -14,20 +14,18 @@ SetUp:
 	xor		fp,fp,fp
 	; Prepare the gp register
 	mvhi	gp,IOBASE
-	xor		s0,s0,s0
-	sw		s0, OFSHEX(gp)
-	sw		s0, OFSLEDR(gp)
-	sw		s0,	OFSLEDG(gp)
+	xor		a0,a0,a0
+	sw		a0, OFSHEX(gp)
+	sw		a0, OFSLEDR(gp)
+	sw		a0,	OFSLEDG(gp)
 SetSeconds:
 	lw		s0, SW(gp)			;Raw switch data
 	andi	s1, s0, 0x00F		;ones place
 	andi	s2, s0, 0x0F0		;tens place
-	xor		t0, t0, t0
-	addi	t0, t0, 0x050		;5 in the tens place
+	addi	t0, a0, 0x050		;5 in the tens place
 	bgt		s2, t0, CapFive
 AfterCapFive:
-	xor		t0, t0, t0
-	addi	t0, t0, 0x009		;9 in the ones place
+	addi	t0, a0, 0x009		;9 in the ones place
 	bgt		s1, t0, CapNineSec
 AfterCapNineSec:
 	or		s0, s1, s2			;combine tens and ones
@@ -35,19 +33,16 @@ AfterCapNineSec:
 Bridge:
 	lw		s0, OFSKEY(gp)		;get key
 	andi	s0, s0, 0x02		;key key[1]
-	xor		t1, t1, t1
-	addi	t1, t1, 0x02
+	addi	t1, a0, 0x02
 	bne		s0, t1, SetSeconds
 SetMinutes:
 	lw		s0, SW(gp)			;Raw switch data
 	andi	s1, s0, 0x00F		;ones place
 	andi	s2, s0, 0x0F0		;tens place
-	xor		t0, t0, t0
-	addi	t0, t0, 0x090		;9 in the tens place
+	addi	t0, a0, 0x090		;9 in the tens place
 	bgt		s2, t0, CapNinetyMin
 AfterCapNinetyMin:
-	xor		t0, t0, t0
-	addi	t0, t0, 0x009		;9 in the ones place
+	addi	t0, a0, 0x009		;9 in the ones place
 	bgt		s1, t0, CapNineMin
 AfterCapNineMin:
 	or		s0, s1, s2			;combine tens and ones
@@ -64,28 +59,62 @@ AfterCapNineMin:
 	or		s0, s0, s1			;  combine minutes and seconds
 	sw		s0, OFSHEX(gp)
 Bridge2:
-	lw		s0, OFSKEY(gp)		;get key
-	andi	s0, s0, 0x04		;key key[2]
-	xor		t1, t1, t1
-	addi	t1, t1, 0x04
-	bne		s0, t1, SetMinutes
-MoveOn:
+	lw		s1, OFSKEY(gp)		;get key
+	andi	s1, s1, 0x04		;key key[2]
+	addi	t1, a0, 0x04
+	bne		s1, t1, SetMinutes
+RunTimer:
+	addi	a2, a0, 1000
+	sw		a2, TLIM(gp)
+	addi	t0, a0, 1
+	sw		t0, OFSLEDG(gp)		;made it to dec
+WAIT:
+	lw		a1, TCTL(gp)
+	beq		a1, a0, WAIT
+	sw		a0, TCTL(gp)
+Decrement:
+	addi	t0, t0, 1
+	sw		t0, OFSLEDG(gp)
+	andi	s1, s0, 0x0F		;get ones of seconds
+	beq		s1, a0, Cascade			;seconds are zero
+	subi	s0, s0, 1
+AfterCascade:
+	sw		s0, OFSHEX(gp)
+	beq		s0, a0, DONE
+	bt		s2, s2, WAIT
+DONE:
 	not		s0, gp
 	sw		s0, OFSLEDR(gp)
-	bt		t0, t0, MoveOn
+	sw		s0, OFSLEDG(gp)
+	bt		t0, t0, DONE
+	
+Cascade:
+	andi	s1,  s0, 0x0F0		;tenseconds
+	beqz	s1, Cascade1		;tenseconds are zero
+	subi	s0, s0, 0x010			;subtract 10 seconds
+	addi	s0, s0, 0x09			;set ones to 9
+	bt		t0, t0, AfterCascade
+Cascade1:
+	andi	s1,  s0, 0x0F00		;minues
+	beqz	s1, Cascade2		;minutes are zero
+	subi	s0, s0, 0x0100			;subtract 1 minute
+	addi	s0,	s0, 0x059			;set seconds to 59
+	bt		t0, t0, AfterCascade
+Cascade2:
+	subi	s0, s0, 0x01000			;subtract 10 minutes
+	addi	s0, s0, 0x00959			;set minutes to 9
+	bt		t0, t0, AfterCascade	
+	
+	
 CapFive:
-	xor 	s2, s2, s2
-	addi	s2, s2, 0x050
+	addi	s2, a0, 0x050
 	bt		t0, t0, AfterCapFive
 CapNineSec:
-	xor 	s1, s1, s1
-	addi	s1, s1, 0x009
+	addi	s1, a0, 0x009
 	bt		t0, t0, AfterCapNineSec
 CapNinetyMin:
-	xor 	s2, s2, s2
-	addi	s2, s2, 0x090
+	addi	s2, a0, 0x090
 	bt		t0, t0, AfterCapNinetyMin
 CapNineMin:
-	xor 	s1, s1, s1
-	addi	s1, s1, 0x009
+	addi	s1, a0, 0x009
 	bt		t0, t0, AfterCapNineMin	

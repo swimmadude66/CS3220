@@ -17,21 +17,17 @@ SetUp:
 	xor		s0, s0, s0
 	sw		s0, OFSHEX(gp)
 	sw		s0, OFSLEDR(gp)
-	addi	s2, s0, 1
-	sw		s2,	OFSLEDG(gp)
 TestTimer:
 	addi	s1, s0, 0x010	;Set Start for Hex
 	addi	t0,	s0, 1000	;set timer interval
 	sw		t0,	TLIM(gp)
 	sw		s1, OFSHEX(gp)
-	addi	s2, s2, 1
-	sw		s2, OFSLEDG(gp)
 WAIT:
 	lw		t1, TCTL(gp)
+	sw		t1, OFSLEDG(gp)
 	beq		t1, s0, WAIT
 	sw		s0, TCTL(gp)
-	addi	s2, s2, 1
-	sw		s2, OFSLEDG(gp)
+	
 Decrement:
 	subi	s1, s1, 1
 	sw		s1, OFSHEX(gp)

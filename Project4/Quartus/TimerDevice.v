@@ -25,7 +25,7 @@ module Timer(clk, reset, aBus, dBus, wrtEn);
 	reg [8:0] tctrl = TCTRL_RESET_VALUE;
 	reg [32:0] internalcnt = CNT_RESET_VALUE;
 	
-	always @(posedge clk) begin
+	always @(*) begin
 		if (reset == 1'b1) begin
 			tcnt <= CNT_RESET_VALUE;
 			tlim <= CNT_RESET_VALUE;
@@ -103,7 +103,7 @@ module Timer2(clk, reset, aBus, dBus, wrtEn);
 
 	wire AddrCnt = (aBus == 32'hF0000020);
 	wire AddrLim = (aBus == 32'hF0000024);
-	wire AddrCtl =(aBus == 32'hF0000120);
+	wire AddrCtl = (aBus == 32'hF0000120);
 
 	reg [31:0] tcnt = CNT_RESET_VALUE;
 	reg [31:0] tlim = CNT_RESET_VALUE;
@@ -126,7 +126,6 @@ module Timer2(clk, reset, aBus, dBus, wrtEn);
 					tctl = tctl;
 			end
 			else begin
-				tctl = tctl;
 				tlim = tlim;
 			end
 			
@@ -142,7 +141,7 @@ module Timer2(clk, reset, aBus, dBus, wrtEn);
 	
 	assign dBus = 	(AddrCnt && !wrtEn) ? tcnt :
 						(AddrLim	&& !wrtEn) ? tlim :
-						(AddrCtl && !wrtEn) ? tctl :
+						(AddrCtl && !wrtEn) ? {23'b0, tctl} :
 						32'bz;
 	
 endmodule
