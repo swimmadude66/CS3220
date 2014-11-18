@@ -131,7 +131,7 @@ module Timer2(clk, reset, aBus, dBus, wrtEn);
 			
 		end
 		if(tlim != 0) begin
-			if(tcnt == tlim-1)begin
+			if(tcnt >= tlim-1)begin
 				tcnt = 32'd0;
 				tctl[2] = 1'b1 & tctl[0];
 				tctl[0] = 1'b1;

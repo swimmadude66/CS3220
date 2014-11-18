@@ -11,23 +11,21 @@
 
 .ORIG 0x40
 SetUp:
-	xor		fp, fp, fp
+	xor		fp,fp,fp
 	; Prepare the gp register
-	mvhi	gp, IOBASE
-	xor		s0, s0, s0
-	sw		s0, OFSHEX(gp)
-	sw		s0, OFSLEDR(gp)
-	sw		s0,	OFSLEDG(gp)
+	mvhi	gp,IOBASE
+	xor		a0,a0,a0
+	sw		a0, OFSHEX(gp)
+	sw		a0, OFSLEDR(gp)
+	sw		a0,	OFSLEDG(gp)
 SetSeconds:
 	lw		s0, SW(gp)			;Raw switch data
 	andi	s1, s0, 0x00F		;ones place
 	andi	s2, s0, 0x0F0		;tens place
-	xor		t0, t0, t0
-	addi	t0, t0, 0x050		;5 in the tens place
+	addi	t0, a0, 0x050		;5 in the tens place
 	bgt		s2, t0, CapFive
 AfterCapFive:
-	xor		t0, t0, t0
-	addi	t0, t0, 0x009		;9 in the ones place
+	addi	t0, a0, 0x009		;9 in the ones place
 	bgt		s1, t0, CapNineSec
 AfterCapNineSec:
 	or		s0, s1, s2			;combine tens and ones
@@ -35,19 +33,16 @@ AfterCapNineSec:
 Bridge:
 	lw		s0, OFSKEY(gp)		;get key
 	andi	s0, s0, 0x02		;key key[1]
-	xor		t1, t1, t1
-	addi	t1, t1, 0x02
+	addi	t1, a0, 0x02
 	bne		s0, t1, SetSeconds
 SetMinutes:
 	lw		s0, SW(gp)			;Raw switch data
 	andi	s1, s0, 0x00F		;ones place
 	andi	s2, s0, 0x0F0		;tens place
-	xor		t0, t0, t0
-	addi	t0, t0, 0x090		;9 in the tens place
+	addi	t0, a0, 0x090		;9 in the tens place
 	bgt		s2, t0, CapNinetyMin
 AfterCapNinetyMin:
-	xor		t0, t0, t0
-	addi	t0, t0, 0x009		;9 in the ones place
+	addi	t0, a0, 0x009		;9 in the ones place
 	bgt		s1, t0, CapNineMin
 AfterCapNineMin:
 	or		s0, s1, s2			;combine tens and ones
@@ -66,53 +61,55 @@ AfterCapNineMin:
 Bridge2:
 	lw		s1, OFSKEY(gp)		;get key
 	andi	s1, s1, 0x04		;key key[2]
-	xor		t1, t1, t1
-	addi	t1, t1, 0x04
+	addi	t1, a0, 0x04
 	bne		s1, t1, SetMinutes
-TimerRunning:
-	xor		s2, s2, s2
-	addi	s2,	s2, 1000	;set timer interval
-	sw		s2,	TLIM(gp)
-	sw		s0, OFSHEX(gp)
-	xor		s2, s2, s2
-	not		a1, s2
-	sw		a1, OFSLEDG(gp)
+RunTimer:
+	addi	a2, a0, 1000
+	sw		a2, TLIM(gp)
 WAIT:
-	lw		t1, TCTL(gp)
-	beq		t1, s2, WAIT
-	sw		s2, TCTL(gp)
+	lw		a1, TCTL(gp)
+	lw		s1, OFSKEY(gp)		;get key
+	andi	s1, s1, 0x04		;key key[2]
+	addi	t1, a0, 0x04
+	beq		s1, t1, Stopped
+	beq		a1, a0, WAIT
+	sw		a0, TCTL(gp)
 Decrement:
 	andi	s1, s0, 0x0F		;get ones of seconds
-	beq		s1, s2, Cascade			;seconds are zero
+	beq		s1, a0, Cascade			;seconds are zero
 	subi	s0, s0, 1
+	lw		s1, OFSKEY(gp)		;get key
+	andi	s1, s1, 0x04		;key key[2]
+	addi	t1, a0, 0x04
+	beq		s1, t1, Stopped
 AfterCascade:
-	sw		s0, OFSHEX(gp)		;store updated timer to HEX
-	xor		s2, s2, s2
-	beq		s0, s2, DONE
-	bt		s2, s2, WAIT	
+	sw		s0, OFSHEX(gp)
+	beq		s0, a0, DONE
+	bt		s2, s2, WAIT
 Done:
-	xor		a0, a0, a0
-	addi	a0, a0, 500			; half second
-	sw		a0, TLIM(gp)
-	addi	s2, s0, 0x3FF		;10 bits of 1
-	xor		t1, t1, t1
-	addi	t1, t1, 1			;Check bit
+	addi	a1, a0, 500			; half second
+	sw		a1, TLIM(gp)
+	addi	t1, a0, 1			;Check bit
+	addi	s2, a0, 0x3FF		;10 bits of 1
 Alarm:
-	xor		s0, s0, s0
-	sw		s0, TCTL(gp)			;reset ready bit
-	addi	s2, s0, 0x3FF		;10 bits of 1
 	sw		s2, OFSLEDR(gp)		;All Red
-	lw		a0, TCTL(gp)
-	andi	a0, a0, 0x01		;get ready bit
-	beqz	a0, Alarm
+	lw		s1, TCTL(gp)
+	beq		s1, a0, Alarm
+	sw		a0, TCTL(gp)			;reset ready bit
 AlarmOff:
-	xor		s0, s0, s0
-	sw		s0, TCTL(gp)			;reset ready bit
-	sw		s2, OFSLEDR(gp)		;All off
-	lw		a0, TCTL(gp)
-	andi	a0, a0, 0x01		;get ready bit
-	beqz	a0, AlarmOFF
+	sw		a0, OFSLEDR(gp)		;All off
+	lw		t1, TCTL(gp)
+	beq		t1, a0, AlarmOFF
+	sw		a0, TCTL(gp)			;reset ready bit
 	bt		t0, t0, Alarm
+
+Stopped:
+	lw		s1, OFSKEY(gp)		;get key
+	andi	s1, s1, 0x04		;key key[2]
+	addi	t1, a0, 0x04
+	bne		s1, t1, Stopped
+	bt		t0, t0, WAIT
+	
 	
 	
 ;sub routines	
