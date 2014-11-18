@@ -9,7 +9,7 @@
 .NAME	TIMELIM = 0x00000024
 .NAME	TCTL	= 0x00000120
 
-.ORIG 40
+.ORIG 0x40
 SetUp:
 	xor		fp,fp,fp
 	; Prepare the gp register
