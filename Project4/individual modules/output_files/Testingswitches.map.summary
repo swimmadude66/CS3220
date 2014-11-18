@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Nov 17 23:13:39 2014
+Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+Revision Name : Testingswitches
+Top-level Entity Name : TimerDevice
+Family : Cyclone II
+Total logic elements : 127
+    Total combinational functions : 127
+    Dedicated logic registers : 78
+Total registers : 78
+Total pins : 33
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
