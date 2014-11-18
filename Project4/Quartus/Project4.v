@@ -15,7 +15,6 @@ module ClkDivider(input clkIn, output clkOut);
 	end
 endmodule
 
-
 module Project4(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	input  [9:0] SW;
 	input  [3:0] KEY;
@@ -140,7 +139,6 @@ module Project4(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	
 endmodule
 
-
 module IO_controller(clk, rst, ABUS, DBUS, we, SW, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3);
 
 	input clk;
@@ -156,7 +154,7 @@ module IO_controller(clk, rst, ABUS, DBUS, we, SW, KEY, LEDR, LEDG, HEX0, HEX1, 
 	output[6:0] HEX0, HEX1, HEX2, HEX3;
 	
 	wire msclk;
-	ClkDivider #(.divider(24999)) msClk (clk, msclk);
+	ClkDivider #(.divider(50000)) msClk (clk, msclk);
 	
 	KeyDevices key(clk, rst, ABUS, DBUS, we, ~KEY);
 	SwitchDevices switches(clk, rst, ABUS, DBUS, we, SW);

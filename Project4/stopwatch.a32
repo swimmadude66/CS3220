@@ -11,10 +11,10 @@
 
 .ORIG 0x40
 SetUp:
-	xor		fp,fp,fp
+	xor		fp, fp, fp
 	; Prepare the gp register
-	mvhi	gp,IOBASE
-	xor		s0,s0,s0
+	mvhi	gp, IOBASE
+	xor		s0, s0, s0
 	sw		s0, OFSHEX(gp)
 	sw		s0, OFSLEDR(gp)
 	sw		s0,	OFSLEDG(gp)
@@ -69,28 +69,25 @@ Bridge2:
 	xor		t1, t1, t1
 	addi	t1, t1, 0x04
 	bne		s1, t1, SetMinutes
-TimerStart:
-	xor		t0, t0,	t0
-	addi	t0,	t0, 1000		;1s timer
-	sw		t0, TLIM(gp)		;set timer to fire every second
-
-Wait:
-	xor		t0, t0, t0
-	not		t0, t0
-	sw		t0, OFSLEDG(gp)
-	lw		t1, TCTL(gp)			;get timer control
-	beqz	t1, Wait
-	xor		t1, t1, t1
-	sw		t1, TCTL(gp)
+TimerRunning:
+	xor		s2, s2, s2
+	addi	s2,	s2, 1000	;set timer interval
+	sw		s2,	TLIM(gp)
+	sw		s0, OFSHEX(gp)
+	xor		s2, s2, s2
+WAIT:
+	lw		t1, TCTL(gp)
+	beq		t1, s2, WAIT
+	sw		s2, TCTL(gp)
 Decrement:
-	xor		t0, t0, t0
-	sw		t0, OFSLEDG(gp)	
 	andi	s1, s0, 0x0F		;get ones of seconds
-	beqz	s1, Cascade			;seconds are zero
+	beq		s1, s2, Cascade			;seconds are zero
 	subi	s0, s0, 1
 AfterCascade:
 	sw		s0, OFSHEX(gp)		;store updated timer to HEX
-	bt		t0, t0, Wait 		;keep running
+	xor		s2, s2, s2
+	beq		s0, s2, DONE
+	bt		s2, s2, WAIT	
 Done:
 	xor		a0, a0, a0
 	addi	a0, a0, 500			; half second
