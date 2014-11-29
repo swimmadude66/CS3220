@@ -1,5 +1,5 @@
 Flow report for Debug
-Fri Nov 28 21:47:34 2014
+Sat Nov 29 18:49:10 2014
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,15 +40,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Fri Nov 28 21:47:34 2014           ;
+; Flow Status                        ; Successful - Sat Nov 29 18:49:10 2014           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Debug                                           ;
 ; Top-level Entity Name              ; Project5                                        ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C20F484C7                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 2,659 / 18,752 ( 14 % )                         ;
-;     Total combinational functions  ; 2,360 / 18,752 ( 13 % )                         ;
+; Total logic elements               ; 2,803 / 18,752 ( 15 % )                         ;
+;     Total combinational functions  ; 2,501 / 18,752 ( 13 % )                         ;
 ;     Dedicated logic registers      ; 876 / 18,752 ( 5 % )                            ;
 ; Total registers                    ; 876                                             ;
 ; Total pins                         ; 61 / 315 ( 19 % )                               ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/28/2014 21:46:49 ;
+; Start date & time ; 11/29/2014 18:48:23 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Debug               ;
 +-------------------+---------------------+
@@ -80,7 +80,7 @@ applicable agreement for further details.
 ; ALLOW_ANY_ROM_SIZE_FOR_RECOGNITION      ; On                                                                      ; Off           ; --          ; --             ;
 ; ALLOW_POWER_UP_DONT_CARE                ; Off                                                                     ; On            ; --          ; --             ;
 ; AUTO_RAM_TO_LCELL_CONVERSION            ; On                                                                      ; Off           ; --          ; --             ;
-; COMPILER_SIGNATURE_ID                   ; 207120314107815.141722920927192                                         ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                   ; 207120314107815.141730490237588                                         ; --            ; --          ; --             ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST         ; On                                                                      ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT                  ; Verilog Hdl                                                             ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                     ; ModelSim-Altera (Verilog)                                               ; <None>        ; --          ; --             ;
@@ -117,12 +117,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:13     ; 1.0                     ; 456 MB              ; 00:00:13                           ;
-; Fitter                    ; 00:00:22     ; 1.0                     ; 649 MB              ; 00:00:21                           ;
-; Assembler                 ; 00:00:02     ; 1.0                     ; 431 MB              ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 424 MB              ; 00:00:01                           ;
+; Analysis & Synthesis      ; 00:00:16     ; 1.0                     ; 461 MB              ; 00:00:15                           ;
+; Fitter                    ; 00:00:23     ; 1.0                     ; 660 MB              ; 00:00:23                           ;
+; Assembler                 ; 00:00:01     ; 1.0                     ; 430 MB              ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 432 MB              ; 00:00:01                           ;
 ; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 397 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:40     ; --                      ; --                  ; 00:00:38                           ;
+; Total                     ; 00:00:43     ; --                      ; --                  ; 00:00:42                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

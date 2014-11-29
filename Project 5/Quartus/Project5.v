@@ -1,5 +1,5 @@
 module ClkDivider(input clkIn, output clkOut);
-	parameter divider = 125000;
+	parameter divider = 250000;
 	parameter len = 31;
 	reg[len: 0] counter = 0;
 	reg clkReg = 0;	
@@ -35,7 +35,7 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	parameter ADDR_LEDR 						 = 32'hF0000004;
 	parameter ADDR_LEDG 						 = 32'hF0000008;
   
-	parameter IMEM_INIT_FILE				 = "Sorter2.mif";//"stopwatch.mif";//"Sort2_counter.mif";//"Sorter2.mif";
+	parameter IMEM_INIT_FILE				 = "test2.mif";//"Sorter2.mif";//"stopwatch.mif";//"Sort2_counter.mif";//"Sorter2.mif";
 	parameter IMEM_ADDR_BIT_WIDTH 		 = 11;
 	parameter IMEM_DATA_BIT_WIDTH 		 = INST_BIT_WIDTH;
 	parameter IMEM_PC_BITS_HI     		 = IMEM_ADDR_BIT_WIDTH + 2;
@@ -81,7 +81,7 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	wire [DMEM_DATA_BIT_WIDTH - 1: 0] seImm;
 	wire[IMEM_DATA_BIT_WIDTH - 1: 0] instWord;
 	wire[DBITS - 1: 0] branchPc;
-	wire isLoad, isStore;
+	wire isLoad, isStore, isSpecial;
   
 	// PC register
 	wire pcWrtEn = 1'b1; // always right to PC
@@ -102,7 +102,7 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
   
 	// Controller	
 	Controller cont (.inst(instWord), .aluCmpIn(cmpOut_top), .bubble(bubble), .sndOpcode(sndOpcode), .dRegAddr(wrtIndex), .s1RegAddr(rdIndex1), .s2RegAddr(rdIndex2), .imm(imm), 
-							.regFileWrtEn(regFileEn), .immSel(immSel), .memOutSel(memOutSel), .pcSel(pcSel), .isLoad(isLoad), .isStore(isStore));
+							.regFileWrtEn(regFileEn), .immSel(immSel), .memOutSel(memOutSel), .pcSel(pcSel), .isLoad(isLoad), .isStore(isStore), .isSpecial(isSpecial));
   
      // Sign Extension
 	SignExtension #(.IN_BIT_WIDTH(16), .OUT_BIT_WIDTH(32)) se (imm, seImm);
@@ -120,20 +120,24 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
   Bubbler bubbler (.prevWrEn(regWrtEnOut), .rs1(rdIndex1), .rs2(rdIndex2), .prevrd(destRegOut), .bubble(bubble));
   
   //Pipeline register
-  wire regWrtEnOut, isLoadOut, isStoreOut;
+  wire regWrtEnOut, isLoadOut, isStoreOut, isSpecialOut;
   wire[1:0] memSelOut;
-  wire[3:0] destRegOut;
+  wire[3:0] destRegOut, spRegInd;
+  wire[4:0] opcodeout;
   wire[31:0] nxtPCOut, dataOut, aluOutOut;
-  PipeLineReg pipelineregister (.clk(clk), .rst(reset), .nxtPC(pcLogicOut), .memSel(memOutSel), .regWrtEn(regFileEn), .isLoad(isLoad), .isStore(isStore), .destReg(wrtIndex), 
-					.aluOut(aluOut), .datain(dataOut2),
-					.nxtPCOut(nxtPCOut), .memSelOut(memSelOut), .regWrtEnOut(regWrtEnOut), .isLoadOut(isLoadOut), .isStoreOut(isStoreOut), .destRegOut(destRegOut), 
-					.aluOutOut(aluOutOut), .dataOut(dataOut));
+  PipeLineReg pipelineregister (.clk(clk), .rst(reset), .nxtPC(pcLogicOut), .memSel(memOutSel), .regWrtEn(regFileEn), .isLoad(isLoad), .isStore(isStore), .isSpecial(isSpecial),
+					.destReg(wrtIndex), .srcReg(rdIndex1), .aluOut(aluOut), .datain(dataOut2), .sndOpcode(sndOpcode),
+					.nxtPCOut(nxtPCOut), .memSelOut(memSelOut), .regWrtEnOut(regWrtEnOut), .isLoadOut(isLoadOut), .isStoreOut(isStoreOut), .isSpecialOut(isSpecialOut), 
+					.destRegOut(destRegOut), .spRegAddr(spRegInd), .aluOutOut(aluOutOut), .dataOut(dataOut), .intOp(opcodeout));
+	//Special RegisterFile
+	
+	//SpecialRegFile specialReg (.clk(clk), .opcode(opcodeOut), .index(spRegInd), .dataIn(dataOut), .spRegOut(spRegOut));
 					
 	// Data Memory and I/O controller
 	tri[31:0] DBUS;
 	assign DBUS = (isStoreOut) ? dataOut : 32'bz;
 	DataMemory #(DMEM_ADDR_BIT_WIDTH, DMEM_DATA_BIT_WIDTH) dataMem (.clk(clk), .ABUS(aluOutOut), .dataWrtEn(isStoreOut), .DBUS(DBUS));
-	Mux4to1 muxMemOut (memSelOut, aluOutOut, DBUS, nxtPCOut, 32'd0, dataIn);
+	Mux4to1 muxMemOut (memSelOut, aluOutOut, DBUS, nxtPCOut, sRegOut, dataIn);
 	wire IE, IRQ;
 	wire[3:0] IDN;
 	IO_controller ioCtrl (.clk(CLOCK_50), .rst(reset), .IE(IE), .ABUS(aluOutOut), .DBUS(DBUS), .we(isStoreOut), .SW(SW), .KEY(KEY),

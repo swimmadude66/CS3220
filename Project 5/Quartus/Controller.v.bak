@@ -1,4 +1,4 @@
-module Controller (inst, aluCmpIn, bubble, sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileWrtEn, immSel, memOutSel, pcSel, isLoad, isStore, isSpecial);
+module Controller (inst, aluCmpIn, bubble, sndOpcode, dRegAddr, s1RegAddr, s2RegAddr, imm, regFileWrtEn, immSel, memOutSel, pcSel, isLoad, isStore);
 	
 	parameter INST_BIT_WIDTH = 32;
 	
@@ -19,12 +19,12 @@ module Controller (inst, aluCmpIn, bubble, sndOpcode, dRegAddr, s1RegAddr, s2Reg
 	output reg [15: 0] imm;
 	
 	// control signals
-	output reg regFileWrtEn, isLoad, isStore, isSpecial;
+	output reg regFileWrtEn, isLoad, isStore;
 	output reg immSel;  
 	output reg [1:0] memOutSel;
 	output reg [1:0] pcSel;
 	
-	reg rfwe, iL, iS, specialReg;
+	reg rfwe, iL, iS;
 	reg[1:0] pcs;
 	
 	always @(*)
@@ -42,7 +42,6 @@ module Controller (inst, aluCmpIn, bubble, sndOpcode, dRegAddr, s1RegAddr, s2Reg
 								rfwe 				<= 1'b1; // write to register
 								iL		 			<= 1'b0;
 								iS 				<= 1'b0;
-								specialReg		<= 1'b0;
 							end
 		4'b1000:begin // immediate arithmetic
 								sndOpcode 		<= {1'b0, inst[27:24]};
@@ -56,7 +55,6 @@ module Controller (inst, aluCmpIn, bubble, sndOpcode, dRegAddr, s1RegAddr, s2Reg
 								rfwe 				<= 1'b1; // write to register
 								iL 				<= 1'b0;
 								iS 				<= 1'b0;
-								specialReg		<= 1'b0;
 							end
 		4'b0010:begin // comparison
 								sndOpcode 		<= {1'b1, inst[27:24]};
@@ -71,7 +69,6 @@ module Controller (inst, aluCmpIn, bubble, sndOpcode, dRegAddr, s1RegAddr, s2Reg
 								pcs 				<= 2'b00; // pc + 4
 								iL 				<= 1'b0;
 								iS 				<= 1'b0;
-								specialReg		<= 1'b0;
 							end
 							
 		4'b1010:begin // immediate comparison
@@ -87,7 +84,6 @@ module Controller (inst, aluCmpIn, bubble, sndOpcode, dRegAddr, s1RegAddr, s2Reg
 								pcs 				<= 2'b00; // pc + 4
 								iL 				<= 1'b0;
 								iS 				<= 1'b0;
-								specialReg		<= 1'b0;
 							end
 		4'b0110:begin // compare and branch
 								sndOpcode 		<= {1'b1, inst[27:24]};
@@ -105,7 +101,6 @@ module Controller (inst, aluCmpIn, bubble, sndOpcode, dRegAddr, s1RegAddr, s2Reg
 									pcs	  		<= 2'b00; // do not branch
 								iL 				<= 1'b0;
 								iS 				<= 1'b0;
-								specialReg		<= 1'b0;
 							end
 		4'b1001:begin // load instruction
 								sndOpcode 		<= 5'b00000;
@@ -120,7 +115,6 @@ module Controller (inst, aluCmpIn, bubble, sndOpcode, dRegAddr, s1RegAddr, s2Reg
 								pcs 				<= 2'b00; // pc + 4
 								iL 				<= 1'b1;
 								iS 				<= 1'b0;
-								specialReg		<= 1'b0;
 							end
 		4'b0101:begin // store instruction
 								sndOpcode 		<= 5'b00000;
@@ -135,7 +129,6 @@ module Controller (inst, aluCmpIn, bubble, sndOpcode, dRegAddr, s1RegAddr, s2Reg
 								pcs 				<= 2'b00; // pc + 4
 								iL 				<= 1'b0;
 								iS 				<= 1'b1;
-								specialReg		<= 1'b0;
 							end
 		4'b1011:begin // JAL instruction
 								sndOpcode 		<= 5'b00000; // addition
@@ -150,26 +143,20 @@ module Controller (inst, aluCmpIn, bubble, sndOpcode, dRegAddr, s1RegAddr, s2Reg
 								pcs 				<= 2'b10; // pc + 4
 								iL 				<= 1'b0;
 								iS 				<= 1'b0;
-								specialReg		<= 1'b0;
 							end
-		4'b1111:begin	//specialRegister access
-								sndOpcode 		<= {1'b0, inst[27:24]};
-								dRegAddr  		<= (inst[27:24] == 4'h2) ? inst[23:20] :
-														(inst[27:24] == 4'h3) ? inst[19:16] : 
-																						4'b0;
+		4'b1111:begin
+								sndOpcode 		<= 5'd0;
+								dRegAddr  		<= 4'd0;
 								s1RegAddr 		<= 4'd0;
-								s2RegAddr 		<= (inst[27:24] == 4'h3) ? inst[23:20] :
-														(inst[27:24] == 4'h2) ? inst[19:16] : 
-																						4'b0;
+								s2RegAddr 		<= 4'd0;
 								imm 		 		<= 16'd0; // relative pc
-								rfwe 				<= (inst[27:24] == 4'h2) ? 1'b1 : 1'b0;
+								rfwe 				<= 1'b0; // no write to register
 								//dataWrtEn 		<= 1'b0; // no write to data memory
 								immSel			<= 1'b0; // relative pc
 								memOutSel		<= 2'b00; // load data from memory
 								pcs 				<= 2'b00; // pc + 4
 								iL 				<= 1'b0;
 								iS 				<= 1'b0;
-								specialReg		<= 1'b1;
 							end
 							
 		default:begin
@@ -185,7 +172,6 @@ module Controller (inst, aluCmpIn, bubble, sndOpcode, dRegAddr, s1RegAddr, s2Reg
 								pcs 				<= 2'b00; // pc + 4
 								iL 				<= 1'b0;
 								iS 				<= 1'b0;
-								specialReg		<= 1'b0;
 					end
 		endcase
 		if(bubble)begin
@@ -193,14 +179,12 @@ module Controller (inst, aluCmpIn, bubble, sndOpcode, dRegAddr, s1RegAddr, s2Reg
 			isLoad			<= 1'b0;
 			isStore			<= 1'b0;
 			pcSel				<= 2'b11;
-			isSpecial		<= 1'b0;
 		end
 		else begin
 			regFileWrtEn 	<=	rfwe;
 			isLoad			<= iL;
 			isStore			<= iS;
 			pcSel				<= pcs;
-			isSpecial		<= specialReg;
 		end
 	end
 endmodule
