@@ -1,0 +1,71 @@
+Quartus II Archive log --	X:/Repos/CS3220/Project 4/Quartus/Project4_tmp_archive.qarlog
+
+Archive:	X:/Repos/CS3220/Project 4/Quartus/Project4_tmp_archive.qar
+Date:		Fri Nov 28 20:31:49 2014
+Quartus II 64-Bit		13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+
+	=========== Files Selected: ===========
+X:/Repos/CS3220/Project 4/Quartus/Alu.v
+X:/Repos/CS3220/Project 4/Quartus/Amir.hex
+X:/Repos/CS3220/Project 4/Quartus/BranchAddrCalculator.v
+X:/Repos/CS3220/Project 4/Quartus/Bubbler.v
+X:/Repos/CS3220/Project 4/Quartus/Controller.v
+X:/Repos/CS3220/Project 4/Quartus/DataMemory.v
+X:/Repos/CS3220/Project 4/Quartus/Debug.qsf
+X:/Repos/CS3220/Project 4/Quartus/Debug_description.txt
+X:/Repos/CS3220/Project 4/Quartus/InstMemory.v
+X:/Repos/CS3220/Project 4/Quartus/KeyDevices.v
+X:/Repos/CS3220/Project 4/Quartus/LEDandHEXDevices.v
+X:/Repos/CS3220/Project 4/Quartus/MemoryBus.v
+X:/Repos/CS3220/Project 4/Quartus/Mux2to1.v
+X:/Repos/CS3220/Project 4/Quartus/Mux4to1.v
+X:/Repos/CS3220/Project 4/Quartus/PLL.ppf
+X:/Repos/CS3220/Project 4/Quartus/PLL.qip
+X:/Repos/CS3220/Project 4/Quartus/PLL.v
+X:/Repos/CS3220/Project 4/Quartus/PLL_bb.v
+X:/Repos/CS3220/Project 4/Quartus/PLL_inst.v
+X:/Repos/CS3220/Project 4/Quartus/PcLogic.v
+X:/Repos/CS3220/Project 4/Quartus/PipeLineReg.v
+X:/Repos/CS3220/Project 4/Quartus/Pll.qip
+X:/Repos/CS3220/Project 4/Quartus/Project2.flow.rpt
+X:/Repos/CS3220/Project 4/Quartus/Project2.map.rpt
+X:/Repos/CS3220/Project 4/Quartus/Project2.map.summary
+X:/Repos/CS3220/Project 4/Quartus/Project2.qsf
+X:/Repos/CS3220/Project 4/Quartus/Project2_assignment_defaults.qdf
+X:/Repos/CS3220/Project 4/Quartus/Project4.qpf
+X:/Repos/CS3220/Project 4/Quartus/Project4.v
+X:/Repos/CS3220/Project 4/Quartus/Register.v
+X:/Repos/CS3220/Project 4/Quartus/RegisterFile.v
+X:/Repos/CS3220/Project 4/Quartus/SevenSeg.v
+X:/Repos/CS3220/Project 4/Quartus/SignExtension.v
+X:/Repos/CS3220/Project 4/Quartus/Sorter2.a32
+X:/Repos/CS3220/Project 4/Quartus/Sorter2.mif
+X:/Repos/CS3220/Project 4/Quartus/SwitchDevices.v
+X:/Repos/CS3220/Project 4/Quartus/Test2.a32
+X:/Repos/CS3220/Project 4/Quartus/Test2.mif
+X:/Repos/CS3220/Project 4/Quartus/TimerDevice.v
+X:/Repos/CS3220/Project 4/Quartus/Timing.sdc
+X:/Repos/CS3220/Project 4/Quartus/Waveform.vwf
+X:/Repos/CS3220/Project 4/Quartus/assignment_defaults.qdf
+X:/Repos/CS3220/Project 4/Quartus/bad_test.stp
+X:/Repos/CS3220/Project 4/Quartus/comparator.v
+X:/Repos/CS3220/Project 4/Quartus/incremental_db/compiled_partitions/Debug.db_info
+X:/Repos/CS3220/Project 4/Quartus/incremental_db/compiled_partitions/Project2.db_info
+X:/Repos/CS3220/Project 4/Quartus/negRegister.v
+X:/Repos/CS3220/Project 4/Quartus/project1.sdc
+X:/Repos/CS3220/Project 4/Quartus/stopwatch.mif
+X:/Repos/CS3220/Project 4/Quartus/stopwatch_perl.mif
+X:/Repos/CS3220/Project 4/Quartus/stopwatch_test.mif
+X:/Repos/CS3220/Project 4/Quartus/stp1.stp
+X:/Repos/CS3220/Project 4/Quartus/timertest.mif
+X:/Repos/CS3220/Project 4/Quartus/timertest2.mif
+	======= Total: 54 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Fri Nov 28 20:31:50 2014
+Source archive file:	X:/Repos/CS3220/Project 4/Quartus/Project4_tmp_archive.qar
+Archive was extracted into	X:/Repos/CS3220/Project 5/Quartus/
+		 - successfully.

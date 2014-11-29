@@ -1,0 +1,42 @@
+; Addresses for I/O
+.NAME 	IOBASE	= 0xF0000000
+.NAME	OFSHEX	= 0x00000000
+.NAME	OFSLEDR	= 0x00000004
+.NAME	OFSLEDG	= 0x00000008
+.NAME	OFSKEY 	= 0x00000010
+.NAME	SW     	= 0x00000014
+.NAME	TIMER  	= 0x00000020
+.NAME	TLIM 	= 0x00000024
+.NAME	TCTL	= 0x00000120
+
+.ORIG 0x40
+SetUp:
+	xor		fp,fp,fp
+	; Prepare the gp register
+	mvhi	gp, IOBASE
+	xor		s0, s0, s0
+	sw		s0, OFSHEX(gp)
+	sw		s0, OFSLEDR(gp)
+TestTimer:
+	addi	s1, s0, 0x010	;Set Start for Hex
+	addi	t0,	s0, 1000	;set timer interval
+	sw		t0,	TLIM(gp)
+	sw		s1, OFSHEX(gp)
+WAIT:
+	lw		t1, TCTL(gp)
+	sw		t1, OFSLEDG(gp)
+	beq		t1, s0, WAIT
+	sw		s0, TCTL(gp)
+	
+Decrement:
+	subi	s1, s1, 1
+	sw		s1, OFSHEX(gp)
+	beq		s1, s0, DONE
+	bt		s2, s2, WAIT
+DONE:
+	not		s0, gp
+	sw		s0, OFSLEDR(gp)
+	sw		s0, OFSLEDG(gp)
+	bt		t0, t0, DONE
+	
+	

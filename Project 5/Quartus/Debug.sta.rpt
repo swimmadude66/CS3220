@@ -1,0 +1,1704 @@
+TimeQuest Timing Analyzer report for Debug
+Fri Nov 28 21:47:32 2014
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. SDC File List
+  5. Clocks
+  6. Slow Model Fmax Summary
+  7. Slow Model Setup Summary
+  8. Slow Model Hold Summary
+  9. Slow Model Recovery Summary
+ 10. Slow Model Removal Summary
+ 11. Slow Model Minimum Pulse Width Summary
+ 12. Slow Model Setup: 'Clock10'
+ 13. Slow Model Hold: 'Clock10'
+ 14. Slow Model Minimum Pulse Width: 'Clock10'
+ 15. Setup Times
+ 16. Hold Times
+ 17. Clock to Output Times
+ 18. Minimum Clock to Output Times
+ 19. Fast Model Setup Summary
+ 20. Fast Model Hold Summary
+ 21. Fast Model Recovery Summary
+ 22. Fast Model Removal Summary
+ 23. Fast Model Minimum Pulse Width Summary
+ 24. Fast Model Setup: 'Clock10'
+ 25. Fast Model Hold: 'Clock10'
+ 26. Fast Model Minimum Pulse Width: 'Clock10'
+ 27. Setup Times
+ 28. Hold Times
+ 29. Clock to Output Times
+ 30. Minimum Clock to Output Times
+ 31. Multicorner Timing Analysis Summary
+ 32. Setup Times
+ 33. Hold Times
+ 34. Clock to Output Times
+ 35. Minimum Clock to Output Times
+ 36. Setup Transfers
+ 37. Hold Transfers
+ 38. Report TCCS
+ 39. Report RSKM
+ 40. Unconstrained Paths
+ 41. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; Debug                                                             ;
+; Device Family      ; Cyclone II                                                        ;
+; Device Name        ; EP2C20F484C7                                                      ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Unavailable                                                       ;
++--------------------+-------------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------+
+; SDC File List                                     ;
++---------------+--------+--------------------------+
+; SDC File Path ; Status ; Read at                  ;
++---------------+--------+--------------------------+
+; Timing.sdc    ; OK     ; Fri Nov 28 21:47:31 2014 ;
++---------------+--------+--------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                ;
++------------+------+---------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; Clock Name ; Type ; Period  ; Frequency ; Rise  ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets      ;
++------------+------+---------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; Clock10    ; Base ; 100.000 ; 10.0 MHz  ; 0.000 ; 50.000 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CLOCK_50 } ;
++------------+------+---------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+
+
++--------------------------------------------------+
+; Slow Model Fmax Summary                          ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 161.73 MHz ; 161.73 MHz      ; Clock10    ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++----------------------------------+
+; Slow Model Setup Summary         ;
++---------+--------+---------------+
+; Clock   ; Slack  ; End Point TNS ;
++---------+--------+---------------+
+; Clock10 ; 93.817 ; 0.000         ;
++---------+--------+---------------+
+
+
++---------------------------------+
+; Slow Model Hold Summary         ;
++---------+-------+---------------+
+; Clock   ; Slack ; End Point TNS ;
++---------+-------+---------------+
+; Clock10 ; 0.445 ; 0.000         ;
++---------+-------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++---------+--------+---------------------+
+; Clock   ; Slack  ; End Point TNS       ;
++---------+--------+---------------------+
+; Clock10 ; 48.889 ; 0.000               ;
++---------+--------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'Clock10'                                                                                                                                                                          ;
++--------+-----------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                                 ; To Node                                                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 93.817 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[2]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 6.218      ;
+; 93.817 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[1]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 6.218      ;
+; 93.817 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[5]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 6.218      ;
+; 93.817 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[4]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 6.218      ;
+; 93.817 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[8]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 6.218      ;
+; 93.817 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[9]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 6.218      ;
+; 93.845 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[6]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 6.190      ;
+; 93.845 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[7]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 6.190      ;
+; 93.845 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[3]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 6.190      ;
+; 93.845 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[0]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 6.190      ;
+; 93.925 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 6.113      ;
+; 93.925 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[17] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 6.113      ;
+; 93.925 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 6.113      ;
+; 93.925 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[19] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 6.113      ;
+; 93.925 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 6.113      ;
+; 93.925 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[21] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 6.113      ;
+; 93.925 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[22] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 6.113      ;
+; 93.925 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[23] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 6.113      ;
+; 93.925 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 6.113      ;
+; 93.925 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[25] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 6.113      ;
+; 93.925 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[26] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 6.113      ;
+; 93.925 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[27] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 6.113      ;
+; 93.925 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[28] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 6.113      ;
+; 93.925 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[29] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 6.113      ;
+; 93.925 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[30] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 6.113      ;
+; 93.925 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[31] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 6.113      ;
+; 93.926 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[0]  ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 6.108      ;
+; 93.926 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[1]  ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 6.108      ;
+; 93.926 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[2]  ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 6.108      ;
+; 93.926 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[3]  ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 6.108      ;
+; 93.926 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[4]  ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 6.108      ;
+; 93.926 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[5]  ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 6.108      ;
+; 93.926 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[6]  ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 6.108      ;
+; 93.926 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[7]  ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 6.108      ;
+; 93.926 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[8]  ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 6.108      ;
+; 93.926 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[9]  ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 6.108      ;
+; 93.926 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[10] ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 6.108      ;
+; 93.926 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 6.108      ;
+; 93.926 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[12] ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 6.108      ;
+; 93.926 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[13] ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 6.108      ;
+; 93.926 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[14] ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 6.108      ;
+; 93.926 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[15] ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 6.108      ;
+; 94.066 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[2]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.969      ;
+; 94.066 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[1]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.969      ;
+; 94.066 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[5]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.969      ;
+; 94.066 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[4]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.969      ;
+; 94.066 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[8]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.969      ;
+; 94.066 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[9]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.969      ;
+; 94.076 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[4] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[2]     ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 5.962      ;
+; 94.076 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[4] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[1]     ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 5.962      ;
+; 94.076 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[4] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[5]     ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 5.962      ;
+; 94.076 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[4] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[4]     ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 5.962      ;
+; 94.076 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[4] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[8]     ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 5.962      ;
+; 94.076 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[4] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[9]     ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 5.962      ;
+; 94.094 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[6]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.941      ;
+; 94.094 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[7]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.941      ;
+; 94.094 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[3]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.941      ;
+; 94.094 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[0]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.941      ;
+; 94.098 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[2]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.937      ;
+; 94.098 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[1]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.937      ;
+; 94.098 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[5]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.937      ;
+; 94.098 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[4]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.937      ;
+; 94.098 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[8]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.937      ;
+; 94.098 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[9]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.937      ;
+; 94.104 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[4] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[6]     ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 5.934      ;
+; 94.104 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[4] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[7]     ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 5.934      ;
+; 94.104 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[4] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[3]     ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 5.934      ;
+; 94.104 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[4] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[0]     ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 5.934      ;
+; 94.106 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[2]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.929      ;
+; 94.106 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[1]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.929      ;
+; 94.106 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[5]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.929      ;
+; 94.106 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[4]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.929      ;
+; 94.106 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[8]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.929      ;
+; 94.106 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[9]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.929      ;
+; 94.121 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[2]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 5.918      ;
+; 94.121 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[1]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 5.918      ;
+; 94.121 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[5]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 5.918      ;
+; 94.121 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[4]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 5.918      ;
+; 94.121 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[8]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 5.918      ;
+; 94.121 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[9]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 5.918      ;
+; 94.126 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[6]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.909      ;
+; 94.126 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[7]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.909      ;
+; 94.126 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[3]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.909      ;
+; 94.126 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[0]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.909      ;
+; 94.131 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[25] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[2]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.904      ;
+; 94.131 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[25] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[1]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.904      ;
+; 94.131 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[25] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[5]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.904      ;
+; 94.131 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[25] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[4]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.904      ;
+; 94.131 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[25] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[8]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.904      ;
+; 94.131 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[25] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[9]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.904      ;
+; 94.134 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[6]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.901      ;
+; 94.134 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[7]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.901      ;
+; 94.134 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[3]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.901      ;
+; 94.134 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[0]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.901      ;
+; 94.149 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[6]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 5.890      ;
+; 94.149 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[7]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 5.890      ;
+; 94.149 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[3]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 5.890      ;
+; 94.149 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[0]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 5.890      ;
+; 94.159 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[25] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[6]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.876      ;
+; 94.159 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[25] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[7]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 5.876      ;
++--------+-----------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'Clock10'                                                                                                                                                                          ;
++-------+-----------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                 ; To Node                                                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.445 ; IO_controller:ioCtrl|KeyDevices:key|kctrl[2]              ; IO_controller:ioCtrl|KeyDevices:key|kctrl[2]              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; IO_controller:ioCtrl|SwitchDevices:switches|swctrl[8]     ; IO_controller:ioCtrl|SwitchDevices:switches|swctrl[8]     ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; IO_controller:ioCtrl|KeyDevices:key|kctrl[8]              ; IO_controller:ioCtrl|KeyDevices:key|kctrl[8]              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; IO_controller:ioCtrl|KeyDevices:key|kctrl[0]              ; IO_controller:ioCtrl|KeyDevices:key|kctrl[0]              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; IO_controller:ioCtrl|SwitchDevices:switches|swctrl[0]     ; IO_controller:ioCtrl|SwitchDevices:switches|swctrl[0]     ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ClkDivider:clkdi|clkReg                                   ; ClkDivider:clkdi|clkReg                                   ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; IO_controller:ioCtrl|ClkDivider:msClk|clkReg              ; IO_controller:ioCtrl|ClkDivider:msClk|clkReg              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.731      ;
+; 0.629 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[31] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[31] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.915      ;
+; 0.629 ; ClkDivider:clkdi|counter[31]                              ; ClkDivider:clkdi|counter[31]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.915      ;
+; 0.629 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[31]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[31]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.915      ;
+; 0.968 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[0]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[0]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.254      ;
+; 0.968 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.254      ;
+; 0.968 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[15]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[15]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.254      ;
+; 0.968 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[16]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[16]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.254      ;
+; 0.971 ; ClkDivider:clkdi|counter[1]                               ; ClkDivider:clkdi|counter[1]                               ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.257      ;
+; 0.972 ; ClkDivider:clkdi|counter[9]                               ; ClkDivider:clkdi|counter[9]                               ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.258      ;
+; 0.972 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[2]          ; IO_controller:ioCtrl|ClkDivider:msClk|counter[2]          ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.258      ;
+; 0.972 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[4]          ; IO_controller:ioCtrl|ClkDivider:msClk|counter[4]          ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.258      ;
+; 0.975 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[1]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[1]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.261      ;
+; 0.975 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[17] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[17] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.261      ;
+; 0.975 ; ClkDivider:clkdi|counter[17]                              ; ClkDivider:clkdi|counter[17]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.261      ;
+; 0.975 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[1]          ; IO_controller:ioCtrl|ClkDivider:msClk|counter[1]          ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.261      ;
+; 0.975 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[17]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[17]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.261      ;
+; 0.976 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[2]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[2]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.262      ;
+; 0.976 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[9]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[9]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.262      ;
+; 0.976 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.262      ;
+; 0.976 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[25] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[25] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.262      ;
+; 0.976 ; ClkDivider:clkdi|counter[2]                               ; ClkDivider:clkdi|counter[2]                               ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.262      ;
+; 0.976 ; ClkDivider:clkdi|counter[18]                              ; ClkDivider:clkdi|counter[18]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.262      ;
+; 0.976 ; ClkDivider:clkdi|counter[25]                              ; ClkDivider:clkdi|counter[25]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.262      ;
+; 0.976 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[9]          ; IO_controller:ioCtrl|ClkDivider:msClk|counter[9]          ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.262      ;
+; 0.976 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[18]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[18]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.262      ;
+; 0.976 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[25]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[25]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.262      ;
+; 0.976 ; IO_controller:ioCtrl|SwitchDevices:switches|swctrl[0]     ; IO_controller:ioCtrl|SwitchDevices:switches|swctrl[2]     ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.262      ;
+; 0.977 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[4]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[4]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[7]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[7]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[13] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[13] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[14] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[14] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[15] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[15] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[23] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[23] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[27] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[27] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[29] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[29] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[30] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[30] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; ClkDivider:clkdi|counter[4]                               ; ClkDivider:clkdi|counter[4]                               ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; ClkDivider:clkdi|counter[7]                               ; ClkDivider:clkdi|counter[7]                               ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; ClkDivider:clkdi|counter[20]                              ; ClkDivider:clkdi|counter[20]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; ClkDivider:clkdi|counter[23]                              ; ClkDivider:clkdi|counter[23]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; ClkDivider:clkdi|counter[27]                              ; ClkDivider:clkdi|counter[27]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; ClkDivider:clkdi|counter[29]                              ; ClkDivider:clkdi|counter[29]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; ClkDivider:clkdi|counter[30]                              ; ClkDivider:clkdi|counter[30]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[11]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[11]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[20]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[20]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[23]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[23]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[27]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[27]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[29]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[29]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[30]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[30]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.263      ;
+; 1.007 ; ClkDivider:clkdi|counter[5]                               ; ClkDivider:clkdi|counter[5]                               ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.293      ;
+; 1.007 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[6]          ; IO_controller:ioCtrl|ClkDivider:msClk|counter[6]          ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.293      ;
+; 1.011 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[10]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[10]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.297      ;
+; 1.012 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[12]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[12]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.298      ;
+; 1.015 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[8]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[8]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.301      ;
+; 1.015 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.301      ;
+; 1.015 ; ClkDivider:clkdi|counter[8]                               ; ClkDivider:clkdi|counter[8]                               ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.301      ;
+; 1.015 ; ClkDivider:clkdi|counter[24]                              ; ClkDivider:clkdi|counter[24]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.301      ;
+; 1.015 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[24]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[24]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.301      ;
+; 1.016 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[3]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[3]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[5]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[5]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[6]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[6]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[10] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[10] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[12] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[12] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[19] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[19] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[21] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[21] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[22] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[22] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[26] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[26] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[28] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[28] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; ClkDivider:clkdi|counter[10]                              ; ClkDivider:clkdi|counter[10]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; ClkDivider:clkdi|counter[12]                              ; ClkDivider:clkdi|counter[12]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; ClkDivider:clkdi|counter[19]                              ; ClkDivider:clkdi|counter[19]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; ClkDivider:clkdi|counter[21]                              ; ClkDivider:clkdi|counter[21]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; ClkDivider:clkdi|counter[22]                              ; ClkDivider:clkdi|counter[22]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; ClkDivider:clkdi|counter[26]                              ; ClkDivider:clkdi|counter[26]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; ClkDivider:clkdi|counter[28]                              ; ClkDivider:clkdi|counter[28]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[19]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[19]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[21]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[21]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[22]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[22]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[26]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[26]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.016 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[28]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[28]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.302      ;
+; 1.169 ; IO_controller:ioCtrl|SwitchDevices:switches|oneTimeSwInit ; IO_controller:ioCtrl|KeyDevices:key|kctrl[0]              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.455      ;
+; 1.243 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[3] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[3]     ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.529      ;
+; 1.263 ; IO_controller:ioCtrl|Hex:heX|rhexOut[12]                  ; IO_controller:ioCtrl|Hex:heX|rhexOut[12]                  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.549      ;
+; 1.288 ; IO_controller:ioCtrl|Hex:heX|rhexOut[14]                  ; IO_controller:ioCtrl|Hex:heX|rhexOut[14]                  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.574      ;
+; 1.400 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[0]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[1]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.686      ;
+; 1.400 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[17] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.686      ;
+; 1.400 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[16]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[17]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.686      ;
+; 1.403 ; ClkDivider:clkdi|counter[1]                               ; ClkDivider:clkdi|counter[2]                               ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.689      ;
+; 1.404 ; ClkDivider:clkdi|counter[9]                               ; ClkDivider:clkdi|counter[10]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.690      ;
+; 1.407 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[1]          ; IO_controller:ioCtrl|ClkDivider:msClk|counter[2]          ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.693      ;
+; 1.407 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[1]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[2]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 1.693      ;
++-------+-----------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'Clock10'                                                                                            ;
++--------+--------------+----------------+------------------+---------+------------+---------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock   ; Clock Edge ; Target                                            ;
++--------+--------------+----------------+------------------+---------+------------+---------------------------------------------------+
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|clkReg                           ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|clkReg                           ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[0]                       ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[0]                       ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[10]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[10]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[11]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[11]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[12]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[12]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[13]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[13]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[14]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[14]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[15]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[15]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[16]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[16]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[17]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[17]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[18]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[18]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[19]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[19]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[1]                       ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[1]                       ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[20]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[20]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[21]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[21]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[22]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[22]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[23]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[23]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[24]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[24]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[25]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[25]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[26]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[26]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[27]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[27]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[28]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[28]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[29]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[29]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[2]                       ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[2]                       ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[30]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[30]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[31]                      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[31]                      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[3]                       ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[3]                       ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[4]                       ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[4]                       ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[5]                       ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[5]                       ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[6]                       ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[6]                       ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[7]                       ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[7]                       ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[8]                       ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[8]                       ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[9]                       ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[9]                       ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|clkReg      ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|clkReg      ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[0]  ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[0]  ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[10] ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[10] ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[11] ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[11] ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[12] ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[12] ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[13] ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[13] ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[14] ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[14] ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[15] ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[15] ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[16] ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[16] ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[17] ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[17] ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[18] ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[18] ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[19] ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[19] ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[1]  ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[1]  ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[20] ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[20] ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[21] ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[21] ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[22] ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[22] ;
+; 48.889 ; 50.000       ; 1.111          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[23] ;
+; 48.889 ; 50.000       ; 1.111          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[23] ;
++--------+--------------+----------------+------------------+---------+------------+---------------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; KEY[*]    ; Clock10    ; 7.842 ; 7.842 ; Rise       ; Clock10         ;
+;  KEY[0]   ; Clock10    ; 7.839 ; 7.839 ; Rise       ; Clock10         ;
+;  KEY[1]   ; Clock10    ; 7.698 ; 7.698 ; Rise       ; Clock10         ;
+;  KEY[2]   ; Clock10    ; 7.842 ; 7.842 ; Rise       ; Clock10         ;
+;  KEY[3]   ; Clock10    ; 7.298 ; 7.298 ; Rise       ; Clock10         ;
+; SW[*]     ; Clock10    ; 7.832 ; 7.832 ; Rise       ; Clock10         ;
+;  SW[0]    ; Clock10    ; 7.383 ; 7.383 ; Rise       ; Clock10         ;
+;  SW[1]    ; Clock10    ; 7.832 ; 7.832 ; Rise       ; Clock10         ;
+;  SW[2]    ; Clock10    ; 4.296 ; 4.296 ; Rise       ; Clock10         ;
+;  SW[3]    ; Clock10    ; 3.928 ; 3.928 ; Rise       ; Clock10         ;
+;  SW[4]    ; Clock10    ; 4.402 ; 4.402 ; Rise       ; Clock10         ;
+;  SW[5]    ; Clock10    ; 4.525 ; 4.525 ; Rise       ; Clock10         ;
+;  SW[6]    ; Clock10    ; 4.250 ; 4.250 ; Rise       ; Clock10         ;
+;  SW[7]    ; Clock10    ; 6.324 ; 6.324 ; Rise       ; Clock10         ;
+;  SW[8]    ; Clock10    ; 4.196 ; 4.196 ; Rise       ; Clock10         ;
+;  SW[9]    ; Clock10    ; 7.015 ; 7.015 ; Rise       ; Clock10         ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; KEY[*]    ; Clock10    ; -4.574 ; -4.574 ; Rise       ; Clock10         ;
+;  KEY[0]   ; Clock10    ; -4.853 ; -4.853 ; Rise       ; Clock10         ;
+;  KEY[1]   ; Clock10    ; -4.654 ; -4.654 ; Rise       ; Clock10         ;
+;  KEY[2]   ; Clock10    ; -5.043 ; -5.043 ; Rise       ; Clock10         ;
+;  KEY[3]   ; Clock10    ; -4.574 ; -4.574 ; Rise       ; Clock10         ;
+; SW[*]     ; Clock10    ; -1.992 ; -1.992 ; Rise       ; Clock10         ;
+;  SW[0]    ; Clock10    ; -1.992 ; -1.992 ; Rise       ; Clock10         ;
+;  SW[1]    ; Clock10    ; -2.504 ; -2.504 ; Rise       ; Clock10         ;
+;  SW[2]    ; Clock10    ; -2.447 ; -2.447 ; Rise       ; Clock10         ;
+;  SW[3]    ; Clock10    ; -2.192 ; -2.192 ; Rise       ; Clock10         ;
+;  SW[4]    ; Clock10    ; -2.558 ; -2.558 ; Rise       ; Clock10         ;
+;  SW[5]    ; Clock10    ; -2.264 ; -2.264 ; Rise       ; Clock10         ;
+;  SW[6]    ; Clock10    ; -2.210 ; -2.210 ; Rise       ; Clock10         ;
+;  SW[7]    ; Clock10    ; -2.190 ; -2.190 ; Rise       ; Clock10         ;
+;  SW[8]    ; Clock10    ; -2.145 ; -2.145 ; Rise       ; Clock10         ;
+;  SW[9]    ; Clock10    ; -2.833 ; -2.833 ; Rise       ; Clock10         ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; HEX0[*]   ; Clock10    ; 10.313 ; 10.313 ; Rise       ; Clock10         ;
+;  HEX0[0]  ; Clock10    ; 10.279 ; 10.279 ; Rise       ; Clock10         ;
+;  HEX0[1]  ; Clock10    ; 9.752  ; 9.752  ; Rise       ; Clock10         ;
+;  HEX0[2]  ; Clock10    ; 9.396  ; 9.396  ; Rise       ; Clock10         ;
+;  HEX0[3]  ; Clock10    ; 10.303 ; 10.303 ; Rise       ; Clock10         ;
+;  HEX0[4]  ; Clock10    ; 10.313 ; 10.313 ; Rise       ; Clock10         ;
+;  HEX0[5]  ; Clock10    ; 9.620  ; 9.620  ; Rise       ; Clock10         ;
+;  HEX0[6]  ; Clock10    ; 9.807  ; 9.807  ; Rise       ; Clock10         ;
+; HEX1[*]   ; Clock10    ; 10.045 ; 10.045 ; Rise       ; Clock10         ;
+;  HEX1[0]  ; Clock10    ; 10.045 ; 10.045 ; Rise       ; Clock10         ;
+;  HEX1[1]  ; Clock10    ; 9.664  ; 9.664  ; Rise       ; Clock10         ;
+;  HEX1[2]  ; Clock10    ; 9.671  ; 9.671  ; Rise       ; Clock10         ;
+;  HEX1[3]  ; Clock10    ; 9.667  ; 9.667  ; Rise       ; Clock10         ;
+;  HEX1[4]  ; Clock10    ; 9.684  ; 9.684  ; Rise       ; Clock10         ;
+;  HEX1[5]  ; Clock10    ; 10.045 ; 10.045 ; Rise       ; Clock10         ;
+;  HEX1[6]  ; Clock10    ; 9.930  ; 9.930  ; Rise       ; Clock10         ;
+; HEX2[*]   ; Clock10    ; 10.213 ; 10.213 ; Rise       ; Clock10         ;
+;  HEX2[0]  ; Clock10    ; 9.504  ; 9.504  ; Rise       ; Clock10         ;
+;  HEX2[1]  ; Clock10    ; 10.051 ; 10.051 ; Rise       ; Clock10         ;
+;  HEX2[2]  ; Clock10    ; 10.157 ; 10.157 ; Rise       ; Clock10         ;
+;  HEX2[3]  ; Clock10    ; 10.164 ; 10.164 ; Rise       ; Clock10         ;
+;  HEX2[4]  ; Clock10    ; 10.165 ; 10.165 ; Rise       ; Clock10         ;
+;  HEX2[5]  ; Clock10    ; 9.886  ; 9.886  ; Rise       ; Clock10         ;
+;  HEX2[6]  ; Clock10    ; 10.213 ; 10.213 ; Rise       ; Clock10         ;
+; HEX3[*]   ; Clock10    ; 10.238 ; 10.238 ; Rise       ; Clock10         ;
+;  HEX3[0]  ; Clock10    ; 9.717  ; 9.717  ; Rise       ; Clock10         ;
+;  HEX3[1]  ; Clock10    ; 10.238 ; 10.238 ; Rise       ; Clock10         ;
+;  HEX3[2]  ; Clock10    ; 10.234 ; 10.234 ; Rise       ; Clock10         ;
+;  HEX3[3]  ; Clock10    ; 9.669  ; 9.669  ; Rise       ; Clock10         ;
+;  HEX3[4]  ; Clock10    ; 9.350  ; 9.350  ; Rise       ; Clock10         ;
+;  HEX3[5]  ; Clock10    ; 9.732  ; 9.732  ; Rise       ; Clock10         ;
+;  HEX3[6]  ; Clock10    ; 10.073 ; 10.073 ; Rise       ; Clock10         ;
+; LEDG[*]   ; Clock10    ; 9.960  ; 9.960  ; Rise       ; Clock10         ;
+;  LEDG[0]  ; Clock10    ; 8.808  ; 8.808  ; Rise       ; Clock10         ;
+;  LEDG[1]  ; Clock10    ; 8.735  ; 8.735  ; Rise       ; Clock10         ;
+;  LEDG[2]  ; Clock10    ; 9.286  ; 9.286  ; Rise       ; Clock10         ;
+;  LEDG[3]  ; Clock10    ; 9.914  ; 9.914  ; Rise       ; Clock10         ;
+;  LEDG[4]  ; Clock10    ; 9.145  ; 9.145  ; Rise       ; Clock10         ;
+;  LEDG[5]  ; Clock10    ; 9.960  ; 9.960  ; Rise       ; Clock10         ;
+;  LEDG[6]  ; Clock10    ; 8.711  ; 8.711  ; Rise       ; Clock10         ;
+;  LEDG[7]  ; Clock10    ; 8.773  ; 8.773  ; Rise       ; Clock10         ;
+; LEDR[*]   ; Clock10    ; 9.944  ; 9.944  ; Rise       ; Clock10         ;
+;  LEDR[0]  ; Clock10    ; 8.742  ; 8.742  ; Rise       ; Clock10         ;
+;  LEDR[1]  ; Clock10    ; 8.361  ; 8.361  ; Rise       ; Clock10         ;
+;  LEDR[2]  ; Clock10    ; 9.812  ; 9.812  ; Rise       ; Clock10         ;
+;  LEDR[3]  ; Clock10    ; 9.078  ; 9.078  ; Rise       ; Clock10         ;
+;  LEDR[4]  ; Clock10    ; 9.802  ; 9.802  ; Rise       ; Clock10         ;
+;  LEDR[5]  ; Clock10    ; 8.268  ; 8.268  ; Rise       ; Clock10         ;
+;  LEDR[6]  ; Clock10    ; 9.944  ; 9.944  ; Rise       ; Clock10         ;
+;  LEDR[7]  ; Clock10    ; 8.383  ; 8.383  ; Rise       ; Clock10         ;
+;  LEDR[8]  ; Clock10    ; 9.498  ; 9.498  ; Rise       ; Clock10         ;
+;  LEDR[9]  ; Clock10    ; 8.960  ; 8.960  ; Rise       ; Clock10         ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; HEX0[*]   ; Clock10    ; 9.063 ; 9.063 ; Rise       ; Clock10         ;
+;  HEX0[0]  ; Clock10    ; 9.419 ; 9.419 ; Rise       ; Clock10         ;
+;  HEX0[1]  ; Clock10    ; 9.424 ; 9.424 ; Rise       ; Clock10         ;
+;  HEX0[2]  ; Clock10    ; 9.063 ; 9.063 ; Rise       ; Clock10         ;
+;  HEX0[3]  ; Clock10    ; 9.444 ; 9.444 ; Rise       ; Clock10         ;
+;  HEX0[4]  ; Clock10    ; 9.452 ; 9.452 ; Rise       ; Clock10         ;
+;  HEX0[5]  ; Clock10    ; 9.259 ; 9.259 ; Rise       ; Clock10         ;
+;  HEX0[6]  ; Clock10    ; 9.478 ; 9.478 ; Rise       ; Clock10         ;
+; HEX1[*]   ; Clock10    ; 8.964 ; 8.964 ; Rise       ; Clock10         ;
+;  HEX1[0]  ; Clock10    ; 9.336 ; 9.336 ; Rise       ; Clock10         ;
+;  HEX1[1]  ; Clock10    ; 8.964 ; 8.964 ; Rise       ; Clock10         ;
+;  HEX1[2]  ; Clock10    ; 8.964 ; 8.964 ; Rise       ; Clock10         ;
+;  HEX1[3]  ; Clock10    ; 8.976 ; 8.976 ; Rise       ; Clock10         ;
+;  HEX1[4]  ; Clock10    ; 8.985 ; 8.985 ; Rise       ; Clock10         ;
+;  HEX1[5]  ; Clock10    ; 9.351 ; 9.351 ; Rise       ; Clock10         ;
+;  HEX1[6]  ; Clock10    ; 9.218 ; 9.218 ; Rise       ; Clock10         ;
+; HEX2[*]   ; Clock10    ; 8.689 ; 8.689 ; Rise       ; Clock10         ;
+;  HEX2[0]  ; Clock10    ; 8.689 ; 8.689 ; Rise       ; Clock10         ;
+;  HEX2[1]  ; Clock10    ; 9.244 ; 9.244 ; Rise       ; Clock10         ;
+;  HEX2[2]  ; Clock10    ; 9.355 ; 9.355 ; Rise       ; Clock10         ;
+;  HEX2[3]  ; Clock10    ; 9.370 ; 9.370 ; Rise       ; Clock10         ;
+;  HEX2[4]  ; Clock10    ; 9.366 ; 9.366 ; Rise       ; Clock10         ;
+;  HEX2[5]  ; Clock10    ; 9.087 ; 9.087 ; Rise       ; Clock10         ;
+;  HEX2[6]  ; Clock10    ; 9.403 ; 9.403 ; Rise       ; Clock10         ;
+; HEX3[*]   ; Clock10    ; 8.693 ; 8.693 ; Rise       ; Clock10         ;
+;  HEX3[0]  ; Clock10    ; 9.078 ; 9.078 ; Rise       ; Clock10         ;
+;  HEX3[1]  ; Clock10    ; 9.586 ; 9.586 ; Rise       ; Clock10         ;
+;  HEX3[2]  ; Clock10    ; 9.595 ; 9.595 ; Rise       ; Clock10         ;
+;  HEX3[3]  ; Clock10    ; 9.025 ; 9.025 ; Rise       ; Clock10         ;
+;  HEX3[4]  ; Clock10    ; 8.693 ; 8.693 ; Rise       ; Clock10         ;
+;  HEX3[5]  ; Clock10    ; 9.051 ; 9.051 ; Rise       ; Clock10         ;
+;  HEX3[6]  ; Clock10    ; 9.424 ; 9.424 ; Rise       ; Clock10         ;
+; LEDG[*]   ; Clock10    ; 8.711 ; 8.711 ; Rise       ; Clock10         ;
+;  LEDG[0]  ; Clock10    ; 8.808 ; 8.808 ; Rise       ; Clock10         ;
+;  LEDG[1]  ; Clock10    ; 8.735 ; 8.735 ; Rise       ; Clock10         ;
+;  LEDG[2]  ; Clock10    ; 9.286 ; 9.286 ; Rise       ; Clock10         ;
+;  LEDG[3]  ; Clock10    ; 9.914 ; 9.914 ; Rise       ; Clock10         ;
+;  LEDG[4]  ; Clock10    ; 9.145 ; 9.145 ; Rise       ; Clock10         ;
+;  LEDG[5]  ; Clock10    ; 9.960 ; 9.960 ; Rise       ; Clock10         ;
+;  LEDG[6]  ; Clock10    ; 8.711 ; 8.711 ; Rise       ; Clock10         ;
+;  LEDG[7]  ; Clock10    ; 8.773 ; 8.773 ; Rise       ; Clock10         ;
+; LEDR[*]   ; Clock10    ; 8.268 ; 8.268 ; Rise       ; Clock10         ;
+;  LEDR[0]  ; Clock10    ; 8.742 ; 8.742 ; Rise       ; Clock10         ;
+;  LEDR[1]  ; Clock10    ; 8.361 ; 8.361 ; Rise       ; Clock10         ;
+;  LEDR[2]  ; Clock10    ; 9.812 ; 9.812 ; Rise       ; Clock10         ;
+;  LEDR[3]  ; Clock10    ; 9.078 ; 9.078 ; Rise       ; Clock10         ;
+;  LEDR[4]  ; Clock10    ; 9.802 ; 9.802 ; Rise       ; Clock10         ;
+;  LEDR[5]  ; Clock10    ; 8.268 ; 8.268 ; Rise       ; Clock10         ;
+;  LEDR[6]  ; Clock10    ; 9.944 ; 9.944 ; Rise       ; Clock10         ;
+;  LEDR[7]  ; Clock10    ; 8.383 ; 8.383 ; Rise       ; Clock10         ;
+;  LEDR[8]  ; Clock10    ; 9.498 ; 9.498 ; Rise       ; Clock10         ;
+;  LEDR[9]  ; Clock10    ; 8.960 ; 8.960 ; Rise       ; Clock10         ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------+
+; Fast Model Setup Summary         ;
++---------+--------+---------------+
+; Clock   ; Slack  ; End Point TNS ;
++---------+--------+---------------+
+; Clock10 ; 97.632 ; 0.000         ;
++---------+--------+---------------+
+
+
++---------------------------------+
+; Fast Model Hold Summary         ;
++---------+-------+---------------+
+; Clock   ; Slack ; End Point TNS ;
++---------+-------+---------------+
+; Clock10 ; 0.215 ; 0.000         ;
++---------+-------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++---------+--------+---------------------+
+; Clock   ; Slack  ; End Point TNS       ;
++---------+--------+---------------------+
+; Clock10 ; 49.000 ; 0.000               ;
++---------+--------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'Clock10'                                                                                                                                                                          ;
++--------+-----------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                                 ; To Node                                                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 97.632 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[2]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.397      ;
+; 97.632 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[1]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.397      ;
+; 97.632 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[5]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.397      ;
+; 97.632 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[4]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.397      ;
+; 97.632 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[8]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.397      ;
+; 97.632 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[9]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.397      ;
+; 97.648 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[6]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.381      ;
+; 97.648 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[7]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.381      ;
+; 97.648 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[3]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.381      ;
+; 97.648 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[0]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.381      ;
+; 97.658 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.374      ;
+; 97.658 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[17] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.374      ;
+; 97.658 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.374      ;
+; 97.658 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[19] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.374      ;
+; 97.658 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.374      ;
+; 97.658 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[21] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.374      ;
+; 97.658 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[22] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.374      ;
+; 97.658 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[23] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.374      ;
+; 97.658 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.374      ;
+; 97.658 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[25] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.374      ;
+; 97.658 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[26] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.374      ;
+; 97.658 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[27] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.374      ;
+; 97.658 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[28] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.374      ;
+; 97.658 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[29] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.374      ;
+; 97.658 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[30] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.374      ;
+; 97.658 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[31] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.374      ;
+; 97.659 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[0]  ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 2.369      ;
+; 97.659 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[1]  ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 2.369      ;
+; 97.659 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[2]  ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 2.369      ;
+; 97.659 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[3]  ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 2.369      ;
+; 97.659 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[4]  ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 2.369      ;
+; 97.659 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[5]  ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 2.369      ;
+; 97.659 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[6]  ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 2.369      ;
+; 97.659 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[7]  ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 2.369      ;
+; 97.659 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[8]  ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 2.369      ;
+; 97.659 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[9]  ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 2.369      ;
+; 97.659 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[10] ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 2.369      ;
+; 97.659 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 2.369      ;
+; 97.659 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[12] ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 2.369      ;
+; 97.659 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[13] ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 2.369      ;
+; 97.659 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[14] ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 2.369      ;
+; 97.659 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[15] ; Clock10      ; Clock10     ; 100.000      ; -0.004     ; 2.369      ;
+; 97.709 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[4] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[2]     ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.323      ;
+; 97.709 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[4] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[1]     ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.323      ;
+; 97.709 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[4] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[5]     ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.323      ;
+; 97.709 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[4] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[4]     ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.323      ;
+; 97.709 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[4] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[8]     ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.323      ;
+; 97.709 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[4] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[9]     ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.323      ;
+; 97.711 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[2]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.318      ;
+; 97.711 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[1]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.318      ;
+; 97.711 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[5]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.318      ;
+; 97.711 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[4]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.318      ;
+; 97.711 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[8]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.318      ;
+; 97.711 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[9]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.318      ;
+; 97.721 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[8]  ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[2]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 2.312      ;
+; 97.721 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[8]  ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[1]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 2.312      ;
+; 97.721 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[8]  ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[5]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 2.312      ;
+; 97.721 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[8]  ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[4]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 2.312      ;
+; 97.721 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[8]  ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[8]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 2.312      ;
+; 97.721 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[8]  ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[9]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 2.312      ;
+; 97.725 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[4] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[6]     ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.307      ;
+; 97.725 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[4] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[7]     ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.307      ;
+; 97.725 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[4] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[3]     ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.307      ;
+; 97.725 ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[4] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[0]     ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.307      ;
+; 97.727 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[6]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.302      ;
+; 97.727 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[7]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.302      ;
+; 97.727 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[3]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.302      ;
+; 97.727 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[0]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.302      ;
+; 97.730 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[2]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 2.303      ;
+; 97.730 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[1]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 2.303      ;
+; 97.730 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[5]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 2.303      ;
+; 97.730 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[4]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 2.303      ;
+; 97.730 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[8]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 2.303      ;
+; 97.730 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[9]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 2.303      ;
+; 97.731 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[2]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.298      ;
+; 97.731 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[1]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.298      ;
+; 97.731 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[5]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.298      ;
+; 97.731 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[4]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.298      ;
+; 97.731 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[8]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.298      ;
+; 97.731 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[9]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.298      ;
+; 97.736 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[2]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.293      ;
+; 97.736 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[1]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.293      ;
+; 97.736 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[5]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.293      ;
+; 97.736 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[4]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.293      ;
+; 97.736 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[8]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.293      ;
+; 97.736 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[9]     ; Clock10      ; Clock10     ; 100.000      ; -0.003     ; 2.293      ;
+; 97.737 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[8]  ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[6]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 2.296      ;
+; 97.737 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[8]  ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[7]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 2.296      ;
+; 97.737 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[8]  ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[3]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 2.296      ;
+; 97.737 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[8]  ; IO_controller:ioCtrl|SwitchDevices:switches|swdata[0]     ; Clock10      ; Clock10     ; 100.000      ; 0.001      ; 2.296      ;
+; 97.737 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.295      ;
+; 97.737 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[17] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.295      ;
+; 97.737 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.295      ;
+; 97.737 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[19] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.295      ;
+; 97.737 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.295      ;
+; 97.737 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[21] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.295      ;
+; 97.737 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[22] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.295      ;
+; 97.737 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[23] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.295      ;
+; 97.737 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.295      ;
+; 97.737 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[25] ; Clock10      ; Clock10     ; 100.000      ; 0.000      ; 2.295      ;
++--------+-----------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'Clock10'                                                                                                                                                                          ;
++-------+-----------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                 ; To Node                                                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.215 ; IO_controller:ioCtrl|KeyDevices:key|kctrl[2]              ; IO_controller:ioCtrl|KeyDevices:key|kctrl[2]              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; IO_controller:ioCtrl|SwitchDevices:switches|swctrl[8]     ; IO_controller:ioCtrl|SwitchDevices:switches|swctrl[8]     ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; IO_controller:ioCtrl|KeyDevices:key|kctrl[8]              ; IO_controller:ioCtrl|KeyDevices:key|kctrl[8]              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; IO_controller:ioCtrl|KeyDevices:key|kctrl[0]              ; IO_controller:ioCtrl|KeyDevices:key|kctrl[0]              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; IO_controller:ioCtrl|SwitchDevices:switches|swctrl[0]     ; IO_controller:ioCtrl|SwitchDevices:switches|swctrl[0]     ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ClkDivider:clkdi|clkReg                                   ; ClkDivider:clkdi|clkReg                                   ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; IO_controller:ioCtrl|ClkDivider:msClk|clkReg              ; IO_controller:ioCtrl|ClkDivider:msClk|clkReg              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.367      ;
+; 0.243 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[31] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[31] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.395      ;
+; 0.243 ; ClkDivider:clkdi|counter[31]                              ; ClkDivider:clkdi|counter[31]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.395      ;
+; 0.243 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[31]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[31]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.395      ;
+; 0.307 ; SW[7]                                                     ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[7] ; Clock10      ; Clock10     ; 0.000        ; 1.787      ; 2.246      ;
+; 0.355 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[0]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[0]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.507      ;
+; 0.355 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[16] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.507      ;
+; 0.355 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[16]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[16]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.507      ;
+; 0.357 ; ClkDivider:clkdi|counter[1]                               ; ClkDivider:clkdi|counter[1]                               ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.509      ;
+; 0.357 ; ClkDivider:clkdi|counter[9]                               ; ClkDivider:clkdi|counter[9]                               ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.509      ;
+; 0.357 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[15]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[15]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.509      ;
+; 0.358 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[2]          ; IO_controller:ioCtrl|ClkDivider:msClk|counter[2]          ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.510      ;
+; 0.358 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[4]          ; IO_controller:ioCtrl|ClkDivider:msClk|counter[4]          ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.510      ;
+; 0.359 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[1]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[1]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[17] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[17] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359 ; ClkDivider:clkdi|counter[17]                              ; ClkDivider:clkdi|counter[17]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[1]          ; IO_controller:ioCtrl|ClkDivider:msClk|counter[1]          ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[17]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[17]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.511      ;
+; 0.360 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[2]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[2]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[9]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[9]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[11] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[18] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[25] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[25] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[27] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[27] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; ClkDivider:clkdi|counter[2]                               ; ClkDivider:clkdi|counter[2]                               ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; ClkDivider:clkdi|counter[18]                              ; ClkDivider:clkdi|counter[18]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; ClkDivider:clkdi|counter[25]                              ; ClkDivider:clkdi|counter[25]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; ClkDivider:clkdi|counter[27]                              ; ClkDivider:clkdi|counter[27]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[9]          ; IO_controller:ioCtrl|ClkDivider:msClk|counter[9]          ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[11]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[11]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[18]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[18]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[25]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[25]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[27]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[27]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.512      ;
+; 0.361 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[4]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[4]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[7]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[7]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[13] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[13] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[14] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[14] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[15] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[15] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[20] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[23] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[23] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[29] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[29] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[30] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[30] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; ClkDivider:clkdi|counter[4]                               ; ClkDivider:clkdi|counter[4]                               ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; ClkDivider:clkdi|counter[7]                               ; ClkDivider:clkdi|counter[7]                               ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; ClkDivider:clkdi|counter[20]                              ; ClkDivider:clkdi|counter[20]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; ClkDivider:clkdi|counter[23]                              ; ClkDivider:clkdi|counter[23]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; ClkDivider:clkdi|counter[29]                              ; ClkDivider:clkdi|counter[29]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; ClkDivider:clkdi|counter[30]                              ; ClkDivider:clkdi|counter[30]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[20]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[20]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[23]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[23]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[29]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[29]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[30]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[30]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.513      ;
+; 0.363 ; IO_controller:ioCtrl|SwitchDevices:switches|swctrl[0]     ; IO_controller:ioCtrl|SwitchDevices:switches|swctrl[2]     ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.515      ;
+; 0.367 ; ClkDivider:clkdi|counter[5]                               ; ClkDivider:clkdi|counter[5]                               ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.519      ;
+; 0.367 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[6]          ; IO_controller:ioCtrl|ClkDivider:msClk|counter[6]          ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.519      ;
+; 0.368 ; SW[3]                                                     ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[3] ; Clock10      ; Clock10     ; 0.000        ; 1.787      ; 2.307      ;
+; 0.369 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[10]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[10]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.521      ;
+; 0.369 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[12]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[12]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.521      ;
+; 0.371 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[3]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[3]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[8]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[8]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[10] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[10] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[19] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[19] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[26] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[26] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371 ; ClkDivider:clkdi|counter[8]                               ; ClkDivider:clkdi|counter[8]                               ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371 ; ClkDivider:clkdi|counter[10]                              ; ClkDivider:clkdi|counter[10]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371 ; ClkDivider:clkdi|counter[19]                              ; ClkDivider:clkdi|counter[19]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371 ; ClkDivider:clkdi|counter[24]                              ; ClkDivider:clkdi|counter[24]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371 ; ClkDivider:clkdi|counter[26]                              ; ClkDivider:clkdi|counter[26]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[19]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[19]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[24]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[24]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[26]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[26]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.523      ;
+; 0.372 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[5]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[5]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.524      ;
+; 0.372 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[6]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[6]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.524      ;
+; 0.372 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[12] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[12] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.524      ;
+; 0.372 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[21] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[21] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.524      ;
+; 0.372 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[22] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[22] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.524      ;
+; 0.372 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[28] ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[28] ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.524      ;
+; 0.372 ; ClkDivider:clkdi|counter[12]                              ; ClkDivider:clkdi|counter[12]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.524      ;
+; 0.372 ; ClkDivider:clkdi|counter[21]                              ; ClkDivider:clkdi|counter[21]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.524      ;
+; 0.372 ; ClkDivider:clkdi|counter[22]                              ; ClkDivider:clkdi|counter[22]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.524      ;
+; 0.372 ; ClkDivider:clkdi|counter[28]                              ; ClkDivider:clkdi|counter[28]                              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.524      ;
+; 0.372 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[21]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[21]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.524      ;
+; 0.372 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[22]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[22]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.524      ;
+; 0.372 ; IO_controller:ioCtrl|ClkDivider:msClk|counter[28]         ; IO_controller:ioCtrl|ClkDivider:msClk|counter[28]         ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.524      ;
+; 0.375 ; SW[6]                                                     ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[6] ; Clock10      ; Clock10     ; 0.000        ; 1.787      ; 2.314      ;
+; 0.396 ; SW[8]                                                     ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[8] ; Clock10      ; Clock10     ; 0.000        ; 1.787      ; 2.335      ;
+; 0.410 ; SW[5]                                                     ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[5] ; Clock10      ; Clock10     ; 0.000        ; 1.787      ; 2.349      ;
+; 0.422 ; SW[0]                                                     ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[0] ; Clock10      ; Clock10     ; 0.000        ; 1.787      ; 2.361      ;
+; 0.442 ; IO_controller:ioCtrl|SwitchDevices:switches|oneTimeSwInit ; IO_controller:ioCtrl|KeyDevices:key|kctrl[0]              ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.594      ;
+; 0.465 ; IO_controller:ioCtrl|Hex:heX|rhexOut[12]                  ; IO_controller:ioCtrl|Hex:heX|rhexOut[12]                  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.617      ;
+; 0.473 ; SW[1]                                                     ; IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[1] ; Clock10      ; Clock10     ; 0.000        ; 1.787      ; 2.412      ;
+; 0.481 ; IO_controller:ioCtrl|Hex:heX|rhexOut[14]                  ; IO_controller:ioCtrl|Hex:heX|rhexOut[14]                  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.633      ;
+; 0.493 ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[0]  ; IO_controller:ioCtrl|SwitchDevices:switches|swcounter[1]  ; Clock10      ; Clock10     ; 0.000        ; 0.000      ; 0.645      ;
++-------+-----------------------------------------------------------+-----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'Clock10'                                                                                            ;
++--------+--------------+----------------+------------------+---------+------------+---------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock   ; Clock Edge ; Target                                            ;
++--------+--------------+----------------+------------------+---------+------------+---------------------------------------------------+
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|clkReg                           ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|clkReg                           ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[0]                       ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[0]                       ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[10]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[10]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[11]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[11]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[12]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[12]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[13]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[13]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[14]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[14]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[15]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[15]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[16]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[16]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[17]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[17]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[18]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[18]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[19]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[19]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[1]                       ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[1]                       ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[20]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[20]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[21]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[21]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[22]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[22]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[23]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[23]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[24]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[24]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[25]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[25]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[26]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[26]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[27]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[27]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[28]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[28]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[29]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[29]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[2]                       ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[2]                       ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[30]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[30]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[31]                      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[31]                      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[3]                       ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[3]                       ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[4]                       ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[4]                       ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[5]                       ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[5]                       ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[6]                       ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[6]                       ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[7]                       ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[7]                       ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[8]                       ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[8]                       ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[9]                       ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; ClkDivider:clkdi|counter[9]                       ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|clkReg      ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|clkReg      ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[0]  ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[0]  ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[10] ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[10] ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[11] ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[11] ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[12] ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[12] ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[13] ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[13] ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[14] ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[14] ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[15] ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[15] ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[16] ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[16] ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[17] ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[17] ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[18] ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[18] ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[19] ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[19] ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[1]  ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[1]  ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[20] ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[20] ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[21] ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[21] ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[22] ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[22] ;
+; 49.000 ; 50.000       ; 1.000          ; High Pulse Width ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[23] ;
+; 49.000 ; 50.000       ; 1.000          ; Low Pulse Width  ; Clock10 ; Rise       ; IO_controller:ioCtrl|ClkDivider:msClk|counter[23] ;
++--------+--------------+----------------+------------------+---------+------------+---------------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; KEY[*]    ; Clock10    ; 3.341 ; 3.341 ; Rise       ; Clock10         ;
+;  KEY[0]   ; Clock10    ; 3.341 ; 3.341 ; Rise       ; Clock10         ;
+;  KEY[1]   ; Clock10    ; 3.212 ; 3.212 ; Rise       ; Clock10         ;
+;  KEY[2]   ; Clock10    ; 3.283 ; 3.283 ; Rise       ; Clock10         ;
+;  KEY[3]   ; Clock10    ; 3.097 ; 3.097 ; Rise       ; Clock10         ;
+; SW[*]     ; Clock10    ; 2.487 ; 2.487 ; Rise       ; Clock10         ;
+;  SW[0]    ; Clock10    ; 2.438 ; 2.438 ; Rise       ; Clock10         ;
+;  SW[1]    ; Clock10    ; 2.487 ; 2.487 ; Rise       ; Clock10         ;
+;  SW[2]    ; Clock10    ; 1.163 ; 1.163 ; Rise       ; Clock10         ;
+;  SW[3]    ; Clock10    ; 1.082 ; 1.082 ; Rise       ; Clock10         ;
+;  SW[4]    ; Clock10    ; 1.227 ; 1.227 ; Rise       ; Clock10         ;
+;  SW[5]    ; Clock10    ; 1.291 ; 1.291 ; Rise       ; Clock10         ;
+;  SW[6]    ; Clock10    ; 1.146 ; 1.146 ; Rise       ; Clock10         ;
+;  SW[7]    ; Clock10    ; 1.889 ; 1.889 ; Rise       ; Clock10         ;
+;  SW[8]    ; Clock10    ; 1.164 ; 1.164 ; Rise       ; Clock10         ;
+;  SW[9]    ; Clock10    ; 2.216 ; 2.216 ; Rise       ; Clock10         ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; KEY[*]    ; Clock10    ; -2.099 ; -2.099 ; Rise       ; Clock10         ;
+;  KEY[0]   ; Clock10    ; -2.243 ; -2.243 ; Rise       ; Clock10         ;
+;  KEY[1]   ; Clock10    ; -2.115 ; -2.115 ; Rise       ; Clock10         ;
+;  KEY[2]   ; Clock10    ; -2.273 ; -2.273 ; Rise       ; Clock10         ;
+;  KEY[3]   ; Clock10    ; -2.099 ; -2.099 ; Rise       ; Clock10         ;
+; SW[*]     ; Clock10    ; -0.307 ; -0.307 ; Rise       ; Clock10         ;
+;  SW[0]    ; Clock10    ; -0.422 ; -0.422 ; Rise       ; Clock10         ;
+;  SW[1]    ; Clock10    ; -0.473 ; -0.473 ; Rise       ; Clock10         ;
+;  SW[2]    ; Clock10    ; -0.522 ; -0.522 ; Rise       ; Clock10         ;
+;  SW[3]    ; Clock10    ; -0.368 ; -0.368 ; Rise       ; Clock10         ;
+;  SW[4]    ; Clock10    ; -0.558 ; -0.558 ; Rise       ; Clock10         ;
+;  SW[5]    ; Clock10    ; -0.410 ; -0.410 ; Rise       ; Clock10         ;
+;  SW[6]    ; Clock10    ; -0.375 ; -0.375 ; Rise       ; Clock10         ;
+;  SW[7]    ; Clock10    ; -0.307 ; -0.307 ; Rise       ; Clock10         ;
+;  SW[8]    ; Clock10    ; -0.396 ; -0.396 ; Rise       ; Clock10         ;
+;  SW[9]    ; Clock10    ; -0.602 ; -0.602 ; Rise       ; Clock10         ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; HEX0[*]   ; Clock10    ; 4.997 ; 4.997 ; Rise       ; Clock10         ;
+;  HEX0[0]  ; Clock10    ; 4.955 ; 4.955 ; Rise       ; Clock10         ;
+;  HEX0[1]  ; Clock10    ; 4.792 ; 4.792 ; Rise       ; Clock10         ;
+;  HEX0[2]  ; Clock10    ; 4.686 ; 4.686 ; Rise       ; Clock10         ;
+;  HEX0[3]  ; Clock10    ; 4.986 ; 4.986 ; Rise       ; Clock10         ;
+;  HEX0[4]  ; Clock10    ; 4.997 ; 4.997 ; Rise       ; Clock10         ;
+;  HEX0[5]  ; Clock10    ; 4.769 ; 4.769 ; Rise       ; Clock10         ;
+;  HEX0[6]  ; Clock10    ; 4.834 ; 4.834 ; Rise       ; Clock10         ;
+; HEX1[*]   ; Clock10    ; 4.928 ; 4.928 ; Rise       ; Clock10         ;
+;  HEX1[0]  ; Clock10    ; 4.919 ; 4.919 ; Rise       ; Clock10         ;
+;  HEX1[1]  ; Clock10    ; 4.757 ; 4.757 ; Rise       ; Clock10         ;
+;  HEX1[2]  ; Clock10    ; 4.756 ; 4.756 ; Rise       ; Clock10         ;
+;  HEX1[3]  ; Clock10    ; 4.767 ; 4.767 ; Rise       ; Clock10         ;
+;  HEX1[4]  ; Clock10    ; 4.777 ; 4.777 ; Rise       ; Clock10         ;
+;  HEX1[5]  ; Clock10    ; 4.928 ; 4.928 ; Rise       ; Clock10         ;
+;  HEX1[6]  ; Clock10    ; 4.868 ; 4.868 ; Rise       ; Clock10         ;
+; HEX2[*]   ; Clock10    ; 4.999 ; 4.999 ; Rise       ; Clock10         ;
+;  HEX2[0]  ; Clock10    ; 4.743 ; 4.743 ; Rise       ; Clock10         ;
+;  HEX2[1]  ; Clock10    ; 4.936 ; 4.936 ; Rise       ; Clock10         ;
+;  HEX2[2]  ; Clock10    ; 4.968 ; 4.968 ; Rise       ; Clock10         ;
+;  HEX2[3]  ; Clock10    ; 4.977 ; 4.977 ; Rise       ; Clock10         ;
+;  HEX2[4]  ; Clock10    ; 4.970 ; 4.970 ; Rise       ; Clock10         ;
+;  HEX2[5]  ; Clock10    ; 4.891 ; 4.891 ; Rise       ; Clock10         ;
+;  HEX2[6]  ; Clock10    ; 4.999 ; 4.999 ; Rise       ; Clock10         ;
+; HEX3[*]   ; Clock10    ; 5.082 ; 5.082 ; Rise       ; Clock10         ;
+;  HEX3[0]  ; Clock10    ; 4.812 ; 4.812 ; Rise       ; Clock10         ;
+;  HEX3[1]  ; Clock10    ; 5.082 ; 5.082 ; Rise       ; Clock10         ;
+;  HEX3[2]  ; Clock10    ; 5.077 ; 5.077 ; Rise       ; Clock10         ;
+;  HEX3[3]  ; Clock10    ; 4.780 ; 4.780 ; Rise       ; Clock10         ;
+;  HEX3[4]  ; Clock10    ; 4.659 ; 4.659 ; Rise       ; Clock10         ;
+;  HEX3[5]  ; Clock10    ; 4.826 ; 4.826 ; Rise       ; Clock10         ;
+;  HEX3[6]  ; Clock10    ; 4.965 ; 4.965 ; Rise       ; Clock10         ;
+; LEDG[*]   ; Clock10    ; 4.945 ; 4.945 ; Rise       ; Clock10         ;
+;  LEDG[0]  ; Clock10    ; 4.556 ; 4.556 ; Rise       ; Clock10         ;
+;  LEDG[1]  ; Clock10    ; 4.508 ; 4.508 ; Rise       ; Clock10         ;
+;  LEDG[2]  ; Clock10    ; 4.703 ; 4.703 ; Rise       ; Clock10         ;
+;  LEDG[3]  ; Clock10    ; 4.915 ; 4.915 ; Rise       ; Clock10         ;
+;  LEDG[4]  ; Clock10    ; 4.678 ; 4.678 ; Rise       ; Clock10         ;
+;  LEDG[5]  ; Clock10    ; 4.945 ; 4.945 ; Rise       ; Clock10         ;
+;  LEDG[6]  ; Clock10    ; 4.561 ; 4.561 ; Rise       ; Clock10         ;
+;  LEDG[7]  ; Clock10    ; 4.559 ; 4.559 ; Rise       ; Clock10         ;
+; LEDR[*]   ; Clock10    ; 5.065 ; 5.065 ; Rise       ; Clock10         ;
+;  LEDR[0]  ; Clock10    ; 4.495 ; 4.495 ; Rise       ; Clock10         ;
+;  LEDR[1]  ; Clock10    ; 4.360 ; 4.360 ; Rise       ; Clock10         ;
+;  LEDR[2]  ; Clock10    ; 5.065 ; 5.065 ; Rise       ; Clock10         ;
+;  LEDR[3]  ; Clock10    ; 4.654 ; 4.654 ; Rise       ; Clock10         ;
+;  LEDR[4]  ; Clock10    ; 4.959 ; 4.959 ; Rise       ; Clock10         ;
+;  LEDR[5]  ; Clock10    ; 4.362 ; 4.362 ; Rise       ; Clock10         ;
+;  LEDR[6]  ; Clock10    ; 4.929 ; 4.929 ; Rise       ; Clock10         ;
+;  LEDR[7]  ; Clock10    ; 4.458 ; 4.458 ; Rise       ; Clock10         ;
+;  LEDR[8]  ; Clock10    ; 4.724 ; 4.724 ; Rise       ; Clock10         ;
+;  LEDR[9]  ; Clock10    ; 4.566 ; 4.566 ; Rise       ; Clock10         ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; HEX0[*]   ; Clock10    ; 4.553 ; 4.553 ; Rise       ; Clock10         ;
+;  HEX0[0]  ; Clock10    ; 4.647 ; 4.647 ; Rise       ; Clock10         ;
+;  HEX0[1]  ; Clock10    ; 4.663 ; 4.663 ; Rise       ; Clock10         ;
+;  HEX0[2]  ; Clock10    ; 4.553 ; 4.553 ; Rise       ; Clock10         ;
+;  HEX0[3]  ; Clock10    ; 4.676 ; 4.676 ; Rise       ; Clock10         ;
+;  HEX0[4]  ; Clock10    ; 4.688 ; 4.688 ; Rise       ; Clock10         ;
+;  HEX0[5]  ; Clock10    ; 4.641 ; 4.641 ; Rise       ; Clock10         ;
+;  HEX0[6]  ; Clock10    ; 4.704 ; 4.704 ; Rise       ; Clock10         ;
+; HEX1[*]   ; Clock10    ; 4.531 ; 4.531 ; Rise       ; Clock10         ;
+;  HEX1[0]  ; Clock10    ; 4.692 ; 4.692 ; Rise       ; Clock10         ;
+;  HEX1[1]  ; Clock10    ; 4.533 ; 4.533 ; Rise       ; Clock10         ;
+;  HEX1[2]  ; Clock10    ; 4.531 ; 4.531 ; Rise       ; Clock10         ;
+;  HEX1[3]  ; Clock10    ; 4.544 ; 4.544 ; Rise       ; Clock10         ;
+;  HEX1[4]  ; Clock10    ; 4.553 ; 4.553 ; Rise       ; Clock10         ;
+;  HEX1[5]  ; Clock10    ; 4.704 ; 4.704 ; Rise       ; Clock10         ;
+;  HEX1[6]  ; Clock10    ; 4.640 ; 4.640 ; Rise       ; Clock10         ;
+; HEX2[*]   ; Clock10    ; 4.438 ; 4.438 ; Rise       ; Clock10         ;
+;  HEX2[0]  ; Clock10    ; 4.438 ; 4.438 ; Rise       ; Clock10         ;
+;  HEX2[1]  ; Clock10    ; 4.638 ; 4.638 ; Rise       ; Clock10         ;
+;  HEX2[2]  ; Clock10    ; 4.679 ; 4.679 ; Rise       ; Clock10         ;
+;  HEX2[3]  ; Clock10    ; 4.692 ; 4.692 ; Rise       ; Clock10         ;
+;  HEX2[4]  ; Clock10    ; 4.683 ; 4.683 ; Rise       ; Clock10         ;
+;  HEX2[5]  ; Clock10    ; 4.608 ; 4.608 ; Rise       ; Clock10         ;
+;  HEX2[6]  ; Clock10    ; 4.700 ; 4.700 ; Rise       ; Clock10         ;
+; HEX3[*]   ; Clock10    ; 4.392 ; 4.392 ; Rise       ; Clock10         ;
+;  HEX3[0]  ; Clock10    ; 4.559 ; 4.559 ; Rise       ; Clock10         ;
+;  HEX3[1]  ; Clock10    ; 4.815 ; 4.815 ; Rise       ; Clock10         ;
+;  HEX3[2]  ; Clock10    ; 4.824 ; 4.824 ; Rise       ; Clock10         ;
+;  HEX3[3]  ; Clock10    ; 4.523 ; 4.523 ; Rise       ; Clock10         ;
+;  HEX3[4]  ; Clock10    ; 4.392 ; 4.392 ; Rise       ; Clock10         ;
+;  HEX3[5]  ; Clock10    ; 4.562 ; 4.562 ; Rise       ; Clock10         ;
+;  HEX3[6]  ; Clock10    ; 4.699 ; 4.699 ; Rise       ; Clock10         ;
+; LEDG[*]   ; Clock10    ; 4.508 ; 4.508 ; Rise       ; Clock10         ;
+;  LEDG[0]  ; Clock10    ; 4.556 ; 4.556 ; Rise       ; Clock10         ;
+;  LEDG[1]  ; Clock10    ; 4.508 ; 4.508 ; Rise       ; Clock10         ;
+;  LEDG[2]  ; Clock10    ; 4.703 ; 4.703 ; Rise       ; Clock10         ;
+;  LEDG[3]  ; Clock10    ; 4.915 ; 4.915 ; Rise       ; Clock10         ;
+;  LEDG[4]  ; Clock10    ; 4.678 ; 4.678 ; Rise       ; Clock10         ;
+;  LEDG[5]  ; Clock10    ; 4.945 ; 4.945 ; Rise       ; Clock10         ;
+;  LEDG[6]  ; Clock10    ; 4.561 ; 4.561 ; Rise       ; Clock10         ;
+;  LEDG[7]  ; Clock10    ; 4.559 ; 4.559 ; Rise       ; Clock10         ;
+; LEDR[*]   ; Clock10    ; 4.360 ; 4.360 ; Rise       ; Clock10         ;
+;  LEDR[0]  ; Clock10    ; 4.495 ; 4.495 ; Rise       ; Clock10         ;
+;  LEDR[1]  ; Clock10    ; 4.360 ; 4.360 ; Rise       ; Clock10         ;
+;  LEDR[2]  ; Clock10    ; 5.065 ; 5.065 ; Rise       ; Clock10         ;
+;  LEDR[3]  ; Clock10    ; 4.654 ; 4.654 ; Rise       ; Clock10         ;
+;  LEDR[4]  ; Clock10    ; 4.959 ; 4.959 ; Rise       ; Clock10         ;
+;  LEDR[5]  ; Clock10    ; 4.362 ; 4.362 ; Rise       ; Clock10         ;
+;  LEDR[6]  ; Clock10    ; 4.929 ; 4.929 ; Rise       ; Clock10         ;
+;  LEDR[7]  ; Clock10    ; 4.458 ; 4.458 ; Rise       ; Clock10         ;
+;  LEDR[8]  ; Clock10    ; 4.724 ; 4.724 ; Rise       ; Clock10         ;
+;  LEDR[9]  ; Clock10    ; 4.566 ; 4.566 ; Rise       ; Clock10         ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                          ;
++------------------+--------+-------+----------+---------+---------------------+
+; Clock            ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+--------+-------+----------+---------+---------------------+
+; Worst-case Slack ; 93.817 ; 0.215 ; N/A      ; N/A     ; 48.889              ;
+;  Clock10         ; 93.817 ; 0.215 ; N/A      ; N/A     ; 48.889              ;
+; Design-wide TNS  ; 0.0    ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
+;  Clock10         ; 0.000  ; 0.000 ; N/A      ; N/A     ; 0.000               ;
++------------------+--------+-------+----------+---------+---------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; KEY[*]    ; Clock10    ; 7.842 ; 7.842 ; Rise       ; Clock10         ;
+;  KEY[0]   ; Clock10    ; 7.839 ; 7.839 ; Rise       ; Clock10         ;
+;  KEY[1]   ; Clock10    ; 7.698 ; 7.698 ; Rise       ; Clock10         ;
+;  KEY[2]   ; Clock10    ; 7.842 ; 7.842 ; Rise       ; Clock10         ;
+;  KEY[3]   ; Clock10    ; 7.298 ; 7.298 ; Rise       ; Clock10         ;
+; SW[*]     ; Clock10    ; 7.832 ; 7.832 ; Rise       ; Clock10         ;
+;  SW[0]    ; Clock10    ; 7.383 ; 7.383 ; Rise       ; Clock10         ;
+;  SW[1]    ; Clock10    ; 7.832 ; 7.832 ; Rise       ; Clock10         ;
+;  SW[2]    ; Clock10    ; 4.296 ; 4.296 ; Rise       ; Clock10         ;
+;  SW[3]    ; Clock10    ; 3.928 ; 3.928 ; Rise       ; Clock10         ;
+;  SW[4]    ; Clock10    ; 4.402 ; 4.402 ; Rise       ; Clock10         ;
+;  SW[5]    ; Clock10    ; 4.525 ; 4.525 ; Rise       ; Clock10         ;
+;  SW[6]    ; Clock10    ; 4.250 ; 4.250 ; Rise       ; Clock10         ;
+;  SW[7]    ; Clock10    ; 6.324 ; 6.324 ; Rise       ; Clock10         ;
+;  SW[8]    ; Clock10    ; 4.196 ; 4.196 ; Rise       ; Clock10         ;
+;  SW[9]    ; Clock10    ; 7.015 ; 7.015 ; Rise       ; Clock10         ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; KEY[*]    ; Clock10    ; -2.099 ; -2.099 ; Rise       ; Clock10         ;
+;  KEY[0]   ; Clock10    ; -2.243 ; -2.243 ; Rise       ; Clock10         ;
+;  KEY[1]   ; Clock10    ; -2.115 ; -2.115 ; Rise       ; Clock10         ;
+;  KEY[2]   ; Clock10    ; -2.273 ; -2.273 ; Rise       ; Clock10         ;
+;  KEY[3]   ; Clock10    ; -2.099 ; -2.099 ; Rise       ; Clock10         ;
+; SW[*]     ; Clock10    ; -0.307 ; -0.307 ; Rise       ; Clock10         ;
+;  SW[0]    ; Clock10    ; -0.422 ; -0.422 ; Rise       ; Clock10         ;
+;  SW[1]    ; Clock10    ; -0.473 ; -0.473 ; Rise       ; Clock10         ;
+;  SW[2]    ; Clock10    ; -0.522 ; -0.522 ; Rise       ; Clock10         ;
+;  SW[3]    ; Clock10    ; -0.368 ; -0.368 ; Rise       ; Clock10         ;
+;  SW[4]    ; Clock10    ; -0.558 ; -0.558 ; Rise       ; Clock10         ;
+;  SW[5]    ; Clock10    ; -0.410 ; -0.410 ; Rise       ; Clock10         ;
+;  SW[6]    ; Clock10    ; -0.375 ; -0.375 ; Rise       ; Clock10         ;
+;  SW[7]    ; Clock10    ; -0.307 ; -0.307 ; Rise       ; Clock10         ;
+;  SW[8]    ; Clock10    ; -0.396 ; -0.396 ; Rise       ; Clock10         ;
+;  SW[9]    ; Clock10    ; -0.602 ; -0.602 ; Rise       ; Clock10         ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; HEX0[*]   ; Clock10    ; 10.313 ; 10.313 ; Rise       ; Clock10         ;
+;  HEX0[0]  ; Clock10    ; 10.279 ; 10.279 ; Rise       ; Clock10         ;
+;  HEX0[1]  ; Clock10    ; 9.752  ; 9.752  ; Rise       ; Clock10         ;
+;  HEX0[2]  ; Clock10    ; 9.396  ; 9.396  ; Rise       ; Clock10         ;
+;  HEX0[3]  ; Clock10    ; 10.303 ; 10.303 ; Rise       ; Clock10         ;
+;  HEX0[4]  ; Clock10    ; 10.313 ; 10.313 ; Rise       ; Clock10         ;
+;  HEX0[5]  ; Clock10    ; 9.620  ; 9.620  ; Rise       ; Clock10         ;
+;  HEX0[6]  ; Clock10    ; 9.807  ; 9.807  ; Rise       ; Clock10         ;
+; HEX1[*]   ; Clock10    ; 10.045 ; 10.045 ; Rise       ; Clock10         ;
+;  HEX1[0]  ; Clock10    ; 10.045 ; 10.045 ; Rise       ; Clock10         ;
+;  HEX1[1]  ; Clock10    ; 9.664  ; 9.664  ; Rise       ; Clock10         ;
+;  HEX1[2]  ; Clock10    ; 9.671  ; 9.671  ; Rise       ; Clock10         ;
+;  HEX1[3]  ; Clock10    ; 9.667  ; 9.667  ; Rise       ; Clock10         ;
+;  HEX1[4]  ; Clock10    ; 9.684  ; 9.684  ; Rise       ; Clock10         ;
+;  HEX1[5]  ; Clock10    ; 10.045 ; 10.045 ; Rise       ; Clock10         ;
+;  HEX1[6]  ; Clock10    ; 9.930  ; 9.930  ; Rise       ; Clock10         ;
+; HEX2[*]   ; Clock10    ; 10.213 ; 10.213 ; Rise       ; Clock10         ;
+;  HEX2[0]  ; Clock10    ; 9.504  ; 9.504  ; Rise       ; Clock10         ;
+;  HEX2[1]  ; Clock10    ; 10.051 ; 10.051 ; Rise       ; Clock10         ;
+;  HEX2[2]  ; Clock10    ; 10.157 ; 10.157 ; Rise       ; Clock10         ;
+;  HEX2[3]  ; Clock10    ; 10.164 ; 10.164 ; Rise       ; Clock10         ;
+;  HEX2[4]  ; Clock10    ; 10.165 ; 10.165 ; Rise       ; Clock10         ;
+;  HEX2[5]  ; Clock10    ; 9.886  ; 9.886  ; Rise       ; Clock10         ;
+;  HEX2[6]  ; Clock10    ; 10.213 ; 10.213 ; Rise       ; Clock10         ;
+; HEX3[*]   ; Clock10    ; 10.238 ; 10.238 ; Rise       ; Clock10         ;
+;  HEX3[0]  ; Clock10    ; 9.717  ; 9.717  ; Rise       ; Clock10         ;
+;  HEX3[1]  ; Clock10    ; 10.238 ; 10.238 ; Rise       ; Clock10         ;
+;  HEX3[2]  ; Clock10    ; 10.234 ; 10.234 ; Rise       ; Clock10         ;
+;  HEX3[3]  ; Clock10    ; 9.669  ; 9.669  ; Rise       ; Clock10         ;
+;  HEX3[4]  ; Clock10    ; 9.350  ; 9.350  ; Rise       ; Clock10         ;
+;  HEX3[5]  ; Clock10    ; 9.732  ; 9.732  ; Rise       ; Clock10         ;
+;  HEX3[6]  ; Clock10    ; 10.073 ; 10.073 ; Rise       ; Clock10         ;
+; LEDG[*]   ; Clock10    ; 9.960  ; 9.960  ; Rise       ; Clock10         ;
+;  LEDG[0]  ; Clock10    ; 8.808  ; 8.808  ; Rise       ; Clock10         ;
+;  LEDG[1]  ; Clock10    ; 8.735  ; 8.735  ; Rise       ; Clock10         ;
+;  LEDG[2]  ; Clock10    ; 9.286  ; 9.286  ; Rise       ; Clock10         ;
+;  LEDG[3]  ; Clock10    ; 9.914  ; 9.914  ; Rise       ; Clock10         ;
+;  LEDG[4]  ; Clock10    ; 9.145  ; 9.145  ; Rise       ; Clock10         ;
+;  LEDG[5]  ; Clock10    ; 9.960  ; 9.960  ; Rise       ; Clock10         ;
+;  LEDG[6]  ; Clock10    ; 8.711  ; 8.711  ; Rise       ; Clock10         ;
+;  LEDG[7]  ; Clock10    ; 8.773  ; 8.773  ; Rise       ; Clock10         ;
+; LEDR[*]   ; Clock10    ; 9.944  ; 9.944  ; Rise       ; Clock10         ;
+;  LEDR[0]  ; Clock10    ; 8.742  ; 8.742  ; Rise       ; Clock10         ;
+;  LEDR[1]  ; Clock10    ; 8.361  ; 8.361  ; Rise       ; Clock10         ;
+;  LEDR[2]  ; Clock10    ; 9.812  ; 9.812  ; Rise       ; Clock10         ;
+;  LEDR[3]  ; Clock10    ; 9.078  ; 9.078  ; Rise       ; Clock10         ;
+;  LEDR[4]  ; Clock10    ; 9.802  ; 9.802  ; Rise       ; Clock10         ;
+;  LEDR[5]  ; Clock10    ; 8.268  ; 8.268  ; Rise       ; Clock10         ;
+;  LEDR[6]  ; Clock10    ; 9.944  ; 9.944  ; Rise       ; Clock10         ;
+;  LEDR[7]  ; Clock10    ; 8.383  ; 8.383  ; Rise       ; Clock10         ;
+;  LEDR[8]  ; Clock10    ; 9.498  ; 9.498  ; Rise       ; Clock10         ;
+;  LEDR[9]  ; Clock10    ; 8.960  ; 8.960  ; Rise       ; Clock10         ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; HEX0[*]   ; Clock10    ; 4.553 ; 4.553 ; Rise       ; Clock10         ;
+;  HEX0[0]  ; Clock10    ; 4.647 ; 4.647 ; Rise       ; Clock10         ;
+;  HEX0[1]  ; Clock10    ; 4.663 ; 4.663 ; Rise       ; Clock10         ;
+;  HEX0[2]  ; Clock10    ; 4.553 ; 4.553 ; Rise       ; Clock10         ;
+;  HEX0[3]  ; Clock10    ; 4.676 ; 4.676 ; Rise       ; Clock10         ;
+;  HEX0[4]  ; Clock10    ; 4.688 ; 4.688 ; Rise       ; Clock10         ;
+;  HEX0[5]  ; Clock10    ; 4.641 ; 4.641 ; Rise       ; Clock10         ;
+;  HEX0[6]  ; Clock10    ; 4.704 ; 4.704 ; Rise       ; Clock10         ;
+; HEX1[*]   ; Clock10    ; 4.531 ; 4.531 ; Rise       ; Clock10         ;
+;  HEX1[0]  ; Clock10    ; 4.692 ; 4.692 ; Rise       ; Clock10         ;
+;  HEX1[1]  ; Clock10    ; 4.533 ; 4.533 ; Rise       ; Clock10         ;
+;  HEX1[2]  ; Clock10    ; 4.531 ; 4.531 ; Rise       ; Clock10         ;
+;  HEX1[3]  ; Clock10    ; 4.544 ; 4.544 ; Rise       ; Clock10         ;
+;  HEX1[4]  ; Clock10    ; 4.553 ; 4.553 ; Rise       ; Clock10         ;
+;  HEX1[5]  ; Clock10    ; 4.704 ; 4.704 ; Rise       ; Clock10         ;
+;  HEX1[6]  ; Clock10    ; 4.640 ; 4.640 ; Rise       ; Clock10         ;
+; HEX2[*]   ; Clock10    ; 4.438 ; 4.438 ; Rise       ; Clock10         ;
+;  HEX2[0]  ; Clock10    ; 4.438 ; 4.438 ; Rise       ; Clock10         ;
+;  HEX2[1]  ; Clock10    ; 4.638 ; 4.638 ; Rise       ; Clock10         ;
+;  HEX2[2]  ; Clock10    ; 4.679 ; 4.679 ; Rise       ; Clock10         ;
+;  HEX2[3]  ; Clock10    ; 4.692 ; 4.692 ; Rise       ; Clock10         ;
+;  HEX2[4]  ; Clock10    ; 4.683 ; 4.683 ; Rise       ; Clock10         ;
+;  HEX2[5]  ; Clock10    ; 4.608 ; 4.608 ; Rise       ; Clock10         ;
+;  HEX2[6]  ; Clock10    ; 4.700 ; 4.700 ; Rise       ; Clock10         ;
+; HEX3[*]   ; Clock10    ; 4.392 ; 4.392 ; Rise       ; Clock10         ;
+;  HEX3[0]  ; Clock10    ; 4.559 ; 4.559 ; Rise       ; Clock10         ;
+;  HEX3[1]  ; Clock10    ; 4.815 ; 4.815 ; Rise       ; Clock10         ;
+;  HEX3[2]  ; Clock10    ; 4.824 ; 4.824 ; Rise       ; Clock10         ;
+;  HEX3[3]  ; Clock10    ; 4.523 ; 4.523 ; Rise       ; Clock10         ;
+;  HEX3[4]  ; Clock10    ; 4.392 ; 4.392 ; Rise       ; Clock10         ;
+;  HEX3[5]  ; Clock10    ; 4.562 ; 4.562 ; Rise       ; Clock10         ;
+;  HEX3[6]  ; Clock10    ; 4.699 ; 4.699 ; Rise       ; Clock10         ;
+; LEDG[*]   ; Clock10    ; 4.508 ; 4.508 ; Rise       ; Clock10         ;
+;  LEDG[0]  ; Clock10    ; 4.556 ; 4.556 ; Rise       ; Clock10         ;
+;  LEDG[1]  ; Clock10    ; 4.508 ; 4.508 ; Rise       ; Clock10         ;
+;  LEDG[2]  ; Clock10    ; 4.703 ; 4.703 ; Rise       ; Clock10         ;
+;  LEDG[3]  ; Clock10    ; 4.915 ; 4.915 ; Rise       ; Clock10         ;
+;  LEDG[4]  ; Clock10    ; 4.678 ; 4.678 ; Rise       ; Clock10         ;
+;  LEDG[5]  ; Clock10    ; 4.945 ; 4.945 ; Rise       ; Clock10         ;
+;  LEDG[6]  ; Clock10    ; 4.561 ; 4.561 ; Rise       ; Clock10         ;
+;  LEDG[7]  ; Clock10    ; 4.559 ; 4.559 ; Rise       ; Clock10         ;
+; LEDR[*]   ; Clock10    ; 4.360 ; 4.360 ; Rise       ; Clock10         ;
+;  LEDR[0]  ; Clock10    ; 4.495 ; 4.495 ; Rise       ; Clock10         ;
+;  LEDR[1]  ; Clock10    ; 4.360 ; 4.360 ; Rise       ; Clock10         ;
+;  LEDR[2]  ; Clock10    ; 5.065 ; 5.065 ; Rise       ; Clock10         ;
+;  LEDR[3]  ; Clock10    ; 4.654 ; 4.654 ; Rise       ; Clock10         ;
+;  LEDR[4]  ; Clock10    ; 4.959 ; 4.959 ; Rise       ; Clock10         ;
+;  LEDR[5]  ; Clock10    ; 4.362 ; 4.362 ; Rise       ; Clock10         ;
+;  LEDR[6]  ; Clock10    ; 4.929 ; 4.929 ; Rise       ; Clock10         ;
+;  LEDR[7]  ; Clock10    ; 4.458 ; 4.458 ; Rise       ; Clock10         ;
+;  LEDR[8]  ; Clock10    ; 4.724 ; 4.724 ; Rise       ; Clock10         ;
+;  LEDR[9]  ; Clock10    ; 4.566 ; 4.566 ; Rise       ; Clock10         ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; Clock10    ; Clock10  ; 5364     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; Clock10    ; Clock10  ; 5364     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 2     ; 2    ;
+; Unconstrained Input Ports       ; 0     ; 0    ;
+; Unconstrained Input Port Paths  ; 0     ; 0    ;
+; Unconstrained Output Ports      ; 0     ; 0    ;
+; Unconstrained Output Port Paths ; 0     ; 0    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Fri Nov 28 21:47:30 2014
+Info: Command: quartus_sta Project5 -c Debug
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (332104): Reading SDC File: 'Timing.sdc'
+Warning (332060): Node: ClkDivider:clkdi|clkReg was determined to be a clock but was found without an associated clock assignment.
+Warning (332060): Node: IO_controller:ioCtrl|ClkDivider:msClk|clkReg was determined to be a clock but was found without an associated clock assignment.
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Info (332146): Worst-case setup slack is 93.817
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    93.817         0.000 Clock10 
+Info (332146): Worst-case hold slack is 0.445
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.445         0.000 Clock10 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 48.889
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    48.889         0.000 Clock10 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332115): Report Timing: Found 1 setup paths (0 violated).  Worst case slack is 93.817
+    Info (332115): -to_clock [get_clocks {Clock10}]
+    Info (332115): -setup
+    Info (332115): -stdout
+Info (332115): Path #1: Setup slack is 93.817 
+    Info (332115): ===================================================================
+    Info (332115): From Node    : IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24]
+    Info (332115): To Node      : IO_controller:ioCtrl|SwitchDevices:switches|swdata[2]
+    Info (332115): Launch Clock : Clock10
+    Info (332115): Latch Clock  : Clock10
+    Info (332115): 
+    Info (332115): Data Arrival Path:
+    Info (332115): 
+    Info (332115): Total (ns)  Incr (ns)     Type  Element
+    Info (332115): ==========  ========= ==  ====  ===================================
+    Info (332115):      0.000      0.000           launch edge time
+    Info (332115):      2.853      2.853  R        clock network delay
+    Info (332115):      3.130      0.277     uTco  IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24]
+    Info (332115):      3.130      0.000 FF  CELL  ioCtrl|switches|swcounter[24]|regout
+    Info (332115):      4.013      0.883 FF    IC  ioCtrl|switches|Equal1~7|dataa
+    Info (332115):      4.558      0.545 FF  CELL  ioCtrl|switches|Equal1~7|combout
+    Info (332115):      5.430      0.872 FF    IC  ioCtrl|switches|Equal1~9|datab
+    Info (332115):      5.951      0.521 FF  CELL  ioCtrl|switches|Equal1~9|combout
+    Info (332115):      6.257      0.306 FF    IC  ioCtrl|switches|swctrl~0|datad
+    Info (332115):      6.434      0.177 FR  CELL  ioCtrl|switches|swctrl~0|combout
+    Info (332115):      6.965      0.531 RR    IC  ioCtrl|switches|swdata[0]~1|datad
+    Info (332115):      7.143      0.178 RR  CELL  ioCtrl|switches|swdata[0]~1|combout
+    Info (332115):      8.313      1.170 RR    IC  ioCtrl|switches|swdata[2]|ena
+    Info (332115):      9.071      0.758 RR  CELL  IO_controller:ioCtrl|SwitchDevices:switches|swdata[2]
+    Info (332115): 
+    Info (332115): Data Required Path:
+    Info (332115): 
+    Info (332115): Total (ns)  Incr (ns)     Type  Element
+    Info (332115): ==========  ========= ==  ====  ===================================
+    Info (332115):    100.000    100.000           latch edge time
+    Info (332115):    102.850      2.850  R        clock network delay
+    Info (332115):    102.888      0.038     uTsu  IO_controller:ioCtrl|SwitchDevices:switches|swdata[2]
+    Info (332115): 
+    Info (332115): Data Arrival Time  :     9.071
+    Info (332115): Data Required Time :   102.888
+    Info (332115): Slack              :    93.817 
+    Info (332115): ===================================================================
+    Info (332115): 
+Info (332115): Report Timing: Found 1 hold paths (0 violated).  Worst case slack is 0.445
+    Info (332115): -to_clock [get_clocks {Clock10}]
+    Info (332115): -hold
+    Info (332115): -stdout
+Info (332115): Path #1: Hold slack is 0.445 
+    Info (332115): ===================================================================
+    Info (332115): From Node    : IO_controller:ioCtrl|KeyDevices:key|kctrl[2]
+    Info (332115): To Node      : IO_controller:ioCtrl|KeyDevices:key|kctrl[2]
+    Info (332115): Launch Clock : Clock10
+    Info (332115): Latch Clock  : Clock10
+    Info (332115): 
+    Info (332115): Data Arrival Path:
+    Info (332115): 
+    Info (332115): Total (ns)  Incr (ns)     Type  Element
+    Info (332115): ==========  ========= ==  ====  ===================================
+    Info (332115):      0.000      0.000           launch edge time
+    Info (332115):      2.850      2.850  R        clock network delay
+    Info (332115):      3.127      0.277     uTco  IO_controller:ioCtrl|KeyDevices:key|kctrl[2]
+    Info (332115):      3.127      0.000 RR  CELL  ioCtrl|key|kctrl[2]|regout
+    Info (332115):      3.127      0.000 RR    IC  ioCtrl|key|kctrl~4|datac
+    Info (332115):      3.485      0.358 RR  CELL  ioCtrl|key|kctrl~4|combout
+    Info (332115):      3.485      0.000 RR    IC  ioCtrl|key|kctrl[2]|datain
+    Info (332115):      3.581      0.096 RR  CELL  IO_controller:ioCtrl|KeyDevices:key|kctrl[2]
+    Info (332115): 
+    Info (332115): Data Required Path:
+    Info (332115): 
+    Info (332115): Total (ns)  Incr (ns)     Type  Element
+    Info (332115): ==========  ========= ==  ====  ===================================
+    Info (332115):      0.000      0.000           latch edge time
+    Info (332115):      2.850      2.850  R        clock network delay
+    Info (332115):      3.136      0.286      uTh  IO_controller:ioCtrl|KeyDevices:key|kctrl[2]
+    Info (332115): 
+    Info (332115): Data Arrival Time  :     3.581
+    Info (332115): Data Required Time :     3.136
+    Info (332115): Slack              :     0.445 
+    Info (332115): ===================================================================
+    Info (332115): 
+Info (332113): Report Minimum Pulse Width: Found 1 results (0 violated).  Worst case slack is 48.889
+    Info (332113): Targets: [get_clocks {Clock10}]
+    Info (332113): -nworst: 1
+    Info (332113): -detail: full_path
+Info (332113): Path #1: slack is 48.889 
+    Info (332113): ===================================================================
+    Info (332113): Node             : ClkDivider:clkdi|clkReg
+    Info (332113): Clock            : Clock10
+    Info (332113): Type             : High Pulse Width
+    Info (332113): 
+    Info (332113): Late Clock Arrival Path:
+    Info (332113): 
+    Info (332113): Total (ns)  Incr (ns)     Type  Element
+    Info (332113): ==========  ========= ==  ====  ===================================
+    Info (332113):      0.000      0.000           launch edge time
+    Info (332113):      0.000      0.000           source latency
+    Info (332113):      0.000      0.000           CLOCK_50
+    Info (332113):      1.026      1.026 RR  CELL  CLOCK_50|combout
+    Info (332113):      3.165      2.139 RR    IC  clkdi|clkReg|clk
+    Info (332113):      3.767      0.602 RR  CELL  ClkDivider:clkdi|clkReg
+    Info (332113): 
+    Info (332113): Early Clock Arrival Path:
+    Info (332113): 
+    Info (332113): Total (ns)  Incr (ns)     Type  Element
+    Info (332113): ==========  ========= ==  ====  ===================================
+    Info (332113):     50.000     50.000           launch edge time
+    Info (332113):     50.000      0.000           source latency
+    Info (332113):     50.000      0.000           CLOCK_50
+    Info (332113):     51.026      1.026 FF  CELL  CLOCK_50|combout
+    Info (332113):     53.165      2.139 FF    IC  clkdi|clkReg|clk
+    Info (332113):     53.767      0.602 FF  CELL  ClkDivider:clkdi|clkReg
+    Info (332113): 
+    Info (332113): Required Width   :     1.111
+    Info (332113): Actual Width     :    50.000
+    Info (332113): Slack            :    48.889
+    Info (332113): ===================================================================
+    Info (332113): 
+Info: Analyzing Fast Model
+Warning (332060): Node: ClkDivider:clkdi|clkReg was determined to be a clock but was found without an associated clock assignment.
+Warning (332060): Node: IO_controller:ioCtrl|ClkDivider:msClk|clkReg was determined to be a clock but was found without an associated clock assignment.
+Info (332146): Worst-case setup slack is 97.632
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    97.632         0.000 Clock10 
+Info (332146): Worst-case hold slack is 0.215
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.215         0.000 Clock10 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 49.000
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    49.000         0.000 Clock10 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332115): Report Timing: Found 1 setup paths (0 violated).  Worst case slack is 97.632
+    Info (332115): -to_clock [get_clocks {Clock10}]
+    Info (332115): -setup
+    Info (332115): -stdout
+Info (332115): Path #1: Setup slack is 97.632 
+    Info (332115): ===================================================================
+    Info (332115): From Node    : IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24]
+    Info (332115): To Node      : IO_controller:ioCtrl|SwitchDevices:switches|swdata[2]
+    Info (332115): Launch Clock : Clock10
+    Info (332115): Latch Clock  : Clock10
+    Info (332115): 
+    Info (332115): Data Arrival Path:
+    Info (332115): 
+    Info (332115): Total (ns)  Incr (ns)     Type  Element
+    Info (332115): ==========  ========= ==  ====  ===================================
+    Info (332115):      0.000      0.000           launch edge time
+    Info (332115):      1.790      1.790  R        clock network delay
+    Info (332115):      1.931      0.141     uTco  IO_controller:ioCtrl|SwitchDevices:switches|swcounter[24]
+    Info (332115):      1.931      0.000 FF  CELL  ioCtrl|switches|swcounter[24]|regout
+    Info (332115):      2.270      0.339 FF    IC  ioCtrl|switches|Equal1~7|dataa
+    Info (332115):      2.450      0.180 FF  CELL  ioCtrl|switches|Equal1~7|combout
+    Info (332115):      2.770      0.320 FF    IC  ioCtrl|switches|Equal1~9|datab
+    Info (332115):      2.945      0.175 FF  CELL  ioCtrl|switches|Equal1~9|combout
+    Info (332115):      3.058      0.113 FF    IC  ioCtrl|switches|swctrl~0|datad
+    Info (332115):      3.117      0.059 FR  CELL  ioCtrl|switches|swctrl~0|combout
+    Info (332115):      3.305      0.188 RR    IC  ioCtrl|switches|swdata[0]~1|datad
+    Info (332115):      3.364      0.059 RR  CELL  ioCtrl|switches|swdata[0]~1|combout
+    Info (332115):      3.814      0.450 RR    IC  ioCtrl|switches|swdata[2]|ena
+    Info (332115):      4.187      0.373 RR  CELL  IO_controller:ioCtrl|SwitchDevices:switches|swdata[2]
+    Info (332115): 
+    Info (332115): Data Required Path:
+    Info (332115): 
+    Info (332115): Total (ns)  Incr (ns)     Type  Element
+    Info (332115): ==========  ========= ==  ====  ===================================
+    Info (332115):    100.000    100.000           latch edge time
+    Info (332115):    101.787      1.787  R        clock network delay
+    Info (332115):    101.819      0.032     uTsu  IO_controller:ioCtrl|SwitchDevices:switches|swdata[2]
+    Info (332115): 
+    Info (332115): Data Arrival Time  :     4.187
+    Info (332115): Data Required Time :   101.819
+    Info (332115): Slack              :    97.632 
+    Info (332115): ===================================================================
+    Info (332115): 
+Info (332115): Report Timing: Found 1 hold paths (0 violated).  Worst case slack is 0.215
+    Info (332115): -to_clock [get_clocks {Clock10}]
+    Info (332115): -hold
+    Info (332115): -stdout
+Info (332115): Path #1: Hold slack is 0.215 
+    Info (332115): ===================================================================
+    Info (332115): From Node    : IO_controller:ioCtrl|KeyDevices:key|kctrl[2]
+    Info (332115): To Node      : IO_controller:ioCtrl|KeyDevices:key|kctrl[2]
+    Info (332115): Launch Clock : Clock10
+    Info (332115): Latch Clock  : Clock10
+    Info (332115): 
+    Info (332115): Data Arrival Path:
+    Info (332115): 
+    Info (332115): Total (ns)  Incr (ns)     Type  Element
+    Info (332115): ==========  ========= ==  ====  ===================================
+    Info (332115):      0.000      0.000           launch edge time
+    Info (332115):      1.788      1.788  R        clock network delay
+    Info (332115):      1.929      0.141     uTco  IO_controller:ioCtrl|KeyDevices:key|kctrl[2]
+    Info (332115):      1.929      0.000 RR  CELL  ioCtrl|key|kctrl[2]|regout
+    Info (332115):      1.929      0.000 RR    IC  ioCtrl|key|kctrl~4|datac
+    Info (332115):      2.113      0.184 RR  CELL  ioCtrl|key|kctrl~4|combout
+    Info (332115):      2.113      0.000 RR    IC  ioCtrl|key|kctrl[2]|datain
+    Info (332115):      2.155      0.042 RR  CELL  IO_controller:ioCtrl|KeyDevices:key|kctrl[2]
+    Info (332115): 
+    Info (332115): Data Required Path:
+    Info (332115): 
+    Info (332115): Total (ns)  Incr (ns)     Type  Element
+    Info (332115): ==========  ========= ==  ====  ===================================
+    Info (332115):      0.000      0.000           latch edge time
+    Info (332115):      1.788      1.788  R        clock network delay
+    Info (332115):      1.940      0.152      uTh  IO_controller:ioCtrl|KeyDevices:key|kctrl[2]
+    Info (332115): 
+    Info (332115): Data Arrival Time  :     2.155
+    Info (332115): Data Required Time :     1.940
+    Info (332115): Slack              :     0.215 
+    Info (332115): ===================================================================
+    Info (332115): 
+Info (332113): Report Minimum Pulse Width: Found 1 results (0 violated).  Worst case slack is 49.000
+    Info (332113): Targets: [get_clocks {Clock10}]
+    Info (332113): -nworst: 1
+    Info (332113): -detail: full_path
+Info (332113): Path #1: slack is 49.000 
+    Info (332113): ===================================================================
+    Info (332113): Node             : ClkDivider:clkdi|clkReg
+    Info (332113): Clock            : Clock10
+    Info (332113): Type             : High Pulse Width
+    Info (332113): 
+    Info (332113): Late Clock Arrival Path:
+    Info (332113): 
+    Info (332113): Total (ns)  Incr (ns)     Type  Element
+    Info (332113): ==========  ========= ==  ====  ===================================
+    Info (332113):      0.000      0.000           launch edge time
+    Info (332113):      0.000      0.000           source latency
+    Info (332113):      0.000      0.000           CLOCK_50
+    Info (332113):      0.571      0.571 RR  CELL  CLOCK_50|combout
+    Info (332113):      1.467      0.896 RR    IC  clkdi|clkReg|clk
+    Info (332113):      1.789      0.322 RR  CELL  ClkDivider:clkdi|clkReg
+    Info (332113): 
+    Info (332113): Early Clock Arrival Path:
+    Info (332113): 
+    Info (332113): Total (ns)  Incr (ns)     Type  Element
+    Info (332113): ==========  ========= ==  ====  ===================================
+    Info (332113):     50.000     50.000           launch edge time
+    Info (332113):     50.000      0.000           source latency
+    Info (332113):     50.000      0.000           CLOCK_50
+    Info (332113):     50.571      0.571 FF  CELL  CLOCK_50|combout
+    Info (332113):     51.467      0.896 FF    IC  clkdi|clkReg|clk
+    Info (332113):     51.789      0.322 FF  CELL  ClkDivider:clkdi|clkReg
+    Info (332113): 
+    Info (332113): Required Width   :     1.000
+    Info (332113): Actual Width     :    50.000
+    Info (332113): Slack            :    49.000
+    Info (332113): ===================================================================
+    Info (332113): 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 424 megabytes
+    Info: Processing ended: Fri Nov 28 21:47:32 2014
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+

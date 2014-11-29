@@ -1,0 +1,65 @@
+Quartus II Archive log --	X:/Repos/CS3220/Project 4/Quartus/__Project2.auto.qarlog
+
+Archive:	X:/Repos/CS3220/Project 4/Quartus/__Project2.auto.qar
+Date:		Fri Nov 28 20:31:49 2014
+Quartus II 64-Bit		13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+
+	=========== Files Selected: ===========
+Alu.v
+Amir.hex
+BranchAddrCalculator.v
+Bubbler.v
+Controller.v
+DataMemory.v
+Debug_description.txt
+InstMemory.v
+KeyDevices.v
+LEDandHEXDevices.v
+MemoryBus.v
+Mux2to1.v
+Mux4to1.v
+PLL.ppf
+PLL.qip
+PLL.v
+PLL_bb.v
+PLL_inst.v
+PcLogic.v
+PipeLineReg.v
+Project2.flow.rpt
+Project2.map.rpt
+Project2.map.summary
+Project2.qsf
+Project2_assignment_defaults.qdf
+Project4.v
+Register.v
+RegisterFile.v
+SevenSeg.v
+SignExtension.v
+Sorter2.mif
+SwitchDevices.v
+Test2.mif
+TimerDevice.v
+Timing.sdc
+Waveform.vwf
+X:/Repos/CS3220/Project 4/Quartus/Pll.qip
+X:/Repos/CS3220/Project 4/Quartus/Sorter2.a32
+X:/Repos/CS3220/Project 4/Quartus/Test2.a32
+X:/Repos/CS3220/Project 4/Quartus/db/Debug.cbx.xml
+X:/Repos/CS3220/Project 4/Quartus/db/Project2.cbx.xml
+X:/Repos/CS3220/Project 4/Quartus/db/Project4.qpf
+X:/Repos/CS3220/Project 4/Quartus/db/altsyncram_ghc1.tdf
+assignment_defaults.qdf
+bad_test.stp
+comparator.v
+negRegister.v
+project1.sdc
+stopwatch.mif
+stopwatch_perl.mif
+stopwatch_test.mif
+stp1.stp
+timertest.mif
+timertest2.mif
+	======= Total: 54 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
