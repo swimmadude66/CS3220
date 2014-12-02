@@ -26,8 +26,8 @@
       <file leaf-file-name="Assembler.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assembler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.18579236" vertical-offset="102" max-vertical-offset="6256">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.29942417" vertical-offset="3992" max-vertical-offset="6324">
+              <caret line="245" column="23" selection-start-line="245" selection-start-column="23" selection-end-line="245" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -39,6 +39,13 @@
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="true" />
     </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/Assembler.py" />
+      </list>
+    </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
@@ -155,8 +162,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Assembler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.18579236" vertical-offset="102" max-vertical-offset="6256">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.29942417" vertical-offset="3992" max-vertical-offset="6324">
+          <caret line="245" column="23" selection-start-line="245" selection-start-column="23" selection-end-line="245" selection-end-column="23" />
           <folding />
         </state>
       </provider>

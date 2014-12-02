@@ -78,15 +78,19 @@ ISA = {
     'BGTZ'  : 0x6F,
     'JAL'   : 0xB0,
     # Fake instructions
-    'BR'    : 0xF0,
-    'NOT'   : 0xF2,
-    'BLT'   : 0xF3,
-    'BLTE'  : 0xF4,
-    'BGT'   : 0xF5,
-    'BGTE'  : 0xF6,
-    'CALL'  : 0xF7,
-    'RET'   : 0xF8,
-    'JMP'   : 0xF9
+    'BR'    : 0xE0,
+    'NOT'   : 0xE2,
+    'BLT'   : 0xE3,
+    'BLTE'  : 0xE4,
+    'BGT'   : 0xE5,
+    'BGTE'  : 0xE6,
+    'CALL'  : 0xE7,
+    'RET'   : 0xE8,
+    'JMP'   : 0xE9,
+    # System Instructions
+    'RSR'   : 0xF1,
+    'WSR'   : 0xF2,
+    'RETI'  : 0xF3
     }
 
 class Instruction():
@@ -239,7 +243,7 @@ def parseLine(instrline):
         return Immediate(opcode, params, instrline.location, instrline.line_number)
     elif (family == 0x5) or (family == 0x9) or (family == 0xB):
         return Offset(opcode, params, instrline.location, instrline.line_number)
-    elif family == 0xF:
+    elif family == 0xE:
         return Fake(opcode, params, instrline.location, instrline.line_number)
 
 
