@@ -1,0 +1,360 @@
+; Addresses for I/O
+.NAME 	IOBASE	= 0xF0000000
+.NAME	OFSHEX	= 0x00000000
+.NAME	OFSLEDR	= 0x00000004
+.NAME	OFSLEDG	= 0x00000008
+.NAME	OFSKEY 	= 0x00000010
+.NAME	KCTL	= 0x00000110
+.NAME	SW     	= 0x00000014
+.NAME	SWCTL	= 0x00000114
+.NAME	TIMER  	= 0x00000020
+.NAME	TLIM	= 0x00000024
+.NAME	TCTL	= 0x00000120
+
+.ORIG 0x10		;Interrupt Handler
+	addi	SSP, SSP, 8		;Move SSP up two
+	sw		a0, -4(SSP)		;Store A0
+	sw		a1, 0(SSP)		;Store A1
+	RSR		a0, IDN			;Get Device Number
+	xor		a1, a1, a1		;Fill a1 with zeros
+	beq		a0, a1, DEVICEZERO
+	addi	a1, a1, 1
+	beq		a0, a1, DEVICEONE
+	addi	a1, a1, 1
+	beq		a0, a1, DEVICETWO
+	addi	a1, a1, 1
+	beq		a0, a1, DEVICETHREE
+	addi	a1, a1, 1
+	beq		a0, a1, DEVICEFOUR
+AFTERINT:
+	subi	SSP, SSP, 8
+	lw		a1, 8(SSP)
+	lw		a0,	4(SSP)
+	RETI
+
+.ORIG 0x40
+SetUp:
+	xor		fp,fp,fp
+	; Prepare the gp register
+	mvhi	gp,IOBASE
+	xor		a0,a0,a0
+	sw		a0, OFSHEX(gp)
+	sw		a0, OFSLEDR(gp)
+	sw		a0,	OFSLEDG(gp)
+SetSeconds:
+	lw		s0, SW(gp)			;Raw switch data
+	andi	s1, s0, 0x00F		;ones place
+	andi	s2, s0, 0x0F0		;tens place
+	addi	t0, a0, 0x050		;5 in the tens place
+	bgt		s2, t0, CapFive
+AfterCapFive:
+	addi	t0, a0, 0x009		;9 in the ones place
+	bgt		s1, t0, CapNineSec
+AfterCapNineSec:
+	or		s0, s1, s2			;combine tens and ones
+	sw		s0, OFSHEX(gp)
+Bridge:
+	lw		s0, OFSKEY(gp)		;get key
+	andi	s0, s0, 0x02		;key key[1]
+	addi	t1, a0, 0x02
+	bne		s0, t1, SetSeconds
+SetMinutes:
+	lw		s0, SW(gp)			;Raw switch data
+	andi	s1, s0, 0x00F		;ones place
+	andi	s2, s0, 0x0F0		;tens place
+	addi	t0, a0, 0x090		;9 in the tens place
+	bgt		s2, t0, CapNinetyMin
+AfterCapNinetyMin:
+	addi	t0, a0, 0x009		;9 in the ones place
+	bgt		s1, t0, CapNineMin
+AfterCapNineMin:
+	or		s0, s1, s2			;combine tens and ones
+	add		s0, s0, s0			;  <<1
+	add		s0, s0, s0			;  <<2
+	add		s0, s0, s0			;  <<3
+	add		s0, s0, s0			;  <<4
+	add		s0, s0, s0			;  <<5
+	add		s0, s0, s0			;  <<6
+	add		s0, s0, s0			;  <<7
+	add		s0, s0, s0			;  <<8
+	lw		s1, OFSHEX(gp)		;  get currently displayed value (seconds)
+	andi	s1, s1, 0x0FF		;  get seconds
+	or		s0, s0, s1			;  combine minutes and seconds
+	sw		s0, OFSHEX(gp)
+Bridge2:
+	lw		s1, OFSKEY(gp)		;get key
+	andi	s1, s1, 0x04		;key key[2]
+	addi	t1, a0, 0x04
+	bne		s1, t1, SetMinutes
+RunTimer:
+	addi	a2, a0, 1000
+	sw		a2, TLIM(gp)
+TEST2:
+	addi	s2,s0,0x0BEF
+	; Our FP register will be zero
+	xor		fp,fp,fp
+	; Prepare the gp register
+	mvhi	gp,IOBASE
+	; Put 1 on LEDG and turn off LEDR
+	mvhi	s0,0
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	sw		fp,OFSLEDR(gp)
+	; Put 2 on LEDG, LEDR should still be off
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	addi	t0,fp,-1
+	addi	t1,fp,2
+	addi	a0,fp,1
+	add		a1,t0,t1
+	beq		a0,a1,AddWorks
+AddFailed:
+	; Turn on LEDR, display what's in a0
+	not		t0,fp
+	sw		t0,OFSLEDR(gp)
+	sw		a0,OFSHEX(gp)
+	bt		t0,t0,AddFailed	
+AddWorks:
+	; Put 3 on LEDG, LEDR should still be off
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	addi	t0,fp,7		; t0 is 7  (0x00000007)
+	addi	t1,t0,3	    ; t1 is 10 (0x0000000A)
+	add		a0,t1,t1    ; a0 is 20 (0x00000014)
+	ori		a1,a0,0x25	; a1 is     0x00000035)
+	andi	a2,a1,0xD1	; a2 is 17  0x00000011
+	xor		a0,a0,a1	; a0 is 33  0x00000021
+	or		a1,a0,t0	; a1 is     0x00000027
+	nor		a2,t0,a2	; a2 is -2  0xFFFFFFFE
+	nand	a3,a2,a1	; a3 is     0xFFFFFFD9
+	sub		a1,t0,a2	; a1 is 9   0x00000009
+	and		t0,a1,a2	; t0 is 8	0x00000008
+	nxor	a1,a1,t0	; a1 is -2  0xFFFFFFFE
+	xor		a2,a2,a3	; a3 is	    0x00000027
+	sub		a0,a0,a2	; a0 is -6
+	add		a0,a1,a0	; a0 is -8
+	addi	t1,fp,-8
+	bne		a0,t1,AluWorks
+AluFailed:
+	; Turn on LEDR, display what's in a0
+	not		t0,fp
+	sw		t0,OFSLEDR(gp)
+	sw		a0,OFSHEX(gp)
+	bt		t0,t0,AluFailed	
+AluWorks:
+	; Put 4 on LEDG, LEDR should still be off
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	addi	a1,fp,1
+	addi	t0,fp,75
+	addi	t1,fp,34
+	addi	a0,fp,-80
+	lte		a2,t0,t1
+	bne		a2,fp,CmpFailed
+	; Put 5 on LEDG
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	lt		a2,t0,t1
+	bne		a2,fp,CmpFailed
+	; Put 6 on LEDG
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	eq		a2,t0,t1
+	bne		a2,fp,CmpFailed
+	; Put 7 on LEDG
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	ne		a2,t0,t1
+	bne		a2,a1,CmpFailed
+	; Put 8 on LEDG
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	gt		a2,t0,t1
+	bne		a2,a1,CmpFailed
+	; Put 9 on LEDG
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	gte		a2,t0,t1
+	bne		a2,a1,CmpFailed	
+	; Put 10 on LEDG
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	lte		a2,t1,t1
+	bne		a2,a1,CmpFailed
+	; Put 11 on LEDG
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	lt		a2,t1,t1
+	bne		a2,fp,CmpFailed
+	; Put 12 on LEDG
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	eq		a2,t1,t1
+	bne		a2,a1,CmpFailed
+	; Put 13 on LEDG
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	ne		a2,t1,t1
+	bne		a2,fp,CmpFailed
+	; Put 14 on LEDG
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	gt		a2,t1,t1
+	bne		a2,fp,CmpFailed
+	; Put 15 on LEDG
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	gte		a2,t1,t1
+	bne		a2,a1,CmpFailed	
+	; Put 16 on LEDG
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	lte		a2,a0,t0
+	bne		a2,a1,CmpFailed
+	; Put 17 on LEDG
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	lt		a2,a0,t0
+	bne		a2,a1,CmpFailed
+	; Put 18 on LEDG
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	eq		a2,a0,t0
+	bne		a2,fp,CmpFailed
+	; Put 19 on LEDG
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	ne		a2,a0,t0
+	bne		a2,a1,CmpFailed
+	; Put 20 on LEDG
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	gt		a2,a0,t0
+	bne		a2,fp,CmpFailed
+	; Put 21 on LEDG
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	gte		a2,a0,t0
+	bne		a2,fp,CmpFailed	
+	bt		t0,t0,CmpWorks
+CmpFailed:
+	; Turn on LEDR, display what's in a2
+	not		t0,gp
+	sw		t0,OFSLEDR(gp)
+	sw		a2,OFSHEX(gp)
+	bt		t0,t0,CmpFailed
+CmpWorks:
+	; Put 22 on LEDG, LEDR should still be off
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	addi	t0,fp,0x37
+	addi	t1,fp,0xE1
+	addi	a2,fp,1024
+	sw		t0,0(a2)
+	sw		t1,4(a2)
+	addi	a2,a2,4
+	lw		a0,0(a2)
+	bne		a0,t1,MemFailed
+	lw		a0,-4(a2)
+	beq		a0,t0,MemWorks
+MemFailed:
+	; Turn on LEDR, display what's in a0
+	not		t0,fp
+	sw		t0,OFSLEDR(gp)
+	sw		a0,OFSHEX(gp)
+	bt		t0,t0,MemFailed
+MemWorks:
+	; Put 23 on LEDG, LEDR should still be off
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+	addi	t1,fp,JalRet
+	jal		t0,JalTarg(fp)
+JalRet:
+	bt		t0,t0,JalWorks
+JalTarg:
+	bne		t0,t1,JalFailed
+	jal		t1,0(t0)
+JalFailed:
+	; Turn on LEDR, display what's in t0
+	not		t0,fp
+	sw		t0,OFSLEDR(gp)
+	sw		t0,OFSHEX(gp)
+	bt		t0,t0,JalFailed
+JalWorks:
+	; Put 24 on LEDG, LEDR should still be off
+	addi	s0,s0,1
+	sw		s0,OFSLEDG(gp)
+Done:
+	; Turn on LEDG, put FFFF on HEX, LEDR should still be off
+	not		t0,fp
+	sw		t0,OFSLEDG(gp)
+	sw		t0,OFSHEX(gp)
+	bt		t0,t0,Done
+
+;DEVICE HANDLERS
+DEVICEZERO:
+	bt a0, a0, AFTERINT
+DEVICEONE:	;timer fired
+	addi	SSP, SSP, 4			;make space for s0
+	sw		s0, 0(SSP)
+	xor 	a0, a0, a0			;zero out a0
+	sw		a0, TCTL(gp)
+	lw		s0, OFSHEX(gp)
+	beq		s0, a0, FLASH
+	andi	a1, s0, 0x0F		;get ones of seconds
+	beq		a1, a0, Cascade		;seconds are zero
+	subi	s0, s0, 1
+AfterCascade:
+	sw		s0, OFSHEX(gp)
+	bne		s0, a0, TINTDONE
+Flash:
+	lw		s0, OFSLEDR(gp)
+	not		s0, s0
+	sw		s0, OFSLEDR(gp)
+TINTDONE:	
+	lw		s0, 0(SSP)			;put s0 Back
+	subi	SSP, SSP, 4			;put SSP back
+	bt a0, a0, AFTERINT
+DEVICETWO:
+	bt a0, a0, AFTERINT
+DEVICETHREE:
+	bt a0, a0, AFTERINT
+DEVICEFOUR:
+	bt a0, a0, AFTERINT
+	
+	
+
+	
+;SubRoutines
+Cascade:
+	andi	a1, s0, 0x0F0		;tenseconds
+	beqz	a1, Cascade1		;tenseconds are zero
+	subi	s0, s0, 0x010			;subtract 10 seconds
+	addi	s0, s0, 0x09			;set ones to 9
+	bt		a0, a0, AfterCascade
+Cascade1:
+	andi	a1,  s0, 0x0F00		;minues
+	beqz	a1, Cascade2		;minutes are zero
+	subi	s0, s0, 0x0100			;subtract 1 minute
+	addi	s0,	s0, 0x059			;set seconds to 59
+	bt		a0, a0, AfterCascade
+Cascade2:
+	subi	s0, s0, 0x01000			;subtract 10 minutes
+	addi	s0, s0, 0x00959			;set minutes to 9
+	bt		a0, a0, AfterCascade
+CapFive:
+	xor 	s2, s2, s2
+	addi	s2, s2, 0x050
+	bt		t0, t0, AfterCapFive
+CapNineSec:
+	xor 	s1, s1, s1
+	addi	s1, s1, 0x009
+	bt		t0, t0, AfterCapNineSec
+CapNinetyMin:
+	xor 	s2, s2, s2
+	addi	s2, s2, 0x090
+	bt		t0, t0, AfterCapNinetyMin
+CapNineMin:
+	xor 	s1, s1, s1
+	addi	s1, s1, 0x009
+	bt		t0, t0, AfterCapNineMin	
