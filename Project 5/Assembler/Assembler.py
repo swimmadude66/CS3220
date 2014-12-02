@@ -372,14 +372,14 @@ def ReadFile(filepath):
 
 if __name__ == "__main__":
     infile = sys.argv[1]
-    outfile = re.sub(r'\..*?$', ".mif", infile)
+    outfile = sys.argv[2]
     lines, last_mem, first_mem = ReadFile(infile)
     miflines = []
     for line in lines:
         print(line.text)
         bytecodes = parseLine(line)
         if bytecodes is not None:
-            miflines.append("-- @ 0x" + toHexString(line.location) + " : " + str(line.rawtext) + "\n" + toHexString(line.location//4) + " : " + bytecodes +";\n")
+            miflines.append("-- @ 0x" + toHexString(line.location) + " : " + str(line.rawtext) + "\n" + toHexString(line.location//4) + " : " + bytecodes + ";\n")
     fout = open(outfile, 'w')
     fout.write("WIDTH=" + str(WIDTH) + ";\n")
     fout.write("DEPTH=" + str(DEPTH) + ";\n")
