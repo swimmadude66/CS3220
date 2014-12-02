@@ -45,7 +45,7 @@ module SystemRegisterFile (clk, isSpecial, opcode, nxtPc, irq, idn, index, dataI
 	
 	assign pcAddrOut = (ieOut == 1'b1 && irq == 1'b1) ? data[IHA]:
 																	    data[IRA];
-	assign spRegOut = data[index];
+	assign dataOut = data[index];
 	assign ieOut = data[PCS][0];
 	
 endmodule

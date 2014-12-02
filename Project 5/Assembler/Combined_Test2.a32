@@ -41,6 +41,9 @@ SetUp:
 	sw		a0, OFSHEX(gp)
 	sw		a0, OFSLEDR(gp)
 	sw		a0,	OFSLEDG(gp)
+	addi	a0, a0, 0x10
+	WSR		IHA, a0
+	xor		a0, a0, a0
 SetSeconds:
 	lw		s0, SW(gp)			;Raw switch data
 	andi	s1, s0, 0x00F		;ones place

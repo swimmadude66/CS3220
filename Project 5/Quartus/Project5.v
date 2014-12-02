@@ -1,5 +1,5 @@
 module ClkDivider(input clkIn, output clkOut);
-	parameter divider = 250000;
+	parameter divider = 2500000;
 	parameter len = 31;
 	reg[len: 0] counter = 0;
 	reg clkReg = 0;	
@@ -35,7 +35,8 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	parameter ADDR_LEDR 						 = 32'hF0000004;
 	parameter ADDR_LEDG 						 = 32'hF0000008;
   
-	parameter IMEM_INIT_FILE				 = "test2.mif";//"Sorter2.mif";//"stopwatch.mif";//"Sort2_counter.mif";//"Sorter2.mif";
+ 
+	parameter IMEM_INIT_FILE				 = "Combined_Test2.mif";//"test2.mif";//"Sorter2.mif";//"stopwatch.mif";//"Sort2_counter.mif";//"Sorter2.mif";
 	parameter IMEM_ADDR_BIT_WIDTH 		 = 11;
 	parameter IMEM_DATA_BIT_WIDTH 		 = INST_BIT_WIDTH;
 	parameter IMEM_PC_BITS_HI     		 = IMEM_ADDR_BIT_WIDTH + 2;
@@ -131,7 +132,7 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 					.destRegOut(destRegOut), .spRegAddr(spRegInd), .aluOutOut(aluOutOut), .dataOut(dataOut), .intOp(opcodeout));
 	//Special RegisterFile
 	
-	SystemRegisterFile systemReg (.clk(clk), .isSpecial(isSpecial), .opcode(opcodeOut), .nxtPc(nxtPCOut), .irq(IRQ), .idn(IDN), .index(spRegInd), .dataIn(dataOut), .spRegOut(spRegOut), .ieOut(IE));
+	SystemRegisterFile systemReg (.clk(clk), .isSpecial(isSpecial), .opcode(opcodeout), .nxtPc(nxtPCOut), .irq(IRQ), .idn(IDN), .index(spRegInd), .dataIn(dataOut), .spRegOut(spRegOut), .ieOut(IE));
 	// Data Memory and I/O controller
 	tri[31:0] DBUS;
 	assign DBUS = (isStoreOut) ? dataOut : 32'bz;
@@ -139,6 +140,7 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	Mux4to1 muxMemOut (memSelOut, aluOutOut, DBUS, nxtPCOut, spRegOut, dataIn);
 	wire IE, IRQ;
 	wire[3:0] IDN;
+	wire[31:0] spRegOut;
 	IO_controller ioCtrl (.clk(CLOCK_50), .rst(reset), .IE(IE), .ABUS(aluOutOut), .DBUS(DBUS), .we(isStoreOut), .SW(SW), .KEY(KEY),
 									.LEDR(LEDR), .LEDG(LEDG), .HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .HEX3(HEX3), .IRQ(IRQ), .IDN(IDN));
 	
