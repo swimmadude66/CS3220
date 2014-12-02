@@ -23,11 +23,17 @@ RegAliases = {
     'S0'    : 6,
     'S1'    : 7,
     'S2'    : 8,
+    'SSP'   : 10,
     'ZERO'  : 11,
     'GP'    : 12,
     'FP'    : 13,
     'SP'    : 14,
-    'RA'    : 15
+    'RA'    : 15,
+    # Special Regs
+    'PCS'   : 0,
+    'IHA'   : 1,
+    'IRA'   : 2,
+    'IDN'   : 3
 }
 
 ISA = {
@@ -39,6 +45,7 @@ ISA = {
     'NAND'  : 0x0C,
     'NOR'   : 0x0D,
     'XNOR'  : 0x0E,
+    'NXOR'  : 0x0E,
     'ADDI'  : 0x80,
     'SUBI'  : 0x81,
     'ANDI'  : 0x84,
@@ -47,6 +54,7 @@ ISA = {
     'NANDI' : 0x8C,
     'NORI'  : 0x8D,
     'XNORI' : 0x8E,
+    'NXORI' : 0x8E,
     'MVHI'  : 0x8B,
     'LW'    : 0x90,
     'SW'    : 0x50,
@@ -88,9 +96,9 @@ ISA = {
     'RET'   : 0xE8,
     'JMP'   : 0xE9,
     # System Instructions
-    'RSR'   : 0xF1,
-    'WSR'   : 0xF2,
-    'RETI'  : 0xF3
+    'RETI'  : 0xF1,
+    'RSR'   : 0xF2,
+    'WSR'   : 0xF3
     }
 
 class Instruction():
@@ -176,7 +184,7 @@ def Immediate(opcode, params, location, linenumber):
     imm = parsenum(imm)
     if ((opcode >> 4) & 0x0F == 0x06) or opcode == 0xb0:
         if opcode != 0xb0:
-            imm -= location
+            imm -= (location + 4)
         imm //= 4
     if opcode == 0x8B:
         imm >>= 16
@@ -189,6 +197,20 @@ def Immediate(opcode, params, location, linenumber):
             exit(-1)
     return toHexString(out)
 
+def Interrupt(opcode, params, location, linenumber):
+
+    newparams = [0x0, 0x0, 0x0000]
+    if opcode == 0xF1:      # RETI
+        newparams = [0, 0, '0']
+    elif opcode == 0xF2:    # RSR
+        newparams = [params[0], params[1], '0']
+    elif opcode == 0xF3:    # WSR
+        newparams = [params[1], params[0], '0']
+    else:
+        print("Improper format @ line " + linenumber)
+        exit(-1)
+    return Immediate(opcode, newparams, location, linenumber)
+
 def Offset(opcode, params, location, linenumber):
     regOffset = re.sub(r'\s*(.*?)\((.*?)\)\s*', r'\2|\1', params[1])
     offsetArgs = regOffset.split("|")
@@ -197,25 +219,28 @@ def Offset(opcode, params, location, linenumber):
         newparams = [offsetArgs[0], params[0], offsetArgs[1]]
     return Immediate(opcode, newparams, location, linenumber)
 
+
+
+
 def Fake(opcode, params, location, linenumber):
     # switch based on opcode
-    if opcode == 0xF0:
+    if opcode == 0xE0:
         # br
         params = [RegNames.index('R6'), RegNames.index('R6'), params[0]]
         return Immediate(ISA['BEQ'], params, location, linenumber)
-    elif opcode == 0xF2:
+    elif opcode == 0xE2:
         # not
         params.append(params[1])
         return Registers(ISA['NAND'], params, location, linenumber)
-    elif opcode == 0xF7:
+    elif opcode == 0xE7:
         # CALL
         params = [RegAliases['RA'], params[0]]
         return Offset(ISA['JAL'], params, location, linenumber)
-    elif opcode == 0xF8:
+    elif opcode == 0xE8:
         # RET
         params = [RegNames.index('R9'), '0(' + str(RegAliases['RA']) + ')']
         return Offset(ISA['JAL'], params, location, linenumber)
-    elif opcode == 0xF9:
+    elif opcode == 0xE9:
         # JMP
         params = [RegAliases['RA'], params[0]]
         return Offset(ISA['JAL'], params, location, linenumber)
@@ -223,6 +248,9 @@ def Fake(opcode, params, location, linenumber):
         print("Invalid instruction @ " + str(linenumber))
         exit(-1)
     return None
+
+
+
 
 def parseLine(instrline):
     #if instrline.location < 0x40:
@@ -245,6 +273,10 @@ def parseLine(instrline):
         return Offset(opcode, params, instrline.location, instrline.line_number)
     elif family == 0xE:
         return Fake(opcode, params, instrline.location, instrline.line_number)
+    elif family == 0xF:
+        return Interrupt(opcode, params, instrline.location, instrline.line_number)
+    else:
+        print("Invalid Format @ line " + instrline.line_number)
 
 
 def ReadFile(filepath):
@@ -307,7 +339,7 @@ def ReadFile(filepath):
                         args = arguments[i]
                     for arg in args:
                         uarg = arg.upper().strip()
-                        if (uarg in VARIABLE_NAMES.keys()) or (not re.match(r'^(\-?\d+|0x[0-9A-Fa-f]+)$', arg)):
+                        if (uarg in VARIABLE_NAMES.keys()) or (not re.match(r'^(\-?(\d+|0x[0-9A-Fa-f]+))$', arg)):
                             arg = arg.upper().strip()
                             if arg in RegNames:
                                 arg = RegNames.index(arg)
@@ -322,6 +354,7 @@ def ReadFile(filepath):
                                     arg2string = RegAliases[arg2string]
                                 else:
                                     print('Invalid insruction @' + str(linenum))
+                                    print(fline)
                                 arg = str(arg1string) + '(' + str(arg2string) + ')'
                         else:
                             arg = parsenum(arg)
@@ -343,6 +376,7 @@ if __name__ == "__main__":
     lines, last_mem, first_mem = ReadFile(infile)
     miflines = []
     for line in lines:
+        print(line.text)
         bytecodes = parseLine(line)
         if bytecodes is not None:
             miflines.append("-- @ 0x" + toHexString(line.location) + " : " + str(line.rawtext) + "\n" + toHexString(line.location//4) + " : " + bytecodes +";\n")

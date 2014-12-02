@@ -137,7 +137,7 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	tri[31:0] DBUS;
 	assign DBUS = (isStoreOut) ? dataOut : 32'bz;
 	DataMemory #(DMEM_ADDR_BIT_WIDTH, DMEM_DATA_BIT_WIDTH) dataMem (.clk(clk), .ABUS(aluOutOut), .dataWrtEn(isStoreOut), .DBUS(DBUS));
-	Mux4to1 muxMemOut (memSelOut, aluOutOut, DBUS, nxtPCOut, sRegOut, dataIn);
+	Mux4to1 muxMemOut (memSelOut, aluOutOut, DBUS, nxtPCOut, spRegOut, dataIn);
 	wire IE, IRQ;
 	wire[3:0] IDN;
 	IO_controller ioCtrl (.clk(CLOCK_50), .rst(reset), .IE(IE), .ABUS(aluOutOut), .DBUS(DBUS), .we(isStoreOut), .SW(SW), .KEY(KEY),

@@ -154,19 +154,15 @@ module Controller (inst, aluCmpIn, bubble, sndOpcode, dRegAddr, s1RegAddr, s2Reg
 							end
 		4'b1111:begin	//specialRegister access
 								sndOpcode 		<= {1'b0, inst[27:24]};
-								dRegAddr  		<= (inst[27:24] == 4'h2) ? inst[23:20] :
-														(inst[27:24] == 4'h3) ? inst[19:16] : 
-																						4'b0;
+								dRegAddr  		<= inst[23:20];
 								s1RegAddr 		<= 4'd0;
-								s2RegAddr 		<= (inst[27:24] == 4'h3) ? inst[23:20] :
-														(inst[27:24] == 4'h2) ? inst[19:16] : 
-																						4'b0;
-								imm 		 		<= 16'd0; // relative pc
+								s2RegAddr 		<= inst[19:16];
+								imm 		 		<= 16'd0;
 								rfwe 				<= (inst[27:24] == 4'h2) ? 1'b1 : 1'b0;
 								//dataWrtEn 		<= 1'b0; // no write to data memory
 								immSel			<= 1'b0; // relative pc
-								memOutSel		<= 2'b00; // load data from memory
-								pcs 				<= 2'b00; // pc + 4
+								memOutSel		<= (inst[27:24] == 4'h2) ? 2'b11 : 2'b00;
+								pcs 				<= (inst[27:24] == 4'h1) ? 2'b11 : 2'b00;
 								iL 				<= 1'b0;
 								iS 				<= 1'b0;
 								specialReg		<= 1'b1;
