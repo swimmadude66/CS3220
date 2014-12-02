@@ -131,8 +131,7 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 					.destRegOut(destRegOut), .spRegAddr(spRegInd), .aluOutOut(aluOutOut), .dataOut(dataOut), .intOp(opcodeout));
 	//Special RegisterFile
 	
-	//SpecialRegFile specialReg (.clk(clk), .opcode(opcodeOut), .index(spRegInd), .dataIn(dataOut), .spRegOut(spRegOut));
-					
+	SystemRegisterFile systemReg (.clk(clk), .isSpecial(isSpecial), .opcode(opcodeOut), .nxtPc(nxtPCOut), .irq(IRQ), .idn(IDN), .index(spRegInd), .dataIn(dataOut), .spRegOut(spRegOut), .ieOut(IE));
 	// Data Memory and I/O controller
 	tri[31:0] DBUS;
 	assign DBUS = (isStoreOut) ? dataOut : 32'bz;

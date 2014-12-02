@@ -16,7 +16,7 @@
 // PROGRAM "Quartus II 64-Bit"
 // VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
 
-// DATE "11/29/2014 18:49:10"
+// DATE "12/02/2014 03:04:03"
 
 // 
 // Device: Altera EP2C20F484C7 Package FBGA484
@@ -3604,10 +3604,13 @@ wire \ioCtrl|heX|hex3Converter|dOut[4]~4_combout ;
 wire \ioCtrl|heX|hex3Converter|dOut[5]~5_combout ;
 wire \ioCtrl|heX|hex3Converter|dOut[6]~6_combout ;
 wire [9:0] \ioCtrl|ledR|rledrOut ;
-wire [15:0] \ioCtrl|heX|rhexOut ;
-wire [7:0] \ioCtrl|ledG|rledgOut ;
+wire [31:0] \ioCtrl|timer|tlim ;
+wire [8:0] \ioCtrl|timer|tctl ;
 wire [9:0] \SW~combout ;
+wire [7:0] \ioCtrl|ledG|rledgOut ;
+wire [31:0] \ioCtrl|timer|tcnt ;
 wire [3:0] \KEY~combout ;
+wire [15:0] \ioCtrl|heX|rhexOut ;
 wire [31:0] \clkdi|counter ;
 wire [31:0] \pc|dataOut ;
 wire [31:0] \pipelineregister|nxtPCOut ;
@@ -3622,9 +3625,6 @@ wire [9:0] \ioCtrl|switches|swdebounce ;
 wire [9:0] \ioCtrl|switches|swdata ;
 wire [8:0] \ioCtrl|switches|swctrl ;
 wire [31:0] \ioCtrl|switches|swcounter ;
-wire [31:0] \ioCtrl|timer|tlim ;
-wire [8:0] \ioCtrl|timer|tctl ;
-wire [31:0] \ioCtrl|timer|tcnt ;
 
 wire [1:0] \dataMem|data_rtl_0|auto_generated|ram_block1a0_PORTBDATAOUT_bus ;
 wire [1:0] \dataMem|data_rtl_0|auto_generated|ram_block1a2_PORTBDATAOUT_bus ;
