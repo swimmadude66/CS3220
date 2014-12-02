@@ -1,0 +1,150 @@
+; Addresses for I/O
+.NAME 	IOBASE	= 0xF0000000
+.NAME	OFSHEX	= 0x00000000
+.NAME	OFSLEDR	= 0x00000004
+.NAME	OFSLEDG	= 0x00000008
+.NAME	OFSKEY 	= 0x00000010
+.NAME	OFSKCTL = 0x00000110
+.NAME	SW     	= 0x00000014
+.NAME	SWCTL	= 0x00000114
+.NAME	TIMER  	= 0x00000020
+.NAME	TLIM	= 0x00000024
+.NAME	TCTL	= 0x00000120
+
+.ORIG 0x40
+SetUp:
+	xor		fp,fp,fp
+	; Prepare the gp register
+	mvhi	gp,IOBASE
+	xor		a0,a0,a0
+	sw		a0, OFSHEX(gp)
+	sw		a0, OFSLEDR(gp)
+	sw		a0,	OFSLEDG(gp)
+SetSeconds:
+	lw		s0, SW(gp)			;Raw switch data
+	andi	s1, s0, 0x00F		;ones place
+	andi	s2, s0, 0x0F0		;tens place
+	addi	t0, a0, 0x050		;5 in the tens place
+	bgt		s2, t0, CapFive
+AfterCapFive:
+	addi	t0, a0, 0x009		;9 in the ones place
+	bgt		s1, t0, CapNineSec
+AfterCapNineSec:
+	or		s0, s1, s2			;combine tens and ones
+	sw		s0, OFSHEX(gp)
+Bridge:
+	lw		s0, OFSKEY(gp)		;get key
+	andi	s0, s0, 0x02		;key key[1]
+	addi	t1, a0, 0x02
+	bne		s0, t1, SetSeconds
+SetMinutes:
+	lw		s0, SW(gp)			;Raw switch data
+	andi	s1, s0, 0x00F		;ones place
+	andi	s2, s0, 0x0F0		;tens place
+	addi	t0, a0, 0x090		;9 in the tens place
+	bgt		s2, t0, CapNinetyMin
+AfterCapNinetyMin:
+	addi	t0, a0, 0x009		;9 in the ones place
+	bgt		s1, t0, CapNineMin
+AfterCapNineMin:
+	or		s0, s1, s2			;combine tens and ones
+	add		s0, s0, s0			;  <<1
+	add		s0, s0, s0			;  <<2
+	add		s0, s0, s0			;  <<3
+	add		s0, s0, s0			;  <<4
+	add		s0, s0, s0			;  <<5
+	add		s0, s0, s0			;  <<6
+	add		s0, s0, s0			;  <<7
+	add		s0, s0, s0			;  <<8
+	lw		s1, OFSHEX(gp)		;  get currently displayed value (seconds)
+	andi	s1, s1, 0x0FF		;  get seconds
+	or		s0, s0, s1			;  combine minutes and seconds
+	sw		s0, OFSHEX(gp)
+Bridge2:
+	lw		s1, OFSKEY(gp)		;get key
+	andi	s1, s1, 0x04		;key key[2]
+	addi	t1, a0, 0x04
+	bne		s1, t1, SetMinutes
+RunTimer:
+	addi	a2, a0, 1000
+	sw		a2, TLIM(gp)
+WAIT:
+	lw		a1, TCTL(gp)
+	lw		s1, OFSKEY(gp)		;get key
+	andi	s1, s1, 0x04		;key key[2]
+	addi	t1, a0, 0x04
+	beq		s1, t1, Stopped
+	beq		a1, a0, WAIT
+	sw		a0, TCTL(gp)
+Decrement:
+	andi	s1, s0, 0x0F		;get ones of seconds
+	beq		s1, a0, Cascade			;seconds are zero
+	subi	s0, s0, 1
+	lw		s1, OFSKEY(gp)		;get key
+	andi	s1, s1, 0x04		;key key[2]
+	addi	t1, a0, 0x04
+	beq		s1, t1, Stopped
+AfterCascade:
+	sw		s0, OFSHEX(gp)
+	beq		s0, a0, DONE
+	bt		s2, s2, WAIT
+Done:
+	addi	a1, a0, 500			; half second
+	sw		a1, TLIM(gp)
+	addi	t1, a0, 1			;Check bit
+	addi	s2, a0, 0x3FF		;10 bits of 1
+Alarm:
+	sw		s2, OFSLEDR(gp)		;All Red
+	lw		s1, TCTL(gp)
+	beq		s1, a0, Alarm
+	sw		a0, TCTL(gp)			;reset ready bit
+AlarmOff:
+	sw		a0, OFSLEDR(gp)		;All off
+	lw		t1, TCTL(gp)
+	beq		t1, a0, AlarmOFF
+	sw		a0, TCTL(gp)			;reset ready bit
+	bt		t0, t0, Alarm
+
+Stopped:
+	lw		s1, OFSKEY(gp)		;get key
+	andi	s1, s1, 0x04		;key key[2]
+	addi	t1, a0, 0x04
+	bne		s1, t1, Stopped
+	bt		t0, t0, WAIT
+	
+	
+	
+;sub routines	
+	
+Cascade:
+	andi	s1,  s0, 0x0F0		;tenseconds
+	beqz	s1, Cascade1		;tenseconds are zero
+	subi	s0, s0, 0x010			;subtract 10 seconds
+	addi	s0, s0, 0x09			;set ones to 9
+	bt		t0, t0, AfterCascade
+Cascade1:
+	andi	s1,  s0, 0x0F00		;minues
+	beqz	s1, Cascade2		;minutes are zero
+	subi	s0, s0, 0x0100			;subtract 1 minute
+	addi	s0,	s0, 0x059			;set seconds to 59
+	bt		t0, t0, AfterCascade
+Cascade2:
+	subi	s0, s0, 0x01000			;subtract 10 minutes
+	addi	s0, s0, 0x00959			;set minutes to 9
+	bt		t0, t0, AfterCascade
+CapFive:
+	xor 	s2, s2, s2
+	addi	s2, s2, 0x050
+	bt		t0, t0, AfterCapFive
+CapNineSec:
+	xor 	s1, s1, s1
+	addi	s1, s1, 0x009
+	bt		t0, t0, AfterCapNineSec
+CapNinetyMin:
+	xor 	s2, s2, s2
+	addi	s2, s2, 0x090
+	bt		t0, t0, AfterCapNinetyMin
+CapNineMin:
+	xor 	s1, s1, s1
+	addi	s1, s1, 0x009
+	bt		t0, t0, AfterCapNineMin	
