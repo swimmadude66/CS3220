@@ -63,5 +63,5 @@ module KeyDevices(clk, reset, aBus, dBus, wrtEn, IE, keys, IRQ);
 	assign dBus = 	(aBus == 32'hF0000010 && !wrtEn) ? {28'b0,kdata} :
 						(aBus == 32'hF0000110 && !wrtEn) ? {23'b0,kctrl} :
 						32'bz;
-	assign IRQ = (IE&kctrl[0]);
+	assign IRQ = kctrl[0];
 endmodule

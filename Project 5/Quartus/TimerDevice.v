@@ -54,6 +54,6 @@ module Timer(clk, reset, aBus, dBus, wrtEn, IE, IRQ);
 						(AddrCtl && !wrtEn) ? {23'b0, tctl} :
 						32'bz;
 						
-	assign IRQ = (IE&tctl[0]);
+	assign IRQ = tctl[0];
 	
 endmodule

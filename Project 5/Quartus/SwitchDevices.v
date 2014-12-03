@@ -87,7 +87,7 @@ module SwitchDevices(clk, reset, aBus, dBus, wrtEn, IE, switches, IRQ);
 	assign dBus = 	(aBus == 32'hF0000014 && !wrtEn) ? {22'b0, swdata} :
 						(aBus == 32'hF0000114 && !wrtEn) ? {23'b0, swctrl} :
 						32'bz;
-	assign IRQ = (IE&swctrl[0]);
+	assign IRQ = swctrl[0];
 endmodule
 
 

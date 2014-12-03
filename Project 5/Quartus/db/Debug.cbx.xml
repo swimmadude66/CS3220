@@ -2,6 +2,5 @@
 <LOG_ROOT>
 	<PROJECT NAME="Debug">
 		<CBX_INST_ENTRY INSTANCE_NAME="|Project5|DataMemory:dataMem|altsyncram:data_rtl_0" CBX_FILE_NAME="altsyncram_ksb1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|Project5|SystemRegisterFile:systemReg|altsyncram:data_rtl_0" CBX_FILE_NAME="altsyncram_sng1.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

@@ -1,5 +1,5 @@
 module ClkDivider(input clkIn, output clkOut);
-	parameter divider = 2500000;
+	parameter divider = 50000000;
 	parameter len = 31;
 	reg[len: 0] counter = 0;
 	reg clkReg = 0;	
@@ -141,8 +141,13 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 					.destRegOut(destRegOut), .spRegAddr(spRegInd), .aluOutOut(aluOutOut), .dataOut(dataOut), .intOp(opcodeout));
 	//Special RegisterFile
 	
-	SystemRegisterFile systemReg (.clk(clk), .isSpecial(isSpecialOut), .opcode(opcodeout), .nxtPc(nxtPCOut), .irq(IRQ), .idn(IDN), .index(spRegInd), .pcAddrOut(intrAddr), .dataIn(dataOut), .spRegOut(spRegOut), .pcIntrSel(pcIntrSel), .ieOut(IE));
+SystemRegisterFile systemReg (.clk(clk), .isSpecial(isSpecialOut), .opcode(opcodeout), .nxtPc(nxtPCOut), .irq(IRQ), .idn(IDN), .rdindex(spRegInd), .wrtindex(destRegOut),
+										.dataIn(dataOut), .spRegOut(spRegOut), .ieOut(IE), .pcIntrSel(pcIntrSel));	
 	
+	assign LEDG[5:2] = opcodeout[3:0];
+	assign LEDG[0] = IRQ;
+	assign LEDG[1] = isSpecialOut;
+	assign LEDR[3:0] = IDN;
 	
 	// Data Memory and I/O controller
 	tri[31:0] DBUS;
@@ -170,7 +175,7 @@ module IO_controller(clk, rst, IE, ABUS, DBUS, we, SW, KEY, IRQ, IDN);//LEDR, LE
 	//output[6:0] HEX0, HEX1, HEX2, HEX3;
 	
 	wire KIRQ, SWIRQ, TIRQ;
-	output IRQ = (KIRQ || SWIRQ || TIRQ);
+	output IRQ = (KIRQ | SWIRQ | TIRQ);
 	output[3:0] IDN =	TIRQ	? 4'h1:
 							KIRQ	? 4'h2:
 							SWIRQ	? 4'h3:
