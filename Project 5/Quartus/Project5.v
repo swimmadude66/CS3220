@@ -118,8 +118,7 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	Alu alu1 (.ctrl(sndOpcode), .rawDataIn1(dataOut1), .rawDataIn2(aluIn2), .dataOut(aluOut), .cmpOut(cmpOut_top)); 
   
   //Bubbler
-  wire specialPrevWrtEn = (isSpecialOut && (opcodeout[3:0] == 4'h3));
-  Bubbler bubbler (.prevWrEn(regWrtEnOut), .specialPrevWrtEn(specialPrevWrtEn), .rs1(rdIndex1), .rs2(rdIndex2), .prevrd(destRegOut), .bubble(bubble));
+  Bubbler bubbler (.prevWrEn(regWrtEnOut), .rs1(rdIndex1), .rs2(rdIndex2), .prevrd(destRegOut), .bubble(bubble));
     
   //Pipeline register
   wire regWrtEnOut, isLoadOut, isStoreOut, isSpecialOut;
