@@ -1,4 +1,4 @@
-module Timer(clk, reset, aBus, dBus, wrtEn, IE, IRQ);
+module Timer(clk, reset, aBus, dBus, wrtEn, IRQ);
 	parameter ABUS_WIDTH = 32;
 	parameter DBUS_WIDTH = 32;
 
@@ -9,7 +9,7 @@ module Timer(clk, reset, aBus, dBus, wrtEn, IE, IRQ);
 	input reset;
 	input [ABUS_WIDTH - 1:0] aBus;
 	inout [DBUS_WIDTH - 1:0] dBus;
-	input wrtEn, IE;
+	input wrtEn;
 	output IRQ;
 	wire AddrCnt = (aBus == 32'hF0000020);
 	wire AddrLim = (aBus == 32'hF0000024);
@@ -54,6 +54,6 @@ module Timer(clk, reset, aBus, dBus, wrtEn, IE, IRQ);
 						(AddrCtl && !wrtEn) ? {23'b0, tctl} :
 						32'bz;
 						
-	assign IRQ = (IE&tctl[0]);
+	assign IRQ = (tctl[0]);
 	
 endmodule

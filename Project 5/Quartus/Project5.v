@@ -34,8 +34,8 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	parameter ADDR_HEX  						 = 32'hF0000000;
 	parameter ADDR_LEDR 						 = 32'hF0000004;
 	parameter ADDR_LEDG 						 = 32'hF0000008;
-  
-	parameter IMEM_INIT_FILE				 = "Int_Test.mif";//"Combined_Test2.mif";//"test2.mif";//"Sorter2.mif";//"stopwatch.mif";//"Sort2_counter.mif";
+ 
+	parameter IMEM_INIT_FILE				 = "Combined.mif";//"test2.mif";//"Sorter2.mif";//"stopwatch.mif";//"Sort2_counter.mif";
 	parameter IMEM_ADDR_BIT_WIDTH 		 = 11;
 	parameter IMEM_DATA_BIT_WIDTH 		 = INST_BIT_WIDTH;
 	parameter IMEM_PC_BITS_HI     		 = IMEM_ADDR_BIT_WIDTH + 2;
@@ -118,8 +118,9 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	Alu alu1 (.ctrl(sndOpcode), .rawDataIn1(dataOut1), .rawDataIn2(aluIn2), .dataOut(aluOut), .cmpOut(cmpOut_top)); 
   
   //Bubbler
-  Bubbler bubbler (.prevWrEn(regWrtEnOut), .rs1(rdIndex1), .rs2(rdIndex2), .prevrd(destRegOut), .bubble(bubble));
-  
+  wire specialPrevWrtEn = (isSpecialOut && (opcodeout[3:0] == 4'h3));
+  Bubbler bubbler (.prevWrEn(regWrtEnOut), .specialPrevWrtEn(specialPrevWrtEn), .rs1(rdIndex1), .rs2(rdIndex2), .prevrd(destRegOut), .bubble(bubble));
+    
   //Pipeline register
   wire regWrtEnOut, isLoadOut, isStoreOut, isSpecialOut;
   wire[1:0] memSelOut;
@@ -131,9 +132,8 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 					.nxtPCOut(nxtPCOut), .memSelOut(memSelOut), .regWrtEnOut(regWrtEnOut), .isLoadOut(isLoadOut), .isStoreOut(isStoreOut), .isSpecialOut(isSpecialOut), 
 					.destRegOut(destRegOut), .spRegAddr(spRegInd), .aluOutOut(aluOutOut), .dataOut(dataOut), .intOp(opcodeout));
 	//Special RegisterFile
-	
-	SystemRegisterFile systemReg (.clk(clk), .isSpecial(isSpecialOut), .opcode(opcodeout), .nxtPc(nxtPCOut), .irq(IRQ), .idn(IDN), .rdindex(spRegInd), .wrtindex(destRegOut), 
-											.dataIn(dataOut), .spRegOut(spRegOut), .ieOut(IE), .pcIntrSel(pcIntrSel));
+	SystemRegisterFile2 systemReg (.clk(clk), .isSpecial(isSpecialOut), .opcode(opcodeout), .nxtPc(nxtPCOut), .irq(IRQ), .idn(IDN), .rdindex(spRegInd), .wrtindex(destRegOut), 
+											.dataIn(dataOut), .spRegOut(spRegOut), .ieOut(IE), .pcIntrSel(pcIntrSel), .pcAddrOut(intrAddr));
 	// Data Memory and I/O controller
 	tri[31:0] DBUS;
 	assign DBUS = (isStoreOut) ? dataOut : 32'bz;
@@ -142,14 +142,12 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	wire IE, IRQ;
 	wire[3:0] IDN;
 	wire[31:0] spRegOut;
-	IO_controller ioCtrl (.clk(CLOCK_50), .rst(reset), .IE(IE), .ABUS(aluOutOut), .DBUS(DBUS), .we(isStoreOut), .SW(SW), .KEY(KEY),
+	IO_controller ioCtrl (.clk(CLOCK_50), .rst(reset), .ABUS(aluOutOut), .DBUS(DBUS), .we(isStoreOut), .SW(SW), .KEY(KEY),
 									.LEDR(LEDR), .LEDG(LEDG), .HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .HEX3(HEX3), .IRQ(IRQ), .IDN(IDN));
-	
 endmodule
 
-module IO_controller(clk, rst, IE, ABUS, DBUS, we, SW, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, IRQ, IDN);
-
-	input clk, rst, we, IE;
+module IO_controller(clk, rst, ABUS, DBUS, we, SW, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, IRQ, IDN);
+	input clk, rst, we;
 	input[31:0] ABUS;
 	inout tri[31:0] DBUS;
 	input[9:0] SW;
@@ -170,9 +168,9 @@ module IO_controller(clk, rst, IE, ABUS, DBUS, we, SW, KEY, LEDR, LEDG, HEX0, HE
 	
 	ClkDivider #(.divider(25000)) msClk (clk, msclk);
 	//Input
-	KeyDevices key(clk, rst, ABUS, DBUS, we, IE, ~KEY, KIRQ);
-	SwitchDevices switches(clk, rst, ABUS, DBUS, we, IE, SW, SWIRQ);
-	Timer timer(msclk, rst, ABUS, DBUS, we, IE, TIRQ);
+	KeyDevices key(clk, rst, ABUS, DBUS, we, ~KEY, KIRQ);
+	SwitchDevices switches(clk, rst, ABUS, DBUS, we, SW, SWIRQ);
+	Timer timer(msclk, rst, ABUS, DBUS, we, TIRQ);
 	//Output
 	Ledr ledR(clk, rst, ABUS, DBUS, we, LEDR);
 	Ledg ledG(clk, rst, ABUS, DBUS, we, LEDG);

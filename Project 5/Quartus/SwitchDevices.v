@@ -1,4 +1,4 @@
-module SwitchDevices(clk, reset, aBus, dBus, wrtEn, IE, switches, IRQ);
+module SwitchDevices(clk, reset, aBus, dBus, wrtEn, switches, IRQ);
 	parameter ABUS_WIDTH = 32;
 	parameter DBUS_WIDTH = 32;
 	parameter SWDATA_RESET_VALUE = 10'h0;
@@ -9,7 +9,7 @@ module SwitchDevices(clk, reset, aBus, dBus, wrtEn, IE, switches, IRQ);
 	input reset;
 	input [ABUS_WIDTH - 1:0] aBus;
 	inout [DBUS_WIDTH - 1:0] dBus;
-	input wrtEn, IE;
+	input wrtEn;
 	input [9:0] switches;
 	output IRQ;
 	
@@ -87,7 +87,7 @@ module SwitchDevices(clk, reset, aBus, dBus, wrtEn, IE, switches, IRQ);
 	assign dBus = 	(aBus == 32'hF0000014 && !wrtEn) ? {22'b0, swdata} :
 						(aBus == 32'hF0000114 && !wrtEn) ? {23'b0, swctrl} :
 						32'bz;
-	assign IRQ = (IE&swctrl[0]);
+	assign IRQ = (swctrl[0]);
 endmodule
 
 

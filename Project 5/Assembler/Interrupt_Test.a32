@@ -11,13 +11,13 @@
 .NAME	TLIM	= 0x00000024
 .NAME	TCTL	= 0x00000120
 
-.ORIG 0x0		;Interrupt Handler
+.ORIG 0x0	;Interrupt Handler
 	addi	SSP, SSP, 8		;Move SSP up two
 	sw		a0, -4(SSP)		;Store A0
 	sw		a1, 0(SSP)		;Store A1
 	RSR		a0, IDN			;Get Device Number
 	xor		a1, a1, a1		;Fill a1 with zeros
-	beq		a0, a1, DEVICEZERO
+	xor		a1, a1, a1
 	addi	a1, a1, 1
 	beq		a0, a1, DEVICEONE
 	addi	a1, a1, 1
@@ -42,7 +42,6 @@ SetUp:
 	sw		a0,	OFSLEDG(gp)
 	WSR		IHA, a0
 	addi	a1, a0, 1
-	WSR		PCS, a1
 StartTimer:
 	addi	s0, a0, 1000
 	sw		s0, TLIM(gp)
@@ -51,8 +50,9 @@ WaitForInterrupt:
 	lw		a1, OFSLEDR(gp)
 	addi	a1, a1, 1
 	sw		a1, OFSLEDR(gp)
-	RSR		a1, IDN
-	sw		a1, OFSHEX(gp)
+	WSR		IHA, a1
+	RSR		t0, IHA
+	sw		t0, OFSHEX(gp)
 	bt		t0, t0, WaitForInterrupt
 	
 	

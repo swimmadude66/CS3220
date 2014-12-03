@@ -1,0 +1,34 @@
+; Addresses for I/O
+.NAME 	IOBASE	= 0xF0000000
+.NAME	OFSHEX	= 0x00000000
+.NAME	OFSLEDR	= 0x00000004
+.NAME	OFSLEDG	= 0x00000008
+.NAME	OFSKEY 	= 0x00000010
+.NAME	KCTL	= 0x00000110
+.NAME	SW     	= 0x00000014
+.NAME	SWCTL	= 0x00000114
+.NAME	TIMER  	= 0x00000020
+.NAME	TLIM	= 0x00000024
+.NAME	TCTL	= 0x00000120
+
+.ORIG 0x40
+	xor 	a0, a0, a0
+	not		a1, a0
+TESTIHA:
+	wsr		IHA, a1
+	xor		s0, s0, s0
+	xor		s0, s0, s0
+	xor		s0, s0, s0
+	rsr		s0, IHA
+	sw		s0, OFSHEX(gp)
+TESTIDN:
+	WSR		IDN, a1
+	RSR		s1, IDN
+	sw		s1, OFSLEDR(gp)
+TESTPCS:
+	WSR		PCS, a1
+	RSR		t1, PCS
+	sw		t1, OFSLEDG(gp)
+DONE:
+	bt t0, t0, DONE
+	

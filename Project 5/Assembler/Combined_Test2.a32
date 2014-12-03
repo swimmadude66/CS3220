@@ -11,21 +11,18 @@
 .NAME	TLIM	= 0x00000024
 .NAME	TCTL	= 0x00000120
 
-.ORIG 0x10		;Interrupt Handler
+.ORIG 0x0		;Interrupt Handler
 	addi	SSP, SSP, 8		;Move SSP up two
 	sw		a0, -4(SSP)		;Store A0
 	sw		a1, 0(SSP)		;Store A1
 	RSR		a0, IDN			;Get Device Number
 	xor		a1, a1, a1		;Fill a1 with zeros
-	beq		a0, a1, DEVICEZERO
 	addi	a1, a1, 1
 	beq		a0, a1, DEVICEONE
 	addi	a1, a1, 1
 	beq		a0, a1, DEVICETWO
 	addi	a1, a1, 1
 	beq		a0, a1, DEVICETHREE
-	addi	a1, a1, 1
-	beq		a0, a1, DEVICEFOUR
 AFTERINT:
 	subi	SSP, SSP, 8
 	lw		a1, 8(SSP)
@@ -41,9 +38,15 @@ SetUp:
 	sw		a0, OFSHEX(gp)
 	sw		a0, OFSLEDR(gp)
 	sw		a0,	OFSLEDG(gp)
-	addi	a0, a0, 0x10
-	WSR		IHA, a0
+	WSR		IHA, a0				;set Handler Address to 0x0
+	addi	a0, a0, 1
+	WSR		PCS, a0				;enable Interrupts
 	xor		a0, a0, a0
+
+;------------------------------------------------------------------------------------------------------
+;	Stopwatch setup. Set min/seconds before beginning test2
+;------------------------------------------------------------------------------------------------------
+	
 SetSeconds:
 	lw		s0, SW(gp)			;Raw switch data
 	andi	s1, s0, 0x00F		;ones place
@@ -92,6 +95,11 @@ Bridge2:
 RunTimer:
 	addi	a2, a0, 1000
 	sw		a2, TLIM(gp)
+
+;------------------------------------------------------------------------------------------------------
+;		Start Test2 execution. Stopwatch will continue in background
+;------------------------------------------------------------------------------------------------------	
+	
 TEST2:
 	addi	s2,s0,0x0BEF
 	; Our FP register will be zero
@@ -295,38 +303,59 @@ Done:
 	bt		t0,t0,Done
 
 ;DEVICE HANDLERS
-DEVICEZERO:
-	bt a0, a0, AFTERINT
+
 DEVICEONE:	;timer fired
 	addi	SSP, SSP, 4			;make space for s0
 	sw		s0, 0(SSP)
 	xor 	a0, a0, a0			;zero out a0
 	sw		a0, TCTL(gp)
 	lw		s0, OFSHEX(gp)
-	beq		s0, a0, FLASH
+	beq		s0, a0, FLASHSTART
 	andi	a1, s0, 0x0F		;get ones of seconds
 	beq		a1, a0, Cascade		;seconds are zero
 	subi	s0, s0, 1
 AfterCascade:
 	sw		s0, OFSHEX(gp)
 	bne		s0, a0, TINTDONE
-Flash:
+FLASHSTART:
+	addi	a1, a0, 500
+	lw		s0, TLIM(gp)
+	beq		s0, a1, FLASH
+	sw		a1, TLIM(gp)
+FLASH:	
 	lw		s0, OFSLEDR(gp)
 	not		s0, s0
 	sw		s0, OFSLEDR(gp)
-TINTDONE:	
+TINTDONE:
 	lw		s0, 0(SSP)			;put s0 Back
 	subi	SSP, SSP, 4			;put SSP back
 	bt a0, a0, AFTERINT
+	
 DEVICETWO:
+	addi	SSP, SSP, 4			;make space for s0
+	sw		s0, 0(SSP)
+	xor 	a0, a0, a0			;zero out a0
+	lw		s0, TLIM(gp)
+	addi	a1, a0, 500
+	beq		s0, a1, KINTDONE
+	lw		s0, OFSKEY(gp)
+	addi	a1, a0, 0x2
+	bne		s0, a1, KINTDONE
+	lw		a1, TLIM(gp)
+	beq		a1, a0, START
+STOP:
+	sw		a0, TLIM(gp)
+	bt		a0, a0, KINTDONE
+START:
+	addi	a1, a0, 1000
+	sw		a1, TLIM(gp)
+KINTDONE:
+	lw		s0, 0(SSP)			;put s0 Back
+	subi	SSP, SSP, 4			;put SSP back
 	bt a0, a0, AFTERINT
+	
 DEVICETHREE:
 	bt a0, a0, AFTERINT
-DEVICEFOUR:
-	bt a0, a0, AFTERINT
-	
-	
-
 	
 ;SubRoutines
 Cascade:
