@@ -23,7 +23,6 @@ module Controller (inst, aluCmpIn, bubble, sndOpcode, dRegAddr, s1RegAddr, s2Reg
 	output reg immSel;  
 	output reg [1:0] memOutSel;
 	output reg [1:0] pcSel;
-	
 	reg rfwe, iL, iS, specialReg;
 	reg[1:0] pcs;
 	
@@ -154,9 +153,9 @@ module Controller (inst, aluCmpIn, bubble, sndOpcode, dRegAddr, s1RegAddr, s2Reg
 							end
 		4'b1111:begin	//specialRegister access
 								sndOpcode 		<= {1'b0, inst[27:24]};
-								dRegAddr  		<= inst[23:20];
+								dRegAddr  		<= inst[19:16];
 								s1RegAddr 		<= 4'd0;
-								s2RegAddr 		<= inst[19:16];
+								s2RegAddr 		<= inst[23:20];
 								imm 		 		<= 16'd0;
 								rfwe 				<= (inst[27:24] == 4'h2) ? 1'b1 : 1'b0;
 								//dataWrtEn 		<= 1'b0; // no write to data memory

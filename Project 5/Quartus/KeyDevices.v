@@ -1,4 +1,4 @@
-module KeyDevices(clk, reset, aBus, dBus, wrtEn, IE, keys, IRQ);
+module KeyDevices(clk, reset, aBus, dBus, wrtEn, keys, IRQ);
 	parameter ABUS_WIDTH = 32;
 	parameter DBUS_WIDTH = 32;
 	parameter KDATA_RESET_VALUE = 4'b0;
@@ -8,7 +8,7 @@ module KeyDevices(clk, reset, aBus, dBus, wrtEn, IE, keys, IRQ);
 	input reset;
 	input [ABUS_WIDTH - 1:0] aBus;
 	inout [DBUS_WIDTH - 1:0] dBus;
-	input wrtEn, IE;
+	input wrtEn;
 	input [3:0] keys;
 	output IRQ;
 	
@@ -63,5 +63,5 @@ module KeyDevices(clk, reset, aBus, dBus, wrtEn, IE, keys, IRQ);
 	assign dBus = 	(aBus == 32'hF0000010 && !wrtEn) ? {28'b0,kdata} :
 						(aBus == 32'hF0000110 && !wrtEn) ? {23'b0,kctrl} :
 						32'bz;
-	assign IRQ = (IE&kctrl[0]);
+	assign IRQ = (kctrl[0]);
 endmodule

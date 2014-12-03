@@ -205,7 +205,7 @@ def Interrupt(opcode, params, location, linenumber):
     elif opcode == 0xF2:    # RSR
         newparams = [params[0], params[1], '0']
     elif opcode == 0xF3:    # WSR
-        newparams = [params[1], params[0], '0']
+        newparams = [params[0], params[1], '0']
     else:
         print("Improper format @ line " + linenumber)
         exit(-1)
