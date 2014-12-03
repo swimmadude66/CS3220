@@ -25,6 +25,8 @@ SetUp:
 	wsr		pcs, a2
 	addi	a2, a0, 0x10
 	wsr		iha, a2
+	add		a0, a0, a0
+	rsr		s0, iha
 Loop:
 	addi 	a2, a2, 1
 	bt		a0, a0, Loop

@@ -83,6 +83,7 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	wire[IMEM_DATA_BIT_WIDTH - 1: 0] instWord;
 	wire[DBITS - 1: 0] branchPc;
 	wire isLoad, isStore, isSpecial;
+	wire [16:0] ihaOut;
   
 	// PC register
 	wire pcWrtEn = 1'b1; // always right to PC
@@ -99,10 +100,6 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	Mux4to1 muxPcOut (pcSel, pcLogicOut, branchPc, aluOut, pcOut, pcMuxOut);
 	Mux2to1 #(.DATA_BIT_WIDTH(DBITS)) muxIntrPc (pcIntrSel, pcMuxOut, intrAddr, pcIn);
 	
-	dec2_7seg(intrAddr[3:0], HEX0);
-	dec2_7seg(intrAddr[7:4], HEX1);
-	dec2_7seg(intrAddr[11:8], HEX2);
-	dec2_7seg(intrAddr[15:12], HEX3);
 	
 	// Branch Address Calculator
 	BranchAddrCalculator bac (.nextPc(pcLogicOut), .pcRel(seImm), .branchAddr(branchPc));
@@ -142,12 +139,19 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	//Special RegisterFile
 	
 SystemRegisterFile systemReg (.clk(clk), .isSpecial(isSpecialOut), .opcode(opcodeout), .nxtPc(nxtPCOut), .irq(IRQ), .idn(IDN), .rdindex(spRegInd), .wrtindex(destRegOut),
-										.dataIn(dataOut), .spRegOut(spRegOut), .ieOut(IE), .pcIntrSel(pcIntrSel));	
+										.dataIn(dataOut), .pcAddrOut(intrAddr), .spRegOut(spRegOut), .ieOut(IE), .pcIntrSel(pcIntrSel), .ihaOut(ihaOut));	
+	
+	dec2_7seg(intrAddr[3:0], HEX0);
+	dec2_7seg(intrAddr[7:4], HEX1);
+	dec2_7seg(ihaOut[3:0], HEX2);
+	dec2_7seg(ihaOut[7:4], HEX3);
 	
 	assign LEDG[5:2] = opcodeout[3:0];
 	assign LEDG[0] = IRQ;
 	assign LEDG[1] = isSpecialOut;
-	assign LEDR[3:0] = IDN;
+	assign LEDR[3:0] = spRegInd;
+	assign LEDR[8] = pcIntrSel;
+	assign LEDR[9] = IE;
 	
 	// Data Memory and I/O controller
 	tri[31:0] DBUS;

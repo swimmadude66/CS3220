@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Debug
-Tue Dec 02 22:02:27 2014
+Tue Dec 02 23:25:05 2014
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -73,15 +73,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Dec 02 22:02:27 2014           ;
+; Analysis & Synthesis Status        ; Successful - Tue Dec 02 23:25:04 2014           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Debug                                           ;
 ; Top-level Entity Name              ; Project5                                        ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 2,106                                           ;
-;     Total combinational functions  ; 1,681                                           ;
-;     Dedicated logic registers      ; 812                                             ;
-; Total registers                    ; 812                                             ;
+; Total logic elements               ; 2,634                                           ;
+;     Total combinational functions  ; 1,953                                           ;
+;     Dedicated logic registers      ; 1,069                                           ;
+; Total registers                    ; 1069                                            ;
 ; Total pins                         ; 61                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 65,536                                          ;
@@ -227,29 +227,29 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------------------------+
 ; Resource                                    ; Usage                   ;
 +---------------------------------------------+-------------------------+
-; Estimated Total logic elements              ; 2,106                   ;
+; Estimated Total logic elements              ; 2,634                   ;
 ;                                             ;                         ;
-; Total combinational functions               ; 1681                    ;
+; Total combinational functions               ; 1953                    ;
 ; Logic element usage by number of LUT inputs ;                         ;
-;     -- 4 input functions                    ; 1055                    ;
-;     -- 3 input functions                    ; 352                     ;
-;     -- <=2 input functions                  ; 274                     ;
+;     -- 4 input functions                    ; 1344                    ;
+;     -- 3 input functions                    ; 324                     ;
+;     -- <=2 input functions                  ; 285                     ;
 ;                                             ;                         ;
 ; Logic elements by mode                      ;                         ;
-;     -- normal mode                          ; 1405                    ;
+;     -- normal mode                          ; 1677                    ;
 ;     -- arithmetic mode                      ; 276                     ;
 ;                                             ;                         ;
-; Total registers                             ; 812                     ;
-;     -- Dedicated logic registers            ; 812                     ;
+; Total registers                             ; 1069                    ;
+;     -- Dedicated logic registers            ; 1069                    ;
 ;     -- I/O registers                        ; 0                       ;
 ;                                             ;                         ;
 ; I/O pins                                    ; 61                      ;
 ; Total memory bits                           ; 65536                   ;
 ; Embedded Multiplier 9-bit elements          ; 0                       ;
 ; Maximum fan-out node                        ; ClkDivider:clkdi|clkReg ;
-; Maximum fan-out                             ; 687                     ;
-; Total fan-out                               ; 8908                    ;
-; Average fan-out                             ; 3.44                    ;
+; Maximum fan-out                             ; 944                     ;
+; Total fan-out                               ; 10795                   ;
+; Average fan-out                             ; 3.47                    ;
 +---------------------------------------------+-------------------------+
 
 
@@ -258,28 +258,33 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                               ; Library Name ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------+--------------+
-; |Project5                                 ; 1681 (0)          ; 812 (0)      ; 65536       ; 0            ; 0       ; 0         ; 61   ; 0            ; |Project5                                                                         ; work         ;
+; |Project5                                 ; 1953 (0)          ; 1069 (0)     ; 65536       ; 0            ; 0       ; 0         ; 61   ; 0            ; |Project5                                                                         ; work         ;
 ;    |Alu:alu1|                             ; 371 (371)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|Alu:alu1                                                                ; work         ;
 ;    |BranchAddrCalculator:bac|             ; 30 (30)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|BranchAddrCalculator:bac                                                ; work         ;
-;    |Bubbler:bubbler|                      ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|Bubbler:bubbler                                                         ; work         ;
+;    |Bubbler:bubbler|                      ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|Bubbler:bubbler                                                         ; work         ;
 ;    |ClkDivider:clkdi|                     ; 57 (57)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|ClkDivider:clkdi                                                        ; work         ;
-;    |Controller:cont|                      ; 49 (49)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|Controller:cont                                                         ; work         ;
+;    |Controller:cont|                      ; 53 (53)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|Controller:cont                                                         ; work         ;
 ;    |DataMemory:dataMem|                   ; 10 (10)           ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|DataMemory:dataMem                                                      ; work         ;
 ;       |altsyncram:data_rtl_0|             ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|DataMemory:dataMem|altsyncram:data_rtl_0                                ; work         ;
 ;          |altsyncram_ksb1:auto_generated| ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|DataMemory:dataMem|altsyncram:data_rtl_0|altsyncram_ksb1:auto_generated ; work         ;
-;    |IO_controller:ioCtrl|                 ; 281 (1)           ; 125 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|IO_controller:ioCtrl                                                    ; work         ;
+;    |IO_controller:ioCtrl|                 ; 279 (1)           ; 125 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|IO_controller:ioCtrl                                                    ; work         ;
 ;       |ClkDivider:msClk|                  ; 51 (51)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|IO_controller:ioCtrl|ClkDivider:msClk                                   ; work         ;
-;       |KeyDevices:key|                    ; 75 (75)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|IO_controller:ioCtrl|KeyDevices:key                                     ; work         ;
-;       |SwitchDevices:switches|            ; 80 (80)           ; 55 (55)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|IO_controller:ioCtrl|SwitchDevices:switches                             ; work         ;
-;       |Timer:timer|                       ; 74 (74)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|IO_controller:ioCtrl|Timer:timer                                        ; work         ;
-;    |InstMemory:instMem|                   ; 29 (29)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|InstMemory:instMem                                                      ; work         ;
-;    |Mux2to1:muxAluIn|                     ; 65 (65)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|Mux2to1:muxAluIn                                                        ; work         ;
+;       |KeyDevices:key|                    ; 76 (76)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|IO_controller:ioCtrl|KeyDevices:key                                     ; work         ;
+;       |SwitchDevices:switches|            ; 79 (79)           ; 55 (55)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|IO_controller:ioCtrl|SwitchDevices:switches                             ; work         ;
+;       |Timer:timer|                       ; 72 (72)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|IO_controller:ioCtrl|Timer:timer                                        ; work         ;
+;    |InstMemory:instMem|                   ; 35 (35)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|InstMemory:instMem                                                      ; work         ;
+;    |Mux2to1:muxAluIn|                     ; 67 (67)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|Mux2to1:muxAluIn                                                        ; work         ;
 ;    |Mux4to1:muxMemOut|                    ; 224 (224)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|Mux4to1:muxMemOut                                                       ; work         ;
+;    |Mux4to1:muxPcOut|                     ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|Mux4to1:muxPcOut                                                        ; work         ;
 ;    |PcLogic:pcLogic|                      ; 30 (30)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|PcLogic:pcLogic                                                         ; work         ;
-;    |PipeLineReg:pipelineregister|         ; 111 (111)         ; 110 (110)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|PipeLineReg:pipelineregister                                            ; work         ;
-;    |Register:pc|                          ; 41 (41)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|Register:pc                                                             ; work         ;
-;    |RegisterFile:regFile|                 ; 297 (297)         ; 256 (256)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|RegisterFile:regFile                                                    ; work         ;
-;    |SystemRegisterFile:systemReg|         ; 81 (81)           ; 256 (256)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|SystemRegisterFile:systemReg                                            ; work         ;
+;    |PipeLineReg:pipelineregister|         ; 109 (109)         ; 111 (111)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|PipeLineReg:pipelineregister                                            ; work         ;
+;    |Register:pc|                          ; 81 (81)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|Register:pc                                                             ; work         ;
+;    |RegisterFile:regFile|                 ; 469 (469)         ; 512 (512)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|RegisterFile:regFile                                                    ; work         ;
+;    |SystemRegisterFile:systemReg|         ; 96 (96)           ; 256 (256)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|SystemRegisterFile:systemReg                                            ; work         ;
+;    |dec2_7seg:comb_5|                     ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|dec2_7seg:comb_5                                                        ; work         ;
+;    |dec2_7seg:comb_6|                     ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|dec2_7seg:comb_6                                                        ; work         ;
+;    |dec2_7seg:comb_7|                     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|dec2_7seg:comb_7                                                        ; work         ;
+;    |dec2_7seg:comb_8|                     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Project5|dec2_7seg:comb_8                                                        ; work         ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -302,7 +307,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; IO_controller:ioCtrl|KeyDevices:key|kctrl[1,3..7]          ; Stuck at GND due to stuck port data_in                                ;
 ; IO_controller:ioCtrl|KeyDevices:key|kdata[0]               ; Stuck at GND due to stuck port data_in                                ;
 ; IO_controller:ioCtrl|KeyDevices:key|oneTimeKInit           ; Merged with IO_controller:ioCtrl|SwitchDevices:switches|oneTimeSwInit ;
-; PipeLineReg:pipelineregister|destRegOut[3]                 ; Merged with PipeLineReg:pipelineregister|destRegOut[2]                ;
 ; PipeLineReg:pipelineregister|spRegAddr[3]                  ; Merged with PipeLineReg:pipelineregister|spRegAddr[2]                 ;
 ; SystemRegisterFile:systemReg|data[4][0]                    ; Lost fanout                                                           ;
 ; SystemRegisterFile:systemReg|data[5][0]                    ; Lost fanout                                                           ;
@@ -597,263 +601,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; RegisterFile:regFile|data~541                              ; Lost fanout                                                           ;
 ; RegisterFile:regFile|data~542                              ; Lost fanout                                                           ;
 ; RegisterFile:regFile|data~543                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~128                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~160                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~192                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~224                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~256                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~288                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~320                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~352                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~129                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~161                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~193                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~225                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~257                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~289                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~321                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~353                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~130                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~162                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~194                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~226                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~258                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~290                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~322                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~354                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~131                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~163                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~195                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~227                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~259                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~291                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~323                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~355                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~132                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~164                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~196                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~228                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~260                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~292                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~324                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~356                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~133                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~165                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~197                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~229                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~261                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~293                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~325                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~357                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~134                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~166                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~198                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~230                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~262                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~294                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~326                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~358                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~135                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~167                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~199                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~231                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~263                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~295                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~327                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~359                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~136                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~168                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~200                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~232                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~264                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~296                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~328                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~360                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~137                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~169                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~201                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~233                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~265                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~297                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~329                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~361                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~138                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~170                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~202                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~234                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~266                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~298                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~330                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~362                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~139                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~171                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~203                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~235                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~267                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~299                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~331                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~363                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~140                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~172                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~204                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~236                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~268                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~300                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~332                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~364                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~141                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~173                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~205                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~237                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~269                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~301                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~333                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~365                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~142                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~174                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~206                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~238                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~270                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~302                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~334                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~366                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~143                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~175                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~207                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~239                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~271                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~303                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~335                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~367                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~144                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~176                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~208                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~240                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~272                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~304                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~336                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~368                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~145                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~177                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~209                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~241                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~273                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~305                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~337                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~369                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~146                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~178                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~210                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~242                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~274                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~306                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~338                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~370                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~147                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~179                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~211                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~243                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~275                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~307                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~339                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~371                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~148                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~180                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~212                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~244                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~276                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~308                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~340                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~372                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~149                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~181                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~213                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~245                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~277                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~309                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~341                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~373                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~150                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~182                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~214                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~246                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~278                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~310                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~342                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~374                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~151                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~183                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~215                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~247                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~279                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~311                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~343                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~375                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~152                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~184                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~216                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~248                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~280                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~312                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~344                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~376                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~153                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~185                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~217                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~249                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~281                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~313                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~345                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~377                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~154                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~186                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~218                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~250                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~282                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~314                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~346                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~378                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~155                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~187                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~219                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~251                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~283                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~315                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~347                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~379                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~156                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~188                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~220                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~252                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~284                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~316                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~348                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~380                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~157                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~189                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~221                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~253                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~285                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~317                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~349                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~381                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~158                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~190                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~222                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~254                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~286                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~318                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~350                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~382                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~159                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~191                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~223                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~255                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~287                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~319                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~351                              ; Lost fanout                                                           ;
-; RegisterFile:regFile|data~383                              ; Lost fanout                                                           ;
-; Total Number of Removed Registers = 597                    ;                                                                       ;
+; Total Number of Removed Registers = 340                    ;                                                                       ;
 +------------------------------------------------------------+-----------------------------------------------------------------------+
 
 
@@ -909,12 +657,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 812   ;
-; Number of registers using Synchronous Clear  ; 69    ;
-; Number of registers using Synchronous Load   ; 29    ;
+; Total registers                              ; 1069  ;
+; Number of registers using Synchronous Clear  ; 71    ;
+; Number of registers using Synchronous Load   ; 25    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 561   ;
+; Number of registers using Clock Enable       ; 816   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -924,8 +672,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------------------+---------+
 ; Inverted Register                                         ; Fan out ;
 +-----------------------------------------------------------+---------+
+; Register:pc|dataOut[6]                                    ; 20      ;
 ; IO_controller:ioCtrl|SwitchDevices:switches|oneTimeSwInit ; 15      ;
-; Register:pc|dataOut[6]                                    ; 21      ;
 ; Total number of inverted registers = 2                    ;         ;
 +-----------------------------------------------------------+---------+
 
@@ -935,27 +683,29 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Project5|PipeLineReg:pipelineregister|destRegOut[1]                ;
-; 3:1                ; 33 bits   ; 66 LEs        ; 33 LEs               ; 33 LEs                 ; Yes        ; |Project5|IO_controller:ioCtrl|Timer:timer|tcnt[26]                 ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |Project5|IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[1] ;
-; 4:1                ; 28 bits   ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; Yes        ; |Project5|SystemRegisterFile:systemReg|data[3][12]                  ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Project5|SystemRegisterFile:systemReg|data[3][1]                   ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Project5|Register:pc|dataOut[0]                                    ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |Project5|IO_controller:ioCtrl|SwitchDevices:switches|swcounter[4]  ;
-; 6:1                ; 29 bits   ; 116 LEs       ; 58 LEs               ; 58 LEs                 ; Yes        ; |Project5|Register:pc|dataOut[23]                                   ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |Project5|SystemRegisterFile:systemReg|data[2][25]                  ;
-; 5:1                ; 10 bits   ; 30 LEs        ; 10 LEs               ; 20 LEs                 ; Yes        ; |Project5|IO_controller:ioCtrl|SwitchDevices:switches|swdata[6]     ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Project5|PipeLineReg:pipelineregister|destRegOut[2]                ;
+; 3:1                ; 33 bits   ; 66 LEs        ; 33 LEs               ; 33 LEs                 ; Yes        ; |Project5|IO_controller:ioCtrl|Timer:timer|tcnt[25]                 ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |Project5|IO_controller:ioCtrl|SwitchDevices:switches|swdebounce[7] ;
+; 4:1                ; 28 bits   ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; Yes        ; |Project5|SystemRegisterFile:systemReg|data[3][26]                  ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |Project5|SystemRegisterFile:systemReg|data[3][3]                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |Project5|Register:pc|dataOut[0]                                    ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |Project5|SystemRegisterFile:systemReg|data[2][21]                  ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |Project5|IO_controller:ioCtrl|SwitchDevices:switches|swcounter[5]  ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 15 LEs               ; 5 LEs                  ; Yes        ; |Project5|Register:pc|dataOut[5]                                    ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 10 LEs               ; 20 LEs                 ; Yes        ; |Project5|IO_controller:ioCtrl|SwitchDevices:switches|swdata[0]     ;
+; 7:1                ; 24 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; Yes        ; |Project5|Register:pc|dataOut[25]                                   ;
 ; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |Project5|IO_controller:ioCtrl|Timer:timer|tlim                     ;
-; 3:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |Project5|IO_controller:ioCtrl|Timer:timer|dBus[9]                  ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |Project5|IO_controller:ioCtrl|Timer:timer|dBus[14]                 ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Project5|IO_controller:ioCtrl|Timer:timer|dBus[0]                  ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |Project5|Controller:cont|Selector2                                 ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Project5|Controller:cont|Selector10                                ;
-; 8:1                ; 3 bits    ; 15 LEs        ; 3 LEs                ; 12 LEs                 ; No         ; |Project5|Controller:cont|Selector17                                ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Project5|Controller:cont|Selector6                                 ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; No         ; |Project5|Controller:cont|Selector0                                 ;
-; 32:1               ; 15 bits   ; 315 LEs       ; 75 LEs               ; 240 LEs                ; No         ; |Project5|Alu:alu1|Mux17                                            ;
-; 19:1               ; 32 bits   ; 384 LEs       ; 384 LEs              ; 0 LEs                  ; No         ; |Project5|Mux4to1:muxMemOut|Mux16                                   ;
-; 20:1               ; 16 bits   ; 208 LEs       ; 112 LEs              ; 96 LEs                 ; No         ; |Project5|Alu:alu1|Mux7                                             ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |Project5|Controller:cont|Selector6                                 ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Project5|Controller:cont|Selector11                                ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 3 LEs                ; 12 LEs                 ; No         ; |Project5|Controller:cont|Selector21                                ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Project5|Controller:cont|Selector1                                 ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Project5|Controller:cont|Selector7                                 ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Project5|Controller:cont|Selector2                                 ;
+; 32:1               ; 15 bits   ; 315 LEs       ; 75 LEs               ; 240 LEs                ; No         ; |Project5|Alu:alu1|Mux16                                            ;
+; 19:1               ; 32 bits   ; 384 LEs       ; 384 LEs              ; 0 LEs                  ; No         ; |Project5|Mux4to1:muxMemOut|Mux17                                   ;
+; 20:1               ; 16 bits   ; 208 LEs       ; 112 LEs              ; 96 LEs                 ; No         ; |Project5|Alu:alu1|Mux1                                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
 
 
@@ -1304,13 +1054,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "SystemRegisterFile:systemReg"                                                                                 ;
-+-----------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                                                  ;
-+-----------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; pcAddrOut ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
-+-----------+--------+----------+----------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "SystemRegisterFile:systemReg"                                                                ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; ihaOut[16..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------+
@@ -1336,7 +1086,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:11     ;
+; Top            ; 00:00:16     ;
 +----------------+--------------+
 
 
@@ -1346,7 +1096,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Tue Dec 02 22:02:08 2014
+    Info: Processing started: Tue Dec 02 23:24:40 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project5 -c Debug
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 4 design units, including 4 entities, in source file project5.v
@@ -1402,19 +1152,18 @@ Info (12021): Found 1 design units, including 1 entities, in source file memoryb
     Info (12023): Found entity 1: MemoryBus
 Info (12021): Found 1 design units, including 1 entities, in source file systemregisterfile.v
     Info (12023): Found entity 1: SystemRegisterFile
-Critical Warning (10846): Verilog HDL Instantiation warning at Project5.v(102): instance has no name
-Critical Warning (10846): Verilog HDL Instantiation warning at Project5.v(103): instance has no name
-Critical Warning (10846): Verilog HDL Instantiation warning at Project5.v(104): instance has no name
-Critical Warning (10846): Verilog HDL Instantiation warning at Project5.v(105): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at Project5.v(144): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at Project5.v(145): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at Project5.v(146): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at Project5.v(147): instance has no name
 Info (12127): Elaborating entity "Project5" for the top level hierarchy
-Warning (10034): Output port "LEDR[9..4]" at Project5.v(23) has no driver
+Warning (10034): Output port "LEDR[7..4]" at Project5.v(23) has no driver
 Warning (10034): Output port "LEDG[7..6]" at Project5.v(24) has no driver
 Info (12128): Elaborating entity "ClkDivider" for hierarchy "ClkDivider:clkdi"
 Info (12128): Elaborating entity "Register" for hierarchy "Register:pc"
 Info (12128): Elaborating entity "PcLogic" for hierarchy "PcLogic:pcLogic"
 Info (12128): Elaborating entity "Mux4to1" for hierarchy "Mux4to1:muxPcOut"
 Info (12128): Elaborating entity "Mux2to1" for hierarchy "Mux2to1:muxIntrPc"
-Info (12128): Elaborating entity "dec2_7seg" for hierarchy "dec2_7seg:comb_5"
 Info (12128): Elaborating entity "BranchAddrCalculator" for hierarchy "BranchAddrCalculator:bac"
 Info (12128): Elaborating entity "InstMemory" for hierarchy "InstMemory:instMem"
 Warning (10858): Verilog HDL warning at InstMemory.v(11): object data used but never assigned
@@ -1425,98 +1174,14 @@ Info (12128): Elaborating entity "Alu" for hierarchy "Alu:alu1"
 Info (12128): Elaborating entity "Bubbler" for hierarchy "Bubbler:bubbler"
 Info (12128): Elaborating entity "PipeLineReg" for hierarchy "PipeLineReg:pipelineregister"
 Info (12128): Elaborating entity "SystemRegisterFile" for hierarchy "SystemRegisterFile:systemReg"
-Warning (10855): Verilog HDL warning at SystemRegisterFile.v(26): initial value for variable data should be constant
+Warning (10855): Verilog HDL warning at SystemRegisterFile.v(27): initial value for variable data should be constant
+Info (12128): Elaborating entity "dec2_7seg" for hierarchy "dec2_7seg:comb_5"
 Info (12128): Elaborating entity "DataMemory" for hierarchy "DataMemory:dataMem"
 Info (12128): Elaborating entity "IO_controller" for hierarchy "IO_controller:ioCtrl"
 Info (12128): Elaborating entity "ClkDivider" for hierarchy "IO_controller:ioCtrl|ClkDivider:msClk"
 Info (12128): Elaborating entity "KeyDevices" for hierarchy "IO_controller:ioCtrl|KeyDevices:key"
 Info (12128): Elaborating entity "SwitchDevices" for hierarchy "IO_controller:ioCtrl|SwitchDevices:switches"
 Info (12128): Elaborating entity "Timer" for hierarchy "IO_controller:ioCtrl|Timer:timer"
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[15]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[14]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[13]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[12]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[11]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[10]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[9]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[8]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[7]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[6]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[5]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[4]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[3]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[2]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[1]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[0]" is missing source, defaulting to GND
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[15]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[14]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[13]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[12]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[11]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[10]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[9]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[8]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[7]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[6]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[5]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[4]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[3]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[2]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[1]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[0]" is missing source, defaulting to GND
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[15]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[14]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[13]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[12]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[11]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[10]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[9]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[8]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[7]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[6]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[5]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[4]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[3]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[2]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[1]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[0]" is missing source, defaulting to GND
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[15]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[14]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[13]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[12]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[11]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[10]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[9]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[8]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[7]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[6]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[5]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[4]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[3]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[2]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[1]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[0]" is missing source, defaulting to GND
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[15]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[14]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[13]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[12]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[11]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[10]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[9]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[8]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[7]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[6]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[5]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[4]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[3]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[2]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[1]" is missing source, defaulting to GND
-    Warning (12110): Net "intrAddr[0]" is missing source, defaulting to GND
 Info (276024): Pass-through logic not created for RAM node "DataMemory:dataMem|data_rtl_0"
 Info (276014): Found 2 instances of uninferred RAM logic
     Info (276007): RAM logic "InstMemory:instMem|data" is uninferred due to asynchronous read logic
@@ -1557,7 +1222,6 @@ Info (12133): Instantiated megafunction "DataMemory:dataMem|altsyncram:data_rtl_
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ksb1.tdf
     Info (12023): Found entity 1: altsyncram_ksb1
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13027): Removed fan-outs from the following always-disabled I/O buffers
     Warning (13028): Removed fan-out from the always-disabled I/O buffer "DBUS[0]" to the node "Mux4to1:muxMemOut|Mux31"
     Warning (13028): Removed fan-out from the always-disabled I/O buffer "DBUS[1]" to the node "Mux4to1:muxMemOut|Mux30"
@@ -1625,57 +1289,26 @@ Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
     Warning (13047): Converted the fan-out from the tri-state buffer "IO_controller:ioCtrl|KeyDevices:key|dBus[30]" to the node "Mux4to1:muxMemOut|Mux1" into an OR gate
     Warning (13047): Converted the fan-out from the tri-state buffer "IO_controller:ioCtrl|KeyDevices:key|dBus[31]" to the node "Mux4to1:muxMemOut|Mux0" into an OR gate
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[1]" is stuck at VCC
     Warning (13410): Pin "LEDR[4]" is stuck at GND
     Warning (13410): Pin "LEDR[5]" is stuck at GND
     Warning (13410): Pin "LEDR[6]" is stuck at GND
     Warning (13410): Pin "LEDR[7]" is stuck at GND
-    Warning (13410): Pin "LEDR[8]" is stuck at GND
-    Warning (13410): Pin "LEDR[9]" is stuck at GND
     Warning (13410): Pin "LEDG[6]" is stuck at GND
     Warning (13410): Pin "LEDG[7]" is stuck at GND
-    Warning (13410): Pin "HEX0[0]" is stuck at GND
-    Warning (13410): Pin "HEX0[1]" is stuck at GND
-    Warning (13410): Pin "HEX0[2]" is stuck at GND
-    Warning (13410): Pin "HEX0[3]" is stuck at GND
-    Warning (13410): Pin "HEX0[4]" is stuck at GND
-    Warning (13410): Pin "HEX0[5]" is stuck at GND
-    Warning (13410): Pin "HEX0[6]" is stuck at VCC
-    Warning (13410): Pin "HEX1[0]" is stuck at GND
-    Warning (13410): Pin "HEX1[1]" is stuck at GND
-    Warning (13410): Pin "HEX1[2]" is stuck at GND
-    Warning (13410): Pin "HEX1[3]" is stuck at GND
-    Warning (13410): Pin "HEX1[4]" is stuck at GND
-    Warning (13410): Pin "HEX1[5]" is stuck at GND
-    Warning (13410): Pin "HEX1[6]" is stuck at VCC
-    Warning (13410): Pin "HEX2[0]" is stuck at GND
-    Warning (13410): Pin "HEX2[1]" is stuck at GND
-    Warning (13410): Pin "HEX2[2]" is stuck at GND
-    Warning (13410): Pin "HEX2[3]" is stuck at GND
-    Warning (13410): Pin "HEX2[4]" is stuck at GND
-    Warning (13410): Pin "HEX2[5]" is stuck at GND
-    Warning (13410): Pin "HEX2[6]" is stuck at VCC
-    Warning (13410): Pin "HEX3[0]" is stuck at GND
-    Warning (13410): Pin "HEX3[1]" is stuck at GND
-    Warning (13410): Pin "HEX3[2]" is stuck at GND
-    Warning (13410): Pin "HEX3[3]" is stuck at GND
-    Warning (13410): Pin "HEX3[4]" is stuck at GND
-    Warning (13410): Pin "HEX3[5]" is stuck at GND
-    Warning (13410): Pin "HEX3[6]" is stuck at VCC
-Info (17049): 544 registers lost all their fanouts during netlist optimizations.
+Info (17049): 288 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/j3gb3rt/Documents/CS3220/Project 5/Quartus/Debug.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 2242 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2771 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 46 output pins
-    Info (21061): Implemented 2149 logic cells
+    Info (21061): Implemented 2678 logic cells
     Info (21064): Implemented 32 RAM segments
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 201 warnings
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 84 warnings
     Info: Peak virtual memory: 484 megabytes
-    Info: Processing ended: Tue Dec 02 22:02:27 2014
-    Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:18
+    Info: Processing ended: Tue Dec 02 23:25:05 2014
+    Info: Elapsed time: 00:00:25
+    Info: Total CPU time (on all processors): 00:00:22
 
 
 +------------------------------------------+
