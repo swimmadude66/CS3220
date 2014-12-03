@@ -27,14 +27,13 @@ module SystemRegisterFile (clk, isSpecial, opcode, nxtPc, irq, idn, rdindex, wrt
 	initial data[PCS] = 32'd1;
 
 	always @(posedge clk) begin
-		if (irq & data[PCS][0]) begin
+		if (irq & data[PCS][0] && !(isSpecial && opcode[3:0] == 4'h1)) begin
 			//Interrupt requested
+			data[PCS][1] = data[PCS][0];
+			data[PCS][0] = 1'b0;
+			
 			data[IDN] <= idn;
-			if(data[PCS][0])begin
-				data[PCS][1] <= data[PCS][0];
-				data[PCS][0] <= 1'b0;
-				data[IRA] <= nxtPc;
-			end
+			data[IRA] <= nxtPc;
 		end
 		else begin
 			if (isSpecial && opcode[3:0] == 4'h1) begin
@@ -44,7 +43,7 @@ module SystemRegisterFile (clk, isSpecial, opcode, nxtPc, irq, idn, rdindex, wrt
 			end
 			if (isSpecial && opcode[3:0] == 4'h3) begin
 				//WSR
-				data[wrtindex] <= dataIn;
+				data[wrtindex]  <= dataIn;
 			end
 		end
 	end

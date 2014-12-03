@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone II"
 set_global_assignment -name DEVICE EP2C20F484C7
-set_global_assignment -name TOP_LEVEL_ENTITY Project2
+set_global_assignment -name TOP_LEVEL_ENTITY Project5
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 10.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "13:17:03  MARCH 28, 2011"
 set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
@@ -522,10 +522,33 @@ set_global_assignment -name ENABLE_SIGNALTAP OFF
 set_global_assignment -name USE_SIGNALTAP_FILE Debug.stp
 set_global_assignment -name FITTER_EARLY_TIMING_ESTIMATE_MODE REALISTIC
 set_global_assignment -name ROUTER_TIMING_OPTIMIZATION_LEVEL MAXIMUM
+set_global_assignment -name MISC_FILE Lectures.dpf
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name MISC_FILE Lectures.dpf
+set_global_assignment -name VERILOG_FILE TimerDevice.v
+set_global_assignment -name VERILOG_FILE SystemRegisterFile.v
+set_global_assignment -name VERILOG_FILE SwitchDevices.v
+set_global_assignment -name VERILOG_FILE SignExtension.v
+set_global_assignment -name VERILOG_FILE RegisterFile.v
+set_global_assignment -name VERILOG_FILE Register.v
+set_global_assignment -name VERILOG_FILE PipeLineReg.v
+set_global_assignment -name VERILOG_FILE PcLogic.v
+set_global_assignment -name VERILOG_FILE Mux4to1.v
+set_global_assignment -name VERILOG_FILE Mux2to1.v
+set_global_assignment -name VERILOG_FILE MemoryBus.v
+set_global_assignment -name VERILOG_FILE LEDandHEXDevices.v
+set_global_assignment -name VERILOG_FILE KeyDevices.v
+set_global_assignment -name VERILOG_FILE InstMemory.v
+set_global_assignment -name VERILOG_FILE DataMemory.v
+set_global_assignment -name VERILOG_FILE Controller.v
+set_global_assignment -name VERILOG_FILE comparator.v
+set_global_assignment -name VERILOG_FILE Bubbler.v
+set_global_assignment -name VERILOG_FILE BranchAddrCalculator.v
+set_global_assignment -name VERILOG_FILE Alu.v
+set_global_assignment -name VERILOG_FILE Project5.v
 set_global_assignment -name VERILOG_FILE Project2.v
 set_global_assignment -name SOURCE_FILE Test2.a32
 set_global_assignment -name SOURCE_FILE Sorter2.a32
@@ -533,8 +556,5 @@ set_global_assignment -name MIF_FILE Test2.mif
 set_global_assignment -name MIF_FILE Sorter2.mif
 set_global_assignment -name VERILOG_FILE SevenSeg.v
 set_global_assignment -name SDC_FILE Timing.sdc
-set_global_assignment -name QIP_FILE Pll.qip
-set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
-set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
 set_global_assignment -name VERILOG_FILE negRegister.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

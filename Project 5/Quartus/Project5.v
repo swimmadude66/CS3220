@@ -137,7 +137,7 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 					.destRegOut(destRegOut), .spRegAddr(spRegInd), .aluOutOut(aluOutOut), .dataOut(dataOut), .intOp(opcodeout));
 	//Special RegisterFile
 	
-SystemRegisterFile systemReg (.clk(clk), .isSpecial(isSpecialOut), .opcode(opcodeout), .nxtPc(nxtPCOut), .irq(IRQ), .idn(IDN), .rdindex(spRegInd), .wrtindex(destRegOut),
+SystemRegisterFile systemReg (.clk(clk), .isSpecial(isSpecialOut), .opcode(opcodeout), .nxtPc(pcMuxOut), .irq(IRQ), .idn(IDN), .rdindex(spRegInd), .wrtindex(destRegOut),
 										.dataIn(dataOut), .pcAddrOut(intrAddr), .spRegOut(spRegOut), .ieOut(IE), .pcIntrSel(pcIntrSel), .ihaOut(ihaOut));	
 	
 	dec2_7seg(intrAddr[3:0], HEX0);
