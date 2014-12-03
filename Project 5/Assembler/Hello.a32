@@ -12,8 +12,7 @@
 .NAME	TCTL	= 0x00000120
 
 .ORIG 0x10
-	rsr	iha, a1
-	lw s1, SW(gp)
+	wsr	iha, a1
 	reti
 	
 .ORIG 0x40

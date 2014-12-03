@@ -1,5 +1,5 @@
 Flow report for Project2
-Wed Dec 03 02:11:10 2014
+Wed Dec 03 03:32:24 2014
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,7 +40,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Wed Dec 03 02:11:10 2014           ;
+; Flow Status                        ; Successful - Wed Dec 03 03:32:24 2014           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Project2                                        ;
 ; Top-level Entity Name              ; Project5                                        ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/03/2014 02:08:11 ;
+; Start date & time ; 12/03/2014 03:29:17 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Project2            ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ applicable agreement for further details.
 ; ALLOW_ANY_RAM_SIZE_FOR_RECOGNITION                ; On                           ; Off           ; --          ; --             ;
 ; ALLOW_ANY_ROM_SIZE_FOR_RECOGNITION                ; On                           ; Off           ; --          ; --             ;
 ; AUTO_RAM_TO_LCELL_CONVERSION                      ; On                           ; Off           ; --          ; --             ;
-; COMPILER_SIGNATURE_ID                             ; 143282511291.141759048904848 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                             ; 143282511291.141759535603312 ; --            ; --          ; --             ;
 ; CYCLONEII_OPTIMIZATION_TECHNIQUE                  ; Speed                        ; Balanced      ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT                            ; Verilog Hdl                  ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                               ; ModelSim-Altera (Verilog)    ; <None>        ; --          ; --             ;
@@ -115,12 +115,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:43     ; 1.0                     ; 485 MB              ; 00:00:42                           ;
-; Fitter                    ; 00:01:49     ; 1.0                     ; 679 MB              ; 00:01:46                           ;
-; Assembler                 ; 00:00:05     ; 1.0                     ; 419 MB              ; 00:00:05                           ;
+; Analysis & Synthesis      ; 00:00:43     ; 1.0                     ; 480 MB              ; 00:00:41                           ;
+; Fitter                    ; 00:01:52     ; 1.0                     ; 673 MB              ; 00:01:48                           ;
+; Assembler                 ; 00:00:05     ; 1.0                     ; 419 MB              ; 00:00:04                           ;
 ; TimeQuest Timing Analyzer ; 00:00:06     ; 1.0                     ; 434 MB              ; 00:00:05                           ;
 ; EDA Netlist Writer        ; 00:00:06     ; 1.0                     ; 417 MB              ; 00:00:06                           ;
-; Total                     ; 00:02:49     ; --                      ; --                  ; 00:02:44                           ;
+; Total                     ; 00:02:52     ; --                      ; --                  ; 00:02:44                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

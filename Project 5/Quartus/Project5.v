@@ -35,7 +35,7 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	parameter ADDR_LEDR 						 = 32'hF0000004;
 	parameter ADDR_LEDG 						 = 32'hF0000008;
   
-	parameter IMEM_INIT_FILE				 = "Combined.mif";//"Combined_Test2.mif";//"test2.mif";//"Sorter2.mif";//"stopwatch.mif";//"Sort2_counter.mif";//"Sorter2.mif";
+	parameter IMEM_INIT_FILE				 = "Combined_Test2.mif";//"test2.mif";//"Sorter2.mif";//"stopwatch.mif";//"Sort2_counter.mif";//"Sorter2.mif";
 	parameter IMEM_ADDR_BIT_WIDTH 		 = 11;
 	parameter IMEM_DATA_BIT_WIDTH 		 = INST_BIT_WIDTH;
 	parameter IMEM_PC_BITS_HI     		 = IMEM_ADDR_BIT_WIDTH + 2;
