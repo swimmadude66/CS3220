@@ -1,0 +1,28 @@
+; Addresses for I/O
+.NAME 	IOBASE	= 0xF0000000
+.NAME	OFSHEX	= 0x00000000
+.NAME	OFSLEDR	= 0x00000004
+.NAME	OFSLEDG	= 0x00000008
+.NAME	OFSKEY 	= 0x00000010
+.NAME	OFSKCTL = 0x00000110
+.NAME	SW     	= 0x00000014
+.NAME	SWCTL	= 0x00000114
+.NAME	TIMER  	= 0x00000020
+.NAME	TLIM	= 0x00000024
+.NAME	TCTL	= 0x00000120
+
+.ORIG 0x10
+	wsr	iha, a1
+	reti
+	
+.ORIG 0x40
+SetUp:
+	xor		fp,fp,fp
+	; Prepare the gp register
+	mvhi	gp,IOBASE
+	xor		a0,a0,a0
+	addi	a2, a0, 0x10
+	wsr		iha, a2
+Loop:
+	addi 	a2, a2, 1
+	bt		a0, a0, Loop
