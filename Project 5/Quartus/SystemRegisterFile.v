@@ -23,14 +23,12 @@ module SystemRegisterFile (clk, isSpecial, opcode, nxtPc, irq, idn, rdindex, wrt
 	output [16:0] ihaOut;
 
 	reg[DATA_BIT_WIDTH - 1: 0] data [0:N_REGS-1];
-	reg ihaAddrOut;
 	
 	initial data[PCS] = 32'd1;
 
 	always @(posedge clk) begin
 		if (irq & data[PCS][0]) begin
 			//Interrupt requested
-			ihaAddrOut <= 1'b1;
 			data[IDN] <= idn;
 			if(data[PCS][0])begin
 				data[PCS][1] <= data[PCS][0];
@@ -39,7 +37,6 @@ module SystemRegisterFile (clk, isSpecial, opcode, nxtPc, irq, idn, rdindex, wrt
 			end
 		end
 		else begin
-			ihaAddrOut <= 1'b1;
 			if (isSpecial && opcode[3:0] == 4'h1) begin
 				//RETI
 				//update PCS (restore interrupts)
@@ -54,8 +51,8 @@ module SystemRegisterFile (clk, isSpecial, opcode, nxtPc, irq, idn, rdindex, wrt
 
 	assign ihaOut = data[IHA][16:0];
 	
-	assign pcAddrOut = (ihaAddrOut) ? data[IHA]:
-												 data[IRA];
+	assign pcAddrOut = (isSpecial && opcode[3:0] == 4'h1) ? data[IRA]:
+																			  data[IHA];
 	assign pcIntrSel = ((data[PCS][0] & irq) || (isSpecial && opcode[3:0] == 4'h1));
 	assign spRegOut = data[rdindex];
 	assign ieOut = data[PCS][0];

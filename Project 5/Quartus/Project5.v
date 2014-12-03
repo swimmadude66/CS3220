@@ -143,13 +143,14 @@ SystemRegisterFile systemReg (.clk(clk), .isSpecial(isSpecialOut), .opcode(opcod
 	
 	dec2_7seg(intrAddr[3:0], HEX0);
 	dec2_7seg(intrAddr[7:4], HEX1);
-	dec2_7seg(ihaOut[3:0], HEX2);
-	dec2_7seg(ihaOut[7:4], HEX3);
+	dec2_7seg(pcOut[3:0], HEX2);
+	dec2_7seg(pcOut[7:4], HEX3);
 	
 	assign LEDG[5:2] = opcodeout[3:0];
 	assign LEDG[0] = IRQ;
 	assign LEDG[1] = isSpecialOut;
 	assign LEDR[3:0] = spRegInd;
+	assign LEDR[7] = pcIntrSel;
 	assign LEDR[8] = pcIntrSel;
 	assign LEDR[9] = IE;
 	
