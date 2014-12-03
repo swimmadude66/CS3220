@@ -36,25 +36,18 @@ SetUp:
 	; Prepare the gp register
 	mvhi	gp,IOBASE
 	xor		a0,a0,a0
-	addi	SSP, a0, 0x7000
+	addi	SSP, a0, 0x3000
 	sw		a0, OFSHEX(gp)
 	sw		a0, OFSLEDR(gp)
 	sw		a0,	OFSLEDG(gp)
 	WSR		IHA, a0
 	addi	a1, a0, 1
-StartTimer:
-	addi	s0, a0, 1000
-	sw		s0, TLIM(gp)
-	sw		a0, TIMER(gp)
+	WSR		PCS, a1
 WaitForInterrupt:
 	lw		a1, OFSLEDR(gp)
 	addi	a1, a1, 1
 	sw		a1, OFSLEDR(gp)
-	WSR		IHA, a1
-	RSR		t0, IHA
-	sw		t0, OFSHEX(gp)
 	bt		t0, t0, WaitForInterrupt
-	
 	
 	
 DEVICEZERO:
@@ -66,15 +59,14 @@ DEVICEONE:
 	xor		a0, a0, a0
 	addi	a1, a0, 0x0001
 	sw		a1, OFSHEX(gp)
+	sw		a0, TLIM(gp)
 	bt		a0, a0, AFTERINT
 DEVICETWO:
-	xor		a0, a0, a0
-	addi	a1, a0, 0x0002
+	lw		a1, OFSKEY(gp)
 	sw		a1, OFSHEX(gp)
 	bt		a0, a0, AFTERINT
 DEVICETHREE:
-	xor		a0, a0, a0
-	addi	a1, a0, 0x0003
+	lw		a1, SW(gp)
 	sw		a1, OFSHEX(gp)
 	bt		a0, a0, AFTERINT
 	

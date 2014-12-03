@@ -1,5 +1,5 @@
 module ClkDivider(input clkIn, output clkOut);
-	parameter divider = 25000000;
+	parameter divider = 250000;
 	parameter len = 31;
 	reg[len: 0] counter = 0;
 	reg clkReg = 0;	
@@ -7,14 +7,12 @@ module ClkDivider(input clkIn, output clkOut);
 	
 	always @(posedge clkIn) begin
 		counter <= counter + 1;
-		
 		if (counter == divider) begin
 			clkReg <= ~clkReg;
 			counter <= 0;
 		end
 	end
 endmodule
-
 
 module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	input  [9:0] SW;
@@ -35,7 +33,7 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	parameter ADDR_LEDR 						 = 32'hF0000004;
 	parameter ADDR_LEDG 						 = 32'hF0000008;
   
-	parameter IMEM_INIT_FILE				 = "Hello.mif";//"Combined_Test2.mif";//"test2.mif";//"Sorter2.mif";//"stopwatch.mif";//"Sort2_counter.mif";//"Sorter2.mif";
+	parameter IMEM_INIT_FILE				 = "Int_Test.mif";//"test2.mif";//"Sorter2.mif";//"stopwatch.mif";//"Sort2_counter.mif";//"Sorter2.mif";
 	parameter IMEM_ADDR_BIT_WIDTH 		 = 11;
 	parameter IMEM_DATA_BIT_WIDTH 		 = INST_BIT_WIDTH;
 	parameter IMEM_PC_BITS_HI     		 = IMEM_ADDR_BIT_WIDTH + 2;
@@ -54,10 +52,7 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	parameter OP1_SW   					 = 4'b0101;
 	parameter OP1_LW   					 = 4'b1001;
 	parameter OP1_JAL  					 = 4'b1011;
-  
-	// Add parameters for various secondary opcode values
-  
-	//PLL, clock genration, and reset generation
+
 	wire clk, lock;
 	ClkDivider clkdi(CLOCK_50, clk);
 	
@@ -98,8 +93,7 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	PcLogic pcLogic (pcOut, pcLogicOut);
 	Mux4to1 muxPcOut (pcSel, pcLogicOut, branchPc, aluOut, pcOut, pcMuxOut);
 	Mux2to1 #(.DATA_BIT_WIDTH(DBITS)) muxIntrPc (pcIntrSel, pcMuxOut, intrAddr, pcIn);
-	
-	
+		
 	// Branch Address Calculator
 	BranchAddrCalculator bac (.nextPc(pcLogicOut), .pcRel(seImm), .branchAddr(branchPc));
 	
@@ -137,22 +131,9 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 					.destRegOut(destRegOut), .spRegAddr(spRegInd), .aluOutOut(aluOutOut), .dataOut(dataOut), .intOp(opcodeout));
 	//Special RegisterFile
 	
-SystemRegisterFile systemReg (.clk(clk), .isSpecial(isSpecialOut), .opcode(opcodeout), .nxtPc(nxtPCOut), .irq(IRQ), .idn(IDN), .rdindex(spRegInd), .wrtindex(destRegOut),
+SystemRegisterFile systemReg (.clk(clk), .isSpecial(isSpecialOut), .opcode(opcodeout), .nxtPc(pcMuxOut), .irq(IRQ), .idn(IDN), .rdindex(spRegInd), .wrtindex(destRegOut),
 										.dataIn(dataOut), .pcAddrOut(intrAddr), .spRegOut(spRegOut), .ieOut(IE), .pcIntrSel(pcIntrSel), .ihaOut(ihaOut));	
-	
-	dec2_7seg(intrAddr[3:0], HEX0);
-	dec2_7seg(intrAddr[7:4], HEX1);
-	dec2_7seg(pcOut[3:0], HEX2);
-	dec2_7seg(pcOut[7:4], HEX3);
-	
-	assign LEDG[5:2] = opcodeout[3:0];
-	assign LEDG[0] = IRQ;
-	assign LEDG[1] = isSpecialOut;
-	assign LEDR[3:0] = spRegInd;
-	assign LEDR[7] = pcIntrSel;
-	assign LEDR[8] = pcIntrSel;
-	assign LEDR[9] = IE;
-	
+		
 	// Data Memory and I/O controller
 	tri[31:0] DBUS;
 	assign DBUS = (isStoreOut) ? dataOut : 32'bz;
@@ -162,21 +143,20 @@ SystemRegisterFile systemReg (.clk(clk), .isSpecial(isSpecialOut), .opcode(opcod
 	wire[3:0] IDN;
 	wire[31:0] spRegOut;
 	IO_controller ioCtrl (.clk(CLOCK_50), .rst(reset), .IE(IE), .ABUS(aluOutOut), .DBUS(DBUS), .we(isStoreOut), .SW(SW), .KEY(KEY),
-								 .IRQ(IRQ), .IDN(IDN));
-									//.LEDR(LEDR), .LEDG(LEDG), .HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .HEX3(HEX3), .IRQ(IRQ), .IDN(IDN));
+								 .LEDR(LEDR), .LEDG(LEDG), .HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .HEX3(HEX3), .IRQ(IRQ), .IDN(IDN));
 	
 endmodule
 
-module IO_controller(clk, rst, IE, ABUS, DBUS, we, SW, KEY, IRQ, IDN);//LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, IRQ, IDN);
+module IO_controller(clk, rst, IE, ABUS, DBUS, we, SW, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, IRQ, IDN);
 
 	input clk, rst, we, IE;
 	input[31:0] ABUS;
 	inout tri[31:0] DBUS;
 	input[9:0] SW;
 	input[3:0] KEY;
-	//output[9:0] LEDR;
-	//output[7:0] LEDG;
-	//output[6:0] HEX0, HEX1, HEX2, HEX3;
+	output[9:0] LEDR;
+	output[7:0] LEDG;
+	output[6:0] HEX0, HEX1, HEX2, HEX3;
 	
 	wire KIRQ, SWIRQ, TIRQ;
 	output IRQ = (KIRQ | SWIRQ | TIRQ);
@@ -192,9 +172,9 @@ module IO_controller(clk, rst, IE, ABUS, DBUS, we, SW, KEY, IRQ, IDN);//LEDR, LE
 	SwitchDevices switches(clk, rst, ABUS, DBUS, we, IE, SW, SWIRQ);
 	Timer timer(msclk, rst, ABUS, DBUS, we, IE, TIRQ);
 	//Output
-	//Ledr ledR(clk, rst, ABUS, DBUS, we, LEDR);
-	//Ledg ledG(clk, rst, ABUS, DBUS, we, LEDG);
-	//Hex heX(clk, rst, ABUS, DBUS, we, HEX0, HEX1, HEX2, HEX3);
+	Ledr ledR(clk, rst, ABUS, DBUS, we, LEDR);
+	Ledg ledG(clk, rst, ABUS, DBUS, we, LEDG);
+	Hex heX(clk, rst, ABUS, DBUS, we, HEX0, HEX1, HEX2, HEX3);
 	
 endmodule
 

@@ -23,28 +23,24 @@ module SystemRegisterFile (clk, isSpecial, opcode, nxtPc, irq, idn, rdindex, wrt
 	output [16:0] ihaOut;
 
 	reg[DATA_BIT_WIDTH - 1: 0] data [0:N_REGS-1];
-	
-	initial data[PCS] = 32'd1;
 
 	always @(posedge clk) begin
 		if (irq & data[PCS][0]) begin
 			//Interrupt requested
-			data[IDN] <= idn;
-			if(data[PCS][0])begin
-				data[PCS][1] <= data[PCS][0];
-				data[PCS][0] <= 1'b0;
-				data[IRA] <= nxtPc;
-			end
+			data[IDN] = idn;
+			data[PCS][1] = data[PCS][0];
+			data[PCS][0] = 1'b0;
+			data[IRA] = nxtPc;
 		end
 		else begin
 			if (isSpecial && opcode[3:0] == 4'h1) begin
 				//RETI
 				//update PCS (restore interrupts)
-				data[PCS][0] <= data[PCS][1];
+				data[PCS][0] = data[PCS][1];
 			end
 			if (isSpecial && opcode[3:0] == 4'h3) begin
 				//WSR
-				data[wrtindex] <= dataIn;
+				data[wrtindex] = dataIn;
 			end
 		end
 	end

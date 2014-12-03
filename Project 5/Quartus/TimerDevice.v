@@ -20,6 +20,11 @@ module Timer(clk, reset, aBus, dBus, wrtEn, IE, IRQ);
 	reg [8:0] tctl = TCTL_RESET_VALUE;
 	
 	always@(posedge clk)begin
+		if(reset)begin
+			tcnt = CNT_RESET_VALUE;
+			tlim = 32'b0;
+			tctl = TCTL_RESET_VALUE;
+		end
 		if(AddrCnt && wrtEn)begin
 			tcnt = dBus;
 		end
