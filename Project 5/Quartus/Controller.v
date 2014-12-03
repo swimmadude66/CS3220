@@ -162,7 +162,7 @@ module Controller (inst, aluCmpIn, bubble, sndOpcode, dRegAddr, s1RegAddr, s2Reg
 								//dataWrtEn 		<= 1'b0; // no write to data memory
 								immSel			<= 1'b0; // relative pc
 								memOutSel		<= (inst[27:24] == 4'h2) ? 2'b11 : 2'b00;
-								pcs 				<= (inst[27:24] == 4'h1) ? 2'b11 : 2'b00;
+								pcs 				<= 2'b00;
 								iL 				<= 1'b0;
 								iS 				<= 1'b0;
 								specialReg		<= 1'b1;

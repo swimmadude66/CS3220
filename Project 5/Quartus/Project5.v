@@ -35,8 +35,7 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	parameter ADDR_LEDR 						 = 32'hF0000004;
 	parameter ADDR_LEDG 						 = 32'hF0000008;
   
- 
-	parameter IMEM_INIT_FILE				 = "Combined_Test2.mif";//"test2.mif";//"Sorter2.mif";//"stopwatch.mif";//"Sort2_counter.mif";//"Sorter2.mif";
+	parameter IMEM_INIT_FILE				 = "Int_Test.mif";//"Combined_Test2.mif";//"test2.mif";//"Sorter2.mif";//"stopwatch.mif";//"Sort2_counter.mif";
 	parameter IMEM_ADDR_BIT_WIDTH 		 = 11;
 	parameter IMEM_DATA_BIT_WIDTH 		 = INST_BIT_WIDTH;
 	parameter IMEM_PC_BITS_HI     		 = IMEM_ADDR_BIT_WIDTH + 2;
@@ -56,9 +55,6 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	parameter OP1_LW   					 = 4'b1001;
 	parameter OP1_JAL  					 = 4'b1011;
   
-	// Add parameters for various secondary opcode values
-  
-	//PLL, clock genration, and reset generation
 	wire clk, lock;
 	ClkDivider clkdi(CLOCK_50, clk);
 	
@@ -87,13 +83,17 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
 	// PC register
 	wire pcWrtEn = 1'b1; // always right to PC
 	wire[DBITS - 1: 0] pcIn; // Implement the logic that generates pcIn; you may change pcIn to reg if necessary
-	wire[DBITS - 1: 0] pcOut;
-	wire[DBITS - 1: 0] pcLogicOut;
-	wire [1:0] pcSel; // 0: pcOut + 4, 1: branchPc
-	
-	Register #(.BIT_WIDTH(DBITS), .RESET_VALUE(START_PC)) pc (clk, reset, pcWrtEn, pcIn, pcOut);
-	PcLogic pcLogic (pcOut, pcLogicOut);
-	Mux4to1 muxPcOut (pcSel, pcLogicOut, branchPc, aluOut, pcOut, pcIn);
+   wire[DBITS - 1: 0] pcMuxOut;
+   wire[DBITS - 1: 0] pcOut;
+   wire[DBITS - 1: 0] pcLogicOut;
+   wire[DBITS - 1: 0] intrAddr;
+   wire [1:0] pcSel; // 0: pcOut + 4, 1: branchPc
+   wire pcIntrSel;
+    
+   Register #(.BIT_WIDTH(DBITS), .RESET_VALUE(START_PC)) pc (clk, reset, pcWrtEn, pcIn, pcOut);
+   PcLogic pcLogic (pcOut, pcLogicOut);
+   Mux4to1 muxPcOut (pcSel, pcLogicOut, branchPc, aluOut, pcOut, pcMuxOut);
+   Mux2to1 #(.DATA_BIT_WIDTH(DBITS)) muxIntrPc (pcIntrSel, pcMuxOut, intrAddr, pcIn);
 	
 	// Branch Address Calculator
 	BranchAddrCalculator bac (.nextPc(pcLogicOut), .pcRel(seImm), .branchAddr(branchPc));
@@ -127,12 +127,13 @@ module Project5(SW,KEY,LEDR,LEDG,HEX0,HEX1,HEX2,HEX3,CLOCK_50);
   wire[4:0] opcodeout;
   wire[31:0] nxtPCOut, dataOut, aluOutOut;
   PipeLineReg pipelineregister (.clk(clk), .rst(reset), .nxtPC(pcLogicOut), .memSel(memOutSel), .regWrtEn(regFileEn), .isLoad(isLoad), .isStore(isStore), .isSpecial(isSpecial),
-					.destReg(wrtIndex), .srcReg(rdIndex1), .aluOut(aluOut), .datain(dataOut2), .sndOpcode(sndOpcode),
+					.destReg(wrtIndex), .srcReg(rdIndex2), .aluOut(aluOut), .datain(dataOut2), .sndOpcode(sndOpcode),
 					.nxtPCOut(nxtPCOut), .memSelOut(memSelOut), .regWrtEnOut(regWrtEnOut), .isLoadOut(isLoadOut), .isStoreOut(isStoreOut), .isSpecialOut(isSpecialOut), 
 					.destRegOut(destRegOut), .spRegAddr(spRegInd), .aluOutOut(aluOutOut), .dataOut(dataOut), .intOp(opcodeout));
 	//Special RegisterFile
 	
-	SystemRegisterFile systemReg (.clk(clk), .isSpecial(isSpecial), .opcode(opcodeout), .nxtPc(nxtPCOut), .irq(IRQ), .idn(IDN), .index(spRegInd), .dataIn(dataOut), .spRegOut(spRegOut), .ieOut(IE));
+	SystemRegisterFile systemReg (.clk(clk), .isSpecial(isSpecialOut), .opcode(opcodeout), .nxtPc(nxtPCOut), .irq(IRQ), .idn(IDN), .rdindex(spRegInd), .wrtindex(destRegOut), 
+											.dataIn(dataOut), .spRegOut(spRegOut), .ieOut(IE), .pcIntrSel(pcIntrSel));
 	// Data Memory and I/O controller
 	tri[31:0] DBUS;
 	assign DBUS = (isStoreOut) ? dataOut : 32'bz;
@@ -158,8 +159,10 @@ module IO_controller(clk, rst, IE, ABUS, DBUS, we, SW, KEY, LEDR, LEDG, HEX0, HE
 	output[6:0] HEX0, HEX1, HEX2, HEX3;
 	
 	wire KIRQ, SWIRQ, TIRQ;
-	output IRQ = (KIRQ || SWIRQ || TIRQ);
-	output[3:0] IDN =	TIRQ	? 4'h1:
+	output IRQ;
+	assign IRQ = (KIRQ | SWIRQ | TIRQ);
+	output[3:0] IDN;
+	assign IDN =		TIRQ	? 4'h1:
 							KIRQ	? 4'h2:
 							SWIRQ	? 4'h3:
 									  4'hF;
